@@ -26,7 +26,7 @@ class RoleController extends Controller
     {
         //
         $roles=Role::paginate(5);
-        return view('roles.index',compact('roles'))
+        return view('roles.index',compact('roles'));
     }
 
     /**
@@ -51,7 +51,7 @@ class RoleController extends Controller
     {
         //
         $this->validate($request,['name'=>'required', 'permission'=>'required']);
-        $role=Role::create('name'=>$request->input('name'));
+        $role=Role::create(['name'=>$request->input('name')]);
         $role->syncPermissions($request->input('permission'));
 
         return redirect()->route('roles.index');
@@ -79,7 +79,7 @@ class RoleController extends Controller
         //
         $role=Role::find($id);
         $permission=Permission::get();
-        $rolePermissions=DB::table('roles_has_permissions')->where('roles_has_permissions.role_id',$id)->pluck('role_has_permissions_id','roles_has_permissions.permission_id')->all();
+        $rolePermissions=DB::table('role_has_permissions')->where('role_has_permissions.role_id',$id)->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')->all();
         return view('roles.editar',compact('role','permission','rolePermissions'));
     }
 

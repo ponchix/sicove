@@ -1,5 +1,5 @@
 body.skin-reverse.sidebar-mini .main-sidebar:after {
-  background-color: #6777ef;
+  background-color: black;
 }
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li.active > a {
   background-color: #fff;

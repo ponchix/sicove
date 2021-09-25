@@ -16,7 +16,8 @@
 
 @yield('page_css')
 <!-- Template CSS -->
-    <link rel="stylesheet" href="{{ asset('web/css/style.css') }}">
+  {{--   <link rel="stylesheet" href="{{ asset('web/css/style.css') }}"> --}}
+  <link rel="stylesheet" href="{{ asset('assets/style.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('web/css/components.css')}}">
     @yield('page_css')
 
@@ -27,7 +28,7 @@
 
 <div id="app">
     <div class="main-wrapper main-wrapper-1">
-        <div class="navbar-bg"></div>
+        <div class="navbar-bg" style="background-color:#1D8F7A"></div>
         <nav class="navbar navbar-expand-lg main-navbar">
             @include('layouts.header')
 

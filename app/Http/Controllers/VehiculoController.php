@@ -24,7 +24,7 @@ class VehiculoController extends Controller
     {
         //
         $vehiculo=VehiculoModel::paginate(5);
-        return view ('VehiculoFolder.index',compact('vehiculo'));
+        return view ('vehiculo.index',compact('vehiculo'));
     }
 
     /**
@@ -35,7 +35,7 @@ class VehiculoController extends Controller
     public function create()
     {
         //
-        return view('VehiculoFolder.crear');
+        return view('vehiculo.crear');
     }
 
     /**
@@ -67,7 +67,7 @@ class VehiculoController extends Controller
             
         ]);
         VehiculoModel::create($request->all());
-        return redirect()->route('VehiculoFolder.index');
+        return redirect()->route('vehiculo.index');
     }
 
     /**
@@ -90,7 +90,7 @@ class VehiculoController extends Controller
     public function edit(VehiculoModel $vehiculoModel)
     {
         //
-return view('VehiculoFolder.editar',compact('vehiculoModel'));
+return view('vehiculo.editar',compact('vehiculoModel'));
 
     }
 
@@ -136,7 +136,7 @@ return view('VehiculoFolder.editar',compact('vehiculoModel'));
     {
         //
         $vehiculoModel->delete();
-        return redirect()->route('VehiculoFolder.index');
+        return redirect()->route('vehiculo.index');
 
     }
 }

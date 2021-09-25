@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="{{ asset('web/css/style.css') }}">
+   {{--  <link rel="stylesheet" href="{{ asset('web/css/style.css') }}"> --}}
+     <link rel="stylesheet" href="{{ asset('assets/style.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('web/css/components.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/iziToast.min.css') }}">
     <link href="{{ asset('assets/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
@@ -24,7 +25,7 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="login-brand">
-                        <img src="{{ asset('img/logo.png') }}" alt="logo" width="100"
+                        <img src="{{ asset('assets/logo.png') }}" alt="logo" width="100"
                              class="shadow-light">
                     </div>
                     @yield('content')

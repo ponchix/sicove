@@ -34,9 +34,9 @@
                     <div class="d-block">
                         <label for="password" class="control-label">Password</label>
                         <div class="float-right">
-                            <a href="{{ route('password.request') }}" class="text-small">
+{{--                             <a href="{{ route('password.request') }}" class="text-small">
                                 Forgot Password?
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                     <input aria-describedby="passwordHelpBlock" id="password" type="password"
@@ -50,11 +50,11 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="custom-control custom-checkbox">
+{{--                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" name="remember" class="custom-control-input" tabindex="3"
                                id="remember"{{ (Cookie::get('remember') !== null) ? 'checked' : '' }}>
                         <label class="custom-control-label" for="remember">Remember Me</label>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div class="form-group">

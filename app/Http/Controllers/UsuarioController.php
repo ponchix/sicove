@@ -21,7 +21,7 @@ class UsuarioController extends Controller
         //
 
         $usuarios=User::paginate(5);
-        return view('Usuarios.index',compact('usuarios'));
+        return view('usuarios.index',compact('usuarios'));
     }
 
     /**
@@ -33,7 +33,7 @@ class UsuarioController extends Controller
     {
         //
         $roles=Role::pluck('name','name')->all();
-        return view('Usuarios.crear',compact('roles'));
+        return view('usuarios.crear',compact('roles'));
     }
 
     /**
@@ -58,7 +58,7 @@ class UsuarioController extends Controller
         $user=User::create($input);
         $user->assignRole($request->input('roles'));
 
-        return redirect()->route('Usuarios.index');
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -86,7 +86,7 @@ class UsuarioController extends Controller
 
         $userRole=$user->roles->pluck('name','name')->all();
 
-        return view('Usuarios.editar',compact('user','roles','userRole'));
+        return view('usuarios.editar',compact('user','roles','userRole'));
 
     }
 
@@ -102,7 +102,7 @@ class UsuarioController extends Controller
         //
         $this->validate($request,[
             'name'=>'required',
-            'email'=>'required|email|unique:users,email'.$id,
+            'email'=>'required|email|unique:users,email,'.$id,
             'password'=>'  same:confirm-password',
             'roles'=>'required',
         ]);
@@ -118,7 +118,7 @@ class UsuarioController extends Controller
         DB::table('model_has_roles')->where('model_id',$id)->delete();
 
         $user->assignRole($request->input('roles'));
-        return redirect()->route('Usuarios.index');
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -131,7 +131,7 @@ class UsuarioController extends Controller
     {
         //
 
-        User:find($id)->delete();
-        return redirect()->route('Usuarios.index')
+        User::find($id)->delete();
+        return redirect()->route('usuarios.index');
     }
 }
