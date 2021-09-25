@@ -31,5 +31,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware'=>['auth']],function(){
     Route::resource('roles',RoleController::class);
     Route::resource('usuarios',UsuarioController::class);
-    Route::resource('vehiculo',VehiculoController::class);
+    Route::resource('vehiculos',VehiculoController::class);
 });

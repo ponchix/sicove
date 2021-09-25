@@ -23,8 +23,8 @@ class VehiculoController extends Controller
     public function index()
     {
         //
-        $vehiculo=VehiculoModel::paginate(5);
-        return view ('vehiculo.index',compact('vehiculo'));
+        $vehiculos=VehiculoModel::paginate(5);
+        return view ('vehiculos.index',compact('vehiculos'));
     }
 
     /**
@@ -35,7 +35,7 @@ class VehiculoController extends Controller
     public function create()
     {
         //
-        return view('vehiculo.crear');
+        return view('vehiculos.crear');
     }
 
     /**
@@ -67,7 +67,7 @@ class VehiculoController extends Controller
             
         ]);
         VehiculoModel::create($request->all());
-        return redirect()->route('vehiculo.index');
+        return redirect()->route('vehiculos.index');
     }
 
     /**
@@ -87,11 +87,12 @@ class VehiculoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(VehiculoModel $vehiculoModel)
+    public function edit($id)
     {
         //
-return view('vehiculo.editar',compact('vehiculoModel'));
-
+//return view('vehiculos.editar',compact('vehiculoModel'));
+        $vehiculos=VehiculoModel::find($id);
+        return view('vehiculos.editar',compact('vehiculos'));
     }
 
     /**
@@ -101,7 +102,7 @@ return view('vehiculo.editar',compact('vehiculoModel'));
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, VehiculoModel $vehiculoModel)
+    public function update(Request $request, $id)
     {
         //
         request()->validate([
@@ -122,8 +123,10 @@ return view('vehiculo.editar',compact('vehiculoModel'));
             'Color'=>'required',
             
         ]);
-        $vehiculoModel->update($request->all());
-        return redirect()->route('VehiculoFolder.index');
+        $input=$request->all();
+        $vehiculos=VehiculoModel::find($id);
+        $vehiculos->update($input);
+        return redirect()->route('vehiculos.index');
     }
 
     /**
@@ -132,11 +135,10 @@ return view('vehiculo.editar',compact('vehiculoModel'));
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(VehiculoModel $vehiculoModel)
+    public function destroy($id)
     {
-        //
-        $vehiculoModel->delete();
-        return redirect()->route('vehiculo.index');
+      VehiculoModel::find($id)->delete();
+        return redirect()->route('vehiculos.index');
 
     }
 }

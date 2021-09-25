@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="card-body" >
                             @can('crear-vehiculo')
-                            <a href="{{route('vehiculo.create')}}" class="btn btn-warning">Nuevo</a>
+                            <a href="{{route('vehiculos.create')}}" class="btn btn-warning">Nuevo</a>
                             @endcan()
                             <table class="table table-hover mt-2">
                             	<thead>
@@ -20,6 +20,7 @@
                             		<th>Nombre Vehiculo</th>
                             		<th>Tipo</th>
                             		<th>Marca</th>
+                                    <th>Acciones</th>
                             	</thead>
                             	<tbody>
                             		@foreach($vehiculos as $vehiculo)
@@ -29,9 +30,9 @@
                             			<td>{{$vehiculo->TipoVehiculo}}</td>
                             			<td>{{$vehiculo->Marca}}</td>
                             			<td>
-                                        <form action="{{route('vehiculo.destroy',$vehiculo->id)}}" method="POST">
+                                        <form action="{{route('vehiculos.destroy',$vehiculo->id)}}" method="POST">
                                             @can('editar-vehiculo')
-                                            <a href="{{route('vehiculo.edit',$vehiculo->id)}}">Editar</a>
+                                            <a class="btn btn-info" href="{{route('vehiculos.edit',$vehiculo->id)}}">Editar</a>
                                             @endcan
                                             @csrf
                                             @method('DELETE')
