@@ -2,7 +2,7 @@
     <a class="nav-link" href="/home">
         <i class=" fas fa-home"></i><span>Home</span>
     </a>
-        <a class="nav-link" href="/vehiculo">
+        <a class="nav-link" href="/vehiculos">
         <i class=" fas fa-car-side"></i><span>Vehiculos</span>
     </a>
         <a class="nav-link" href="/">
