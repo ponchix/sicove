@@ -11,9 +11,10 @@
                     <div class="card">
                         <div class="card-body" >
                             @can('crear-vehiculo')
-                            <a href="{{route('vehiculos.create')}}" class="btn btn-warning">Nuevo</a>
+                            <a href="{{route('vehiculos.create')}}" class="btn btn-warning mb-4">Nuevo</a>
                             @endcan()
-                            <table id="example" class="table table-striped" style="width:100%">
+                            @include('vehiculos.DatatableVehiculo');
+{{--                             <table id="example" class="table table-striped" style="width:100%">
                             	<thead>
                             		<th>ID</th>
                             		<th>Nombre Vehiculo</th>
@@ -46,19 +47,11 @@
                             		</tr>
                                     @endforeach
                             	</tbody>
-                            </table>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript"src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-    <script>
-     $(document).ready(function() {
-    $('#example').DataTable();
-} ); 
-</script>
-                           
-                            <div class="pagination justify-content-end">
+                            </table> --}}
+{{--                             <div class="pagination justify-content-end">
                                 {!! $vehiculos->links() !!}
-                            </div>
+                            </div> --}}
+
                         </div>
                     </div>
                 </div>
@@ -66,5 +59,6 @@
         </div>
     </section>
 
-
+ 
 @endsection
+

@@ -1454,20 +1454,20 @@ table tr:hover .table-links {
 
 /* 3.10 Pagination */
 .page-item .page-link {
-    color: #6777ef;
+    color: #1D8F7A;
     border-radius: 3px;
     margin: 0 3px;
 }
 
 .page-item.active .page-link {
-    background-color: #6777ef;
-    border-color: #6777ef;
+    background-color: #1D8F7A ;
+    border-color: #1D8F7A ;
 }
 
 .page-item.disabled .page-link {
     border-color: transparent;
     background-color: #f9fafe;
-    color: #6777ef;
+    color: #1D8F7A;
     opacity: .6;
 }
 
@@ -1478,7 +1478,7 @@ table tr:hover .table-links {
 }
 
 .page-link:hover {
-    background-color: #6777ef;
+    background-color: #1D8F7A ;
     color: #fff;
     border-color: transparent;
 }
@@ -4087,6 +4087,8 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
         -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards;
     }
+/*CUSTOM CSS*/
+
 
     @-webkit-keyframes fadeinbackdrop {
         to {
