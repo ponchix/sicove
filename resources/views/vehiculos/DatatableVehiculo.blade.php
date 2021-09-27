@@ -39,7 +39,22 @@
     <script>
      $(document).ready(function() {
     $('#example').DataTable({
-        "lengthMenu":[[5,10,50,-1],[5,10,50,"All"]]
+        "lengthMenu":[[5,10,50,-1],[5,10,50,"All"]],
+        "language":{
+           "lengthMenu":"Mostrar _MENU_ registros",
+           "info":"Mostrando pagina _PAGE_ de _PAGES_",
+           "infoEmpty": "Sin resultados",
+           "infoFiltered": "(filtrado desde _MAX_ registros totales)",
+           "paginate": {
+        "first": "Primero",
+        "last": "Último",
+        "next": "Siguiente",
+        "previous": "Anterior"
+    },
+     "search": "Buscar:",
+     "zeroRecords": "No se encontraron coincidencias"
+
+        }
     });
 } ); 
 </script>

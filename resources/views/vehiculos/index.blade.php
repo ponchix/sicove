@@ -13,7 +13,7 @@
                             @can('crear-vehiculo')
                             <a href="{{route('vehiculos.create')}}" class="btn btn-warning mb-4">Nuevo</a>
                             @endcan()
-                            @include('vehiculos.DatatableVehiculo');
+                            @include('vehiculos.DatatableVehiculo')
 {{--                             <table id="example" class="table table-striped" style="width:100%">
                             	<thead>
                             		<th>ID</th>
