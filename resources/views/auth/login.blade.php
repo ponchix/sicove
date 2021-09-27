@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="card card-primary">
-        <div class="card-header"><h4>Admin Login</h4></div>
+            <div class="card-header"><h4>Admin Login</h4></div>
 
         <div class="card-body">
             <form method="POST" action="{{ route('login') }}">
@@ -61,6 +61,9 @@
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                         Login
                     </button>
+                </div>
+                                <div class="form-group">
+                                    <a href="{{ route('register') }}" class="btn btn-warning btn-lg btn-block">Registrar</a>
                 </div>
             </form>
         </div>
