@@ -80,8 +80,7 @@ class VehiculoController extends Controller
     {
         //
         $vehiculo=VehiculoModel::find($id);
-        dd($vehiculo);
-        return view('vehiculos.perfil',compact('vehiculo'));
+          return view('vehiculos.perfil',compact('vehiculo'));
 
     }
 
