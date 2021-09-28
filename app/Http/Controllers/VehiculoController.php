@@ -67,7 +67,7 @@ class VehiculoController extends Controller
             
         ]);
         VehiculoModel::create($request->all());
-        return redirect()->route('vehiculos.index');
+        return redirect()->route('vehiculos.index')->with('agregar','ok');
     }
 
     /**
