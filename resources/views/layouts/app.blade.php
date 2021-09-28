@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    <title>@yield('title') | {{ config('app.name') }}</title>
+    <title></title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
       <!-- Bootstrap 4.1.1 -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css
     "/>
-
     <!-- Ionicons -->
     <link href="//fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link href="{{ asset('assets/css/@fortawesome/fontawesome-free/css/all.css') }}" rel="stylesheet" type="text/css">
@@ -20,12 +19,14 @@
 <!-- Template CSS -->
   {{--   <link rel="stylesheet" href="{{ asset('web/css/style.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('assets/style.css')}} ?php echo(rand()); ?" type="text/css">
+   <link rel="stylesheet" href="{{ asset('assets/CustomStyles.css')}} ?php echo(rand()); ?" type="text/css">
     <link rel="stylesheet" href="{{ asset('web/css/components.css')}}">
     @yield('page_css')
 
 
     @yield('css')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+
 </head>
 <body>
 
@@ -62,11 +63,14 @@
 <script src="{{ asset('assets/js/iziToast.min.js') }}"></script>
 <script src="{{ asset('assets/js/select2.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.nicescroll.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
 <!--SweetAlert--->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!--BootStrap--->
+
 
 <!-- Template JS File -->
 <script src="{{ asset('web/js/stisla.js') }}"></script>

@@ -4142,3 +4142,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 .label:lang(es){
     color: black !important;
 }
+.hr{
+    text-align: right;
+    width: 60%;
+}
