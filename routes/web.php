@@ -31,7 +31,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::group(['middleware'=>['auth']],function(){
-    Route::resource('roles',RoleController::class);
-    Route::resource('usuarios',UsuarioController::class);
-    Route::resource('vehiculos',VehiculoController::class);
+    Route::resource('roles','RoleController');
+    Route::resource('usuarios','UsuarioController');
+    Route::resource('vehiculos','VehiculoController');
 });
+Route::get('/vehiculos/perfil/{vehiculo}', 'VehiculoController@show')->name('vehiculo.perfil');

@@ -79,6 +79,10 @@ class VehiculoController extends Controller
     public function show($id)
     {
         //
+        $vehiculo=VehiculoModel::find($id);
+        dd($vehiculo);
+        return view('vehiculos.perfil',compact('vehiculo'));
+
     }
 
     /**
