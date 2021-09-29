@@ -1,3 +1,4 @@
+<title>Alta Vehiculo</title>
 @extends('layouts.app')
 
 @section('content')

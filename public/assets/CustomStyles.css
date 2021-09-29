@@ -13,6 +13,9 @@ background-color:red ;
 	color: black;
 	margin-bottom: 1rem;
 	font-size: large;
-	
+	text-align: center;
 
+}
+.label{
+	text-transform: uppercase;
 }
