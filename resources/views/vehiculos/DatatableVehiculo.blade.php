@@ -3,6 +3,7 @@
   <table id="example" class="table table-striped mt-2">
     <thead>
         <th>ID</th>
+        <th>Imagen</th>
         <th>Nombre Vehiculo</th>
         <th>Tipo</th>
         <th>Marca</th>
@@ -12,6 +13,7 @@
         @foreach($vehiculos as $vehiculo)
         <tr>
             <td>{{$vehiculo->id}}</td>
+           <td> <img src="/imagen/{{$vehiculo->imagen}}" width="150" height="100px"> </td>
             <td>{{$vehiculo->NombreVehiculo}}</td>
             <td>{{$vehiculo->TipoVehiculo}}</td>
             <td>{{$vehiculo->Marca}}</td>

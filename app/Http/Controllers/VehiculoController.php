@@ -64,10 +64,18 @@ class VehiculoController extends Controller
             'PolizaSeguro'=>'required',
             'Placa'=>'required',
             'Color'=>'required',
+            'imagen'=>'required',
             
         ]);
-        VehiculoModel::create($request->all());
-        return redirect()->route('vehiculos.index')->with('agregar','ok');
+        $vehiculo=$request->all();
+            if ($imagen=$request->file('imagen')) {
+            $rutaImg='imagen/';
+            $imagenVehiculo=date('YmdHis').".".$imagen->getClientOriginalExtension();
+            $imagen->move($rutaImg,$imagenVehiculo);
+            $vehiculo['imagen']="$imagenVehiculo";
+        }
+          VehiculoModel::create($vehiculo);
+        return redirect()->route('vehiculos.index');
     }
 
     /**
@@ -124,6 +132,7 @@ class VehiculoController extends Controller
             'PolizaSeguro'=>'required',
             'Placa'=>'required',
             'Color'=>'required',
+            'imagen'=>'required',
             
         ]);
         $input=$request->all();

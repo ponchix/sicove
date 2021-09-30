@@ -25,5 +25,6 @@ class VehiculoModel extends Model
         'PolizaSeguro',
         'Placa',
         'Color',
+        'imagen',
       ];
 }

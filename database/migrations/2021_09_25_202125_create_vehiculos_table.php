@@ -30,6 +30,7 @@ class CreateVehiculosTable extends Migration
             $table->string('PolizaSeguro');
             $table->string('Placa');
             $table->string('Color');
+            $table->string('imagen');
             $table->timestamps();
         });
     }
