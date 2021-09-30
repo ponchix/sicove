@@ -3,15 +3,15 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h3 class="page__heading">Dashboard</h3>
+        <h3 class="page__heading">Perfil del vehiculo: {{$vehiculo->id}}</h3>
     </div>
     <div class="section-body">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body" >
-                        <div class="card" style="width: 100%;">
-                          <img src="..." class="card-img-top" alt="...">
+                        <div class="card" style="width: 400px;">
+                          <img src="/imagen/{{$vehiculo->imagen}}" class="card-img-top" alt="..." width="" height="300px">
                           <div class="card-body">
                             <h5 class="card-title">Perfil</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
