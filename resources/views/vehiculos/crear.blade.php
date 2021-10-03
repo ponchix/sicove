@@ -23,77 +23,75 @@
                             </div>
                             @endif
                             <form action="{{route('vehiculos.store')}}" method="POST" enctype="multipart/form-data">
-                               @csrf
-                               <div class="row">
-                                <div class="col-md-6 col-xs-6 col-xs-6">
-                                   <label>Nombre del vehiculo</label>
-                                   <input type="text" name="NombreVehiculo" class="form-control">
-                               </div>
-                               <div class="col-md-6 col-xs-6 col-xs-6">
-                                   <label>Tipo de vehiculo</label>
-                                   <input type="text" name="TipoVehiculo" class="form-control">
-                               </div>
-                               <div class="col-md-6 col-xs-6 col-xs-6">
-                                <label>Marca</label>
-                                <input type="text" name="Marca" class="form-control">
+                             @csrf
+                             <div class="row">
+                                <div class="col-md-4 col-xs-4 col-xs-4">
+                                 <label>Nombre del vehiculo</label>
+                                 <input type="text" name="NombreVehiculo" class="form-control">
+                             </div>
+                             <div class="col-md-4 col-xs-4 col-xs-4">
+                                 <label>Tipo de vehiculo</label>
+                                 <input type="text" name="TipoVehiculo" class="form-control">
+                             </div>
+                             @livewireStyles
+                             <div class="col-md-4 col-xs-4 col-xs-4">        
+                                @livewire('select-dep')
                             </div>
+                            @livewireScripts
                             <div class="col-md-6 col-xs-6 col-xs-6">
-                             <label>Estatus Inicial</label>
-                             <input type="text" name="StatusInicial" class="form-control">
-                         </div>
-                         <div class="col-md-6 col-xs-6 col-xs-6">
-                             <label>Estadisticas</label>
-                             <input type="text" name="Estadisticas" class="form-control">
-                         </div>
-                         <div class="col-md-6 col-xs-6 col-xs-6">
-                             <label>Modelo</label>
-                             <input type="text" name="Modelo" class="form-control">
-                         </div>
-                         <div class="col-md-6 col-xs-6 col-xs-6">
-                             <label>MedidaUso</label>
-                             <input type="text" name="MedidaUso" class="form-control">
-                         </div>
-                         <div class="col-md-6 col-xs-6 col-xs-6">
-                            <label>Medida de Combustible</label>
-                           <input type="text" name="MedidaCombustible" class="form-control">
-                       </div>
-                       <div class="col-md-6 col-xs-6 col-xs-6">
-                           <label>Año</label>
-                           <input type="text" name="anio" class="form-control">
-                       </div>
-                       <div class="col-md-6 col-xs-6 col-xs-6">
-                           <label>Grupo</label>
-                           <input type="text" name="Grupo" class="form-control">
-                       </div>
-                       <div class="col-md-6 col-xs-6 col-xs-6">
-                           <label>Compañia de seguros</label>
-                           <input type="text" name="CompaniaSeguros" class="form-control">
-                       </div>
-                       <div class="col-md-6 col-xs-6 col-xs-6">
-                           <label>Numero de serie</label>
-                           <input type="text" name="NoSerie" class="form-control">
-                       </div>
-                                              <div class="col-md-6 col-xs-6 col-xs-6">
-                           <label>Poliza de seguro</label>
-                           <input type="text" name="PolizaSeguro" class="form-control">
-                       </div>
-                                              <div class="col-md-6 col-xs-6 col-xs-6">
-                           <label>Placa</label>
-                           <input type="text" name="Placa" class="form-control">
-                       </div>
-                                              <div class="col-md-6 col-xs-6 col-xs-6">
-                           <label>Color</label>
-                           <input type="text" name="Color" class="form-control">
-                       </div>
-                                              <div class="col-md-6 col-xs-6 col-xs-6">
-@include('vehiculos.imagen')
-                       </div>
-     <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                </div>   
-                   </div>
+                               <label>Estatus Inicial</label>
+                               <input type="text" name="StatusInicial" class="form-control">
+                           </div>
+                           <div class="col-md-6 col-xs-6 col-xs-6">
+                               <label>Estadisticas</label>
+                               <input type="text" name="Estadisticas" class="form-control">
+                           </div>
 
-               </form>
+                           <div class="col-md-6 col-xs-6 col-xs-6">
+                               <label>MedidaUso</label>
+                               <input type="text" name="MedidaUso" class="form-control">
+                           </div>
+                           <div class="col-md-6 col-xs-6 col-xs-6">
+                            <label>Medida de Combustible</label>
+                            <input type="text" name="MedidaCombustible" class="form-control">
+                        </div>
+                        <div class="col-md-6 col-xs-6 col-xs-6">
+                         <label>Año</label>
+                         <input type="text" name="anio" class="form-control">
+                     </div>
+                     <div class="col-md-6 col-xs-6 col-xs-6">
+                         <label>Grupo</label>
+                         <input type="text" name="Grupo" class="form-control">
+                     </div>
+                     <div class="col-md-6 col-xs-6 col-xs-6">
+                         <label>Compañia de seguros</label>
+                         <input type="text" name="CompaniaSeguros" class="form-control">
+                     </div>
+                     <div class="col-md-6 col-xs-6 col-xs-6">
+                         <label>Numero de serie</label>
+                         <input type="text" name="NoSerie" class="form-control">
+                     </div>
+                     <div class="col-md-6 col-xs-6 col-xs-6">
+                         <label>Poliza de seguro</label>
+                         <input type="text" name="PolizaSeguro" class="form-control">
+                     </div>
+                     <div class="col-md-6 col-xs-6 col-xs-6">
+                         <label>Placa</label>
+                         <input type="text" name="Placa" class="form-control">
+                     </div>
+                     <div class="col-md-6 col-xs-6 col-xs-6">
+                         <label>Color</label>
+                         <input type="text" name="Color" class="form-control">
+                     </div>
+                     <div class="col-md-6 col-xs-6 col-xs-6">
+                        @include('vehiculos.imagen')
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>   
+                </div>
+
+            </form>
                             {{-- {!! Form::open (array('route'=>'vehiculos.store','method'=>'POST','files'=>'true', 'class'=>'add')) !!}
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
