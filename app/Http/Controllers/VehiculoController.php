@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\VehiculoModel;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\Modelo;
 
 class VehiculoController extends Controller
 {
@@ -24,7 +25,13 @@ class VehiculoController extends Controller
     {
         //
         $vehiculos=VehiculoModel::all();
-        return view ('vehiculos.index',compact('vehiculos'));
+       
+
+        // $relaciones = DB::table('vehiculos')
+        //     ->join('marcas', 'vehiculos.id', '=', 'marcas.id_marca')
+        //     ->select('marca')
+        //     ->get();
+             return view ('vehiculos.index',compact('vehiculos'));
     }
 
     /**

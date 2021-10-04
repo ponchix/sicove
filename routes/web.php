@@ -35,4 +35,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('usuarios','UsuarioController');
     Route::resource('vehiculos','VehiculoController');
     Route::get('/vehiculos/perfil/{vehiculo}', 'VehiculoController@show')->name('vehiculo.perfil');
+    Route::resource('modelos','ModeloController');
 });
+
+Route::get('home','RelacionMMController@index');

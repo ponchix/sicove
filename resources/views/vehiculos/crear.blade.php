@@ -25,11 +25,11 @@
                             <form action="{{route('vehiculos.store')}}" method="POST" enctype="multipart/form-data">
                              @csrf
                              <div class="row">
-                                <div class="col-md-4 col-xs-4 col-xs-4">
+                                <div class="col-md-3 col-xs-3 col-xs-3">
                                  <label>Nombre del vehiculo</label>
                                  <input type="text" name="NombreVehiculo" class="form-control">
                              </div>
-                             <div class="col-md-4 col-xs-4 col-xs-4">
+                             <div class="col-md-3 col-xs-3 col-xs-3">
                                  <label>Tipo de vehiculo</label>
                                  <input type="text" name="TipoVehiculo" class="form-control">
                              </div>
@@ -38,24 +38,29 @@
                                 @livewire('select-dep')
                             </div>
                             @livewireScripts
-                            <div class="col-md-6 col-xs-6 col-xs-6">
+
+
+
+
+
+                            <div class="col-md-3 col-xs-3 col-xs-3">
                                <label>Estatus Inicial</label>
                                <input type="text" name="StatusInicial" class="form-control">
                            </div>
-                           <div class="col-md-6 col-xs-6 col-xs-6">
+                           <div class="col-md-3 col-xs-3 col-xs-3">
                                <label>Estadisticas</label>
                                <input type="text" name="Estadisticas" class="form-control">
                            </div>
 
-                           <div class="col-md-6 col-xs-6 col-xs-6">
-                               <label>MedidaUso</label>
+                           <div class="col-md-3 col-xs-3 col-xs-3">
+                               <label>Medida de Uso</label>
                                <input type="text" name="MedidaUso" class="form-control">
                            </div>
-                           <div class="col-md-6 col-xs-6 col-xs-6">
+                           <div class="col-md-3 col-xs-3 col-xs-3">
                             <label>Medida de Combustible</label>
                             <input type="text" name="MedidaCombustible" class="form-control">
                         </div>
-                        <div class="col-md-6 col-xs-6 col-xs-6">
+                        <div class="col-md-3 col-xs-3 col-xs-3">
                          <label>Año</label>
                          <input type="text" name="anio" class="form-control">
                      </div>
@@ -63,6 +68,9 @@
                          <label>Grupo</label>
                          <input type="text" name="Grupo" class="form-control">
                      </div>
+
+                     <div class="titulo col-md-12 col-xs-12 col-xs-12"> Informacion adicional</div>
+
                      <div class="col-md-6 col-xs-6 col-xs-6">
                          <label>Compañia de seguros</label>
                          <input type="text" name="CompaniaSeguros" class="form-control">
@@ -83,7 +91,7 @@
                          <label>Color</label>
                          <input type="text" name="Color" class="form-control">
                      </div>
-                     <div class="col-md-6 col-xs-6 col-xs-6">
+                     <div class="subir col-md-12 col-xs-12 col-xs-12">
                         @include('vehiculos.imagen')
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">

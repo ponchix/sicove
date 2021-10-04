@@ -6,7 +6,8 @@
         <th>Imagen</th>
         <th>Nombre Vehiculo</th>
         <th>Tipo</th>
-        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Estatus</th>
         <th>Acciones</th>
     </thead>
     <tbody>
@@ -16,7 +17,8 @@
            <td> <img src="/imagen/{{$vehiculo->imagen}}" width="150" height="100px"> </td>
             <td>{{$vehiculo->NombreVehiculo}}</td>
             <td>{{$vehiculo->TipoVehiculo}}</td>
-            <td>{{$vehiculo->Marca}}</td>
+            <td>{{$vehiculo->Modelo}}</td>
+            <td>{{$vehiculo->StatusInicial}}</td>
             <td>
                 <form action="{{route('vehiculos.destroy',$vehiculo->id)}}" method="POST" class="formulario">
                     @can('ver-vehiculo')

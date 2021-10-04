@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Marca;
 use App\Models\Modelo;
+
 class SelectDep extends Component
 {
     public $selectedMarca=null, $selectedModelo=null;
@@ -20,6 +21,7 @@ class SelectDep extends Component
     }
 
     public function updatedselectedMarca($id){
-      $this->modelos=Modelo::where('id_marca',$id)->get();  
+      $this->modelos=Modelo::where('id_marca',$id)->get(); 
+     
     }
 }

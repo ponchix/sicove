@@ -13,6 +13,7 @@
                             @livewireStyles
                             @livewire('select-dep')
                             @livewireScripts
+
                         </div>
                     </div>
                 </div>
