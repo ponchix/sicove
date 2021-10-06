@@ -1,15 +1,13 @@
-@extends('layouts.app')
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
 
-@section('content')
-<section class="section">
-    <div class="section-header">
-        <h3 class="page__heading">Alta de Modelos</h3>
-    </div>
-    <div class="section-body">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body" >
                         @if($errors->any())
                         <div class="alert alert-dark alert-dismissible fade show" role="alert">
                             <strong>¡Revise los campos! </strong>
@@ -38,17 +36,18 @@
                                      </select>
 
                                  </div>
-                                 <div class="col-xs-12 col-sm-12 col-md-12 mt-4 ml-1">
+                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <button type="submit" class="btn btn-primary">Guardar</button>
-                                    <a href="{{route('vehiculos.index')}}" class="btn btn-danger ml-2">Cancelar</a>
                                 </div> 
 
                             </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
-</section>
-@endsection
+  </div>
+</div>

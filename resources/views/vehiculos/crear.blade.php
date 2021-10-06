@@ -26,80 +26,95 @@
                              @csrf
                              <div class="row">
                                 <div class="col-md-3 col-xs-3 col-xs-3">
-                                 <label>Nombre del vehiculo</label>
-                                 <input type="text" name="NombreVehiculo" class="form-control">
+                                 <label>Nombre del vehiculo</label><span class="text-danger">*</span>
+                                 <input type="text" name="NombreVehiculo" class="form-control" onkeyup="mayus(this);">
                              </div>
+
+
                              <div class="col-md-3 col-xs-3 col-xs-3">
-                                 <label>Tipo de vehiculo</label>
-                                 <input type="text" name="TipoVehiculo" class="form-control">
-                             </div>
-                             @livewireStyles
-                             <div class="col-md-4 col-xs-4 col-xs-4">        
+                                 <label>Tipo de vehiculo</label><span class="text-danger">*</span>
+                                 <select name="TipoVehiculo" class="form-control">
+                                    <option>-</option>
+                                    <option value="">AUTOMOVIL</option>
+                                    <option >BUS</option>
+                                    <option >CAMIONETA</option>
+                                    <option >MOTOCICLETA</option>
+                                    <option >PICK-UP</option>
+                                    <option >SUV</option>
+                                    <option >TRAILER</option>
+                                    <option >VAN</option>
+                                </select>
+                            </div>
+
+
+                            @livewireStyles
+                            <div class="col-md-6 col-xs-6 col-xs-6">        
                                 @livewire('select-dep')
                             </div>
                             @livewireScripts
-
-
-
-
-
                             <div class="col-md-3 col-xs-3 col-xs-3">
-                               <label>Estatus Inicial</label>
-                               <input type="text" name="StatusInicial" class="form-control">
-                           </div>
-                           <div class="col-md-3 col-xs-3 col-xs-3">
-                               <label>Estadisticas</label>
-                               <input type="text" name="Estadisticas" class="form-control">
-                           </div>
+                             <label>Color</label><span class="text-danger">*</span>
+                             <input type="text" name="Color" class="form-control" onkeyup="mayus(this);">
+                         </div>
 
-                           <div class="col-md-3 col-xs-3 col-xs-3">
-                               <label>Medida de Uso</label>
-                               <input type="text" name="MedidaUso" class="form-control">
-                           </div>
-                           <div class="col-md-3 col-xs-3 col-xs-3">
-                            <label>Medida de Combustible</label>
-                            <input type="text" name="MedidaCombustible" class="form-control">
-                        </div>
-                        <div class="col-md-3 col-xs-3 col-xs-3">
-                         <label>Año</label>
-                         <input type="text" name="anio" class="form-control">
-                     </div>
-                     <div class="col-md-6 col-xs-6 col-xs-6">
-                         <label>Grupo</label>
-                         <input type="text" name="Grupo" class="form-control">
-                     </div>
+                         <div class="col-md-3 col-xs-3 col-xs-3">
+                             <label>Placa</label><span class="text-danger">*</span>
+                             <input type="text" name="Placa" class="form-control" onkeyup="mayus(this);">
+                         </div>
 
-                     <div class="titulo col-md-12 col-xs-12 col-xs-12"> Informacion adicional</div>
 
-                     <div class="col-md-6 col-xs-6 col-xs-6">
-                         <label>Compañia de seguros</label>
-                         <input type="text" name="CompaniaSeguros" class="form-control">
-                     </div>
-                     <div class="col-md-6 col-xs-6 col-xs-6">
-                         <label>Numero de serie</label>
-                         <input type="text" name="NoSerie" class="form-control">
-                     </div>
-                     <div class="col-md-6 col-xs-6 col-xs-6">
-                         <label>Poliza de seguro</label>
-                         <input type="text" name="PolizaSeguro" class="form-control">
-                     </div>
-                     <div class="col-md-6 col-xs-6 col-xs-6">
-                         <label>Placa</label>
-                         <input type="text" name="Placa" class="form-control">
-                     </div>
-                     <div class="col-md-6 col-xs-6 col-xs-6">
-                         <label>Color</label>
-                         <input type="text" name="Color" class="form-control">
-                     </div>
-                     <div class="subir col-md-12 col-xs-12 col-xs-12">
-                        @include('vehiculos.imagen')
+
+                         <div class="col-md-3 col-xs-3 col-xs-3">
+                           <label>Estatus Inicial</label><span class="text-danger">*</span>
+                           <input type="text" name="StatusInicial" class="form-control" onkeyup="mayus(this);">
+                       </div>
+                       <div class="col-md-3 col-xs-3 col-xs-3">
+                           <label>Estadisticas</label><span class="text-danger">*</span>
+                           <input type="text" name="Estadisticas" class="form-control" onkeyup="mayus(this);">
+                       </div>
+
+                       <div class="col-md-3 col-xs-3 col-xs-3">
+                           <label>Medida de Uso</label><span class="text-danger">*</span>
+                           <input type="text" name="MedidaUso" class="form-control" onkeyup="mayus(this);">
+                       </div>
+                       <div class="col-md-3 col-xs-3 col-xs-3">
+                        <label>Medida de Combustible</label><span class="text-danger">*</span>
+                        <input type="text" name="MedidaCombustible" class="form-control" onkeyup="mayus(this);">
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>   
-                </div>
+                    <div class="col-md-3 col-xs-3 col-xs-3">
+                     <label>Año</label><span class="text-danger">*</span>
+                     <input type="text" name="anio" class="form-control" onkeyup="mayus(this);">
+                 </div>
+                 <div class="col-md-3 col-xs-3 col-xs-3">
+                     <label>Grupo</label><span class="text-danger">*</span>
+                     <input type="text" name="Grupo" class="form-control" onkeyup="mayus(this);">
+                 </div>
 
-            </form>
+                 <div class="titulo col-md-12 col-xs-12 col-xs-12"> Informacion adicional</div>
+
+                 <div class="col-md-6 col-xs-6 col-xs-6">
+                     <label>Compañia de seguros</label><span class="text-danger">*</span>
+                     <input type="text" name="CompaniaSeguros" class="form-control" onkeyup="mayus(this);">
+                 </div>
+                 <div class="col-md-6 col-xs-6 col-xs-6">
+                     <label>Numero de serie</label><span class="text-danger">*</span>
+                     <input type="text" name="NoSerie" class="form-control" onkeyup="mayus(this);">
+                 </div>
+                 <div class="col-md-6 col-xs-6 col-xs-6">
+                     <label>Poliza de seguro</label><span class="text-danger">*</span>
+                     <input type="text" name="PolizaSeguro" class="form-control" onkeyup="mayus(this);">
+                 </div>
+
+
+                 <div class="subir col-md-12 col-xs-12 col-xs-12">
+                    @include('vehiculos.imagen')
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>   
+            </div>
+
+        </form>
                             {{-- {!! Form::open (array('route'=>'vehiculos.store','method'=>'POST','files'=>'true', 'class'=>'add')) !!}
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
@@ -224,3 +239,11 @@
     </section>
 
     @endsection
+    <script type="text/javascript">
+        function mayus(e) {
+
+           e.value = e.value.toUpperCase();
+
+
+       }
+   </script>

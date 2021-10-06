@@ -18,6 +18,7 @@ background-color:red ;
 }
 .label{
 	text-transform: uppercase;
+	margin-top: 2rem !important;
 }
 .hidden{
   display:none;
@@ -40,3 +41,14 @@ font-size:20px;
 	margin-bottom: 2rem;
 }
 
+.separador{
+	 text-transform: uppercase;
+width: 100%;
+height: 30px;
+margin-top: 2rem;
+margin-bottom: 2rem;
+text-align: center;
+background-color: #1D8F7A;
+color: white;
+font-size:20px;
+}

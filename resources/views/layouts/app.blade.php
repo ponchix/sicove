@@ -10,6 +10,7 @@
       <!-- Bootstrap 4.1.1 -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css
     "/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <!-- Ionicons -->
     <link href="//fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link href="{{ asset('assets/css/@fortawesome/fontawesome-free/css/all.css') }}" rel="stylesheet" type="text/css">
@@ -21,7 +22,7 @@
 <!-- Template CSS -->
   {{--   <link rel="stylesheet" href="{{ asset('web/css/style.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('assets/style.css')}} ?php echo(rand()); ?" type="text/css">
-   <link rel="stylesheet" href="{{ asset('assets/CustomStyles.css')}}" type="text/css">
+   <link rel="stylesheet" href="{{ asset('assets/CustomStyles.css')}} ?php echo(rand()); ?" type="text/css">
     <link rel="stylesheet" href="{{ asset('web/css/components.css')}}">
     @yield('page_css')
 
@@ -55,7 +56,6 @@
 
 @include('profile.change_password')
 @include('profile.edit_profile')
-
 </body>
 
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
@@ -72,7 +72,7 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!--BootStrap--->
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
 <!-- Template JS File -->
 <script src="{{ asset('web/js/stisla.js') }}"></script>

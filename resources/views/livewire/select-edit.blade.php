@@ -5,7 +5,11 @@
         <select wire:model="selectedMarca" class="form-control" name="Marca">
             <option value="">-</option>
             @foreach($marcas as $marca)
+            <?php if ($marca['id']==$marca->marca){ ?>
+            <option value="{{$marca->id}}" selected="selected">{{$marca->marca}}</option>
+            <?php } else { ?>
             <option value="{{$marca->id}}">{{$marca->marca}}</option>
+            <?php }?>
             @endforeach
         </select>
         </div>

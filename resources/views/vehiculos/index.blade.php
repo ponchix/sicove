@@ -6,7 +6,7 @@
         <h3 class="page__heading">Vehiculos</h3>
     </div>
     <div class="section-body">
-        <div class="row">
+        <div class="row align-items-center">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body" >
@@ -14,11 +14,13 @@
                         <a href="{{route('vehiculos.create')}}" class="btn btn-warning mb-4">Nuevo</a>
                         @endcan()
                         @can('crear-vehiculo')
-                         <a class="btn btn-primary mb-4" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar nuevo modelo" href="{{route('modelos.create')}}"> Agregar Nuevo Modelo </a> 
-                         @endcan()
-                
-                     @include('vehiculos.DatatableVehiculo')
-                     <!-- Button trigger modal -->
+                        <a class="btn btn-dark mb-4" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar nuevo modelo" href="{{route('modelos.create')}}"> Nuevo Modelo </a> 
+                        @endcan()
+
+                        <div class="table-responsive">  
+                           @include('vehiculos.DatatableVehiculo')
+                       </div>
+                       <!-- Button trigger modal -->
 
                              {{--                             <table id="example" class="table table-striped" style="width:100%">
                             	<thead>

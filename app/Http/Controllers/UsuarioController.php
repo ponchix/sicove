@@ -20,7 +20,7 @@ class UsuarioController extends Controller
     {
         //
 
-        $usuarios=User::paginate(5);
+        $usuarios=User::all();
         return view('usuarios.index',compact('usuarios'));
     }
 

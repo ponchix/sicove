@@ -22,10 +22,10 @@
             <td>
                 <form action="{{route('vehiculos.destroy',$vehiculo->id)}}" method="POST" class="formulario">
                     @can('ver-vehiculo')
-                    <a class="btn btn-primary" href="{{route('vehiculo.perfil',$vehiculo->id)}}"><i class="fas fa-eye"></i></a>
+                    <a class="btn btn-light" href="{{route('vehiculo.perfil',$vehiculo->id)}}"><i class="fas fa-eye"></i></a>
                     @endcan
                     @can('editar-vehiculo')
-                    <a class="btn btn-info" href="{{route('vehiculos.edit',$vehiculo->id)}}"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-success" href="{{route('vehiculos.edit',$vehiculo->id)}}"><i class="fas fa-edit"></i></a>
                     @endcan
                     @csrf
                     @method('DELETE')

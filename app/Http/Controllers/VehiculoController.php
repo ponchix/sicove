@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\VehiculoModel;
 use Illuminate\Support\Facades\DB;
 use App\Models\Modelo;
+use App\Models\Marca;
 
 class VehiculoController extends Controller
 {
 
-        function _construct(){
+    function _construct(){
         $this->middleware('permission:ver-vehiculo | crear-vehiculo|editar-vehiculo|borrar-vehiculo',['only'=>['index']]);
         $this->middleware('permission:crear-vehiculo',['only'=>['create','store']]);
         $this->middleware('permission:editar-vehiculo',['only'=>['edit','update']]);
@@ -25,13 +26,13 @@ class VehiculoController extends Controller
     {
         //
         $vehiculos=VehiculoModel::all();
-       
+
 
         // $relaciones = DB::table('vehiculos')
         //     ->join('marcas', 'vehiculos.id', '=', 'marcas.id_marca')
         //     ->select('marca')
         //     ->get();
-             return view ('vehiculos.index',compact('vehiculos'));
+        return view ('vehiculos.index',compact('vehiculos'));
     }
 
     /**
@@ -75,13 +76,13 @@ class VehiculoController extends Controller
             
         ]);
         $vehiculo=$request->all();
-            if ($imagen=$request->file('imagen')) {
+        if ($imagen=$request->file('imagen')) {
             $rutaImg='imagen/';
             $imagenVehiculo=date('YmdHis').".".$imagen->getClientOriginalExtension();
             $imagen->move($rutaImg,$imagenVehiculo);
             $vehiculo['imagen']="$imagenVehiculo";
         }
-          VehiculoModel::create($vehiculo);
+        VehiculoModel::create($vehiculo);
         return redirect()->route('vehiculos.index');
     }
 
@@ -95,7 +96,7 @@ class VehiculoController extends Controller
     {
         //
         $vehiculo=VehiculoModel::find($id);
-          return view('vehiculos.perfil',compact('vehiculo'));
+        return view('vehiculos.perfil',compact('vehiculo'));
 
     }
 
@@ -108,9 +109,10 @@ class VehiculoController extends Controller
     public function edit($id)
     {
         //
+        $marcas=Marca::all();
 //return view('vehiculos.editar',compact('vehiculoModel'));
         $vehiculos=VehiculoModel::find($id);
-        return view('vehiculos.editar',compact('vehiculos'));
+        return view('vehiculos.editar',compact('vehiculos','marcas'));
     }
 
     /**
@@ -123,6 +125,7 @@ class VehiculoController extends Controller
     public function update(Request $request, $id)
     {
         //
+
         request()->validate([
             'NombreVehiculo'=>'required',
             'TipoVehiculo'=>'required',
@@ -139,10 +142,18 @@ class VehiculoController extends Controller
             'PolizaSeguro'=>'required',
             'Placa'=>'required',
             'Color'=>'required',
-            'imagen'=>'required',
+            'imagen',
             
         ]);
         $input=$request->all();
+        if ($imagen=$request->file('imagen')) {
+            $rutaImg='imagen/';
+            $imagenVehiculo=date('YmdHis').".".$imagen->getClientOriginalExtension();
+            $imagen->move($rutaImg,$imagenVehiculo);
+            $input['imagen']="$imagenVehiculo";
+        }else{
+            unset($input['imagen']);
+        }
         $vehiculos=VehiculoModel::find($id);
         $vehiculos->update($input);
         return redirect()->route('vehiculos.index');
@@ -157,7 +168,7 @@ class VehiculoController extends Controller
     public function destroy($id)
     {
       VehiculoModel::find($id)->delete();
-        return redirect()->route('vehiculos.index');
+      return redirect()->route('vehiculos.index');
 
-    }
+  }
 }

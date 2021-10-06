@@ -3,7 +3,7 @@
     </div>
     <div>
             <label for="">Subir Imagen</label>
-            <input type="file" name="imagen" id="imagen" >
+            <input type="file" name="imagen" id="imagen">
             {{-- {!! Form::file('imagen',null,array('class'=>'form-control')) !!} --}}
         </div>
  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

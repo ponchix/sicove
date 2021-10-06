@@ -38,10 +38,17 @@ class ModeloController extends Controller
     public function store(Request $request)
     {
         //
-        Modelo::create([
-        'modelo'=>$request->modelo,
-        'id_marca'=>$request->id_marca,
+        request()->validate([
+            'modelo'=>'required|unique:modelos',
+            'id_marca'=>'required'
         ]);
+        $input=$request->all();
+        Modelo::create($input);
+
+        // Modelo::create([
+        // 'modelo'=>$request->modelo,
+        // 'id_marca'=>$request->id_marca,
+        // ]);
         return redirect()->route('vehiculos.index');
 
     }
