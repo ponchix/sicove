@@ -1283,6 +1283,7 @@ select.form-control:not([size]):not([multiple]) {
 .table td, .table:not(.table-bordered) th {
     border-top: none;
     text-align: center;
+
 }
 
 .table:not(.table-sm):not(.table-md):not(.dataTable) td,

@@ -22,7 +22,7 @@
 <!-- Template CSS -->
   {{--   <link rel="stylesheet" href="{{ asset('web/css/style.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('assets/style.css')}} ?php echo(rand()); ?" type="text/css">
-   <link rel="stylesheet" href="{{ asset('assets/CustomStyles.css')}} ?php echo(rand()); ?" type="text/css">
+   <link rel="stylesheet" href="{{ asset('assets/CustomStyles.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('web/css/components.css')}}">
     @yield('page_css')
 

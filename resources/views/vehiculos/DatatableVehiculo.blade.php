@@ -14,7 +14,7 @@
         @foreach($vehiculos as $vehiculo)
         <tr>
             <td>{{$vehiculo->id}}</td>
-           <td> <img src="/imagen/{{$vehiculo->imagen}}" width="150" height="100px"> </td>
+           <td> <img src="/imagen/{{$vehiculo->imagen}}" width="120" height="90px"> </td>
             <td>{{$vehiculo->NombreVehiculo}}</td>
             <td>{{$vehiculo->TipoVehiculo}}</td>
             <td>{{$vehiculo->Modelo}}</td>
