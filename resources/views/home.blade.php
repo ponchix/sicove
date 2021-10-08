@@ -13,7 +13,6 @@
                             @livewireStyles
                             @livewire('select-dep')
                             @livewireScripts
-<h3>Hola</h3>
 
 <!-- Button trigger modal -->
 
