@@ -11,11 +11,14 @@
                 <div class="card">
                     <div class="card-body" >
                         @can('crear-vehiculo')
-                        <a href="{{route('vehiculos.create')}}" class="btn btn-warning mb-4">Nuevo</a>
+                        <a href="{{route('vehiculos.create')}}" class="btn btn-warning mb-0 mt-1">Nuevo</a>
                         @endcan()
                         @can('crear-vehiculo')
-                        <a class="btn btn-dark mb-4" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar nuevo modelo" href="{{route('modelos.create')}}"> Nuevo Modelo </a> 
+                        <a class="btn btn-dark mb-0 mt-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar nuevo modelo" href="{{route('modelos.create')}}"> Nuevo Modelo </a> 
                         @endcan()
+                        <div class="titulo mt-3 mb-1">Inventario de vehiculos</div>
+                        
+
 
                         <div class="table-responsive">  
                            @include('vehiculos.DatatableVehiculo')

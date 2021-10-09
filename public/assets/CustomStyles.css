@@ -56,8 +56,35 @@ font-size:20px;
 .table{
 	font-size: small;
 	font-family: sans-serif;
+	text-transform: uppercase;
+
 }
 
 .perfil{
 	text-align: center;
+}
+
+.boton{
+	background-color:#232CE3;
+	color: white;
+}
+.boton:hover{
+	background-color: #141DDC !important;
+	color: white !important;
+}
+.boton:focus{
+	background-color: #141DDC !important;
+}
+.calendario{
+	position: absolute;
+  margin-left: 5px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+.icono-placeholder{
+	padding: 0.25rem 0.6rem;
+	text-align: right;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
 }

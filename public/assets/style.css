@@ -222,6 +222,7 @@ textarea.form-control {
 .form-control[type="color"],
 select.form-control:not([size]):not([multiple]) {
     height: calc(2.25rem + 6px);
+    text-transform: uppercase;
 }
 
 .form-control.creditcard {

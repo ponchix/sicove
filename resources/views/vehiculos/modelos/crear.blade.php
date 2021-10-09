@@ -26,7 +26,7 @@
                              <div class="row">
                                  <div class="col-md-6 col-xs-6 col-xs-6">
                                      <label>Modelo</label>
-                                     <input type="text" name="modelo" class="form-control">
+                                     <input type="text" name="modelo" class="form-control" onkeyup="mayus(this);">
                                  </div>
 
                                  <div class="col-md-6 col-xs-6 col-xs-6">
@@ -52,3 +52,11 @@
     </div>
 </section>
 @endsection
+<script type="text/javascript">
+    function mayus(e) {
+
+       e.value = e.value.toUpperCase();
+
+
+   }
+</script>
