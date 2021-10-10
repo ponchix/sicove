@@ -14,7 +14,7 @@ class VehiculoModel extends Model
         'TipoVehiculo',
         'Marca',
         'StatusInicial',
-        'Estadisticas',
+        'fecha_compra',
         'Modelo',
         'MedidaUso',
         'MedidaCombustible',
@@ -26,5 +26,9 @@ class VehiculoModel extends Model
         'Placa',
         'Color',
         'imagen',
+        'combustible',
+        'motor',
+        'cilindraje',
+        'cilindrada',
       ];
 }

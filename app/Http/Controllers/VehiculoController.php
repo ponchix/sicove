@@ -61,7 +61,7 @@ class VehiculoController extends Controller
             'TipoVehiculo'=>'required',
             'Marca'=>'required',    
             'StatusInicial'=>'required',    
-            'Estadisticas'=>'required',    
+            'fecha_compra'=>'required',    
             'Modelo'=>'required',    
             'MedidaUso'=>'required',    
             'MedidaCombustible'=>'required',    
@@ -72,6 +72,10 @@ class VehiculoController extends Controller
             'Placa'=>'required',
             'Color'=>'required',
             'imagen'=>'required',
+            'combustible'=>'required',
+            'motor'=>'required',
+            'cilindraje'=>'required',
+            'cilindrada'=>'required',
             
         ]);
         $vehiculo=$request->all();
@@ -130,7 +134,7 @@ class VehiculoController extends Controller
             'TipoVehiculo'=>'required',
             'Marca'=>'required',    
             'StatusInicial'=>'required',    
-            'Estadisticas'=>'required',    
+            'fecha_compra'=>'required',    
             'Modelo'=>'required',    
             'MedidaUso'=>'required',    
             'MedidaCombustible'=>'required',    
@@ -141,6 +145,10 @@ class VehiculoController extends Controller
             'Placa'=>'required',
             'Color'=>'required',
             'imagen',
+            'combustible'=>'required',
+            'motor'=>'required',
+            'cilindraje'=>'required',
+            'cilindrada'=>'required',
             
         ]);
         $input=$request->all();

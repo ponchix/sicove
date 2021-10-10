@@ -68,7 +68,7 @@
                     </div>
 
 
-                   <div class="col-md-3 col-xs-3 col-xs-3">
+                    <div class="col-md-3 col-xs-3 col-xs-3">
                        <label>Medida de Uso</label><span class="text-danger">*</span>
                        <select name="MedidaUso" class="form-control" >
                         <option value="">-</option>
@@ -76,59 +76,97 @@
                         <option >millas</option>
                     </select>
                 </div>
-
                 <div class="col-md-3 col-xs-3 col-xs-3">
-                   <label>Medida de combustible</label><span class="text-danger">*</span>
-                   <select name="MedidaCombustible" class="form-control" >
+                 <label>Tipo de combustible</label><span class="text-danger">*</span>
+                 <select name="combustible" class="form-control" >
                     <option value="">-</option>
-                    <option >lítros</option>
-                    <option >galones</option>
+                    <option >Gasolina</option>
+                    <option >Diésel</option>
+                    <option >Otro</option>
                 </select>
-                 </div>
-                 <!---Fin Configuracion--->
-                 <!--Inicio Info Adicional---->
-
-
-         <div class="titulo col-md-12 col-xs-12 col-xs-12"> Informacion adicional</div>
-
-
-                                       <div class="col-md-3 col-xs-3 col-xs-3">
-                       <label>Fecha de compra</label><span class="text-danger">*</span>
-                       <input type="text" name="Estadisticas" class="form-control icono-placeholder " id="datepicker" placeholder="" autocomplete="off">
-                   </div>   
-
-
+            </div>
             <div class="col-md-3 col-xs-3 col-xs-3">
-             <label>Color</label><span class="text-danger">*</span>
-             <input type="text" name="Color" class="form-control" onkeyup="mayus(this);">
-         </div>
-
-         <div class="col-md-3 col-xs-3 col-xs-3">
-             <label>Placa</label><span class="text-danger">*</span>
-             <input type="text" name="Placa" class="form-control" onkeyup="mayus(this);">
-         </div>
-
-         <div class="col-md-3 col-xs-3 col-xs-3">
-             <label>Compañia de seguros</label><span class="text-danger">*</span>
-             <input type="text" name="CompaniaSeguros" class="form-control" onkeyup="mayus(this);">
-         </div>
-         <div class="col-md-6 col-xs-6 col-xs-6">
-             <label>Numero de serie</label><span class="text-danger">*</span>
-             <input type="text" name="NoSerie" class="form-control" onkeyup="mayus(this);">
-         </div>
-         <div class="col-md-6 col-xs-6 col-xs-6">
-             <label>Poliza de seguro</label><span class="text-danger">*</span>
-             <input type="text" name="PolizaSeguro" class="form-control" onkeyup="mayus(this);">
-         </div>
-
-
-         <div class="subir col-md-12 col-xs-12 col-xs-12">
-            @include('vehiculos.imagen')
+               <label>Medida de combustible</label><span class="text-danger">*</span>
+               <select name="MedidaCombustible" class="form-control" >
+                <option value="">-</option>
+                <option >lítros</option>
+                <option >galones</option>
+            </select>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-        </div>   
+
+        <div class="col-md-3 col-xs-3 col-xs-3">
+         <label>Motor</label><span class="text-danger">*</span>
+         <select name="motor" class="form-control" >
+            <option value="">-</option>
+            <option >Gasolina</option>
+            <option >Diésel</option>
+            <option >Hibrido</option>
+        </select>
     </div>
+    <div class="col-md-3 col-xs-3 col-xs-3">
+     <label>Disposición de cilindros</label><span class="text-danger">*</span>
+     <select name="cilindraje" class="form-control" >
+        <option value="">-</option>
+        <option >En línea</option>
+        <option >En V</option>
+        <option >Bóxer</option>
+        <option >Radial</option>
+    </select>
+</div>
+<div class="col-md-3 col-xs-3 col-xs-3">
+ <label>Numero de cilindros</label><span class="text-danger">*</span>
+ <select name="cilindrada" class="form-control" >
+    <option value="">-</option>
+    <option >4</option>
+    <option >6</option>
+    <option >8</option>
+    <option >12</option>
+</select>
+</div>
+<!---Fin Configuracion--->
+<!--Inicio Info Adicional---->
+
+
+<div class="titulo col-md-12 col-xs-12 col-xs-12"> Informacion adicional</div>
+
+
+<div class="col-md-3 col-xs-3 col-xs-3">
+   <label>Fecha de compra</label><span class="text-danger">*</span>
+   <input type="text" name="fecha_compra" class="form-control icono-placeholder " id="datepicker" placeholder="" autocomplete="off">
+</div>   
+
+
+<div class="col-md-3 col-xs-3 col-xs-3">
+ <label>Color</label><span class="text-danger">*</span>
+ <input type="text" name="Color" class="form-control" onkeyup="mayus(this);">
+</div>
+
+<div class="col-md-3 col-xs-3 col-xs-3">
+ <label>Placa</label><span class="text-danger">*</span>
+ <input type="text" name="Placa" class="form-control" onkeyup="mayus(this);">
+</div>
+
+<div class="col-md-3 col-xs-3 col-xs-3">
+ <label>Compañia de seguros</label><span class="text-danger">*</span>
+ <input type="text" name="CompaniaSeguros" class="form-control" onkeyup="mayus(this);">
+</div>
+<div class="col-md-6 col-xs-6 col-xs-6">
+ <label>Numero de serie</label><span class="text-danger">*</span>
+ <input type="text" name="NoSerie" class="form-control" onkeyup="mayus(this);">
+</div>
+<div class="col-md-6 col-xs-6 col-xs-6">
+ <label>Poliza de seguro</label><span class="text-danger">*</span>
+ <input type="text" name="PolizaSeguro" class="form-control" onkeyup="mayus(this);">
+</div>
+
+
+<div class="subir col-md-12 col-xs-12 col-xs-12">
+    @include('vehiculos.imagen')
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12">
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</div>   
+</div>
 
 </form>
 </div>

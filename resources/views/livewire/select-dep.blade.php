@@ -10,9 +10,9 @@
         </select>
         </div>
  <div class="col-md-6 col-xs-6 col-xs-6">
-        @if(!is_null($modelos))
+        @if(is_array($modelos) || is_object($modelos))
         <label>Modelo</label><span class="text-danger">*</span>
-        <select wire:model="selectedModelo" class="form-control" name="Modelo">
+        <select class="form-control" name="Modelo">
             <option value="">-</option>
             @foreach($modelos as $modelo)
             <option value="{{$modelo->modelo}}">{{$modelo->modelo}}</option>

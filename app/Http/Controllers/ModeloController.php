@@ -49,7 +49,7 @@ class ModeloController extends Controller
         // 'modelo'=>$request->modelo,
         // 'id_marca'=>$request->id_marca,
         // ]);
-        return redirect()->route('vehiculo.index');
+        return redirect()->route('vehiculos.index');
 
     }
 

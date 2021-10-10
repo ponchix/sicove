@@ -19,7 +19,7 @@ class CreateVehiculosTable extends Migration
             $table->string('TipoVehiculo');
             $table->string('Marca');    
             $table->string('StatusInicial');    
-            $table->string('Estadisticas');    
+            $table->string('fecha_compra');    
             $table->string('Modelo');    
             $table->string('MedidaUso');    
             $table->string('MedidaCombustible');    
@@ -30,6 +30,10 @@ class CreateVehiculosTable extends Migration
             $table->string('Placa');
             $table->string('Color');
             $table->string('imagen');
+            $table->string('combustible');
+            $table->string('motor');          
+            $table->string('cilindraje');          
+            $table->string('cilindrada');          
             $table->timestamps();
         });
     }
