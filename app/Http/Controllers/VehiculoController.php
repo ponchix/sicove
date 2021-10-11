@@ -117,9 +117,10 @@ class VehiculoController extends Controller
         //
         $marcas=Marca::all();
         $modelos=Modelo::all();
+        $tipos=TipoVehiculo::all();
 //return view('vehiculos.editar',compact('vehiculoModel'));
         $vehiculos=VehiculoModel::find($id);
-        return view('vehiculos.editar',compact('vehiculos','marcas','modelos'));
+        return view('vehiculos.editar',compact('vehiculos','marcas','modelos','tipos'));
     }
 
     /**

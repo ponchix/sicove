@@ -156,7 +156,7 @@
 </div>
 <div class="col-md-4 col-xs-34col-xs-4">
    <label>Vigencia Póliza</label><span class="text-danger">*</span>
-   <input type="text" name="fecha_poliza" class="form-control icono-placeholder " id="poliza" placeholder="" >
+   <input type="text" name="fecha_poliza" class="form-control icono-placeholder " id="poliza" placeholder="" autocomplete="off" >
 </div>   
 
 
