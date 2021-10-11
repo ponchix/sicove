@@ -11,6 +11,7 @@
                     <div class="card">
                         <div class="card-body" >
                             <a href="{{route('tipos.create')}}" class="btn btn-warning mb-0 mt-1">Nuevo</a>
+                            <a href="{{route('vehiculos.index')}}" class="btn btn-success mb-0 mt-1 ml-1"> Vehiculos</a>
 
                         <div class="titulo mt-3 mb-1">Total de Tipos</div>
                         

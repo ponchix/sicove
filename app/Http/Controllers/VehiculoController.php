@@ -7,6 +7,7 @@ use App\Models\VehiculoModel;
 use Illuminate\Support\Facades\DB;
 use App\Models\Modelo;
 use App\Models\Marca;
+use App\Models\TipoVehiculo;
 
 class VehiculoController extends Controller
 {
@@ -43,7 +44,8 @@ class VehiculoController extends Controller
     public function create()
     {
         //
-        return view('vehiculos.crear');
+        $tipos=TipoVehiculo::all();
+        return view('vehiculos.crear',compact('tipos'));
     }
 
     /**

@@ -45,14 +45,10 @@
                              <label>Tipo de vehiculo</label><span class="text-danger">*</span>
                              <select name="TipoVehiculo" class="form-control">
                                 <option value="">-</option>
-                                <option >AUTOMOVIL</option>
-                                <option >BUS</option>
-                                <option >CAMIONETA</option>
-                                <option >MOTOCICLETA</option>
-                                <option >PICK-UP</option>
-                                <option >SUV</option>
-                                <option >TRAILER</option>
-                                <option >VAN</option>
+                                @foreach($tipos as $tipo)
+                                <option value="{{$tipo['id']}}">{{$tipo['Nombre']}}</option>
+                                @endforeach
+
                             </select>
                         </div>
 
