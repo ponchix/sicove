@@ -76,6 +76,7 @@ class VehiculoController extends Controller
             'motor'=>'required',
             'cilindraje'=>'required',
             'cilindrada'=>'required',
+            'fecha_poliza'=>'required',
             
         ]);
         $vehiculo=$request->all();
@@ -150,6 +151,7 @@ class VehiculoController extends Controller
             'motor'=>'required',
             'cilindraje'=>'required',
             'cilindrada'=>'required',
+            'fecha_poliza'=>'required',
             
         ]);
         $input=$request->all();

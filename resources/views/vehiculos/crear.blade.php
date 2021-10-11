@@ -150,14 +150,18 @@
  <label>Compañia de seguros</label><span class="text-danger">*</span>
  <input type="text" name="CompaniaSeguros" class="form-control" onkeyup="mayus(this);">
 </div>
-<div class="col-md-6 col-xs-6 col-xs-6">
+<div class="col-md-4 col-xs-4 col-xs-4">
  <label>Numero de serie</label><span class="text-danger">*</span>
  <input type="text" name="NoSerie" class="form-control" onkeyup="mayus(this);">
 </div>
-<div class="col-md-6 col-xs-6 col-xs-6">
+<div class="col-md-4 col-xs-4 col-xs-4">
  <label>Poliza de seguro</label><span class="text-danger">*</span>
  <input type="text" name="PolizaSeguro" class="form-control" onkeyup="mayus(this);">
 </div>
+<div class="col-md-4 col-xs-34col-xs-4">
+   <label>Vigencia Póliza</label><span class="text-danger">*</span>
+   <input type="text" name="fecha_poliza" class="form-control icono-placeholder " id="poliza" placeholder="" >
+</div>   
 
 
 <div class="subir col-md-12 col-xs-12 col-xs-12">

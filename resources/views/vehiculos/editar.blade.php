@@ -151,14 +151,19 @@
    <label>Compañia de seguros</label>
    <input type="text" name="CompaniaSeguros" class="form-control" onkeyup="mayus(this);" value=" {{$vehiculos->CompaniaSeguros }}">
 </div>
-<div class="col-md-6 col-xs-6 col-xs-6">
+<div class="col-md-4 col-xs-4 col-xs-4">
    <label>Numero de serie</label>
    <input type="text" name="NoSerie" class="form-control" onkeyup="mayus(this);" value=" {{$vehiculos->NoSerie }}">
 </div>
-<div class="col-md-6 col-xs-6 col-xs-6">
+<div class="col-md-4 col-xs-4 col-xs-4">
    <label>Poliza de seguro</label>
    <input type="text" name="PolizaSeguro" class="form-control" onkeyup="mayus(this);" value=" {{$vehiculos->PolizaSeguro  }}">
 </div>
+<div class="col-md-4 col-xs-4 col-xs-4">
+   <label>Vigencia Póliza</label>
+   <input type="text" name="fecha_poliza" class="form-control" onkeyup="mayus(this);" id="poliza" value=" {{$vehiculos->fecha_poliza  }}">
+</div>
+
 
 
 <div class="subir col-md-12 col-xs-12 col-xs-12">

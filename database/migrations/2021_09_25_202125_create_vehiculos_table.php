@@ -34,6 +34,7 @@ class CreateVehiculosTable extends Migration
             $table->string('motor');          
             $table->string('cilindraje');          
             $table->string('cilindrada');          
+            $table->string('fecha_poliza');          
             $table->timestamps();
         });
     }

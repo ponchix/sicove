@@ -30,5 +30,6 @@ class VehiculoModel extends Model
         'motor',
         'cilindraje',
         'cilindrada',
+        'fecha_poliza',
       ];
 }
