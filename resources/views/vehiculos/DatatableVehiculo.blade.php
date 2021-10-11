@@ -1,6 +1,6 @@
   <title>Vehiculos</title>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-  <table id="example" class="table table-striped mt-2">
+  <table id="example" class="table mt-2 table-borderless table-hover">
     <thead>
         <th>ID</th>
         <th>Imagen</th>
