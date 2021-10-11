@@ -88,3 +88,43 @@ font-size:20px;
 	font-family: "Font Awesome 5 Free";
 	font-weight: 900;
 }
+
+#contenedor{
+	text-align: center;
+	display:inline-grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 15px;
+	margin-left: 650px;
+}
+
+#caja,#caja2,#caja3{
+	display:inline-block;
+	text-align: center;
+	padding-top: 20%;
+	width: 70px;
+	height: 70px;
+	font-size: 35px;
+	vertical-align: middle;
+	border-radius: 1rem;
+	box-shadow: 6px 10px 15px 1px rgb(8, 0, 0,0.507);
+}
+#caja{
+	background-color:#22C9B7  ;
+	color: azure;
+	border-bottom: 50px solid #33CDBD ;
+}
+#caja2{
+	background-color:#22C9B7  ;
+	color: azure;
+	border-bottom: 50px solid #33CDBD ;
+}
+#caja3{
+	background-color:#3BCBF5  ;
+	color: azure;
+	border-bottom: 50px solid ##3BC7F1   ;
+}
+
+.dropdown-item:focus, .dropdown-item:hover{
+	color: azure !important;
+	background-color: #1D8A8F;
+}

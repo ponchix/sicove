@@ -10,23 +10,36 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body" >
-                        @can('crear-vehiculo')
-                        <a href="{{route('vehiculos.create')}}" class="btn btn-warning mb-0 mt-1">Nuevo</a>
-                        @endcan()
-                        @can('crear-vehiculo')
-                        <a class="btn btn-dark mb-0 mt-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar nuevo modelo" href="{{route('modelos.create')}}"> Nuevo Modelo </a> 
-                        @endcan()
-                        <a href="{{route('tipos.index')}}" class="boton btn mb-0 mt-1">Agregar Tipo</a>
-                        <div class="titulo mt-3 mb-1">Inventario de vehiculos</div>
-                        
-                        <div class="table-responsive">  
-                         @include('vehiculos.DatatableVehiculo')
-                     </div>
+                        <div class="dropdown  dropend">
+                            <a href="" class="btn btn-primary dropdown-toggle btn-lg " role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Opciones</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li>
+                                 @can('crear-vehiculo')
+                                 <a href="{{route('vehiculos.create')}}"class="dropdown-item">Nuevo vehiculo</a>
+                                 @endcan()
+                             </li>
+                             <li>
+                              @can('crear-vehiculo')
+                              <a data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar nuevo modelo" href="{{route('modelos.create')}}"class="dropdown-item"> Agregar Modelo </a> 
+                              @endcan()
+                          </li>
+                          <li>
+                              <a href="{{route('tipos.index')}}" class="dropdown-item">Agregar Tipo de vehiculo</a>
+                          </li>
+                      </ul>
+                  </div>
+
+
+                  <div class="titulo mt-3 mb-1">Inventario de vehiculos</div>
+
+                  <div class="table-responsive">  
+                     @include('vehiculos.DatatableVehiculo')
                  </div>
              </div>
          </div>
      </div>
  </div>
+</div>
 </section>
 @endsection
 

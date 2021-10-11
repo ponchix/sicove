@@ -2468,7 +2468,8 @@ h6 .badge {
 }
 
 .dropdown-menu a {
-    font-size: 13px;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
 .dropdown-menu .dropdown-title {
@@ -2496,7 +2497,7 @@ a.dropdown-item {
 }
 
 a.dropdown-item:focus, a.dropdown-item:active, a.dropdown-item.active {
-    background-color: #6777ef;
+    background-color: #1D8A8F;
     color: #fff !important;
 }
 
@@ -2519,7 +2520,7 @@ a.dropdown-item:focus, a.dropdown-item:active, a.dropdown-item.active {
 }
 
 .dropdown-list .dropdown-item.dropdown-item-header:hover {
-    background-color: transparent;
+
 }
 
 .dropdown-list .dropdown-item .time {
