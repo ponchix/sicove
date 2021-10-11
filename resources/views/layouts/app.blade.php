@@ -41,7 +41,7 @@
 <div id="app">
     <div class="main-wrapper main-wrapper-1">
         <div class="navbar-bg" style="background-color:#1D8F7A"></div>
-        <nav class="navbar navbar-expand-lg main-navbar">
+        <nav class="navbar  navbar-expand-lg main-navbar">
             @include('layouts.header')
 
         </nav>

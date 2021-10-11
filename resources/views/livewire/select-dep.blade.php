@@ -15,7 +15,7 @@
         <select class="form-control" name="Modelo">
             <option value="">-</option>
             @foreach($modelos as $modelo)
-            <option value="{{$modelo->modelo}}">{{$modelo->modelo}}</option>
+            <option value="{{$modelo->id}}">{{$modelo->modelo}}</option>
             @endforeach
         </select>
         
