@@ -22,8 +22,10 @@
                             <div id="caja3">
                                 <label id="segundo"></label>
                             </div>
-
                         </div>
+                              <div class="titulo">Agenda</div>
+
+                              @include('Calendario.index')                      
                     </div>
                 </div>
             </div>

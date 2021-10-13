@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
 
-
+<script  src="{{asset('js/app.js')}}" defer></script>
 
       <!-- Bootstrap 4.1.1 -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css
@@ -22,6 +22,18 @@
     <link rel="stylesheet" href="{{ asset('assets/css/iziToast.min.css') }}">
     <link href="{{ asset('assets/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('assets/css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
+
+    <!---Calendario-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/locales-all.js"></script>
+
+    <script type="text/javascript"> 
+var baseURL={!! json_encode(url('/')) !!}
+    </script>
+
+
+
 
 @yield('page_css')
 <!-- Template CSS -->
@@ -61,8 +73,12 @@
 
 @include('profile.change_password')
 @include('profile.edit_profile')
+@include('Calendario.Agenda')
 </body>
+<!---Calenario---->
+<script src="{{asset('js/agenda.js')}}" defer></script>
 
+<!--Fin calendario--->
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>

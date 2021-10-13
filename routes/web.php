@@ -5,6 +5,7 @@ use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\EventoController;
 
 
 /*
@@ -33,6 +34,13 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/vehiculos/perfil/{vehiculo}', 'VehiculoController@show')->name('vehiculo.perfil');
     Route::resource('modelos','ModeloController');
     Route::resource('tipos','TipoVehiculoController');
+     Route::post('/home/agregar', [App\Http\Controllers\EventoController::class, 'store']);
+     Route::post('/home/mostrar', [App\Http\Controllers\EventoController::class, 'show']);
+     Route::post('/home/editar/{id}', [App\Http\Controllers\EventoController::class, 'edit']);
+     Route::post('/home/actualizar/{evento}', [App\Http\Controllers\EventoController::class, 'update']);
+     Route::post('/home/eliminar/{id}', [App\Http\Controllers\EventoController::class, 'destroy']);
+
+
 });
 
-Route::get('home','RelacionMMController@index');
+
