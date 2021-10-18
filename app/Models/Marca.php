@@ -12,6 +12,10 @@ class Marca extends Model
         return $this->hasMany(Modelo::class,'id');
     }
 
+          public function vehiculos(){
+        return $this->hasMany(TipoVehiculo::class,'id');
+    }
+
     protected $fillable=[
         'marca',
 

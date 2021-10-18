@@ -21,7 +21,8 @@ class CreateModelosTable extends Migration
             ->constrained('marcas')
             ->cascadeOnUpdate()
             ->nullOnDelete();
-            $table->timestamps();
+         
+$table->timestamps();
         });
     }
 

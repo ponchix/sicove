@@ -79,6 +79,7 @@ class VehiculoController extends Controller
             'cilindraje'=>'required',
             'cilindrada'=>'required',
             'fecha_poliza'=>'required',
+            'factura'=>'required',
             
         ]);
         $vehiculo=$request->all();
@@ -87,6 +88,12 @@ class VehiculoController extends Controller
             $imagenVehiculo=date('YmdHis').".".$imagen->getClientOriginalExtension();
             $imagen->move($rutaImg,$imagenVehiculo);
             $vehiculo['imagen']="$imagenVehiculo";
+        }
+        if ($factura=$request->file('factura')) {
+            $rutaFac='factura/';
+            $facturaVehiculo=date('YmdHis').".".$factura->getClientOriginalExtension();
+            $factura->move($rutaFac,$facturaVehiculo);
+            $vehiculo['factura']="$facturaVehiculo";
         }
         VehiculoModel::create($vehiculo);
         return redirect()->route('vehiculos.index');
@@ -102,7 +109,8 @@ class VehiculoController extends Controller
     {
         //
         $vehiculo=VehiculoModel::find($id);
-        return view('vehiculos.perfil',compact('vehiculo'));
+        
+         return view('vehiculos.perfil',compact('vehiculo'));
 
     }
 
@@ -155,6 +163,7 @@ class VehiculoController extends Controller
             'cilindraje'=>'required',
             'cilindrada'=>'required',
             'fecha_poliza'=>'required',
+            'factura'=>'required',
             
         ]);
         $input=$request->all();
@@ -165,6 +174,14 @@ class VehiculoController extends Controller
             $input['imagen']="$imagenVehiculo";
         }else{
             unset($input['imagen']);
+        }
+        if ($factura=$request->file('factura')) {
+            $rutaFac='factura/';
+            $facturaVehiculo=date('YmdHis').".".$factura->getClientOriginalExtension();
+            $factura->move($rutaFac,$facturaVehiculo);
+            $input['factura']="$facturaVehiculo";
+        }else{
+            unset($input['factura']);
         }
         $vehiculos=VehiculoModel::find($id);
         $vehiculos->update($input);

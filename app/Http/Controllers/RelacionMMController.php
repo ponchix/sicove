@@ -12,7 +12,7 @@ class RelacionMMController extends Controller
 public function index(){
     $marcas=Modelo::all();
 
-    return view('home',compact('marcas'));
+    return view('perfil',compact('marcas'));
 }
 
 }

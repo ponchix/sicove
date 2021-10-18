@@ -13,8 +13,14 @@
                         <div class="perfil">
                           <img src="/imagen/{{$vehiculo->imagen}}"  width="50%" height="50%">
                       </div>
-                      
+                      <a href="/factura/{{$vehiculo->factura}}" class="btn btn-success">ver factura </a>
                     {{$vehiculo->NombreVehiculo}}
+                    {{$vehiculo->marcasVehiculo->marca}}
+                    @php
+                     use App\Models\Marca;
+                     $total=Marca::count();  
+                    @endphp
+                    {{$total}}
                 </div>
             </div>
         </div>

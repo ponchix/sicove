@@ -163,6 +163,10 @@
 <div class="subir col-md-12 col-xs-12 col-xs-12">
     @include('vehiculos.imagen')
 </div>
+<div>
+    <label for="">Subir Factura</label>
+    <input type="file" name="factura" id="factura">
+</div>
 <div class="col-xs-12 col-sm-12 col-md-12">
     <button type="submit" class="btn btn-primary">Guardar</button>
 </div>   

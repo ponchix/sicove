@@ -17,7 +17,11 @@ class CreateVehiculosTable extends Migration
  $table->id();
             $table->string('NombreVehiculo');
             $table->string('TipoVehiculo');
-            $table->string('Marca');    
+            $table->foreignId('Marca')
+            ->nullable()
+            ->constrained('marcas')
+            ->cascadeOnUpdate()
+            ->nullOnDelete();  
             $table->string('StatusInicial');    
             $table->string('fecha_compra');    
             $table->string('Modelo');    
@@ -34,8 +38,11 @@ class CreateVehiculosTable extends Migration
             $table->string('motor');          
             $table->string('cilindraje');          
             $table->string('cilindrada');          
-            $table->string('fecha_poliza');          
+            $table->string('fecha_poliza'); 
+            $table->string('factura'); 
+
             $table->timestamps();
+
         });
     }
 

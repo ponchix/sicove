@@ -17,7 +17,7 @@ class CreateMarcasTable extends Migration
             $table->id();
             $table->string('marca');
             $table->timestamps();
-        });
+                    });
     }
 
     /**

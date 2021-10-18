@@ -121,12 +121,16 @@ font-size:20px;
 #caja3{
 	background-color:#3BCBF5  ;
 	color: azure;
-	border-bottom: 50px solid ##3BC7F1   ;
+	border-bottom: 50px solid #3BC7F1   ;
 }
 
 .dropdown-item:focus, .dropdown-item:hover{
 	color: azure !important;
 	background-color: #1D8A8F;
+}
+
+.separacion{
+	outline: none !important;
 }
 
 

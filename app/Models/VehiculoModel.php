@@ -31,5 +31,10 @@ class VehiculoModel extends Model
         'cilindraje',
         'cilindrada',
         'fecha_poliza',
+        'factura',
       ];
+      public function marcasVehiculo(){
+        return $this->belongsTo(Marca::class,'Marca');
+    }
+
 }

@@ -6,6 +6,7 @@
         <th>Imagen</th>
         <th>Nombre Vehiculo</th>
         <th>Tipo</th>
+        <th>Marca</th>
         <th>Modelo</th>
         <th>Estatus</th>
         <th>Acciones</th>
@@ -17,6 +18,7 @@
             <td> <img src="/imagen/{{$vehiculo->imagen}}" width="120" height="90px"> </td>
             <td>{{$vehiculo->NombreVehiculo}}</td>
             <td>{{$vehiculo->TipoVehiculo}}</td>
+            <td>{{$vehiculo->marcasVehiculo->marca}}</td>
             <td>{{$vehiculo->Modelo}}</td>
             <td>@if($vehiculo->StatusInicial=='Disponible')
                 <span class="badge bg-primary">{{$vehiculo->StatusInicial}}</span>
