@@ -36,5 +36,8 @@ class VehiculoModel extends Model
       public function marcasVehiculo(){
         return $this->belongsTo(Marca::class,'Marca');
     }
+    public function tiposVehiculo(){
+      return $this->belongsTo(TipoVehiculo::class,'TipoVehiculo');
+  }
 
 }

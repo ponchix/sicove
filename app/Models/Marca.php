@@ -13,7 +13,7 @@ class Marca extends Model
     }
 
           public function vehiculos(){
-        return $this->hasMany(TipoVehiculo::class,'id');
+        return $this->hasMany(VehiculoModel::class,'id');
     }
 
     protected $fillable=[

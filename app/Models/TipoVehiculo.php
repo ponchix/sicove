@@ -12,4 +12,8 @@ class TipoVehiculo extends Model
     protected $fillable=[
         'Nombre',
     ];
+
+    public function vehiculos(){
+        return $this->hasMany(VehiculoModel::class,'id');
+    }
 }

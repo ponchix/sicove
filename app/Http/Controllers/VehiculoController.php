@@ -9,6 +9,7 @@ use App\Models\Modelo;
 use App\Models\Marca;
 use App\Models\TipoVehiculo;
 
+use Illuminate\Support\Facades\Cache;
 class VehiculoController extends Controller
 {
 
@@ -26,6 +27,13 @@ class VehiculoController extends Controller
     public function index()
     {
         //
+        if (Cache::has('vehiculos')) {
+            $vehiculos=Cache::get('vehiculos');
+        } else {
+            $vehiculos=VehiculoModel::where('status',2)->latest('id');
+           
+        }
+        
         $vehiculos=VehiculoModel::all();
 
 
@@ -96,6 +104,7 @@ class VehiculoController extends Controller
             $vehiculo['factura']="$facturaVehiculo";
         }
         VehiculoModel::create($vehiculo);
+        Cache::flush();
         return redirect()->route('vehiculos.index');
     }
 
@@ -185,6 +194,7 @@ class VehiculoController extends Controller
         }
         $vehiculos=VehiculoModel::find($id);
         $vehiculos->update($input);
+        Cache::flush();
         return redirect()->route('vehiculos.index');
     }
 
@@ -197,6 +207,7 @@ class VehiculoController extends Controller
     public function destroy($id)
     {
       VehiculoModel::find($id)->delete();
+      Cache::flush();
       return redirect()->route('vehiculos.index');
 
   }
