@@ -12,6 +12,8 @@
 
 <script  src="{{asset('js/app.js')}}" defer></script>
 
+<!---HighCharts--->
+
       <!-- Bootstrap 4.1.1 -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css
     "/>
@@ -33,7 +35,11 @@ var baseURL={!! json_encode(url('/')) !!}
     </script>
 
 
-
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 @yield('page_css')
 <!-- Template CSS -->
@@ -106,6 +112,11 @@ var baseURL={!! json_encode(url('/')) !!}
 <script src="{{ asset('web/js/scripts.js') }}"></script>
 <script src="{{ mix('assets/js/profile.js') }}"></script>
 <script src="{{ mix('assets/js/custom/custom.js') }}"></script>
+
+<!---HighCharts-->
+
+
+
 <script>
   $( function() {
     $( "#datepicker" ).datepicker({

@@ -29,10 +29,6 @@
 						<label>Final</label>
 						<input type="date" name="end" id="end" class="form-control" placeholder="Final del evento">
 					</div>
-					<div class="form-group ">
-						<label>Final</label>
-						<input type="color" name="mycolor" id="mycolor" class="form-control">
-					</div>
 
 				</form>
 

@@ -34,12 +34,14 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/vehiculos/perfil/{vehiculo}', 'VehiculoController@show')->name('vehiculo.perfil');
     Route::resource('modelos','ModeloController');
     Route::resource('tipos','TipoVehiculoController');
+    //Rutas agenda
      Route::post('/home/agregar', [App\Http\Controllers\EventoController::class, 'store']);
      Route::post('/home/mostrar', [App\Http\Controllers\EventoController::class, 'show']);
      Route::post('/home/editar/{id}', [App\Http\Controllers\EventoController::class, 'edit']);
      Route::post('/home/actualizar/{evento}', [App\Http\Controllers\EventoController::class, 'update']);
      Route::post('/home/eliminar/{id}', [App\Http\Controllers\EventoController::class, 'destroy']);
-
+     //Rutas indicentes
+    Route::resource('incidentes','incidenteController');
 
 });
 

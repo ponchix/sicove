@@ -26,6 +26,9 @@
                           <li>
                               <a href="{{route('tipos.index')}}" class="dropdown-item">Agregar Tipo de vehiculo</a>
                           </li>
+                          <li>
+                            <a href="{{route('incidentes.index')}}" class="dropdown-item">Incidentes</a>
+                        </li>
                       </ul>
                   </div>
 
