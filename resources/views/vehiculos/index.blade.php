@@ -15,7 +15,7 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <li>
                                  @can('crear-vehiculo')
-                                 <a href="{{route('vehiculos.create')}}"class="dropdown-item">Nuevo vehiculo</a>
+                                 <a href="{{route('vehiculos.create')}}"class="dropdown-item">Registrar Vehiculo</a>
                                  @endcan()
                              </li>
                              <li>
@@ -24,10 +24,13 @@
                               @endcan()
                           </li>
                           <li>
-                              <a href="{{route('tipos.index')}}" class="dropdown-item">Agregar Tipo de vehiculo</a>
+                              <a href="{{route('tipos.index')}}" class="dropdown-item">Tipo de Vehiculo</a>
                           </li>
                           <li>
                             <a href="{{route('incidentes.index')}}" class="dropdown-item">Incidentes</a>
+                        </li>
+                        <li>
+                            <a href="{{route('marcas.index')}}" class="dropdown-item">Marcas</a>
                         </li>
                       </ul>
                   </div>

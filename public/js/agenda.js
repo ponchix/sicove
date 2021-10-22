@@ -1,8 +1,8 @@
       document.addEventListener('DOMContentLoaded', function() {
         let formulario=document.querySelector("#myform");
-        let colores=document.getElementById("#ycolor");
-        var calendarEl = document.getElementById('agenda');
+              var calendarEl = document.getElementById('agenda');
         var calendar = new FullCalendar.Calendar(calendarEl, {
+          themeSystem: 'bootstrap',
           initialView: 'dayGridMonth',
           locale:"es",
            events: 'inverse-background',

@@ -42,6 +42,8 @@ Route::group(['middleware'=>['auth']],function(){
      Route::post('/home/eliminar/{id}', [App\Http\Controllers\EventoController::class, 'destroy']);
      //Rutas indicentes
     Route::resource('incidentes','incidenteController');
+    //Rutas Marcas
+    Route::resource('marcas', 'MarcaController');
 
 });
 

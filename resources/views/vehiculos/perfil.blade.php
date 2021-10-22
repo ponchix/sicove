@@ -15,7 +15,7 @@
                       </div>
                       <a href="/factura/{{$vehiculo->factura}}" class="btn btn-success">ver factura </a>
                     {{$vehiculo->NombreVehiculo}}
-                    {{$vehiculo->marcasVehiculo->marca}}
+                {{$vehiculo->marcasVehiculo->marca}}
                     @php
                      use App\Models\Marca;
                      $total=Marca::count();  

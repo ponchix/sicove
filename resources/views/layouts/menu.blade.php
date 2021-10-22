@@ -18,6 +18,6 @@
         <i class="fas fa-users"></i><span>Usuarios</span>
     </a>
     <a class="nav-link"href="/roles">
-        <i class="fas fa-user-tag"></i><span>Roles</span>
+        <i class="fas fa-user-tag"></i><span>Roles y Permisos</span>
     </a>
 </li>
