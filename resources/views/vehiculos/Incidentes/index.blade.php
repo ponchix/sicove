@@ -66,10 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
             series: [{
                 name: 'Incidentes',
                 data: [userData]
-
             }]
         });
     });
-
     
                                 </script>
