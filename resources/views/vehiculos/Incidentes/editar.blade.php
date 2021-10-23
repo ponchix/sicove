@@ -42,9 +42,14 @@
                                     <input type="text" class="form-control" name="descripcion" value="{{$incidentes->descripcion}}" onkeyup="mayus(this);">
                                 </div>
                                 <div class="col-md-3 col-xs-3 col-xs-3">
-                                    <label>Importancia</label>
-                                    <input type="text" class="form-control" name="importancia" value="{{$incidentes->importancia}}" onkeyup="mayus(this);">
-                                </div>
+                           <label>Importancia</label><span class="text-danger">*</span>
+                           <select name="importancia" class="form-control">
+                            <option value="">-</option>
+                            <option >Alta</option>
+                            <option >Media</option>
+                            <option >Baja</option>
+                        </select>
+                    </div>
                                 <div class="col-md-9 col-xs-9 col-xs-9">
                                     <label>Descripcion Detallada</label>
                                     <textarea rows="1" cols="3" class="form-control" name="detallada" value="{{$incidentes->detallada}}" onkeyup="mayus(this);"></textarea>

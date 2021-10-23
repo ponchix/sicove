@@ -72,9 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 name: 'Incidentes',
                 data: userData
 
-            }]
+                        }]
         });
     });
-
     
                                 </script>

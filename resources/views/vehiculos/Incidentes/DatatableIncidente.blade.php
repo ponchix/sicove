@@ -15,7 +15,14 @@
           <td>{{$incidente->id}}</td>
           <td>{{$incidente->vehiculo}}</td>
           <td>{{$incidente->Fecha_reporte}}</td>
-          <td>{{$incidente->importancia}}</td>
+          <td>@if($incidente->importancia=='Alta')
+                <span class=" badge bg-danger">{{$incidente->importancia}}</span>
+                @elseif($incidente->importancia=='Media')
+                <span class="badge bg-warning">{{$incidente->importancia}}</span>
+                @elseif($incidente->importancia=='Baja')
+                <span class="badge bg-primary">{{$incidente->importancia}}</span>
+                @endif
+          </td>
           <td><img src="/incidente/{{$incidente->foto}}" width="120" height="90px"></td>
           <td>
               <form action="{{route('incidentes.destroy',$incidente->id)}}" method="POST" class="formulario">
