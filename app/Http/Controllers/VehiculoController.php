@@ -9,6 +9,8 @@ use App\Models\Marca;
 use App\Models\TipoVehiculo;
 
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
+
 class VehiculoController extends Controller
 {
 
@@ -117,8 +119,14 @@ class VehiculoController extends Controller
     {
         //
         $vehiculo=VehiculoModel::find($id);
+        $modelo=DB::table('vehiculos')
+        ->join('marcas','vehiculos.Marca','=','marcas.id')
+        ->join('modelos','marcas.id','=','modelos.id_marca')
+        ->select('modelos.modelo')
+        ->where('vehiculos.id','=',$id)
+        ->get();
         
-         return view('vehiculos.perfil',compact('vehiculo'));
+         return view('vehiculos.perfil',compact('vehiculo','modelo'));
 
     }
 
@@ -133,9 +141,11 @@ class VehiculoController extends Controller
         //
         $marcas=Marca::all();
         $modelos=Modelo::all();
+
         $tipos=TipoVehiculo::all();
 //return view('vehiculos.editar',compact('vehiculoModel'));
         $vehiculos=VehiculoModel::find($id);
+     
         return view('vehiculos.editar',compact('vehiculos','marcas','modelos','tipos'));
     }
 
@@ -153,10 +163,10 @@ class VehiculoController extends Controller
         request()->validate([
             'NombreVehiculo'=>'required',
             'TipoVehiculo'=>'required',
-            'Marca'=>'required',    
+            'Marca',    
             'StatusInicial'=>'required',    
             'fecha_compra'=>'required',    
-            'Modelo'=>'required',    
+            'Modelo',    
             'MedidaUso'=>'required',    
             'MedidaCombustible'=>'required',    
             'anio'=>'required',    
@@ -171,7 +181,7 @@ class VehiculoController extends Controller
             'cilindraje'=>'required',
             'cilindrada'=>'required',
             'fecha_poliza'=>'required',
-            'factura'=>'required',
+            'factura',
             
         ]);
         $input=$request->all();

@@ -37,11 +37,38 @@
                   <input type="text" name="anio" class="form-control" onkeyup="mayus(this);" value=" {{$vehiculos->anio }}">
                </div>
 
-               @livewireStyles
+               {{-- @livewireStyles
                <div class="col-md-6 col-xs-6 col-xs-6">        
                   @livewire('select-dep')
                </div>
-               @livewireScripts
+               @livewireScripts --}}
+               <div class="col-md-3 col-xs-3 col-xs-3">
+                  <label>Marca</label>
+                  <select name="Marca" class="form-control" disabled >
+                    <option value="" disabled>-</option>
+                    @foreach($marcas as $marca)
+                    <?php if ($marca['id']==$vehiculos->Marca){ ?>
+                    <option value="{{$marca['id']}}" selected="selected" >{{$marca['marca']}}</option>
+                    <?php } else { ?>
+                    <option value="{{$marca['id']}}">{{$marca['marca']}}</option>
+                    <?php }?>
+                    @endforeach
+                 </select>
+                </div>
+
+                <div class="col-md-3 col-xs-3 col-xs-3">
+                  <label>Modelo</label>
+                  <select name="Modelo" class="form-control" disabled>
+                    <option value="">-</option>
+                    @foreach($modelos as $modelo)
+                    <?php if ($modelo['id']==$vehiculos->Modelo){ ?>
+                    <option value="{{$modelo['id']}}" selected>{{$modelo['modelo']}}</option>
+                    <?php } else { ?>
+                    <option value="{{$modelo['id']}}">{{$modelo['modelo']}}</option>
+                    <?php }?>
+                    @endforeach
+                 </select>
+                </div>
 
                <div class="titulo">Configuración</div>
                <div class="col-md-3 col-xs-3 col-xs-3">

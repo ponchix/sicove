@@ -26,7 +26,10 @@
                                 <td class="text-right"> {{$vehiculo->marcasVehiculo->marca}}</td>
                                 </tr>
                                 <tr><th scope="row" class="text-left">Modelo</th>
-                                <td class="text-right">-----</td>
+                                    @foreach ($modelo as $item)
+                                    <td class="text-right">{{$item->modelo}}</td>   
+                                    @endforeach
+                               
                                 </tr>
                                 <tr><th scope="row" class="text-left">Año</th>
                                 <td class="text-right">{{$vehiculo->anio}}</td>
