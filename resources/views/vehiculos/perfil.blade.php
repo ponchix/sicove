@@ -42,7 +42,7 @@
                             <table class="table" >
                                 <tbody>
                                 <tr><th scope="row" class="text-left">Tipo de Vehiculo</th></small>
-                                <td class="text-right">{{$vehiculo->tiposVehiculo->TipoVehiculo}}</td>
+                                <td class="text-right">{{$vehiculo->tiposVehiculo->Nombre}}</td>
                                 </tr>
                                 <tr><th scope="row" class="text-left">Estatus</th>
                                 <td class="text-right">
