@@ -34,10 +34,10 @@
 @endsection
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    var userData = <?php echo json_encode($userData)?>;
-    var meses = <?php echo json_encode($meses)?>;
-    console.log(meses);
-
+    var datas = <?php echo json_encode($datas)?>;
+   
+    
+ 
         const chart = Highcharts.chart('container', {
             chart: {
                 type: 'area',
@@ -52,6 +52,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 text: 'Total de Incidentes'
             },
             plotOptions: {
+                series:{
+                    allowPointSelect:true
+                },
         area: {
             depth: 100
         }
@@ -60,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 title: {
                     text: 'Total'
                 },
-                categories:meses
+                categories:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']
             },
             yAxis: {
                 title: {
@@ -70,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             series: [{
                 name: 'Incidentes',
-                data: userData
+                data: datas
 
                         }]
         });

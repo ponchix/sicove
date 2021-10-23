@@ -18,15 +18,21 @@ class IncidenteController extends Controller
     {
         //
         $incidentes=incidente::all();
-        $userData = Incidente::select(DB::raw("COUNT(*) as count"))
+        $Datas = Incidente::select(DB::raw("COUNT(*) as count"))
         ->whereYear('Fecha_reporte', date('Y'))
         ->groupBy(DB::raw("Month(Fecha_reporte)"))
         ->pluck('count');
+        $months = Incidente::select(DB::raw("Month(Fecha_reporte) as month"))
+        ->whereYear('Fecha_reporte', date('Y'))
+        ->groupBy(DB::raw("Month(Fecha_reporte)"))
+        ->pluck('month');
 
-        $meses=Incidente::select(DB::raw("SELECT MONTHNAME('Fecha_reporte')"));
-        
-
-         return view('vehiculos/Incidentes.index',compact('incidentes','userData','meses'));
+        $datas=array(0,0,0,0,0,0,0,0,0,0,0,0);
+        foreach($months as $index=>$month){
+            $month=$month-1;
+            $datas[$month]=$Datas[$index];
+        }
+         return view('vehiculos/Incidentes.index',compact('incidentes','datas'));
     }
 
     /**
