@@ -17,7 +17,7 @@ class CreateIncidentesTable extends Migration
             $table->id();
             $table->string('vehiculo');
             $table->string('conductor');
-            $table->date('Fecha_reporte');
+            $table->dateTime('Fecha_reporte');
             $table->string('descripcion');
             $table->string('importancia');
             $table->string('detallada');
