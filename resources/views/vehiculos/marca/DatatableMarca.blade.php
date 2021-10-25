@@ -48,3 +48,24 @@
 });
 } ); 
 </script>
+<!--SweetAlert---->
+
+<script >
+    $('.formulario').submit(function(e){
+        e.preventDefault();
+        Swal.fire({
+          title: '¿Quieres eliminar esta marca de vehiculo?',
+          text: "Recuerda que podría estar asignado a algun vehiculo y causar problemas",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sí, Borrar!',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.submit();
+      }
+  })
+
+  });
+</script>
