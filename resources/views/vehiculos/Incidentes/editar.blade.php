@@ -27,8 +27,18 @@
                             <div class="row">
                                 <div class="col-md-3 col-xs-3 col-xs-3">
                                     <label>Vehiculo</label>
-                                    <input type="text" class="form-control" name="vehiculo" value="{{$incidentes->vehiculo}}" onkeyup="mayus(this);">
-                                </div>
+                                    <select name="vehiculo" class="form-control"  >
+                                      <option value="" >-</option>
+                                      @foreach($vehiculos as $vehiculo)
+                                      <?php if ($vehiculo['id']==$incidentes->vehiculo){ ?>
+                                      <option value="{{$vehiculo['id']}}" selected="selected" >{{$vehiculo['NombreVehiculo']}}</option>
+                                      <?php } else { ?>
+                                      <option value="{{$vehiculo['id']}}">{{$vehiculo['NombreVehiculo']}}</option>
+                                      <?php }?>
+                                      @endforeach
+                                   </select>
+                                  </div>
+
                                 <div class="col-md-3 col-xs-3 col-xs-3">
                                     <label>Conductor</label>
                                     <input type="text" class="form-control" name="conductor" value="{{$incidentes->conductor}}" onkeyup="mayus(this);">
@@ -41,18 +51,19 @@
                                     <label>Descripcion Corta</label>
                                     <input type="text" class="form-control" name="descripcion" value="{{$incidentes->descripcion}}" onkeyup="mayus(this);">
                                 </div>
-                                <div class="col-md-3 col-xs-3 col-xs-3">
-                           <label>Importancia</label><span class="text-danger">*</span>
-                           <select name="importancia" class="form-control">
-                            <option value="">-</option>
-                            <option >Alta</option>
-                            <option >Media</option>
-                            <option >Baja</option>
+
+                    <div class="col-md-3 col-xs-3 col-xs-3">
+                        <label>Importancia</label>
+                        <select name="importancia" class="form-control">
+                           <option value="">-</option>
+                           <option  {{$incidentes->importancia =="Alta" ? 'selected':''}}>Alta</option>
+                           <option  {{$incidentes->importancia =="Media" ? 'selected':''}}>Media</option>
+                           <option  {{$incidentes->importancia =="Baja" ? 'selected':''}}>Baja</option>
                         </select>
-                    </div>
+                     </div>
                                 <div class="col-md-9 col-xs-9 col-xs-9">
                                     <label>Descripcion Detallada</label>
-                                    <textarea rows="1" cols="3" class="form-control" name="detallada" value="{{$incidentes->detallada}}" onkeyup="mayus(this);"></textarea>
+                                    <input class="form-control" name="detallada" value="{{$incidentes->detallada}}" onkeyup="mayus(this);"></textarea>
                                 </div>
                                 <div class="col-md-9 col-xs-9 col-xs-9">
                                     <label>Foto: </label>

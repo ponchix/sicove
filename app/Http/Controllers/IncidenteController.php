@@ -100,8 +100,9 @@ class IncidenteController extends Controller
     public function edit($id)
     {
         //
+        $vehiculos=VehiculoModel::all();
         $incidentes=Incidente::find($id);
-        return view('vehiculos/Incidentes.editar',compact('incidentes'));
+        return view('vehiculos/Incidentes.editar',compact('incidentes','vehiculos'));
     }
 
     /**
@@ -120,8 +121,8 @@ class IncidenteController extends Controller
             'Fecha_reporte'=>'required',
             'descripcion'=>'required',
             'importancia'=>'required',
-            'detallada'=>'required',
-            'foto'=>'required',           
+            'detallada',
+            'foto',           
         ]);
         $incidente=$request->all();
         if ($imagen=$request->file('foto')) {
