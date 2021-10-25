@@ -15,7 +15,11 @@ class CreateIncidentesTable extends Migration
     {
         Schema::create('incidentes', function (Blueprint $table) {
             $table->id();
-            $table->string('vehiculo');
+            $table->foreignId('vehiculo')
+            ->nullable()
+            ->constrained('vehiculos')
+            ->cascadeOnUpdate()
+            ->nullOnDelete();
             $table->string('conductor');
             $table->dateTime('Fecha_reporte');
             $table->string('descripcion');

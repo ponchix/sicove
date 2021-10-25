@@ -40,4 +40,8 @@ class VehiculoModel extends Model
       return $this->belongsTo(TipoVehiculo::class,'TipoVehiculo');
   }
 
+  public function inicidentesVehiculos(){
+    return $this->hasMany(incidente::class,'id');
+}
+
 }

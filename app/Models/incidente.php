@@ -18,5 +18,8 @@ class incidente extends Model
         'detallada',
         'foto',
     ];
-
+    public function VehiculosIncidentes(){
+        return $this->belongsTo(TipoVehiculo::class,'vehiculo');
+    }
+  
 }

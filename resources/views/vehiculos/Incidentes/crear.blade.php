@@ -24,10 +24,22 @@
                             <form action="{{route('incidentes.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <div class="col-md-3 col-xs-3 col-xs-3">
+                                {{-- <div class="col-md-3 col-xs-3 col-xs-3">
                                     <label>Vehiculo</label>
                                     <input type="text" class="form-control" name="vehiculo">
-                                </div>
+                                </div> --}}
+
+                                <div class="col-md-3 col-xs-3 col-xs-3">
+                                    <label>Vehiculo</label><span class="text-danger">*</span>
+                                    <select name="vehiculo" class="form-control">
+                                       <option value="">-</option>
+                                       @foreach($vehiculos as $vehiculo)
+                                       <option value="{{$vehiculo['id']}}">{{$vehiculo['NombreVehiculo']}}</option>
+                                       @endforeach
+       
+                                   </select>
+                               </div>
+
                                 <div class="col-md-3 col-xs-3 col-xs-3">
                                     <label>Conductor</label>
                                     <input type="text" class="form-control" name="conductor">

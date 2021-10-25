@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Incidente;
+use App\Models\VehiculoModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -43,7 +44,8 @@ class IncidenteController extends Controller
     public function create()
     {
         //
-        return view('vehiculos/Incidentes.crear');
+        $vehiculos=VehiculoModel::all();
+        return view('vehiculos/Incidentes.crear',compact('vehiculos'));
    }
     
 
@@ -75,6 +77,7 @@ class IncidenteController extends Controller
         Incidente::create($incidente);
         Cache::flush();
         return redirect()->route('incidentes.index');
+
     }
 
     /**
