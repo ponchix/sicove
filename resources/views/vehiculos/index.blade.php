@@ -32,6 +32,9 @@
                         <li>
                             <a href="{{route('marcas.index')}}" class="dropdown-item">Marcas</a>
                         </li>
+                        <li>
+                            <a href="{{route('gastos.index')}}" class="dropdown-item">Gastos</a>
+                        </li>
                       </ul>
                   </div>
 
