@@ -15,4 +15,5 @@ class Modelo extends Model
       'modelo',
       'id_marca',
     ];
+    
 }

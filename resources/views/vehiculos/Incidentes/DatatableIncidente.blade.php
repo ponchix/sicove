@@ -13,7 +13,7 @@
       @foreach($incidentes as $incidente)
       <tr>
           <td>{{$incidente->id}}</td>
-          <td>{{$incidente->vehiculo}}</td>
+          <td>{{$incidente->VehiculosI->NombreVehiculo}}</td>
           <td>{{$incidente->Fecha_reporte}}</td>
           <td>@if($incidente->importancia=='Alta')
                 <span class=" badge bg-danger">{{$incidente->importancia}}</span>
