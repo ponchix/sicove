@@ -105,8 +105,11 @@
                                <div class="titulo">Documentación</div>
                               <a href="/factura/{{$vehiculo->factura}}" class="btn btn-success">ver factura</a>
                             </div>
-                            <div class="col-md-4 col-xs-4 col-xs-4">
-                                <div class="titulo">Insidentes</div>
+                            <div class="col-md-12 col-xs-12 col-xs-12">
+                                <div class="titulo">Incidentes</div>
+                                <div id="incidentes">
+
+                                </div>
                             </div>
                    
 
@@ -119,3 +122,51 @@
 </div>
 </section>
 @endsection
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var datas = <?php echo json_encode($datas)?>;
+       
+        
+     
+            const chart = Highcharts.chart('incidentes', {
+                chart: {
+                    type: 'column',
+                    options3d: {
+                enabled: true,
+                alpha: 10,
+                beta: 25,
+                depth: 70,
+            }
+                },
+                title: {
+                    text: 'Total de Incidentes'
+                },
+                plotOptions: {
+                    series:{
+                        allowPointSelect:true
+                    },
+            area: {
+                depth: 100
+            }
+        },
+                xAxis: {
+                    title: {
+                        text: 'Total'
+                    },
+                   
+                },
+                yAxis: {
+                    title: {
+                        text: 'Incidentes Registrados'
+                    }
+    
+                },
+                series: [{
+                    name: 'Incidentes',
+                    data: datas
+    
+                            }]
+            });
+        });
+        
+                                    </script>

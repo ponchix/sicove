@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\incidente;
 use Illuminate\Http\Request;
 use App\Models\VehiculoModel;
 use App\Models\Modelo;
@@ -126,7 +127,12 @@ class VehiculoController extends Controller
         ->where('vehiculos.id','=',$id)
         ->get();
         
-         return view('vehiculos.perfil',compact('vehiculo','modelo'));
+      
+        $datas = Incidente::select(DB::raw("COUNT(*) as count"))
+        ->where('vehiculo','=',$id)
+        ->groupBy(DB::raw("Month(Fecha_reporte)"))
+        ->pluck('count');
+         return view('vehiculos.perfil',compact('vehiculo','modelo','datas'));
 
     }
 
