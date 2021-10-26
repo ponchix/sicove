@@ -1851,13 +1851,13 @@ h6 .badge {
 }
 
 .btn-outline-primary, .btn-outline-primary.disabled {
-    border-color: #6777ef;
-    color: #6777ef;
+    border-color: #1D8A8F !important;
+    color: #1D8A8F !important;
 }
 
 .btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.disabled:hover, .btn-outline-primary.disabled:focus, .btn-outline-primary.disabled:active {
-    background-color: #6777ef !important;
-    color: #fff;
+    background-color: #1D8A8F !important ;
+    color: #fff !important;
 }
 
 .btn-outline-white, .btn-outline-white.disabled {

@@ -10,34 +10,30 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body" >
-                        <div class="dropdown  dropend">
-                            <a href="" class="btn btn-primary dropdown-toggle btn-lg " role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Opciones</a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <li>
-                                 @can('crear-vehiculo')
-                                 <a href="{{route('vehiculos.create')}}"class="dropdown-item">Registrar Vehiculo</a>
-                                 @endcan()
-                             </li>
-                             <li>
-                              @can('crear-vehiculo')
-                              <a data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar nuevo modelo" href="{{route('modelos.create')}}"class="dropdown-item"> Agregar Modelo </a> 
-                              @endcan()
-                          </li>
-                          <li>
-                              <a href="{{route('tipos.index')}}" class="dropdown-item">Tipo de Vehiculo</a>
-                          </li>
-                          <li>
-                            <a href="{{route('incidentes.index')}}" class="dropdown-item">Incidentes</a>
-                        </li>
-                        <li>
-                            <a href="{{route('marcas.index')}}" class="dropdown-item">Marcas</a>
-                        </li>
-                        <li>
-                            <a href="{{route('gastos.index')}}" class="dropdown-item">Gastos</a>
-                        </li>
-                      </ul>
-                  </div>
 
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <a class="btn btn-outline-primary btn-lg" href="{{route('vehiculos.create')}}"><i class="fas fa-plus"></i> Nuevo</a>
+                            <a  class="btn btn-outline-primary btn-lg ml-2" href="{{route('incidentes.index')}}"><i class="fas fa-car-crash"></i> Incidentes</a>
+                            <a  class="btn btn-outline-primary btn-lg ml-2" href="{{route('gastos.index')}}"><i class="fas fa-dollar-sign"></i> Gastos</a>
+                            <div class="btn-group" role="group">
+                                <div class="dropdown  dropend ">
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-lg btn-outline-primary dropdown-toggle ml-2" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-universal-access"></i> Adicionales</button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                     <li>
+                                      @can('crear-vehiculo')
+                                      <a data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar nuevo modelo" href="{{route('modelos.create')}}"class="dropdown-item"> Agregar Modelo </a> 
+                                      @endcan()
+                                  </li>
+                                  <li>
+                                      <a href="{{route('tipos.index')}}" class="dropdown-item">Tipo de Vehiculo</a>
+                                  </li>
+                                <li>
+                                    <a href="{{route('marcas.index')}}" class="dropdown-item">Marcas</a>
+                                </li>
+                              </ul>
+                                </div>
+                            </div>
+                        </div>
 
                   <div class="titulo mt-3 mb-1">Inventario de vehiculos</div>
 
