@@ -21,7 +21,7 @@
                             </div>
                             @endif
                             <div class="titulo"> Registro de Gasto</div>
-                            <form action="{{route('gastos.store')}}" method="POST">
+                            <form action="{{route('gastos.store')}}" method="POST" autocomplete="off">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12 col-xs-12 col-xs-12">
@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="col-md-4 col-xs-4 col-xs-4">
                                         <label>Vehiculo</label><span class="text-danger">*</span>
-                                        <select name="vehiculo" class="form-control">
+                                        <select name="vehiculo" class="form-control" onkeyup="mayus(this);">
                                            <option value="">-</option>
                                            @foreach($vehiculos as $vehiculo)
                                            <option value="{{$vehiculo['id']}}">{{$vehiculo['NombreVehiculo']}}</option>
@@ -40,23 +40,23 @@
                                    </div>
                                    <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Conductor</label>
-                                    <input type="text" class="form-control" name="conductor">
+                                    <input type="text" class="form-control" name="conductor" onkeyup="mayus(this);">
                                 </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Concepto</label>
-                                    <input type="text" class="form-control" name="concepto">
+                                    <input type="text" class="form-control" name="concepto" onkeyup="mayus(this);">
                                 </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Referencia</label>
-                                    <input type="text" class="form-control" name="referencia">
+                                    <input type="text" class="form-control" name="referencia" onkeyup="mayus(this);">
                                 </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Monto</label>
-                                    <input type="text" class="form-control" name="monto">
+                                    <input type="number" class="form-control" name="monto" step="any">
                                 </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Proveedor</label>
-                                    <input type="text" class="form-control" name="proveedor">
+                                    <input type="text" class="form-control" name="proveedor" onkeyup="mayus(this);">
                                 </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-2">Guardar</button>
@@ -70,3 +70,8 @@
 </div>
 </section>
 @endsection
+<script type="text/javascript">
+    function mayus(e) {
+       e.value = e.value.toUpperCase();
+   }
+</script>

@@ -1,12 +1,13 @@
 <title>Gastos</title>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-<table id="example" class="table table-striped mt-2">
-  <thead>
+<table id="example" class="table table-striped table-hover table-borderless mt-2">
+  <thead class="table-success">
       <th>ID</th>
       <th>Fecha</th>
       <th>Concepto</th>
       <th>Monto</th>
       <th>Vehiculo</th>
+      <th>Conductor</th>
       <th>Acciones</th>
   </thead>
   <tbody>
@@ -14,9 +15,16 @@
       <tr>
           <td>{{$gasto->id}}</td>
           <td>{{$gasto->fecha}}</td>
-          <td>{{$gasto->concepto}}</td>
-          <td>{{$gasto->monto}}</td>
+          <td>
+            <ul class="list-group">
+                <li class="list-group-item">{{$gasto->concepto}} </li>
+                <li class="list-group-item-dark">Referencia: {{$gasto->referencia}} </li>
+            </ul>
+            
+            </td>
+          <td>$ {{$gasto->monto}}</td>
           <td>{{$gasto->VehiculosG->NombreVehiculo}}</td>
+          <td>{{$gasto->conductor}}</td>
           <td>
               <form action="{{route('gastos.destroy',$gasto->id)}}" method="POST" class="formulario">
                   <a class="btn btn-success" href="{{route('gastos.edit',$gasto->id)}}"><i class="fas fa-edit"></i></a>

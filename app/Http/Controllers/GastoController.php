@@ -74,9 +74,12 @@ class GastoController extends Controller
      * @param  \App\Models\gasto  $gasto
      * @return \Illuminate\Http\Response
      */
-    public function edit(gasto $gasto)
+    public function edit($id)
     {
         //
+        $vehiculos=VehiculoModel::all();
+        $gastos=gasto::find($id);
+        return view('vehiculos/gastos.editar',compact('gastos','vehiculos'));
     }
 
     /**
@@ -86,9 +89,24 @@ class GastoController extends Controller
      * @param  \App\Models\gasto  $gasto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, gasto $gasto)
+    public function update(Request $request, $id)
     {
         //
+        request()->validate([
+            'fecha'=>'required',
+            'concepto'=>'required',
+            'referencia'=>'required',
+            'monto'=>'required',
+            'vehiculo'=>'required',
+            'conductor'=>'required',
+            'proveedor'=>'required',           
+        ]);
+
+        $input=$request->all();
+        $gasto=gasto::find($id);
+        $gasto->update($input);
+        Cache::flush();
+        return redirect()->route('gastos.index');
     }
 
     /**
