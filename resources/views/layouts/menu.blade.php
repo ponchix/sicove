@@ -11,7 +11,7 @@
     <a class="nav-link"ref="/">
         <i class="fas fa-address-book"></i><span>Proveedores</span>
     </a>
-    <a class="nav-link"href="/">
+ <a class="nav-link"href="/conductores">
         <i class="fas fa-user"></i><span>Conductores</span>
     </a>
     <a class="nav-link"href="/usuarios">

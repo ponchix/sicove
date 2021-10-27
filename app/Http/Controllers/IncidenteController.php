@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Incidente;
 use App\Models\VehiculoModel;
+use App\Models\Conductor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -45,7 +46,8 @@ class IncidenteController extends Controller
     {
         //
         $vehiculos=VehiculoModel::all();
-        return view('vehiculos/Incidentes.crear',compact('vehiculos'));
+        $conductores=Conductor::all();
+        return view('vehiculos/Incidentes.crear',compact('vehiculos','conductores'));
    }
     
 
@@ -101,8 +103,9 @@ class IncidenteController extends Controller
     {
         //
         $vehiculos=VehiculoModel::all();
+        $conductores=Conductor::all();
         $incidentes=Incidente::find($id);
-        return view('vehiculos/Incidentes.editar',compact('incidentes','vehiculos'));
+        return view('vehiculos/Incidentes.editar',compact('incidentes','vehiculos','conductores'));
     }
 
     /**

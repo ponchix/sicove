@@ -1,5 +1,5 @@
+<title>Incidentes | {{$incidentes->id}}</title>
 @extends('layouts.app')
-
 @section('content')
 <section class="section">
     <div class="section-header">
@@ -38,14 +38,23 @@
                                       @endforeach
                                    </select>
                                   </div>
-
-                                <div class="col-md-3 col-xs-3 col-xs-3">
+                                  <div class="col-md-3 col-xs-3 col-xs-3">
                                     <label>Conductor</label>
-                                    <input type="text" class="form-control" name="conductor" value="{{$incidentes->conductor}}" onkeyup="mayus(this);">
-                                </div>
+                                    <select name="conductor" class="form-control"  >
+                                      <option value="" >-</option>
+                                      @foreach($conductores as $conductor)
+                                      <?php if ($conductor['id']==$incidentes->conductor){ ?>
+                                      <option value="{{$conductor['id']}}" selected="selected" >{{$conductor['NombreConductor']}}</option>
+                                      <?php } else { ?>
+                                      <option value="{{$conductor['id']}}">{{$conductor['NombreConductor']}}</option>
+                                      <?php }?>
+                                      @endforeach
+                                   </select>
+                                  </div>
+                               
                                 <div class="col-md-3 col-xs-3 col-xs-3">
                                     <label>Fecha de Reporte</label>
-                                    <input type="date" class="form-control" name="Fecha_reporte" value="{{$incidentes->Fecha_reporte}}" onkeyup="mayus(this);">
+                                    <input type="date"  name="Fecha_reporte" class="form-control" id="datepicker" value="{{$incidentes->Fecha_reporte}}" >
                                 </div>
                                 <div class="col-md-3 col-xs-3 col-xs-3">
                                     <label>Descripcion Corta</label>
