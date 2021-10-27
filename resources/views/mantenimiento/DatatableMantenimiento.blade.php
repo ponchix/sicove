@@ -19,6 +19,7 @@
                 <li class="list-group-item-light">Total: ${{$mantenimiento->total}} </li>
                 <li class="list-group-item-light">Mantenimiento: {{$mantenimiento->tipo_man}} </li>
                 <li class="list-group-item-light">Odómetro: {{$mantenimiento->odometro}} Km </li>
+                
             </ul>
          </td>
           <td>
