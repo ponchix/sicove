@@ -20,7 +20,7 @@
                                 <span aria-hidden="true">&times;</span>                    </button>
                             </div>
                             @endif
-                            <form action="{{route('incidentes.store')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('servicios.store')}}" method="POST" enctype="multipart/form-data" autocomplete="off">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 col-xs-6 col-xs-6">
@@ -34,11 +34,11 @@
                                </div>
                                <div class="col-md-6 col-xs-6 col-xs-6">
                                 <label>Fecha de Inicio</label>
-                                <input type="date" class="form-control" name="fecha_incio">
+                                <input type="date" class="form-control" name="fecha_inicio">
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Hora de Registro</label>
-                                <input type="time" class="form-control" name="hora_entrada"  value="now" readonly>
+                                <input type="time" class="form-control" name="hora_entrada"  value="now" >
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Odómetro</label>
@@ -70,9 +70,14 @@
                                 <label>Referencia</label>
                                 <input type="text" class="form-control" name="referencia_man" placeholder="Ej. Factura/Ticket,etc.">
                             </div>
+
                             <div class="col-md-4 col-xs-4 col-xs-4">
-                                <label>Tipo de Mantenimiento</label>
-                                <input type="text" class="form-control" name="tipo_man" >
+                                <label>Tipo de Mentenimiento</label><span class="text-danger">*</span>
+                                <select name="tipo_man" class="form-control" >
+                                 <option value="">-</option>
+                                 <option >Correctivo</option>
+                                 <option >Preventivo</option>
+                             </select>
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Proveedor</label>

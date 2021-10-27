@@ -11,13 +11,13 @@
   <tbody>
       @foreach($mantenimientos as $mantenimiento)
       <tr>
-          <td>{{$vehiculo->id}}</td>
-          <td> <img src="/imagen/{{$vehiculo->imagen}}" width="120" height="90px"> </td>
-          <td>{{$vehiculo->NombreVehiculo}}</td>
+          <td>{{$mantenimiento->id}}</td>
+          <td> <img src="/mantenimiento/{{$mantenimiento->imagen_man}}" width="120" height="90px"> </td>
+          <td>{{$mantenimiento->NombreVehiculo}}</td>
           <td>
-              <form action="{{route('servicios.destroy',$vehiculo->id)}}" method="POST" class="formulario">
+              <form action="{{route('servicios.destroy',$mantenimiento->id)}}" method="POST" class="formulario">
                   @can('editar-vehiculo')
-                  <a class="btn btn-success" href="{{route('servicios.edit',$vehiculo->id)}}"><i class="fas fa-edit"></i></a>
+                  <a class="btn btn-success" href="{{route('servicios.edit',$mantenimiento->id)}}"><i class="fas fa-edit"></i></a>
                   @endcan
                   @csrf
                   @method('DELETE')

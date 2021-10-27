@@ -10,7 +10,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body" >
-                        <a href="{{route('servicios.create')}}" class="btn btn-primary mb-0 mt-1"><i class="fas fa-plus"></i> Mantenimiento</a>
+                        <a href="{{route('servicios.create')}}" class="btn btn-outline-primary mb-0 mt-1"><i class="fas fa-plus"></i> Mantenimiento</a>
                         <div class="titulo mt-3 mb-1">Bitácora</div>
 
                         <div class="table-responsive">  
