@@ -39,11 +39,17 @@
        
                                    </select>
                                </div>
-
                                 <div class="col-md-3 col-xs-3 col-xs-3">
-                                    <label>Conductor</label>
-                                    <input type="text" class="form-control" name="conductor">
-                                </div>
+                                    <label>Conductor</label><span class="text-danger">*</span>
+                                    <select name="conductor" class="form-control">
+                                       <option value="">-</option>
+                                       @foreach($conductores as $conductor)
+                                       <option value="{{$conductor['id']}}">{{$conductor['NombreConductor']}}</option>
+                                       @endforeach
+       
+                                   </select>
+                               </div>
+
                                 <div class="col-md-3 col-xs-3 col-xs-3">
                                     <label>Fecha de Reporte</label>
                                     <input type="date" class="form-control" name="Fecha_reporte">
