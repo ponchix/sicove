@@ -104,6 +104,7 @@ var baseURL={!! json_encode(url('/')) !!}
 
 <!--Script reloj--->
 <script type="text/javascript" src="{{asset('reloj.js')}}"></script>
+<script type="text/javascript" src="{{asset('hora.js')}}"></script>
 
 <!--FEchas-->
 

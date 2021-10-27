@@ -13,10 +13,11 @@ window.addEventListener('load',()=>{
 		minutoHTML.textContent=String(minuto).padStart(2,"0")
 		segundoHTML.textContent=String(segundo).padStart(2,"0")
 
-		setTimeout(mostrarHora,1000)
+			setTimeout(mostrarHora,1000)
 
 
 	
 	}
 	mostrarHora()
 })
+

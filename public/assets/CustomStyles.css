@@ -147,3 +147,8 @@ font-size:20px;
 	text-decoration: none;
 }
 
+.imagenes{
+	border: 0 !important;
+	outline: 0 !important;
+	
+}
