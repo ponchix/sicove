@@ -1,19 +1,26 @@
 <title>Vehiculos</title>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-<table id="example" class="table mt-2 table-borderless table-hover">
-  <thead>
+<table id="man" class="table mt-2 table-borderless table-hover">
+  <thead class="table-success">
       <th>ID</th>
-      <th>Imagen</th>
-      <th>Nombre Vehiculo</th>
-      <th>Estatus</th>
+      <th>Vehiculo</th>
+      <th>Fecha Ingreso</th>
+      <th>Adicionales</th>
       <th>Acciones</th>
   </thead>
   <tbody>
       @foreach($mantenimientos as $mantenimiento)
       <tr>
           <td>{{$mantenimiento->id}}</td>
-          <td> <img src="/mantenimiento/{{$mantenimiento->imagen_man}}" width="120" height="90px"> </td>
-          <td>{{$mantenimiento->NombreVehiculo}}</td>
+          <td>{{$mantenimiento->VehiculosM->NombreVehiculo}}</td>
+         <td>{{$mantenimiento->fecha_inicio}}</td>
+         <td>
+            <ul class="lista list-group">
+                <li class="list-group-item-light">Total: ${{$mantenimiento->total}} </li>
+                <li class="list-group-item-light">Mantenimiento: {{$mantenimiento->tipo_man}} </li>
+                <li class="list-group-item-light">Odómetro: {{$mantenimiento->odometro}} Km </li>
+            </ul>
+         </td>
           <td>
               <form action="{{route('servicios.destroy',$mantenimiento->id)}}" method="POST" class="formulario">
                   @can('editar-vehiculo')
@@ -35,7 +42,7 @@
 <script type="text/javascript"src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 <script>
  $(document).ready(function() {
-  $('#example').DataTable({
+  $('#man').DataTable({
       "lengthMenu":[[5,10,50,-1],[5,10,50,"All"]],
       "language":{
        "lengthMenu":"Mostrar _MENU_ registros",

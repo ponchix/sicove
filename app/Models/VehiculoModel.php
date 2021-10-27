@@ -39,13 +39,15 @@ class VehiculoModel extends Model
     public function tiposVehiculo(){
       return $this->belongsTo(TipoVehiculo::class,'TipoVehiculo');
   }
-
+//RRelacion con id foraneas
   public function incidentes(){
     return $this->hasMany(incidente::class,'id');
 }
 public function gastos(){
   return $this->hasMany(gasto::class,'id');
 }
-
+          public function servicios(){
+        return $this->hasMany(mantenimiento::class,'id');
+    }
 
 }

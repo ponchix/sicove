@@ -24,4 +24,7 @@ class mantenimiento extends Model
         'comentario',
         'imagen_man',
     ];
+    public function VehiculosM(){
+        return $this->belongsTo(VehiculoModel::class,'vehiculo');
+    }
 }
