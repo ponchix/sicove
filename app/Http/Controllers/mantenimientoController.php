@@ -33,6 +33,7 @@ class mantenimientoController extends Controller
         //
         $vehiculos=VehiculoModel::all();
         return view('mantenimiento.crear',compact('vehiculos'));
+        
     }
 
     /**
