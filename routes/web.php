@@ -51,6 +51,7 @@ Route::group(['middleware'=>['auth']],function(){
 
   //Ruta Conductor
     Route::resource('conductores', 'ConductorController');
+
 });
 
 
