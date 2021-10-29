@@ -19,6 +19,7 @@ class GastoController extends Controller
         //
         $gastos=gasto::all();
         return view('vehiculos/gastos.index',compact('gastos'));
+        
     }
 
     /**

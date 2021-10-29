@@ -46,14 +46,11 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('marcas', 'MarcaController');
     //Ruta Gastos
     Route::resource('gastos','GastoController');
-<<<<<<< HEAD
     //Rutas Modulo Mantenimiento
     Route::resource('servicios','mantenimientoController');
 
-=======
   //Ruta Conductor
     Route::resource('conductores', 'ConductorController');
->>>>>>> 8b4a69a5fe5b1330cc1f9c935241fea9cb88f1f6
 });
 
 
