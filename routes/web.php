@@ -48,9 +48,10 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('gastos','GastoController');
     //Rutas Modulo Mantenimiento
     Route::resource('servicios','mantenimientoController');
-
   //Ruta Conductor
     Route::resource('conductores', 'ConductorController');
+    //Ruta Proveedor
+    Route::resource('proveedores', 'ProveedoresController');
 
 });
 

@@ -8,7 +8,7 @@
     <a class="nav-link" href="/servicios">
         <i class="fas fa-exclamation-circle"></i><span>Mantenimiento</span>
     </a>
-    <a class="nav-link"ref="/">
+    <a class="nav-link" href="/proveedores">
         <i class="fas fa-address-book"></i><span>Proveedores</span>
     </a>
  <a class="nav-link"href="/conductores">
