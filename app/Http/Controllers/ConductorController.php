@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Conductor;
-
+use App\Models\User;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 class ConductorController extends Controller
@@ -35,7 +35,8 @@ class ConductorController extends Controller
      */
     public function create()
     {
-        return view('conductores.crear');
+        $usuarios=User::all();
+        return view('conductores.crear',compact('usuarios'));
     }
 
     /**

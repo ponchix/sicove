@@ -28,42 +28,48 @@
                                 <div class="col-md-12 col-xs-12 col-xs-12 mb-5">
                                     @include('conductores.imagen')
                                 </div>
+
                                 <div class="col-md-4 col-xs-4 col-xs-4">
-                                    <label>Nombre(s)</label><span class="text-danger">*</span>
-                                    <input type="text" name="NombreConductor" class="form-control" onkeyup="mayus(this);" autocomplete="nope">
-                                </div>
+                                    <label>Nombre:</label><span class="text-danger">*</span>
+                                    <select name="NombreConductor" class="form-control">
+                                       <option value="">-</option>
+                                       @foreach($usuarios as $usuario)
+                                       <option value="{{$usuario['id']}}">{{$usuario['name']}}</option>
+                                       @endforeach
+                                           </select>
+                               </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Apellido Paterno</label><span class="text-danger">*</span>
-                                    <input type="text" name="APaterno" class="form-control" onkeyup="mayus(this);">
+                                    <input type="text" name="APaterno" class="form-control" onkeyup="mayus(this);" autocomplete="off">
                                 </div>
                                 
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Apellido Materno</label><span class="text-danger">*</span>
-                                    <input type="text" name="AMaterno" class="form-control" onkeyup="mayus(this);">
+                                    <input type="text" name="AMaterno" class="form-control" onkeyup="mayus(this);" autocomplete="off">
                                 </div> 
 
                      
 
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Edad</label>
-                                <input type="text" name="edad" class="form-control">
+                                <input type="text" name="edad" class="form-control" autocomplete="off">
                                <br>  
                             </div>                               
                         
  
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Dirección</label><span class="text-danger">*</span>
-                                    <input type="text" name="direccion" class="form-control" onkeyup="mayus(this);">
+                                    <input type="text" name="direccion" class="form-control" onkeyup="mayus(this);" autocomplete="nope">
                                 </div>   
     
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Telefono</label><span class="text-danger">*</span>
-                                    <input type="text" name="telefono" class="form-control">
+                                    <input type="text" name="telefono" class="form-control" autocomplete="nope">
                                 </div>                                                                            
                                 <div class="titulo">Licencia de Conducir</div>                                                       
                                 <div class="col-md-3 col-xs-3 col-xs-3">
                                     <label>No.Licencia</label><span class="text-danger">*</span>
-                                    <input type="text" name="NoLiciencia" class="form-control" onkeyup="mayus(this);">
+                                    <input type="text" name="NoLiciencia" class="form-control" onkeyup="mayus(this);" autocomplete="off">
                                 </div>  
                                 <div class="col-md-3 col-xs-3 col-xs-3">
                                     <label>Fecha de Expiración</label><span class="text-danger">*</span>
