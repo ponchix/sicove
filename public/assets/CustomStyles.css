@@ -158,3 +158,8 @@ font-size:20px;
 .lista{
 	list-style: none !important;
 }
+
+.perfil{
+	width: 200px !important;
+	height: 250px !important;
+}

@@ -21,69 +21,72 @@
                                 <span aria-hidden="true">&times;</span>  </button>
                             </div>
                             @endif
-                            <form action="{{route('conductores.store')}}" method="POST" enctype="multipart/form-data">
-                             @csrf
-                             <div class="row">
-                                <div class="subir col-md-3 col-xs-3 col-xs-3"> 
-                                 @include('conductores.imagen')
+                            <form form action="{{route('conductores.store')}}" method="POST" enctype="multipart/form-data" autocomplete="nope">
+                            @csrf
+                            <div class="row">
+                            
+                                <div class="col-md-12 col-xs-12 col-xs-12 mb-5">
+                                    @include('conductores.imagen')
                                 </div>
-                                <div class="col-md-3 col-xs-3 col-xs-3">
-                                 <label>Nombre(s)</label><span class="text-danger">*</span>
-                                 <input type="text" name="NombreConductor" class="form-control" onkeyup="mayus(this);">
-                             </div>
-                             <div class="col-md-3 col-xs-3 col-xs-3">
-                                 <label>Apellido Paterno</label><span class="text-danger">*</span>
-                                 <input type="text" name="APaterno" class="form-control" onkeyup="mayus(this);">
-                             </div>
-                             <div class="col-md-3 col-xs-3 col-xs-3">
-                                 <label>Apellido Materno</label><span class="text-danger">*</span>
-                                 <input type="text" name="AMaterno" class="form-control" onkeyup="mayus(this);">
-                             </div>                         
-                             <div class="col-md-3 col-xs-3 col-xs-3">
-                                 <label>Edad</label>
-                                 <input type="text" name="edad" class="form-control">
-                                <br>  
-                             </div>   
-                             <div class="col-md-3 col-xs-3 col-xs-3">
-                                 <label>Dirección</label><span class="text-danger">*</span>
-                                 <input type="text" name="direccion" class="form-control" onkeyup="mayus(this);">
-                             </div>   
-                             <div class="col-md-3 col-xs-3 col-xs-3">
-                                 <label>Correo Electronico</label><span class="text-danger">*</span>
-                                 <input type="text" name="correo" class="form-control" >
-                             </div>      
-                             <div class="col-md-3 col-xs-3 col-xs-3">
-                                 <label>Telefono</label><span class="text-danger">*</span>
-                                 <input type="text" name="telefono" class="form-control">
-                             </div>                                                                            
-                             <div class="titulo">Licencia de Conducir</div>                                                       
-                             <div class="col-md-3 col-xs-3 col-xs-3">
-                                 <label>No.Licencia</label><span class="text-danger">*</span>
-                                 <input type="text" name="NoLiciencia" class="form-control" onkeyup="mayus(this);">
-                             </div>  
-                             <div class="col-md-3 col-xs-3 col-xs-3">
-                                 <label>Fecha de Expiración</label><span class="text-danger">*</span>
-                                <input type="text" name="fecha_exp" min="01-01-2021" class="form-control icono-placeholder " id="datepicker" placeholder="" autocomplete="off" min="01-05-2021">
-                             </div>                               
-                             <div class="col-md-3 col-xs-3 col-xs-3">
-                                 <label>Tipo de Licencia</label><span class="text-danger">*</span>
-                                 <select name="tipoLicencia" class="form-control" >
-                                <option value="">-</option>
-                                <option >Tipo A</option>
-                                <option >Tipo B</option>
-                                <option >Tipo C</option>
-                                <option >Tipo D</option>
-                                </select>
-                            </div> 
-                </div> 
-<br>
-<div class="col-xs-12 col-sm-12 col-md-12">
-    <button type="submit" class="btn btn-primary">Guardar</button>
-    <a href="{{route('conductores.index')}}" class="btn btn-danger ml-2">Cancelar</a>
-</div>   
-</div>
+                                <div class="col-md-4 col-xs-4 col-xs-4">
+                                    <label>Nombre(s)</label><span class="text-danger">*</span>
+                                    <input type="text" name="NombreConductor" class="form-control" onkeyup="mayus(this);" autocomplete="nope">
+                                </div>
+                                <div class="col-md-4 col-xs-4 col-xs-4">
+                                    <label>Apellido Paterno</label><span class="text-danger">*</span>
+                                    <input type="text" name="APaterno" class="form-control" onkeyup="mayus(this);">
+                                </div>
+                                
+                                <div class="col-md-4 col-xs-4 col-xs-4">
+                                    <label>Apellido Materno</label><span class="text-danger">*</span>
+                                    <input type="text" name="AMaterno" class="form-control" onkeyup="mayus(this);">
+                                </div> 
 
-</form>
+                     
+
+                            <div class="col-md-4 col-xs-4 col-xs-4">
+                                <label>Edad</label>
+                                <input type="text" name="edad" class="form-control">
+                               <br>  
+                            </div>                               
+                        
+ 
+                                <div class="col-md-4 col-xs-4 col-xs-4">
+                                    <label>Dirección</label><span class="text-danger">*</span>
+                                    <input type="text" name="direccion" class="form-control" onkeyup="mayus(this);">
+                                </div>   
+    
+                                <div class="col-md-4 col-xs-4 col-xs-4">
+                                    <label>Telefono</label><span class="text-danger">*</span>
+                                    <input type="text" name="telefono" class="form-control">
+                                </div>                                                                            
+                                <div class="titulo">Licencia de Conducir</div>                                                       
+                                <div class="col-md-3 col-xs-3 col-xs-3">
+                                    <label>No.Licencia</label><span class="text-danger">*</span>
+                                    <input type="text" name="NoLiciencia" class="form-control" onkeyup="mayus(this);">
+                                </div>  
+                                <div class="col-md-3 col-xs-3 col-xs-3">
+                                    <label>Fecha de Expiración</label><span class="text-danger">*</span>
+                                   <input type="text" name="fecha_exp" min="01-01-2021" class="form-control icono-placeholder " id="datepicker" placeholder="" autocomplete="off" min="01-05-2021">
+                                </div>                               
+                                <div class="col-md-3 col-xs-3 col-xs-3">
+                                    <label>Tipo de Licencia</label><span class="text-danger">*</span>
+                                    <select name="tipoLicencia" class="form-control" >
+                                   <option value="">-</option>
+                                   <option >Tipo A</option>
+                                   <option >Tipo B</option>
+                                   <option >Tipo C</option>
+                                   <option >Tipo D</option>
+                                   </select>
+                               </div> 
+                               <div class="col-xs-12 col-sm-12 col-md-12">
+                                   <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+                                   <a href="{{route('conductores.index')}}" class="btn btn-danger ml-2 mt-2">Cancelar</a>
+                               </div>  
+
+                            </div>
+                            </form>
+                </div> 
 
 </div>
 </div>

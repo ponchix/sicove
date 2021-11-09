@@ -20,8 +20,7 @@ class CreateConductorsTable extends Migration
             $table->string('APaterno');   
             $table->string('AMaterno');    
             $table->string('edad');    
-            $table->string('direccion');    
-            $table->string('correo');    
+            $table->string('direccion');       
             $table->string('telefono');   
             $table->string('NoLiciencia');    
             $table->string('fecha_exp');

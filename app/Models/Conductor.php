@@ -14,7 +14,6 @@ class Conductor extends Model
         'AMaterno',
         'edad',
         'direccion',
-        'correo',
         'telefono',
         'NoLiciencia',
         'fecha_exp',
