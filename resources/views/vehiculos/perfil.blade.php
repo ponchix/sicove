@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-body" >
                        
-                        <div class="perfil">
+                        <div class="perfiles">
                           <img src="/imagen/{{$vehiculo->imagen}}"  width="65%" height="65%">
                       </div>
                         <div class="row">

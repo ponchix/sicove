@@ -38,7 +38,7 @@
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Hora de Registro</label>
-                                <input type="time" class="form-control" name="hora_entrada"  value="now" >
+                                <input type="time" class="form-control" name="hora_entrada"  value="now" readonly>
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Odómetro</label>
