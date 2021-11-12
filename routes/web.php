@@ -52,6 +52,9 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('conductores', 'ConductorController');
     //Ruta Proveedor
     Route::resource('proveedores', 'ProveedoresController');
+    //Ruta Servicios
+    Route::resource('catalogo', 'ServiceController');
+    
 
 });
 

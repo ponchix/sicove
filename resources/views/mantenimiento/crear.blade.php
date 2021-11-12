@@ -46,7 +46,12 @@
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Servicio(s)</label>
-                                <input type="text" class="form-control" name="servicios" >
+                                <select name="servicios[]" class="form-control servicios" multiple="multiple">
+                                      @foreach($servicios as $servicio)
+                                    <option value="{{$servicio['id']}}">{{$servicio['nombre']}}</option>
+                                    @endforeach
+                                        </select>
+
                             </div>
 
                             <div class="titulo">Desglose Partes/Refacciones</div>
@@ -124,3 +129,5 @@ function myFunction() {
    document.getElementById("total").value=text;  
  }  
         </script>
+
+

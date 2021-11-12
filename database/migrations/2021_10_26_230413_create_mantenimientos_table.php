@@ -23,7 +23,7 @@ class CreateMantenimientosTable extends Migration
             ->cascadeOnUpdate()
             ->nullOnDelete();
             $table->float('odometro');
-            $table->string('servicios');
+           // $table->string('servicios');
             $table->float('costo_partes');
             $table->float('mano_obra');
             $table->float('total');

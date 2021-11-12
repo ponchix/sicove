@@ -14,7 +14,7 @@ class mantenimiento extends Model
         'hora_entrada',
         'vehiculo',
         'odometro',
-        'servicios',
+        //'servicios',
         'costo_partes',
         'mano_obra',
         'total',
@@ -26,5 +26,9 @@ class mantenimiento extends Model
     ];
     public function VehiculosM(){
         return $this->belongsTo(VehiculoModel::class,'vehiculo');
+    }
+
+    public function servicios(){
+        return $this->belongsToMany(Service::class,'mantenimiento_service');
     }
 }

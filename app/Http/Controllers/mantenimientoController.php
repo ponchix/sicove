@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\mantenimiento;
+use App\Models\Service;
 use App\Models\VehiculoModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -18,6 +19,12 @@ class mantenimientoController extends Controller
     public function index()
     {
         //
+        if (Cache::has('vehiculos')) {
+            $vehiculos=Cache::get('mantenimientos');
+        } else {
+            $vehiculos=VehiculoModel::where('status',2)->latest('id');
+           
+        }
         $mantenimientos=mantenimiento::all();
         return view('mantenimiento.index',compact('mantenimientos'));
     
@@ -32,7 +39,8 @@ class mantenimientoController extends Controller
     {
         //
         $vehiculos=VehiculoModel::all();
-        return view('mantenimiento.crear',compact('vehiculos'));
+        $servicios=Service::all();
+        return view('mantenimiento.crear',compact('vehiculos','servicios'));
         
     }
 
@@ -45,29 +53,51 @@ class mantenimientoController extends Controller
     public function store(Request $request)
     {
         //
-        request()->validate([
-            'fecha_inicio'=>'required',
-            'hora_entrada'=>'required',
-            'vehiculo'=>'required',
-            'odometro'=>'required',
-            'servicios'=>'required',
-            'costo_partes'=>'required',
-            'mano_obra'=>'required',
-            'total'=>'required',
-            'referencia_man'=>'required',
-            'tipo_man'=>'required',
-            'proveedor'=>'required',
-            'comentario',
-            'imagen_man'=>'required',
-        ]);
-        $mantenimiento=$request->all();
-        if ($imagen=$request->file('imagen_man')) {
-            $rutaImg='mantenimiento/';
-            $imagenMantenimiento=date('YmdHis').".".$imagen->getClientOriginalExtension();
-            $imagen->move($rutaImg,$imagenMantenimiento);
-            $mantenimiento['imagen_man']="$imagenMantenimiento";
+        // request()->validate([
+        //     'fecha_inicio'=>'required',
+        //     'hora_entrada'=>'required',
+        //     'vehiculo'=>'required',
+        //     'odometro'=>'required',
+        //     'servicios'=>'required',
+        //     'costo_partes'=>'required',
+        //     'mano_obra'=>'required',
+        //     'total'=>'required',
+        //     'referencia_man'=>'required',
+        //     'tipo_man'=>'required',
+        //     'proveedor'=>'required',
+        //     'comentario',
+        //     'imagen_man'=>'required',
+        // ]);
+        // $mantenimiento=$request->all();
+        // if ($imagen=$request->file('imagen_man')) {
+        //     $rutaImg='mantenimiento/';
+        //     $imagenMantenimiento=date('YmdHis').".".$imagen->getClientOriginalExtension();
+        //     $imagen->move($rutaImg,$imagenMantenimiento);
+        //     $mantenimiento['imagen_man']="$imagenMantenimiento";
+        // }
+
+        $imagen_man="";
+        if($request->file('imagen_man')){
+            $imagen_man=$request->file('imagen_man')->store('mantenimiento','public');
         }
-        mantenimiento::create($mantenimiento);
+        $mantenimiento=mantenimiento::create([
+            'fecha_inicio'=>$request->fecha_inicio,
+            'hora_entrada'=>$request->hora_entrada,
+            'vehiculo'=>$request->vehiculo,
+            'odometro'=>$request->odometro,
+            //'servicios'=>$request->servicios,
+            'costo_partes'=>$request->costo_partes,
+            'mano_obra'=>$request->mano_obra,
+            'total'=>$request->total,
+            'referencia_man'=>$request->referencia_man,
+            'tipo_man'=>$request->tipo_man,
+            'proveedor'=>$request->proveedor,
+            'comentario'=>$request->comentario,
+            'imagen_man'=>$imagen_man,
+        ]);
+       
+        // mantenimiento::create($mantenimiento);
+        $mantenimiento->servicios()->attach($request->servicios);
         Cache::flush();
         return redirect()->route('servicios.index');
     }
