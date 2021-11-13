@@ -1,3 +1,4 @@
+<title>Reporte de Incidentes</title>
 @extends('layouts.app')
 
 @section('content')

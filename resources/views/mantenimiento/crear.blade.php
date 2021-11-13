@@ -34,11 +34,11 @@
                                </div>
                                <div class="col-md-6 col-xs-6 col-xs-6">
                                 <label>Fecha de Inicio</label>
-                                <input type="date" class="form-control" name="fecha_inicio">
+                                <input type="date" class="form-control" name="fecha_inicio" min="2020-11-11">
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Hora de Registro</label>
-                                <input type="time" class="form-control" name="hora_entrada"  value="now" readonly>
+                                <input type="time" class="form-control" name="hora_entrada"  value="now" readonly >
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Odómetro</label>
@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Total</label>
-                                <input type="number" class="form-control" name="total" step="any" readonly id="total">
+                                <input type="number" class="form-control" name="total" step="any" readonly id="total" >
                             </div>
 
 

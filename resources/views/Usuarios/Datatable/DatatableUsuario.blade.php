@@ -22,7 +22,8 @@
               @endif
           </td>
           <td>
-              <a href="{{route('usuarios.edit',$usuario->id)}}" class="btn btn-info"><i class="fas fa-edit"></i>Editar</a>
+          
+              <a href="{{route('usuarios.edit',$usuario->id)}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
               {!! Form::open(['method'=>'DELETE','route'=>['usuarios.destroy',$usuario->id],'style'=>'display:inline']) !!}
               {!! Form::submit('Borrar',['class'=>'btn btn-danger'])!!}
               {!! Form::close() !!}

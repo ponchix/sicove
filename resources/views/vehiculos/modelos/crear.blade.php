@@ -1,3 +1,4 @@
+<title>Modelos</title>
 @extends('layouts.app')
 
 @section('content')

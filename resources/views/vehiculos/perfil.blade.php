@@ -10,7 +10,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body" >
-                       
+                        <a href="{{route('vehiculos.index')}}" class="btn btn-outline-primary btn-lg"><i class="fas fa-angle-left"></i></a>
                         <div class="perfiles">
                           <img src="/imagen/{{$vehiculo->imagen}}"  width="65%" height="65%">
                       </div>

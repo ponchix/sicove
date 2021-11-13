@@ -1,3 +1,4 @@
+<title>Usuarios</title>
 @extends('layouts.app')
 
 @section('content')
@@ -10,7 +11,8 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body" >
-                         <a href="{{route('usuarios.create')}}" class="btn btn-warning mt-2 mb-4">Nuevo</a>
+                         <a href="{{route('usuarios.create')}}" class="btn btn-outline-primary btn-lg"><i class="fas fa-plus"> </i>Nuevo</a><br><br>
+                         <div class="titulo mt-3 mb-1"> </div>
                          <div class="table-responsive">
 @include('Usuarios/Datatable.DatatableUsuario')
 </div>

@@ -1,4 +1,4 @@
-<title>Vehiculos</title>
+<title>Gastos</title>
 @extends('layouts.app')
 @section('content')
 <section class="section">
@@ -10,8 +10,8 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body" >
-                        <a href="{{route('gastos.create')}}" class="btn btn-warning mb-0 mt-1">Registrar</a>
-                        <a href="{{route('vehiculos.index')}}" class="btn btn-secondary mb-0 mt-1">Vehiculos</a>
+                        <a href="{{route('gastos.create')}}" class="btn btn-outline-primary btn-lg"><i class="fas fa-plus"> </i>Registrar</a>
+                        <a href="{{route('vehiculos.index')}}" class="btn btn-outline-primary btn-lg"><i class="fas fa-car"></i>Vehiculos</a>
                   <div class="titulo mt-3 mb-1">Bitacora de Gastos</div>
 
                   <div class="table-responsive">  

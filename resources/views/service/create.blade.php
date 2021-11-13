@@ -1,3 +1,4 @@
+<title> Create Service</title>
 @extends('layouts.app')
 
 @section('template_title')

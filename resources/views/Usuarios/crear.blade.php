@@ -1,3 +1,4 @@
+<title>Alta de usuarios</title>
 @extends('layouts.app')
 
 @section('content')
@@ -56,6 +57,7 @@
                                 </div> 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <a href="{{route('usuarios.index')}}" class="btn btn-danger ml-2">Cancelar</a>
                                 </div>                              
                             </div>
 

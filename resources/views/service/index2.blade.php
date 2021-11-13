@@ -1,4 +1,4 @@
-<title>Vehiculos</title>
+<title>Catalogo de Servicios</title>
 @extends('layouts.app')
 @section('content')
 <section class="section">
@@ -23,7 +23,7 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th>No.</th>
                                         
 										<th>Nombre</th>
 

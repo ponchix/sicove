@@ -1,4 +1,4 @@
-
+<title>Roles</title>
 @extends('layouts.app')
 
 @section('content')
@@ -13,7 +13,7 @@
                         <div class="card-body" >
                             
                             @can('crear-role')
-                            <a class="btn btn-warning" href="{{route('roles.create')}}" >Nuevo</a>
+                            <a  href="{{route('roles.create')}}" class="btn btn-outline-primary btn-lg"><i class="fas fa-plus"> </i>Nuevo</a>
                             @endcan
 
                             <table class="table table-hover mt-2">
