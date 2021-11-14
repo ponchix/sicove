@@ -1,4 +1,4 @@
-<title>Vehiculos</title>
+<title>Mantenimiento</title>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
 <table id="example" class="table mt-2 table-borderless table-hover">
   <thead>
@@ -13,7 +13,8 @@
           <td>{{$service->nombre}}</td>
           <td>
               <form action="{{route('catalogo.destroy',$service->id)}}" method="POST" class="formulario">
-                  @can('editar-vehiculo')
+ 
+                @can('editar-vehiculo')
                   <a class="btn btn-success" href="{{route('catalogo.edit',$service->id)}}"><i class="fas fa-edit"></i></a>
                   @endcan
                   @csrf

@@ -69,17 +69,18 @@ class mantenimientoController extends Controller
         //     'imagen_man'=>'required',
         // ]);
         // $mantenimiento=$request->all();
-        // if ($imagen=$request->file('imagen_man')) {
-        //     $rutaImg='mantenimiento/';
-        //     $imagenMantenimiento=date('YmdHis').".".$imagen->getClientOriginalExtension();
-        //     $imagen->move($rutaImg,$imagenMantenimiento);
-        //     $mantenimiento['imagen_man']="$imagenMantenimiento";
-        // }
-
         $imagen_man="";
-        if($request->file('imagen_man')){
-            $imagen_man=$request->file('imagen_man')->store('mantenimiento','public');
+        if ($imagen_man=$request->file('imagen_man')) {
+            $rutaImg='mantenimiento/';
+            $imagenMantenimiento=date('YmdHis').".".$imagen_man->getClientOriginalExtension();
+            $imagen_man->move($rutaImg,$imagenMantenimiento);
+            $mantenimiento['imagen_man']="$imagenMantenimiento";
         }
+
+        // $imagen_man="";
+        // if($request->file('imagen_man')){
+        //     $imagen_man=$request->file('imagen_man')->store('mantenimiento','public');
+        // }
         $mantenimiento=mantenimiento::create([
             'fecha_inicio'=>$request->fecha_inicio,
             'hora_entrada'=>$request->hora_entrada,
@@ -93,9 +94,9 @@ class mantenimientoController extends Controller
             'tipo_man'=>$request->tipo_man,
             'proveedor'=>$request->proveedor,
             'comentario'=>$request->comentario,
-            'imagen_man'=>$imagen_man,
+            'imagen_man'=>$imagenMantenimiento,
         ]);
-       
+
         // mantenimiento::create($mantenimiento);
         $mantenimiento->servicios()->attach($request->servicios);
         Cache::flush();
@@ -111,6 +112,14 @@ class mantenimientoController extends Controller
     public function show($id)
     {
         //
+        $mantenimiento=mantenimiento::find($id);
+        $modelo=DB::table('vehiculos')
+        ->join('marcas','vehiculos.Marca','=','marcas.id')
+        ->join('modelos','marcas.id','=','modelos.id_marca')
+        ->select('modelos.modelo')
+        ->where('vehiculos.id','=',$id)
+        ->get();
+        return view('mantenimiento.detallado',compact('mantenimiento'));
     }
 
     /**

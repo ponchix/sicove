@@ -54,6 +54,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('proveedores', 'ProveedoresController');
     //Ruta Servicios
     Route::resource('catalogo', 'ServiceController');
+    Route::get('/servicios/detallado/{service}', 'mantenimientoController@show')->name('servicio.detallado');
     
 
 });

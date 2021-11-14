@@ -24,8 +24,11 @@
          </td>
           <td>
               <form action="{{route('servicios.destroy',$mantenimiento->id)}}" method="POST" class="formulario">
+                @can('ver-vehiculo')
+                <a class="btn btn-light" href="{{route('servicio.detallado',$mantenimiento->id)}}"><i class="fas fa-eye"></i></a>
+                @endcan 
                   @can('editar-vehiculo')
-                  <a class="btn btn-success" href="{{route('servicios.edit',$mantenimiento->id)}}"><i class="fas fa-edit"></i></a>
+                  {{-- <a class="btn btn-success" href="{{route('servicios.edit',$mantenimiento->id)}}"><i class="fas fa-edit"></i></a> --}}
                   @endcan
                   @csrf
                   @method('DELETE')

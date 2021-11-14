@@ -118,7 +118,7 @@ class VehiculoController extends Controller
      */
     public function show($id)
     {
-        //
+        
         $vehiculo=VehiculoModel::find($id);
         $modelo=DB::table('vehiculos')
         ->join('marcas','vehiculos.Marca','=','marcas.id')
