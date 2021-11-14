@@ -85,8 +85,13 @@
                              </select>
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
-                                <label>Proveedor</label>
-                                <input type="text" class="form-control" name="proveedor" >
+                                <label>Proveedor</label><span class="text-danger">*</span>
+                                <select name="proveedor" class="form-control">
+                                    <option value="">-</option>
+                                    @foreach($proveedores as $proveedor)
+                                    <option value="{{$proveedor['id']}}">{{$proveedor['NombreProveedor']}}</option>
+                                    @endforeach
+                                     </select>
                             </div>
                             <div class="col-md-12 col-xs-12 col-xs-12">
                                 <label>Comentarios</label>

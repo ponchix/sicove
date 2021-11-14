@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\mantenimiento;
+use App\Models\Proveedor;
 use App\Models\Service;
 use App\Models\VehiculoModel;
 use Illuminate\Http\Request;
@@ -40,7 +41,8 @@ class mantenimientoController extends Controller
         //
         $vehiculos=VehiculoModel::all();
         $servicios=Service::all();
-        return view('mantenimiento.crear',compact('vehiculos','servicios'));
+        $proveedores=Proveedor::all();
+        return view('mantenimiento.crear',compact('vehiculos','servicios','proveedores'));
         
     }
 
@@ -113,13 +115,13 @@ class mantenimientoController extends Controller
     {
         //
         $mantenimiento=mantenimiento::find($id);
-        $modelo=DB::table('vehiculos')
-        ->join('marcas','vehiculos.Marca','=','marcas.id')
-        ->join('modelos','marcas.id','=','modelos.id_marca')
-        ->select('modelos.modelo')
-        ->where('vehiculos.id','=',$id)
+        $servicios=DB::table('mantenimientos')
+        ->join('mantenimiento_service','mantenimiento_service.mantenimiento_id','=','mantenimientos.id')
+        ->join('services','services.id','=','mantenimiento_service.service_id')
+        ->select('services.nombre')
+        ->where('mantenimientos.id','=',$id)
         ->get();
-        return view('mantenimiento.detallado',compact('mantenimiento'));
+        return view('mantenimiento.detallado',compact('mantenimiento','servicios'));
     }
 
     /**

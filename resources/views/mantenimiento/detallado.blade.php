@@ -10,6 +10,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body" >
+                        <a href="{{route('servicios.index')}}" class="btn btn-outline-primary mb-0 mt-1"> Regresar</a>
                         {{$mantenimiento->fecha_inicio}}
                         {{$mantenimiento->hora_entrada}}
                         {{$mantenimiento->vehiculosM->NombreVehiculo}}
@@ -22,7 +23,9 @@
                         {{$mantenimiento->proveedor}}
                         {{$mantenimiento->comentario}}
                         <img src="/mantenimiento/{{$mantenimiento->imagen_man}}" width="120" height="90px">
-
+                        @foreach ($servicios as $servicio)
+                                    <td class="text-right">{{$servicio->nombre}}</td>   
+                                    @endforeach
 
              </div>
          </div>
