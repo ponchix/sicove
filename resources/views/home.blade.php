@@ -12,6 +12,11 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body" >
+
+<!---Cards---->
+
+
+
                         <div id="contenedor" >
                             <div id="caja">
                                 <label id="hora"></label>
@@ -21,6 +26,47 @@
                             </div>
                             <div id="caja3">
                                 <label id="segundo"></label>
+                            </div>
+                        </div>
+                        <div class="titulo">Resumen</div>
+                        <div class="row text-center">
+                            <div class="col-md-4 col-xl-4">
+                                <div class="card bg-c-blue order-card">
+                                    <div class="card-block">
+                                        <h5>Total de Vehiculos</h5>
+                                        @php
+                                            use App\Models\VehiculoModel;
+                                            $cant_vehiculos=VehiculoModel::count();
+                                        @endphp
+                                        <h2 class="text-right"> <i class=" fas fa-car-side f-left"></i> <span>{{$cant_vehiculos}}</span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xl-4">
+                                <div class="card bg-c-blue order-card">
+                                    <div class="card-block">
+                                        <h5>Conductores</h5>
+                                        @php
+                                        use App\Models\Conductor;
+                                        $cant_conductores=Conductor::count();
+                                    @endphp
+                                        <h2 class="text-right"> <i class="fas fa-user f-left"></i><span>{{$cant_conductores}}</span></h2>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xl-4">
+                                <div class="card bg-c-blue order-card">
+                                    <div class="card-block">
+                                        <h5>Usuarios</h5>
+                                        @php
+                                        use App\Models\User;
+                                        $cant_users=User::count();
+                                    @endphp
+                                        <h2 class="text-right"> <i class="fas fa-user f-left"></i><span>{{$cant_users}}</span></h2>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                               <div class="titulo">Agenda</div>
