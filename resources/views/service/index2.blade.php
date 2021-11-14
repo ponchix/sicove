@@ -19,37 +19,7 @@
                             </div>
                         </div>
 <div class="titulo">Servicios Vigentes</div>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead class="thead">
-                                    <tr>
-                                        <th>No.</th>
-                                        
-										<th>Nombre</th>
-
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($services as $service)
-                                        <tr>
-                                            <td>{{ $service->id}}</td>
-                                            
-											<td>{{ $service->nombre }}</td>
-
-                                            <td>
-                                                <form action="{{ route('catalogo.destroy',$service->id) }}" method="POST">
-                                                    <a class="btn btn-success" href="{{ route('catalogo.edit',$service->id) }}"><i class="fa fa-fw fa-edit"></i> </a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash"></i> </button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+@include('service.DatatableService')
 
              </div>
          </div>
