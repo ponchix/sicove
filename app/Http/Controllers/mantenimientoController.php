@@ -154,5 +154,8 @@ class mantenimientoController extends Controller
     public function destroy($id)
     {
         //
+        mantenimiento::find($id)->delete();
+        Cache::flush();
+        return redirect()->route('servicios.index');
     }
 }
