@@ -46,14 +46,15 @@
                                 </tr>
                                 <tr><th scope="row" class="text-left">Estatus</th>
                                 <td class="text-right">
-                                    @if($vehiculo->StatusInicial=='Disponible')
-                                    <span class="badge bg-primary">{{$vehiculo->StatusInicial}}</span>
-                                    @elseif($vehiculo->StatusInicial=='Taller')
-                                    <span class="badge bg-warning">{{$vehiculo->StatusInicial}}</span>
-                                    @elseif($vehiculo->StatusInicial=='Asignado')
-                                    <span class="badge bg-info">{{$vehiculo->StatusInicial}}</span>
-                                    @elseif($vehiculo->StatusInicial=='Fuera de servicio')
-                                    <span class="badge bg-danger">{{$vehiculo->StatusInicial}}</span>
+                                    {{$vehiculo->estadoVehiculo->status}}
+                                     @if($vehiculo->estadoVehiculo->status=='DISPONIBLE')
+                                    <span class="badge bg-primary">{{$vehiculo->estadoVehiculo->status}}</span>
+                                    @elseif($vehiculo->estadoVehiculo->status=='TALLER')
+                                    <span class="badge bg-warning">{{$vehiculo->estadoVehiculo->status}}</span>
+                                    @elseif($vehiculo->estadoVehiculo->status=='ASIGNADO')
+                                    <span class="badge bg-info">{{$vehiculo->estadoVehiculo->status}}</span>
+                                    @elseif($vehiculo->estadoVehiculo->status=='FUERA DE SERVICIO')
+                                    <span class="badge bg-danger">{{$vehiculo->estadoVehiculo->status}}</span>
                                     @endif
                                 </td>
                                 </tr>

@@ -54,12 +54,12 @@
 
                         <div class="col-md-3 col-xs-3 col-xs-3">
                            <label>Estatus Inicial</label><span class="text-danger">*</span>
-                           <select name="StatusInicial" class="form-control">
+                        <select name="StatusInicial" class="form-control">
                             <option value="">-</option>
-                            <option >Asignado</option>
-                            <option >Disponible</option>
-                            <option >Taller</option>
-                            <option >Fuera de servicio</option>
+                            @foreach($estados as $status)
+                            <option value="{{$status['id']}}">{{$status['status']}}</option>
+                            @endforeach
+
                         </select>
                     </div>
 

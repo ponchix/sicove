@@ -49,5 +49,8 @@ public function gastos(){
           public function servicios(){
         return $this->hasMany(mantenimiento::class,'id');
     }
+    public function estadoVehiculo(){
+      return $this->belongsTo(Status::class,'StatusInicial');
+    }
 
 }

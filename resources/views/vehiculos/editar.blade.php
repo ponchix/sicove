@@ -92,12 +92,15 @@
             <div class="col-md-3 col-xs-3 col-xs-3">
              <label>Estatus Inicial</label>
              <select name="StatusInicial" class="form-control">
-                <option value="">-</option>
-                <option  {{$vehiculos->StatusInicial =="Asignado" ? 'selected':''}}>Asignado</option>
-                <option  {{$vehiculos->StatusInicial =="Disponible" ? 'selected':''}}>Disponible</option>
-                <option  {{$vehiculos->StatusInicial =="Taller" ? 'selected':''}}>Taller</option>
-                <option  {{$vehiculos->StatusInicial =="Fuera de servicio" ? 'selected':''}}>Fuera de servicio</option>
-             </select>
+               <option value="">-</option>
+               @foreach($estados as $status)
+               <?php if ($status['id']==$vehiculos->StatusInicial){ ?>
+               <option value="{{$status['id']}}" selected>{{$status['status']}}</option>
+               <?php } else { ?>
+               <option value="{{$status['id']}}">{{$status['status']}}</option>
+               <?php }?>
+               @endforeach
+            </select>
           </div>
 
           <div class="col-md-3 col-xs-3 col-xs-3">

@@ -14,15 +14,18 @@
             <td>{{$vehiculo->id}}</td>
             <td> <img src="/imagen/{{$vehiculo->imagen}}" width="120" height="90px"> </td>
             <td>{{$vehiculo->NombreVehiculo}}</td>
-            <td>@if($vehiculo->StatusInicial=='Disponible')
-                <span class="badge bg-primary">{{$vehiculo->StatusInicial}}</span>
-                @elseif($vehiculo->StatusInicial=='Taller')
-                <span class="badge bg-warning">{{$vehiculo->StatusInicial}}</span>
-                @elseif($vehiculo->StatusInicial=='Asignado')
-                <span class="badge bg-info">{{$vehiculo->StatusInicial}}</span>
-                @elseif($vehiculo->StatusInicial=='Fuera de servicio')
-                <span class="badge bg-danger">{{$vehiculo->StatusInicial}}</span>
-                @endif
+            <td>
+         
+
+                @if($vehiculo->estadoVehiculo->status=='Disponible')
+                <span class="badge bg-primary">{{$vehiculo->estadoVehiculo->status}}</span>
+                @elseif($vehiculo->estadoVehiculo->status=='Taller')
+                <span class="badge bg-warning">{{$vehiculo->estadoVehiculo->status}}</span>
+                @elseif($vehiculo->estadoVehiculo->status=='Asignado')
+                <span class="badge bg-info">{{$vehiculo->estadoVehiculo->status}}</span>
+                @elseif($vehiculo->estadoVehiculo->status=='Fuera de Servicio')
+                <span class="badge bg-danger">{{$vehiculo->estadoVehiculo->status}}</span>
+                @endif 
             </td>
             <td>
                 <form action="{{route('vehiculos.destroy',$vehiculo->id)}}" method="POST" class="formulario">

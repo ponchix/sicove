@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\VehiculoModel;
 use App\Models\Modelo;
 use App\Models\Marca;
+use App\Models\Status;
 use App\Models\TipoVehiculo;
 
 use Illuminate\Support\Facades\Cache;
@@ -37,13 +38,9 @@ class VehiculoController extends Controller
         }
         
         $vehiculos=VehiculoModel::all();
+        $estados=Status::all();
 
-
-        // $relaciones = DB::table('vehiculos')
-        //     ->join('marcas', 'vehiculos.id', '=', 'marcas.id_marca')
-        //     ->select('marca')
-        //     ->get();
-        return view ('vehiculos.index',compact('vehiculos'));
+        return view ('vehiculos.index',compact('vehiculos','estados'));
     }
 
     /**
@@ -55,7 +52,8 @@ class VehiculoController extends Controller
     {
         //
         $tipos=TipoVehiculo::all();
-        return view('vehiculos.crear',compact('tipos'));
+        $estados=Status::all();
+        return view('vehiculos.crear',compact('tipos','estados'));
     }
 
     /**
@@ -151,8 +149,14 @@ class VehiculoController extends Controller
         $tipos=TipoVehiculo::all();
 //return view('vehiculos.editar',compact('vehiculoModel'));
         $vehiculos=VehiculoModel::find($id);
+        $estados=Status::all();
      
-        return view('vehiculos.editar',compact('vehiculos','marcas','modelos','tipos'));
+        return view('vehiculos.editar',compact(
+            'vehiculos',
+            'marcas',
+            'modelos',
+            'tipos',
+        'estados'));
     }
 
     /**
@@ -226,4 +230,8 @@ class VehiculoController extends Controller
       return redirect()->route('vehiculos.index');
 
   }
+public function seleccion($id){
+
+}
+
 }

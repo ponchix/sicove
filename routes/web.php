@@ -34,6 +34,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/vehiculos/perfil/{vehiculo}', 'VehiculoController@show')->name('vehiculo.perfil');
     Route::resource('modelos','ModeloController');
     Route::resource('tipos','TipoVehiculoController');
+    Route::Put('estados/{id}','vehiculoController@seleccion')->name('vehiculo.estado');
     //Rutas agenda
      Route::post('/home/agregar', [App\Http\Controllers\EventoController::class, 'store']);
      Route::post('/home/mostrar', [App\Http\Controllers\EventoController::class, 'show']);
