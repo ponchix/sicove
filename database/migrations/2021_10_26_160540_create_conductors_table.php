@@ -16,7 +16,11 @@ class CreateConductorsTable extends Migration
         Schema::create('conductors', function (Blueprint $table) {
            $table->id();
             $table->string('imagen');
-            $table->string('NombreConductor');
+            $table->foreignId('NombreConductor')
+            ->nullable()
+            ->constrained('users')
+            ->cascadeOnDelete()
+            ->cascadeOnUpdate();;
             $table->string('APaterno');   
             $table->string('AMaterno');    
             $table->string('edad');    

@@ -33,8 +33,8 @@
                                     <label>Nombre:</label><span class="text-danger">*</span>
                                     <select name="NombreConductor" class="form-control">
                                        <option value="">-</option>
-                                       @foreach($usuarios as $usuario)
-                                       <option value="{{$usuario['id']}}">{{$usuario['name']}}</option>
+                                       @foreach($conductor as $driver)
+                                       <option value="{{$driver->id}}">{{$driver->name}}</option>
                                        @endforeach
                                            </select>
                                </div>
