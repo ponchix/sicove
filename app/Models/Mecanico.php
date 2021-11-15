@@ -18,4 +18,12 @@ class Mecanico extends Model
         'direccion',
         'telefono',
     ];
+    public function mantenimientos(){
+        return $this->belongsTo(mantenimiento::class,'NombreMecanico');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'id');
+    }
 }

@@ -32,4 +32,7 @@ class mantenimiento extends Model
     public function servicios(){
         return $this->belongsToMany(Service::class,'mantenimiento_service');
     }
+    public function mecanicos(){
+        return $this->hasMany(Mecanico::class,'id');
+    }
 }

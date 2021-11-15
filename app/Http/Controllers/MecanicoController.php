@@ -20,7 +20,6 @@ class MecanicoController extends Controller
     {
         //
         $mecanicos=Mecanico::all();
-        Cache::flush();
         return view('mecanicos.index',compact('mecanicos'));
 
     }

@@ -18,7 +18,7 @@ class CreateMantenimientosTable extends Migration
             $table->foreignId('mecanico')
             ->nullable()
             ->constrained('mecanicos')
-            ->cascadeOnDelete()
+            ->nullOnDelete()
             ->cascadeOnUpdate();
             $table->date('fecha_inicio');
             $table->time('hora_entrada');

@@ -25,7 +25,7 @@
                             <div class="row">
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Mecanico</label><span class="text-danger">*</span>
-                                    <select name="vehiculo" class="form-control">
+                                    <select name="mecanico" class="form-control">
                                        <option value="">-</option>
                                        @foreach($mecanicos as $mecanico)
                                        <option value="{{$mecanico->id}}">{{$mecanico->name}}</option>
