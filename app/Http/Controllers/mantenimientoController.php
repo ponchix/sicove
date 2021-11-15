@@ -43,13 +43,12 @@ class mantenimientoController extends Controller
         $vehiculos=VehiculoModel::all();
         $servicios=Service::all();
         $proveedores=Proveedor::all();
-        $mecanicos=Mecanico::all();
-        // $mecanicos=DB::table('users')
-        // ->join('model_has_roles','users.id','=','model_has_roles.model_id')
-        // ->join('roles','roles.id','=','model_has_roles.role_id')
-        // ->select('roles.name')
-        // ->where('roles.name','=','Mecanico')
-        // ->get();
+          $mecanicos=DB::table('users')
+        ->join('model_has_roles','users.id','=','model_has_roles.model_id')
+        ->join('roles','roles.id','=','model_has_roles.role_id')
+        ->select('users.name','users.id')
+        ->where('roles.name','=','Mecanico')
+        ->get();
         return view('mantenimiento.crear',compact('vehiculos','servicios','proveedores','mecanicos'));
         
     }

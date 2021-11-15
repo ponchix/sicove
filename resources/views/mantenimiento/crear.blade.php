@@ -23,16 +23,16 @@
                             <form action="{{route('servicios.store')}}" method="POST" enctype="multipart/form-data" autocomplete="off">
                             @csrf
                             <div class="row">
-                                <div class="col-md-6 col-xs-6 col-xs-6">
+                                <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Mecanico</label><span class="text-danger">*</span>
                                     <select name="vehiculo" class="form-control">
                                        <option value="">-</option>
                                        @foreach($mecanicos as $mecanico)
-                                       <option value="{{$mecanico['id']}}">{{$mecanico['NombreMecanico']}}</option>
+                                       <option value="{{$mecanico->id}}">{{$mecanico->name}}</option>
                                        @endforeach
                                            </select>
                                </div>
-                                <div class="col-md-6 col-xs-6 col-xs-6">
+                                <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Vehiculo</label><span class="text-danger">*</span>
                                     <select name="vehiculo" class="form-control">
                                        <option value="">-</option>
@@ -41,7 +41,7 @@
                                        @endforeach
                                            </select>
                                </div>
-                               <div class="col-md-6 col-xs-6 col-xs-6">
+                               <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Fecha de Inicio</label>
                                 <input type="date" class="form-control" name="fecha_inicio" min="2020-11-11">
                             </div>

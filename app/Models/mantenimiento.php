@@ -10,6 +10,7 @@ class mantenimiento extends Model
     use HasFactory;
     protected $table = "mantenimientos";
     protected $fillable=[
+        'mecanico',
         'fecha_inicio',
         'hora_entrada',
         'vehiculo',
