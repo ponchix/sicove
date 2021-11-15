@@ -130,7 +130,15 @@ class VehiculoController extends Controller
         ->where('vehiculo','=',$id)
         ->groupBy(DB::raw("Month(Fecha_reporte)"))
         ->pluck('count');
-         return view('vehiculos.perfil',compact('vehiculo','modelo','datas'));
+
+        $servicios=DB::table('vehiculos')
+        ->join('mantenimientos','vehiculos.id','=','mantenimientos.vehiculo')
+        ->join('mantenimiento_service','mantenimientos.id','=','mantenimiento_service.mantenimiento_id')
+        ->join('services','mantenimiento_service.service_id','=','services.id')
+        ->select('services.nombre','mantenimientos.fecha_inicio')
+        ->where('vehiculos.id','=',$id)
+        ->get();
+         return view('vehiculos.perfil',compact('vehiculo','modelo','datas','servicios'));
 
     }
 

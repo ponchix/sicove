@@ -112,8 +112,11 @@
 
                                 </div>
                             </div>
-                   
-
+                   <div class="titulo">Servicios</div>
+                
+                   <div class="table-responsive">
+                        @include('vehiculos.DatatablePerfil')
+                   </div>
                 </div>
 
                 
