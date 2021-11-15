@@ -6,6 +6,8 @@ use App\Models\Mecanico;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
+
 
 class MecanicoController extends Controller
 {
@@ -18,6 +20,7 @@ class MecanicoController extends Controller
     {
         //
         $mecanicos=Mecanico::all();
+        Cache::flush();
         return view('mecanicos.index',compact('mecanicos'));
 
     }
@@ -31,7 +34,13 @@ class MecanicoController extends Controller
     {
         //
         $usuarios=User::all();
-        return view('mecanicos.crear',compact('usuarios'));
+        $mecanicos=DB::table('users')
+        ->join('model_has_roles','users.id','=','model_has_roles.model_id')
+        ->join('roles','roles.id','=','model_has_roles.role_id')
+        ->select('users.name','users.id')
+        ->where('roles.name','=','Mecanico')
+        ->get();
+        return view('mecanicos.crear',compact('usuarios','mecanicos'));
     }
 
     /**

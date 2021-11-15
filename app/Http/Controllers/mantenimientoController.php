@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\mantenimiento;
+use App\Models\Mecanico;
 use App\Models\Proveedor;
 use App\Models\Service;
 use App\Models\VehiculoModel;
@@ -42,7 +43,14 @@ class mantenimientoController extends Controller
         $vehiculos=VehiculoModel::all();
         $servicios=Service::all();
         $proveedores=Proveedor::all();
-        return view('mantenimiento.crear',compact('vehiculos','servicios','proveedores'));
+        $mecanicos=Mecanico::all();
+        // $mecanicos=DB::table('users')
+        // ->join('model_has_roles','users.id','=','model_has_roles.model_id')
+        // ->join('roles','roles.id','=','model_has_roles.role_id')
+        // ->select('roles.name')
+        // ->where('roles.name','=','Mecanico')
+        // ->get();
+        return view('mantenimiento.crear',compact('vehiculos','servicios','proveedores','mecanicos'));
         
     }
 
@@ -84,6 +92,7 @@ class mantenimientoController extends Controller
         //     $imagen_man=$request->file('imagen_man')->store('mantenimiento','public');
         // }
         $mantenimiento=mantenimiento::create([
+            'mecanico'=>$request->mecanico,
             'fecha_inicio'=>$request->fecha_inicio,
             'hora_entrada'=>$request->hora_entrada,
             'vehiculo'=>$request->vehiculo,

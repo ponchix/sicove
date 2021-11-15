@@ -24,6 +24,15 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 col-xs-6 col-xs-6">
+                                    <label>Mecanico</label><span class="text-danger">*</span>
+                                    <select name="vehiculo" class="form-control">
+                                       <option value="">-</option>
+                                       @foreach($mecanicos as $mecanico)
+                                       <option value="{{$mecanico['id']}}">{{$mecanico['NombreMecanico']}}</option>
+                                       @endforeach
+                                           </select>
+                               </div>
+                                <div class="col-md-6 col-xs-6 col-xs-6">
                                     <label>Vehiculo</label><span class="text-danger">*</span>
                                     <select name="vehiculo" class="form-control">
                                        <option value="">-</option>
@@ -38,7 +47,7 @@
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Hora de Registro</label>
-                                <input type="time" class="form-control" name="hora_entrada"  value="now" readonly >
+                                <input type="time" class="form-control" name="hora_entrada"  value="now"  readonly >
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Odómetro</label>

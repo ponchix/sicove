@@ -15,6 +15,11 @@ class CreateMantenimientosTable extends Migration
     {
         Schema::create('mantenimientos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('mecanico')
+            ->nullable()
+            ->constrained('mecanicos')
+            ->cascadeOnDelete()
+            ->cascadeOnUpdate();
             $table->date('fecha_inicio');
             $table->time('hora_entrada');
             $table->foreignId('vehiculo')

@@ -16,7 +16,11 @@ class CreateMecanicosTable extends Migration
         Schema::create('mecanicos', function (Blueprint $table) {
             $table->id();
             $table->string('imagen');
-            $table->string('NombreMecanico');
+            $table->foreignId('NombreMecanico')
+            ->nullable()
+            ->constrained('users')
+            ->cascadeOnDelete()
+            ->cascadeOnUpdate();
             $table->string('APaterno');   
             $table->string('AMaterno');    
             $table->string('edad');    

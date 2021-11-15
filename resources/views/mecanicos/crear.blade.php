@@ -33,8 +33,8 @@
                                     <label>Nombre:</label><span class="text-danger">*</span>
                                     <select name="NombreMecanico" class="form-control">
                                        <option value="">-</option>
-                                       @foreach($usuarios as $usuario)
-                                       <option value="{{$usuario['id']}}">{{$usuario['name']}}</option>
+                                       @foreach($mecanicos as $mecanico)
+                                       <option value="{{$mecanico->id}}">{{$mecanico->name}}</option>
                                        @endforeach
                                            </select>
                                </div>
