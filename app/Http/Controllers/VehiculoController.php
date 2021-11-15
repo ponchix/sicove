@@ -135,7 +135,9 @@ class VehiculoController extends Controller
         ->join('mantenimientos','vehiculos.id','=','mantenimientos.vehiculo')
         ->join('mantenimiento_service','mantenimientos.id','=','mantenimiento_service.mantenimiento_id')
         ->join('services','mantenimiento_service.service_id','=','services.id')
-        ->select('services.nombre','mantenimientos.fecha_inicio')
+        ->join('mecanicos','mantenimientos.mecanico','=','mecanicos.id')
+        ->join('users','mecanicos.NombreMecanico','=','users.id')
+        ->select('services.nombre','mantenimientos.fecha_inicio','users.name')
         ->where('vehiculos.id','=',$id)
         ->get();
          return view('vehiculos.perfil',compact('vehiculo','modelo','datas','servicios'));

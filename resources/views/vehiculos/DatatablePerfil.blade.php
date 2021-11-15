@@ -3,12 +3,14 @@
   <thead class="table-success">
       <th>Fecha</th>
       <th>Servicios</th>
+      <th>Mecanico</th>
   </thead>
   <tbody>
       @foreach($servicios as $servicio)
       <tr>
           <td>{{$servicio->fecha_inicio}}</td>
           <td>{{$servicio->nombre}}</td>
+          <td>{{$servicio->name}}</td>
 
       </tr>
       @endforeach
