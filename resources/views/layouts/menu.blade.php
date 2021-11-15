@@ -14,6 +14,9 @@
  <a class="nav-link"href="/conductores">
         <i class="fas fa-user"></i><span>Conductores</span>
     </a>
+    <a class="nav-link"href="/mecanico">
+        <i class="fas fa-hard-hat"></i><span>Mecánicos</span>
+    </a>
     <a class="nav-link"href="/usuarios">
         <i class="fas fa-users"></i><span>Usuarios</span>
     </a>
