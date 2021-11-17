@@ -26,8 +26,8 @@ class CreateVehiculosTable extends Migration
             ->constrained('marcas')
             ->cascadeOnUpdate()
             ->nullOnDelete();  
-            $table->foreignId('StatusInicial',['Asignado','Disponible','Fuera de Servicio','Taller'])
-            ->default('Disponible')
+            $table->foreignId('StatusInicial')
+            ->default('2')
             ->nullable()
             ->constrained('estado')
             ->cascadeOnUpdate()
