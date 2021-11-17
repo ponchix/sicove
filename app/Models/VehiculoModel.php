@@ -53,4 +53,6 @@ public function gastos(){
       return $this->belongsTo(Status::class,'StatusInicial');
     }
 
+    
+
 }

@@ -30,16 +30,11 @@ class VehiculoController extends Controller
     public function index()
     {
         //
-        if (Cache::has('vehiculos')) {
-            $vehiculos=Cache::get('vehiculos');
-        } else {
-            $vehiculos=VehiculoModel::where('status',2)->latest('id');
-           
-        }
+
         
         $vehiculos=VehiculoModel::all();
         $estados=Status::all();
-
+Cache::flush();
         return view ('vehiculos.index',compact('vehiculos','estados'));
     }
 
@@ -240,8 +235,16 @@ class VehiculoController extends Controller
       return redirect()->route('vehiculos.index');
 
   }
-public function seleccion($id){
-
+    public function vehiculos_update(Request $request,$id)
+    {
+        $vehiculo=VehiculoModel::find($id);
+        $vehiculo->update([
+        'StatusInicial'=>$request->value,
+        ]);
+        $edit_status=$request->value;
+        return $edit_status;
 }
+
+
 
 }

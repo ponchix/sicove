@@ -5,8 +5,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title></title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-
-    <!---jQuery fechas--->
+<!---X-Editable---->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
 
@@ -50,6 +49,7 @@ var baseURL={!! json_encode(url('/')) !!}
   {{--   <link rel="stylesheet" href="{{ asset('web/css/style.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('assets/style.css')}} ?php echo(rand()); ?" type="text/css">
    <link rel="stylesheet" href="{{ asset('assets/CustomStyles.css')}}" type="text/css">
+   <link rel="stylesheet" href="{{ asset('assets/jqueryui-editable.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('web/css/components.css')}}">
     @yield('page_css')
 
@@ -108,6 +108,10 @@ var baseURL={!! json_encode(url('/')) !!}
 <!--Script reloj--->
 <script type="text/javascript" src="{{asset('reloj.js')}}"></script>
 <script type="text/javascript" src="{{asset('hora.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/jqueryui-editable.js')}}"></script>
+
+
+
 
 <!--FEchas-->
 
@@ -118,9 +122,7 @@ var baseURL={!! json_encode(url('/')) !!}
 <script src="{{ mix('assets/js/profile.js') }}"></script>
 <script src="{{ mix('assets/js/custom/custom.js') }}"></script>
 
-<!---HighCharts-->
-
-<!---Select2---->
+<!---X-editable-->
 
 <script>
   $( function() {
@@ -170,8 +172,27 @@ var baseURL={!! json_encode(url('/')) !!}
             });
         </script>
 
+
+
+<script>
+    $.fn.editable.defaults.mode = 'inline';
+    $.fn.editable.defaults.ajaxOptions = {type:'PUT'};
+    $(document).ready(function() {
+    $('.editable').editable({
+
+            source:[
+            {value:"1", text: "ASIGNADO"},
+            {value:"2", text: "DISPONIBLE"},
+            {value:"3", text: "FUERA DE SERVICIO"},
+            {value:"4", text: "TALLER"}
+        ]
+    });
+    });
+    </script>
+
 @yield('page_js')
 @yield('scripts')
+
 <script>
     let loggedInUser =@json(\Illuminate\Support\Facades\Auth::user());
     let loginUrl = '{{ route('login') }}';

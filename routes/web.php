@@ -30,11 +30,19 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('roles','RoleController');
     Route::resource('usuarios','UsuarioController');
-    Route::resource('vehiculos','VehiculoController');
+    Route::resource('vehiculos','VehiculoController')->only([
+      'index','create','update','destroy','store'
+  ]);
+  Route::get('/vehiculos/{id}','VehiculoController@edit')->name('vehiculos.edit');
+  Route::put('/status/{id}','VehiculoController@vehiculos_update')->name('vehiculos.status');
+ 
+
+
+
     Route::get('/vehiculos/perfil/{vehiculo}', 'VehiculoController@show')->name('vehiculo.perfil');
     Route::resource('modelos','ModeloController');
     Route::resource('tipos','TipoVehiculoController');
-    Route::Put('estados/{id}','vehiculoController@seleccion')->name('vehiculo.estado');
+
     //Rutas agenda
      Route::post('/home/agregar', [App\Http\Controllers\EventoController::class, 'store']);
      Route::post('/home/mostrar', [App\Http\Controllers\EventoController::class, 'show']);

@@ -15,9 +15,40 @@
             <td> <img src="/imagen/{{$vehiculo->imagen}}" width="120" height="90px"> </td>
             <td>{{$vehiculo->NombreVehiculo}}</td>
             <td>
-         
+                     @if ($vehiculo->StatusInicial=="1")
+                     <a href="#" class="editable btn btn-secondary" id="status" data-type="select" data-pk="{{$vehiculo->id}}" 
+                        data-url="{{url("status/$vehiculo->id")}}" 
+                        data-title="Enter status"
+                        data-value="{{$vehiculo->StatusInicial}}"> 
+                        {{$vehiculo->estadoVehiculo->status}}
+                    </a>
+                    @elseif($vehiculo->StatusInicial=="2")
+                    <a href="#" class="editable btn btn-primary" id="status" data-type="select" data-pk="{{$vehiculo->id}}" 
+                        data-url="{{url("status/$vehiculo->id")}}" 
+                        data-title="Enter status"
+                        data-value="{{$vehiculo->StatusInicial}}"> 
+                        {{$vehiculo->estadoVehiculo->status}}
+                    </a>
+                    @elseif($vehiculo->StatusInicial=="3")
+                    <a href="#" class="editable btn btn-danger" id="status" data-type="select" data-pk="{{$vehiculo->id}}" 
+                        data-url="{{url("status/$vehiculo->id")}}" 
+                        data-title="Enter status"
+                        data-value="{{$vehiculo->StatusInicial}}"> 
+                        {{$vehiculo->estadoVehiculo->status}}
+                    </a>
+                    @elseif($vehiculo->StatusInicial=="4")
+                    <a href="#" class="editable btn btn-warning" id="status" data-type="select" data-pk="{{$vehiculo->id}}" 
+                        data-url="{{url("status/$vehiculo->id")}}" 
+                        data-title="Enter status"
+                        data-value="{{$vehiculo->StatusInicial}}"> 
+                        {{$vehiculo->estadoVehiculo->status}}
+                    </a>
+                     @endif
 
-                @if($vehiculo->estadoVehiculo->status=='Disponible')
+
+
+
+              {{-- @if($vehiculo->estadoVehiculo->status=='Disponible')
                 <span class="badge bg-primary">{{$vehiculo->estadoVehiculo->status}}</span>
                 @elseif($vehiculo->estadoVehiculo->status=='Taller')
                 <span class="badge bg-warning">{{$vehiculo->estadoVehiculo->status}}</span>
@@ -25,10 +56,10 @@
                 <span class="badge bg-info">{{$vehiculo->estadoVehiculo->status}}</span>
                 @elseif($vehiculo->estadoVehiculo->status=='Fuera de Servicio')
                 <span class="badge bg-danger">{{$vehiculo->estadoVehiculo->status}}</span>
-                @endif 
+                @endif  --}}
             </td>
             <td>
-                <form action="{{route('vehiculos.destroy',$vehiculo->id)}}" method="POST" class="formulario">
+                               <form action="{{route('vehiculos.destroy',$vehiculo->id)}}" method="POST" class="formulario">
                     @can('ver-vehiculo')
                     <a class="btn btn-light" href="{{route('vehiculo.perfil',$vehiculo->id)}}"><i class="fas fa-eye"></i></a>
                     @endcan
