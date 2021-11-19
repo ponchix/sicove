@@ -65,7 +65,7 @@ Cache::flush();
             'NombreVehiculo'=>'required',
             'TipoVehiculo'=>'required',
             'Marca'=>'required',    
-            'StatusInicial'=>'required',    
+            //'StatusInicial'=>'required',    
             'fecha_compra'=>'required',    
             'Modelo'=>'required',    
             'MedidaUso'=>'required',    

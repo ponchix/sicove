@@ -39,9 +39,11 @@
                                 @livewire('select-dep')
                             </div>
                             @livewireScripts
+
+
                             <!--Inicio Configuracion--->
                             <div class="titulo">Configuración</div>
-                            <div class="col-md-3 col-xs-3 col-xs-3">
+                            <div class="col-md-4 col-xs-4 col-xs-4">
                              <label>Tipo de vehiculo</label><span class="text-danger">*</span>
                              <select name="TipoVehiculo" class="form-control">
                                 <option value="">-</option>
@@ -52,7 +54,7 @@
                             </select>
                         </div>
 
-                        <div class="col-md-3 col-xs-3 col-xs-3">
+                        {{-- <div class="col-md-3 col-xs-3 col-xs-3">
                            <label>Estatus Inicial</label><span class="text-danger">*</span>
                         <select name="StatusInicial" class="form-control">
                             <option value="">-</option>
@@ -61,10 +63,10 @@
                             @endforeach
 
                         </select>
-                    </div>
+                    </div> --}}
 
 
-                    <div class="col-md-3 col-xs-3 col-xs-3">
+                    <div class="col-md-4 col-xs-4 col-xs-4">
                        <label>Medida de Uso</label><span class="text-danger">*</span>
                        <select name="MedidaUso" class="form-control" >
                         <option value="">-</option>
@@ -72,7 +74,7 @@
                         <option >millas</option>
                     </select>
                 </div>
-                <div class="col-md-3 col-xs-3 col-xs-3">
+                <div class="col-md-4 col-xs-4 col-xs-4">
                  <label>Tipo de combustible</label><span class="text-danger">*</span>
                  <select name="combustible" class="form-control" >
                     <option value="">-</option>
