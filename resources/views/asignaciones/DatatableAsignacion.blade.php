@@ -13,7 +13,7 @@
       <tr>
           <td>{{$asignacion->id}}</td>
          <td>{{$asignacion->fecha_a}}</td>
-         <td>{{$asignacion->vehiculo}}</td>
+         <td>{{$asignacion->vehiculos->NombreVehiculo}}</td>
          <td>{{$asignacion->conductor}}</td>
 
           <td>

@@ -53,6 +53,8 @@ public function gastos(){
       return $this->belongsTo(Status::class,'StatusInicial');
     }
 
-    
+    public function asignaciones(){
+      return $this->hasMany(assignment::class,'id');
+  }
 
 }
