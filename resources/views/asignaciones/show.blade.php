@@ -12,7 +12,11 @@
                     <div class="card-body" >
                         <a href="{{route('asignaciones.index')}}" class="btn btn-outline-primary mb-0 mt-1"><i class="fas fa-chevron-left"></i> Regresar</a>
                        <br>Numero de asignacion :{{$asignacion->id}}
-                      <br> conductor: {{$asignacion->conductor}}
+                       @foreach ($conductor as $item)
+                       conductor: {{$item->name}}
+                       Apellido: {{$item->APaterno}}
+                       @endforeach
+                      <br> 
                       <br> vehiculo: {{$asignacion->vehiculo}}
                       <br> fecha de asignacion: {{$asignacion->fecha_a}}
                       <br> Fecha de entrega: {{$asignacion->fecha_e}}

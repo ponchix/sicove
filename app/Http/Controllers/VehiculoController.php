@@ -136,7 +136,7 @@ Cache::flush();
         ->where('vehiculos.id','=',$id)
         ->get();
          return view('vehiculos.perfil',compact('vehiculo','modelo','datas','servicios'));
-
+ 
     }
 
     /**

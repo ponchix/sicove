@@ -28,4 +28,9 @@ class assignment extends Model
     public function vehiculos(){
         return $this->belongsTo(VehiculoModel::class,'vehiculo');
     }
+
+    public function conductores(){
+        return $this->belongsTo(Conductor::class,'conductor');
+    }
+
 }

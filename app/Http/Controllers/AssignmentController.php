@@ -7,6 +7,7 @@ use App\Models\Conductor;
 use App\Models\VehiculoModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Symfony\Contracts\Service\Attribute\Required;
 
 use function PHPUnit\Framework\returnSelf;
@@ -77,8 +78,14 @@ class AssignmentController extends Controller
     public function show($id)
     {
         //
+        $conductor=DB::table('users')
+        ->join('conductors','users.id','=','conductors.NombreConductor')
+        ->join('assignments','conductors.id','=','assignments.conductor')
+        ->select('users.name','conductors.APaterno')
+        ->where('assignments.id','=',$id)
+        ->get();
         $asignacion=assignment::find($id);
-        return view('asignaciones.show',compact('asignacion'));
+        return view('asignaciones.show',compact('asignacion','conductor'));
     }
 
     /**

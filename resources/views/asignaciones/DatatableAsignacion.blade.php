@@ -3,9 +3,8 @@
 <table id="man" class="table mt-2 table-borderless table-hover">
   <thead class="table-success">
       <th>ID</th>
-      <th>Fecha</th>
+      <th>Fecha Asignacion</th>
       <th>Vehiculo</th>
-      <th>Conductor</th>
       <th>Acciones</th>
   </thead>
   <tbody>
@@ -14,7 +13,6 @@
           <td>{{$asignacion->id}}</td>
          <td>{{$asignacion->fecha_a}}</td>
          <td>{{$asignacion->vehiculos->NombreVehiculo}}</td>
-         <td>{{$asignacion->conductor}}</td>
 
           <td>
               <form action="{{route('asignaciones.destroy',$asignacion->id)}}" method="POST" class="formulario">
