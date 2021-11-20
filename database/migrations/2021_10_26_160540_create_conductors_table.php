@@ -20,7 +20,7 @@ class CreateConductorsTable extends Migration
             ->nullable()
             ->constrained('users')
             ->cascadeOnDelete()
-            ->cascadeOnUpdate();;
+            ->cascadeOnUpdate();
             $table->string('APaterno');   
             $table->string('AMaterno');    
             $table->string('edad');    

@@ -11,8 +11,11 @@
     <a class="nav-link" href="/proveedores">
         <i class="fas fa-address-book"></i><span>Proveedores</span>
     </a>
- <a class="nav-link"href="/conductores">
+    <a class="nav-link"href="/conductores">
         <i class="fas fa-user"></i><span>Conductores</span>
+    </a>
+ <a class="nav-link"href="/asignaciones">
+    <i class="fas fa-link"></i><span>Asignaciones</span>
     </a>
     <a class="nav-link"href="/mecanico">
         <i class="fas fa-hard-hat"></i><span>Mecánicos</span>

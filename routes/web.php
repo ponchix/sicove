@@ -66,7 +66,8 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/servicios/detallado/{service}', 'mantenimientoController@show')->name('servicio.detallado');
     //Rutas mecanicos
     Route::resource('mecanico','MecanicoController');
-    
+    //Rutas de asignaciones
+    Route::resource('asignaciones', 'AssignmentController');
 
 });
 

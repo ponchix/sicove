@@ -33,7 +33,7 @@
                                     <label>Nombre:</label><span class="text-danger">*</span>
                                     <select name="NombreConductor" class="form-control">
                                        <option value="">-</option>
-                                       @foreach($conductor as $driver)
+                                       @foreach($conductores as $driver)
                                        <option value="{{$driver->id}}">{{$driver->name}}</option>
                                        @endforeach
                                            </select>

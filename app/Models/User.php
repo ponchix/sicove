@@ -49,4 +49,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(Mecanico::class,'NombreMecanico');
     }
+
+    public function conductor(){
+        return $this->belongsTo(Conductor::class,'NombreConductor');
+    }
 }
