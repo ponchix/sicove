@@ -17,12 +17,12 @@
          <td>{{$asignacion->conductor}}</td>
 
           <td>
-              <form action="{{route('servicios.destroy',$asignacion->id)}}" method="POST" class="formulario">
+              <form action="{{route('asignaciones.destroy',$asignacion->id)}}" method="POST" class="formulario">
                 @can('ver-vehiculo')
-                <a class="btn btn-light" href="{{route('servicio.detallado',$asignacion->id)}}"><i class="fas fa-eye"></i></a>
+                <a class="btn btn-light" href="{{route('asignaciones.show',$asignacion->id)}}"><i class="fas fa-eye"></i></a>
                 @endcan 
                   @can('editar-vehiculo')
-                  {{-- <a class="btn btn-success" href="{{route('servicios.edit',$mantenimiento->id)}}"><i class="fas fa-edit"></i></a> --}}
+                  <a class="btn btn-info" href="{{route('asignacion.entrega',$asignacion->id)}}"><i class="fas fa-undo-alt"></i></a>
                   @endcan
                   @csrf
                   @method('DELETE')
@@ -67,13 +67,13 @@
   $('.formulario').submit(function(e){
       e.preventDefault();
       Swal.fire({
-        title: '¿Quieres eliminar este vehículo?',
+        title: '¿Terminar esta asignacion?',
         text: "No podrás deshacer esta acción",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, Borrar!',
+        confirmButtonText: 'Sí, Terminar!',
     }).then((result) => {
       if (result.isConfirmed) {
         this.submit();

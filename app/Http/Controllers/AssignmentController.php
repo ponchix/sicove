@@ -6,6 +6,10 @@ use App\Models\assignment;
 use App\Models\Conductor;
 use App\Models\VehiculoModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Symfony\Contracts\Service\Attribute\Required;
+
+use function PHPUnit\Framework\returnSelf;
 
 class AssignmentController extends Controller
 {
@@ -48,6 +52,20 @@ class AssignmentController extends Controller
     public function store(Request $request)
     {
         //
+        request()->validate([
+            'conductor'=>'required',
+            'vehiculo'=>'required',
+            'fecha_a'=>'required',
+            'fecha_e',
+            'odometro_a'=>'required',
+            'odometro_e',
+            'combustible_a'=>'required',
+            'combustible_e',
+        ]);
+        $input=$request->all();
+        assignment::create($input);
+        Cache::flush();
+        return redirect()->route('asignaciones.index');
     }
 
     /**
@@ -56,9 +74,11 @@ class AssignmentController extends Controller
      * @param  \App\Models\assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function show(assignment $assignment)
+    public function show($id)
     {
         //
+        $asignacion=assignment::find($id);
+        return view('asignaciones.show',compact('asignacion'));
     }
 
     /**
@@ -67,9 +87,17 @@ class AssignmentController extends Controller
      * @param  \App\Models\assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function edit(assignment $assignment)
+    public function edit($id)
     {
         //
+        $conductores=Conductor::all();
+        $vehiculos=VehiculoModel::all();
+        $asignaciones=assignment::find($id);
+        return view('asignaciones.editar',compact(
+            'asignaciones',
+            'conductores',
+            'vehiculos'
+        ));
     }
 
     /**
@@ -79,9 +107,24 @@ class AssignmentController extends Controller
      * @param  \App\Models\assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, assignment $assignment)
+    public function update(Request $request, $id)
     {
         //
+        request()->validate([
+            'conductor'=>'required',
+            'vehiculo'=>'required',
+            'fecha_a'=>'required',
+            'fecha_e'=>'required',
+            'odometro_a'=>'required',
+            'odometro_e'=>'required',
+            'combustible_a'=>'required',
+            'combustible_e'=>'required',
+        ]);
+        $input=$request->all();
+        $asignaciones=assignment::find($id);
+        $asignaciones->update($input);
+        Cache::flush();
+        return redirect()->route('asignaciones.index');
     }
 
     /**
@@ -90,8 +133,32 @@ class AssignmentController extends Controller
      * @param  \App\Models\assignment  $assignment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(assignment $assignment)
+    public function destroy($id)
     {
         //
+assignment::find($id);
+Cache::flush();
+return redirect()->route('asignaciones.index');
     }
+
+    public function entrega_edit($id){
+        $asignaciones=assignment::find($id);
+        return view('asignaciones.entrega',compact(
+            'asignaciones'
+        ));
+
+    }
+    public function entrega_update(Request $request,$id)
+    {
+        request()->validate([
+            'fecha_e'=>'required',
+            'odometro_e'=>'required',
+            'combustible_e'=>'required',
+        ]);
+        $input=$request->all();
+        $asignaciones=assignment::find($id);
+        $asignaciones->update($input);
+        Cache::flush();
+        return redirect()->route('asignaciones.index');
+}
 }

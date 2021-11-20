@@ -1,12 +1,13 @@
 <?php
 
+use App\Http\Controllers\AssignmentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\EventoController;
-
+use App\Models\assignment;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +69,8 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('mecanico','MecanicoController');
     //Rutas de asignaciones
     Route::resource('asignaciones', 'AssignmentController');
+    Route::get('asignacion/entrega/{id}','AssignmentController@entrega_edit')->name('asignacion.entrega');
+    Route::put('asignacion/devolucion/{id}','AssignmentController@entrega_update')->name('asignacion.devolucion');
 
 });
 
