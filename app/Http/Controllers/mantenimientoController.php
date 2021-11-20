@@ -21,12 +21,8 @@ class mantenimientoController extends Controller
     public function index()
     {
         //
-        if (Cache::has('vehiculos')) {
-            $vehiculos=Cache::get('mantenimientos');
-        } else {
-            $vehiculos=VehiculoModel::where('status',2)->latest('id');
-           
-        }
+
+    
         $mantenimientos=mantenimiento::all();
         return view('mantenimiento.index',compact('mantenimientos'));
     
@@ -40,7 +36,7 @@ class mantenimientoController extends Controller
     public function create()
     {
         //
-        $vehiculos=VehiculoModel::all();
+        $vehiculos=VehiculoModel::where('StatusInicial',4)->get();
         $servicios=Service::all();
         $proveedores=Proveedor::all();
         $mecanicos=DB::table('mecanicos')
