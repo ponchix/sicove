@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Conductor;
 use App\Models\gasto;
+use App\Models\Proveedor;
 use App\Models\VehiculoModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
+
 
 class GastoController extends Controller
 {
@@ -31,7 +35,12 @@ class GastoController extends Controller
     {
         //
         $vehiculos=VehiculoModel::all();
-        return view('vehiculos/gastos.crear',compact('vehiculos'));
+        $conductores=Conductor::all();
+        $proveedores=Proveedor::all();
+        return view('vehiculos/gastos.crear',compact(
+            'vehiculos',
+        'conductores',
+        'proveedores'));
     }
 
     /**

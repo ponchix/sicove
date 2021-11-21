@@ -39,9 +39,15 @@
                                        </select>
                                    </div>
                                    <div class="col-md-4 col-xs-4 col-xs-4">
-                                    <label>Conductor</label>
-                                    <input type="text" class="form-control" name="conductor" onkeyup="mayus(this);">
-                                </div>
+                                    <label>Conductor</label><span class="text-danger">*</span>
+                                    <select name="conductor" class="form-control">
+                                       <option value="">-</option>
+                                       @foreach($conductores as $conductor)
+                                       <option value="{{$conductor['id']}}">{{$conductor['NombreConductor']}}</option>
+                                       @endforeach
+       
+                                   </select>
+                               </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Concepto</label>
                                     <input type="text" class="form-control" name="concepto" onkeyup="mayus(this);">
@@ -55,9 +61,15 @@
                                     <input type="number" class="form-control" name="monto" step="any">
                                 </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
-                                    <label>Proveedor</label>
-                                    <input type="text" class="form-control" name="proveedor" onkeyup="mayus(this);">
-                                </div>
+                                    <label>Proveedor</label><span class="text-danger">*</span>
+                                    <select name="proveedor" class="form-control" onkeyup="mayus(this);">
+                                       <option value="">-</option>
+                                       @foreach($proveedores as $proveedor)
+                                       <option value="{{$proveedor['id']}}">{{$proveedor['NombreProveedor']}}</option>
+                                       @endforeach
+       
+                                   </select>
+                               </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-2">Guardar</button>
                                 <a href="{{route('gastos.index')}}" class="btn btn-danger mt-2">Cancelar</a>

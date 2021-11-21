@@ -29,4 +29,7 @@ class Conductor extends Model
   public function incidentes(){
     return $this->hasMany(incidente::class,'id');
 }
+public function gastos(){
+  return $this->hasMany(Modelo::class,'id');
+}
 }

@@ -33,7 +33,7 @@ class ConductorController extends Controller
         $conductores=DB::table('users')
         ->join('model_has_roles','users.id','=','model_has_roles.model_id')
         ->join('roles','roles.id','=','model_has_roles.role_id')
-        ->select('users.name','users.id')
+        ->select('users.name')
         ->where('roles.name','=','Conductor')
         ->get();
         return view('conductores.crear',compact('conductores'));
@@ -49,7 +49,7 @@ class ConductorController extends Controller
     {
         request()->validate([
             'imagen'=>'required',
-            'NombreConductor'=>'required|unique:conductors',
+            'NombreConductor'=>'required',
             'APaterno'=>'required',    
             'AMaterno'=>'required',    
             'edad'=>'required',    

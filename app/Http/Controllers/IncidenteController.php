@@ -46,12 +46,7 @@ class IncidenteController extends Controller
     {
         //
         $vehiculos=VehiculoModel::all();
-        $conductores=DB::table('users')
-        ->join('model_has_roles','users.id','=','model_has_roles.model_id')
-        ->join('roles','roles.id','=','model_has_roles.role_id')
-        ->select('users.name','users.id')
-        ->where('roles.name','=','Conductor')
-        ->get();
+        $conductores=Conductor::all();
         return view('vehiculos/Incidentes.crear',compact('vehiculos','conductores'));
    }
     
@@ -108,12 +103,7 @@ class IncidenteController extends Controller
     {
         //
         $vehiculos=VehiculoModel::all();
-        $conductores=DB::table('users')
-        ->join('model_has_roles','users.id','=','model_has_roles.model_id')
-        ->join('roles','roles.id','=','model_has_roles.role_id')
-        ->select('users.name','users.id')
-        ->where('roles.name','=','Conductor')
-        ->get();
+        $conductores=Conductor::all();
         $incidentes=Incidente::find($id);
         return view('vehiculos/Incidentes.editar',compact('incidentes','vehiculos','conductores'));
     }

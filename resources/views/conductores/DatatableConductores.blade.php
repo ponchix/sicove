@@ -15,7 +15,7 @@
         <tr>
             <td>{{$conductor->id}}</td>
             <td> <img src="/imagen/{{$conductor->imagen}}" width="80" height="90px"> </td>
-            <td>{{$conductor->user->name}}</td>
+            <td>{{$conductor->NombreConductor}}</td>
             <td>{{$conductor->APaterno}}</td>
             <td>{{$conductor->telefono}}</td>
             <td>{{$conductor->tipoLicencia}}</td>

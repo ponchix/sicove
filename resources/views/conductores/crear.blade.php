@@ -34,7 +34,7 @@
                                     <select name="NombreConductor" class="form-control">
                                        <option value="">-</option>
                                        @foreach($conductores as $driver)
-                                       <option value="{{$driver->id}}">{{$driver->name}}</option>
+                                       <option>{{$driver->name}}</option>
                                        @endforeach
                                            </select>
                                </div>

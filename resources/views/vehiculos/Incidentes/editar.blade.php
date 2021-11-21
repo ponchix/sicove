@@ -41,12 +41,12 @@
                                   <div class="col-md-3 col-xs-3 col-xs-3">
                                     <label>Conductor</label>
                                     <select name="conductor" class="form-control"  >
-                                      <option value="">-</option>
+                                      <option value="" disabled>-</option>
                                       @foreach($conductores as $conductor)
-                                      <?php if ($conductor->id==$incidentes->conductor){ ?>
-                                      <option value="{{$conductor->id}}" selected="selected" >{{$conductor->name}}</option>
+                                      <?php if ($conductor['id']==$incidentes->conductor){ ?>
+                                      <option value="{{$conductor['id']}}" selected="selected" >{{$conductor['NombreConductor']}}</option>
                                       <?php } else { ?>
-                                      <option value="{{$conductor->id}}">{{$conductor->name}}</option>
+                                      <option value="{{$conductor['id']}}">{{$conductor['NombreConductor']}}</option>
                                       <?php }?>
                                       @endforeach
                                    </select>

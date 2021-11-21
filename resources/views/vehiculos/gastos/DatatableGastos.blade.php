@@ -24,7 +24,7 @@
             </td>
           <td>$ {{$gasto->monto}}</td>
           <td>{{$gasto->VehiculosG->NombreVehiculo}}</td>
-          <td>{{$gasto->conductor}}</td>
+          <td>{{$gasto->conductoresG->NombreConductor}}</td>
           <td>
               <form action="{{route('gastos.destroy',$gasto->id)}}" method="POST" class="formulario">
                   <a class="btn btn-success" href="{{route('gastos.edit',$gasto->id)}}"><i class="fas fa-edit"></i></a>
