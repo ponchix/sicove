@@ -60,6 +60,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('servicios','mantenimientoController');
   //Ruta Conductor
     Route::resource('conductores', 'ConductorController');
+    Route::put('/status/conductor/{id}','ConductorController@drivers_update')->name('conductores.status');
     //Ruta Proveedor
     Route::resource('proveedores', 'ProveedoresController');
     //Ruta Servicios

@@ -145,4 +145,14 @@ class ConductorController extends Controller
       Cache::flush();
       return redirect()->route('conductores.index');
     }
+
+    public function drivers_update(Request $request,$id)
+    {
+        $conductor=Conductor::find($id);
+        $conductor->update([
+        'status'=>$request->value,
+        ]);
+        $edit_status=$request->value;
+        return $edit_status;
+}
 }

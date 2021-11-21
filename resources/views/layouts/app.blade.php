@@ -174,23 +174,11 @@ var baseURL={!! json_encode(url('/')) !!}
 
 
 
-<script>
-    $.fn.editable.defaults.mode = 'inline';
-    $.fn.editable.defaults.ajaxOptions = {type:'PUT'};
-    $(document).ready(function() {
-    $('.editable').editable({
 
-            source:[
-            {value:"1", text: "ASIGNADO"},
-            {value:"2", text: "DISPONIBLE"},
-            {value:"3", text: "FUERA DE SERVICIO"},
-            {value:"4", text: "TALLER"}
-        ]
-    });
-    });
-    </script>
 
 @yield('page_js')
+@yield('js')
+<script type="text/javascript" src="{{asset('assets/status.js')}}"></script>
 @yield('scripts')
 
 <script>

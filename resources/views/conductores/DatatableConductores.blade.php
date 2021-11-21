@@ -1,4 +1,5 @@
-  <title>Vehiculos</title>
+  <title>Conductores</title>
+ 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
   <table id="example" class="table mt-2 table-borderless table-hover">
     <thead>
@@ -18,7 +19,23 @@
             <td>{{$conductor->NombreConductor}}</td>
             <td>{{$conductor->APaterno}}</td>
             <td>{{$conductor->telefono}}</td>
-            <td>{{$conductor->estado->status}}</td>
+            <td>
+                @if ($conductor->status=="1")
+                <a href="#" class="editable editable-click btn btn-info" id="status" data-type="select" data-pk="{{$conductor->id}}" 
+                    data-url="{{url("/status/conductor/$conductor->id")}}" 
+                    data-title="Enter status"
+                    data-value="{{$conductor->status}}"> 
+                    {{$conductor->estado->status}}
+                </a>
+                @elseif($conductor->status=="2")
+                <a href="#" class="editable editable-click btn btn-primary" id="status" data-type="select" data-pk="{{$conductor->id}}" 
+                    data-url="{{url("/status/conductor/$conductor->id")}}" 
+                    data-title="Enter status"
+                    data-value="{{$conductor->status}}"> 
+                    {{$conductor->estado->status}}
+                </a>
+                @endif
+                </td>
 <td>
                 <form action="{{route('conductores.destroy',$conductor->id)}}" method="POST" class="formulario">
 
@@ -36,6 +53,8 @@
         @endforeach
     </tbody>
 </table>
+
+
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript"src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>

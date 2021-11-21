@@ -1,4 +1,5 @@
   <title>Vehiculos</title>
+  <link rel="stylesheet" href="{{ asset('assets/jqueryui-editable.css')}}" type="text/css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
   <table id="example" class="table mt-2 table-borderless table-hover">
     <thead>
@@ -77,6 +78,8 @@
         @endforeach
     </tbody>
 </table>
+<script type="text/javascript" src="{{asset('assets/jqueryui-editable.js')}}"></script>
+
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript"src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
@@ -124,3 +127,4 @@
 
   });
 </script>
+
