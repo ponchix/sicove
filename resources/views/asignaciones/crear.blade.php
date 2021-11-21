@@ -23,16 +23,16 @@
                             <form action="{{route('asignaciones.store')}}" method="POST" enctype="multipart/form-data" autocomplete="off">
                             @csrf
                             <div class="row">
-                                <div class="col-md-3 col-xs-3 col-xs-3">
+                                <div class="col-md-6 col-xs-6 col-xs-6">
                                     <label>Conductor</label><span class="text-danger">*</span>
                                     <select name="conductor" class="form-control">
                                        <option value="">-</option>
                                        @foreach($conductores as $conductor)
-                                       <option value="{{$conductor['id']}}">{{$conductor->user->name}}</option>
+                                       <option value="{{$conductor['id']}}">{{$conductor->NombreConductor}}</option>
                                        @endforeach
                                            </select>
                                </div>
-                                <div class="col-md-3 col-xs-3 col-xs-3">
+                                <div class="col-md-6 col-xs-6 col-xs-6">
                                     <label>Vehiculo</label><span class="text-danger">*</span>
                                     <select name="vehiculo" class="form-control">
                                        <option value="">-</option>
@@ -41,30 +41,21 @@
                                        @endforeach
                                            </select>
                                </div>
-                               <div class="col-md-3 col-xs-3 col-xs-3">
+                               <div class="col-md-6 col-xs-6 col-xs-6">
                                    <label>Fecha de asignacion</label><span class="text-danger">*</span>
                                    <input type="date" class="form-control" name="fecha_a" min="2020-11-11" value="<?php echo date("Y-m-d");?>">
                                </div>
-                               <div class="col-md-3 col-xs-3 col-xs-3">
-                                   <label>Fecha de entrega</label><span class="text-danger">*</span>
-                                   <input type="date" class="form-control" name="fecha_e" min="2020-11-11">
-                               </div>
-                               <div class="col-md-3 col-xs-3 col-xs-3">
+
+                               <div class="col-md-6 col-xs-6 col-xs-6">
                                    <label>Odometro Actual</label><span class="text-danger">*</span>
                                    <input class="form-control" type="number" name="odometro_a" min="0" step="any">
                                </div>
-                               <div class="col-md-3 col-xs-3 col-xs-3">
-                                   <label>Odometro Final</label><span class="text-danger">*</span>
-                                   <input class="form-control" type="number" name="odometro_e" min="0" step="any">
-                               </div>
-                               <div class="col-md-3 col-xs-3 col-xs-3">
+
+                               <div class="col-md-6 col-xs-6 col-xs-6">
                                    <label>Combustible Actual</label><span class="text-danger">*</span>
                                    <input type="number" name="combustible_a" min="0" class="form-control">
                                </div>
-                               <div class="col-md-3 col-xs-3 col-xs-3">
-                                <label>Combustible Final</label><span class="text-danger">*</span>
-                                <input type="number" name="combustible_e" min="0" class="form-control">
-                            </div>
+
 
 
                             </div>

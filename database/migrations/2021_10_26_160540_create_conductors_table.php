@@ -29,6 +29,12 @@ class CreateConductorsTable extends Migration
             $table->string('NoLiciencia');    
             $table->string('fecha_exp');
             $table->string('tipoLicencia');
+            $table->foreignId('status')
+            ->default('2')
+            ->nullable()
+            ->constrained('estado_conductor')
+            ->cascadeOnUpdate()
+            ->cascadeOnDelete();   
             $table->timestamps();
         });
     }

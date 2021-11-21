@@ -18,6 +18,7 @@ class Conductor extends Model
         'NoLiciencia',
         'fecha_exp',
         'tipoLicencia',
+        'status',
       ];
 
       public function user(){
@@ -31,5 +32,8 @@ class Conductor extends Model
 }
 public function gastos(){
   return $this->hasMany(Modelo::class,'id');
+}
+public function estado(){
+  return $this->belongsTo(StatusConductor::class,'status');
 }
 }

@@ -7,7 +7,7 @@
         <th>Nombre</th>
         <th>Apellido Paterno</th>
         <th>Telefono</th>
-        <th>Tipo de Licencia</th>
+        <th>Estado</th>
               <th>Acciones</th>
     </thead>
      <tbody>
@@ -18,7 +18,7 @@
             <td>{{$conductor->NombreConductor}}</td>
             <td>{{$conductor->APaterno}}</td>
             <td>{{$conductor->telefono}}</td>
-            <td>{{$conductor->tipoLicencia}}</td>
+            <td>{{$conductor->estado->status}}</td>
 <td>
                 <form action="{{route('conductores.destroy',$conductor->id)}}" method="POST" class="formulario">
 
