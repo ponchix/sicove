@@ -6,8 +6,6 @@
         <th>ID</th>
         <th>Imagen</th>
         <th>Nombre</th>
-        <th>Apellido Paterno</th>
-        <th>Telefono</th>
         <th>Estado</th>
               <th>Acciones</th>
     </thead>
@@ -17,8 +15,7 @@
             <td>{{$conductor->id}}</td>
             <td> <img src="/imagen/{{$conductor->imagen}}" width="80" height="90px"> </td>
             <td>{{$conductor->NombreConductor}}</td>
-            <td>{{$conductor->APaterno}}</td>
-            <td>{{$conductor->telefono}}</td>
+
             <td>
                 @if ($conductor->status=="1")
                 <a href="#" class="editable editable-click btn btn-info" id="status" data-type="select" data-pk="{{$conductor->id}}" 
@@ -38,10 +35,13 @@
                 </td>
 <td>
                 <form action="{{route('conductores.destroy',$conductor->id)}}" method="POST" class="formulario">
-
+                    @can('editar-vehiculo')
+                    <a class="btn btn-light" href="{{route('conductores.show',$conductor->id)}}"><i class="fas fa-eye"></i></a>
+                    @endcan
                     @can('editar-vehiculo')
                     <a class="btn btn-success" href="{{route('conductores.edit',$conductor->id)}}"><i class="fas fa-edit"></i></a>
                     @endcan
+ 
                     @csrf
                     @method('DELETE')
                     @can('borrar-vehiculo')
