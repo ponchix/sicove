@@ -41,12 +41,12 @@
                                   <div class="col-md-3 col-xs-3 col-xs-3">
                                     <label>Conductor</label>
                                     <select name="conductor" class="form-control"  >
-                                      <option value="" >-</option>
+                                      <option value="">-</option>
                                       @foreach($conductores as $conductor)
-                                      <?php if ($conductor['id']==$incidentes->conductor){ ?>
-                                      <option value="{{$conductor['id']}}" selected="selected" >{{$conductor['NombreConductor']}}</option>
+                                      <?php if ($conductor->id==$incidentes->conductor){ ?>
+                                      <option value="{{$conductor->id}}" selected="selected" >{{$conductor->name}}</option>
                                       <?php } else { ?>
-                                      <option value="{{$conductor['id']}}">{{$conductor['NombreConductor']}}</option>
+                                      <option value="{{$conductor->id}}">{{$conductor->name}}</option>
                                       <?php }?>
                                       @endforeach
                                    </select>
@@ -54,7 +54,7 @@
                                
                                 <div class="col-md-3 col-xs-3 col-xs-3">
                                     <label>Fecha de Reporte</label>
-                                    <input type="date"  name="Fecha_reporte" class="form-control" id="datepicker" value="{{$incidentes->Fecha_reporte}}" >
+                                    <input type="date"  name="Fecha_reporte" class="form-control"  value="{{$incidentes->Fecha_reporte}}" >
                                 </div>
                                 <div class="col-md-3 col-xs-3 col-xs-3">
                                     <label>Descripcion Corta</label>

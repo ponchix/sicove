@@ -26,4 +26,7 @@ class Conductor extends Model
     public function asignaciones(){
       return $this->hasMany(assignment::class,'id');
   }
+  public function incidentes(){
+    return $this->hasMany(incidente::class,'id');
+}
 }

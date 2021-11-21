@@ -46,7 +46,7 @@
                                     <select name="conductor" class="form-control">
                                        <option value="">-</option>
                                        @foreach($conductores as $conductor)
-                                       <option value="{{$conductor['id']}}">{{$conductor['NombreConductor']}}</option>
+                                       <option value="{{$conductor->id}}">{{$conductor->name}}</option>
                                        @endforeach
        
                                    </select>

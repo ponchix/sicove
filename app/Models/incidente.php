@@ -21,5 +21,7 @@ class incidente extends Model
     public function VehiculosI(){
         return $this->belongsTo(VehiculoModel::class,'vehiculo');
     }
-  
+    public function conductoresI(){
+        return $this->belongsTo(Conductor::class,'conductor');
+    }
 }

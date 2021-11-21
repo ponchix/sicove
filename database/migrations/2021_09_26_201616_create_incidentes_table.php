@@ -21,7 +21,7 @@ class CreateIncidentesTable extends Migration
             ->cascadeOnUpdate()
             ->nullOnDelete();
             $table->string('conductor');
-            $table->dateTime('Fecha_reporte');
+            $table->date('Fecha_reporte');
             $table->string('descripcion');
             $table->string('importancia');
             $table->string('detallada');
