@@ -10,6 +10,7 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body" >
+            <a href="{{route('vehiculos.index')}}" class="btn btn-outline-primary btn-lg"><i class="fas fa-chevron-left"></i> Atrás</a>
              <div class="titulo mt-1">Información basica</div>
              @if($errors->any())
              <div class="alert alert-dark alert-dismissible fade show" role="alert">

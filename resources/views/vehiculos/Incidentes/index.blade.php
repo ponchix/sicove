@@ -13,7 +13,10 @@
                     <div class="card-body">
                         <a href="{{route('incidentes.create')}}" class="btn btn-outline-primary btn-lg"><i class="fas fa-plus"> </i>Registrar</a>
                         <a href="{{route('vehiculos.index')}}" class="btn btn-outline-primary btn-lg"><i class="fas fa-car"></i>Vehiculos</a>
-
+                        <div class="titulo">Tabla de Incidentes</div>
+                        @include('vehiculos/Incidentes.DatatableIncidente')
+                    </div>
+                    <div class="titulo">Gráfica</div>
                         <div class="container">
 
                         </div>
@@ -23,9 +26,7 @@
                        
                             
                         <div >
-                            <div class="titulo">Tabla de Incidentes</div>
-                            @include('vehiculos/Incidentes.DatatableIncidente')
-                        </div>
+
                             
                 </div>
             </div>

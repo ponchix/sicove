@@ -11,6 +11,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body" >
+                        <a href="{{route('vehiculos.index')}}" class="btn btn-outline-primary btn-lg mb-2"><i class="fas fa-chevron-left"></i> Atrás</a>
                         <div class="titulo mt-1">Información basica</div>
 
                         @if($errors->any())
