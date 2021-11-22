@@ -70,6 +70,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('mecanico','MecanicoController');
     //Rutas de asignaciones
     Route::resource('asignaciones', 'AssignmentController');
+    Route::get('/vehiculo/asignacion/{id}','AssignmentController@asignacion')->name('asignacion.assignment');
     Route::get('asignacion/entrega/{id}','AssignmentController@entrega_edit')->name('asignacion.entrega');
     Route::put('asignacion/devolucion/{id}','AssignmentController@entrega_update')->name('asignacion.devolucion');
 

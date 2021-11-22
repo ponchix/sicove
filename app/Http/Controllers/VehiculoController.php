@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\assignment;
 use App\Models\incidente;
 use Illuminate\Http\Request;
 use App\Models\VehiculoModel;
