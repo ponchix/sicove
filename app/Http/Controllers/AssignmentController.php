@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Symfony\Contracts\Service\Attribute\Required;
 
+use function PHPUnit\Framework\assertNan;
 use function PHPUnit\Framework\returnSelf;
 
 class AssignmentController extends Controller
@@ -165,12 +166,14 @@ class AssignmentController extends Controller
             'asignaciones',
             'conductores'
         ));
+
     }
 
     public function entrega_update(Request $request, $id)
     {
         request()->validate([
             'conductor',
+            'vehiculo',
             'fecha_e' => 'required',
             'odometro_e' => 'required',
             'combustible_e' => 'required',
@@ -179,6 +182,12 @@ class AssignmentController extends Controller
         Conductor::where('id', $conductor)->update([
             'status' => 2
         ]);
+        $vehiculo = $request->input('vehiculo');
+        VehiculoModel::where('id', $vehiculo)->update([
+            'StatusInicial' => 2
+        ]);
+        
+
         $input = $request->all();
         $asignaciones = assignment::find($id);
         $asignaciones->update($input);
@@ -186,13 +195,19 @@ class AssignmentController extends Controller
         return redirect()->route('asignaciones.index');
     }
 
+//Esta funcion recibe el $id del vehiculo NO de la asignacion
+
     public function asignacion($id)
     {
         $conductores = Conductor::where('status', 2)->get();
         $vehiculo = VehiculoModel::find($id);
-        return view('asignaciones.crear', compact(
+        $odometro= DB::table('assignments')
+         ->where('vehiculo','=',$id)->max('odometro_e');
+            return view('asignaciones.crear', compact(
             'conductores',
-            'vehiculo'
+            'vehiculo',
+            'odometro'
+            
         ));
     }
 }
