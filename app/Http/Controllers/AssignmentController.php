@@ -69,6 +69,10 @@ class AssignmentController extends Controller
         Conductor::where('id', $conductor)->update([
             'status' => 1
         ]);
+        $vehiculo=$request->input('vehiculo');
+        VehiculoModel::where('id',$vehiculo)->update([
+            'StatusInicial'=>1
+        ]);
         assignment::create($input);
         Cache::flush();
         return redirect()->route('asignaciones.index');

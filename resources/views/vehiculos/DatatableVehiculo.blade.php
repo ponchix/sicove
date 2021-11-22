@@ -17,10 +17,10 @@
             <td>{{$vehiculo->NombreVehiculo}}</td>
             <td>
                      @if ($vehiculo->StatusInicial=="1")
-                     <a href="#" class="editable btn btn-info" id="status" data-type="select" data-pk="{{$vehiculo->id}}" 
+                     <a href="#" class="editable btn btn-info disabled" id="status" data-type="select" data-pk="{{$vehiculo->id}}" 
                         data-url="{{url("status/$vehiculo->id")}}" 
                         data-title="Enter status"
-                        data-value="{{$vehiculo->StatusInicial}}"> 
+                        data-value="{{$vehiculo->StatusInicial}}" > 
                         {{$vehiculo->estadoVehiculo->status}}
                     </a>
                     @elseif($vehiculo->StatusInicial=="2")
