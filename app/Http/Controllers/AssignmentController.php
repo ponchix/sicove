@@ -36,7 +36,8 @@ class AssignmentController extends Controller
         //
 
       
-        $vehiculos=VehiculoModel::where('StatusInicial',2)->get();
+        $vehiculos=VehiculoModel::where('StatusInicial',2)
+        ->get();
         $conductores=Conductor::where('status',2)->get();
         return view('asignaciones.crear',compact(
             'conductores',
@@ -55,7 +56,7 @@ class AssignmentController extends Controller
     {
         //
         request()->validate([
-            'conductor'=>'required',
+            'conductor',
             'vehiculo'=>'required',
             'fecha_a'=>'required',
             'fecha_e',

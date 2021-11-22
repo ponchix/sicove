@@ -32,15 +32,12 @@
                                        @endforeach
                                            </select>
                                </div>
-                                <div class="col-md-6 col-xs-6 col-xs-6">
-                                    <label>Vehiculo</label><span class="text-danger">*</span>
-                                    <select name="vehiculo" class="form-control">
-                                       <option value="">-</option>
-                                       @foreach($vehiculos as $vehiculo)
-                                       <option value="{{$vehiculo['id']}}">{{$vehiculo['NombreVehiculo']}}</option>
-                                       @endforeach
-                                           </select>
-                               </div>
+
+                                    @foreach ($vehiculos as $vehiculo)
+                                    <input type="text" name="vehiculo"value="{{$vehiculo->id}}" class="form-control" hidden readonly> 
+                                    @endforeach
+                                   
+
                                <div class="col-md-6 col-xs-6 col-xs-6">
                                    <label>Fecha de asignacion</label><span class="text-danger">*</span>
                                    <input type="date" class="form-control" name="fecha_a" min="2020-11-11" value="<?php echo date("Y-m-d");?>">

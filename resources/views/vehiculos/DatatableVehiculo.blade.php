@@ -67,6 +67,9 @@
                     @can('editar-vehiculo')
                     <a class="btn btn-success" href="{{route('vehiculos.edit',$vehiculo->id)}}"><i class="fas fa-edit"></i></a>
                     @endcan
+                    @can('ver-vehiculo')
+                    <a class="btn btn-info" href="{{route('asignaciones.create',$vehiculo->id)}}"><i class="fas fa-link"></i></i></a>
+                    @endcan
                     @csrf
                     @method('DELETE')
                     @can('borrar-vehiculo')
