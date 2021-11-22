@@ -17,7 +17,7 @@
                             @endcan
 
                             <table class="table table-hover mt-2">
-                            	<thead>
+                            	<thead class="table-success">
                             		<th>Rol</th>
                             		<th>Acciones</th>
                             	</thead>
@@ -27,7 +27,7 @@
                             			<td>{{$role->name}}</td>
                             			<td>
                             				@can('editar-role')
-                            				<a href="{{ route('roles.edit',$role->id)}}" class="btn btn-primary">Editar</a>	
+                            				<a href="{{ route('roles.edit',$role->id)}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>	
                             				@endcan
                             				@can('borrar-role')
                             				{!! Form::open(['method'=>'DELETE','route'=>['roles.destroy',$role->id],'style'=>'display:inline']) !!}

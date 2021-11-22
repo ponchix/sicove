@@ -1,7 +1,7 @@
  <title>Usuarios</title>
  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
  <table  id="user" class="table table-hover mt-2">
-   <thead>
+   <thead class="table-success">
        <th>ID</th>
        <th>Nombre</th>
        <th>E-mail</th>

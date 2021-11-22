@@ -47,7 +47,7 @@ class IncidenteController extends Controller
         //
         $vehiculos=VehiculoModel::all();
         $conductores=Conductor::all();
-        return view('vehiculos/Incidentes.crear',compact('vehiculos','conductores'));
+            return view('vehiculos/Incidentes.crear',compact('vehiculos','conductores'));
    }
     
 
