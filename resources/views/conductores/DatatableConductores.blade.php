@@ -18,14 +18,14 @@
 
             <td>
                 @if ($conductor->status=="1")
-                <a href="#" class="editable editable-click btn btn-info" id="status" data-type="select" data-pk="{{$conductor->id}}" 
+                <a class="editable editable-click btn btn-info" id="status" data-type="select" data-pk="{{$conductor->id}}" 
                     data-url="{{url("/status/conductor/$conductor->id")}}" 
                     data-title="Enter status"
                     data-value="{{$conductor->status}}"> 
                     {{$conductor->estado->status}}
                 </a>
                 @elseif($conductor->status=="2")
-                <a href="#" class="editable editable-click btn btn-primary" id="status" data-type="select" data-pk="{{$conductor->id}}" 
+                <a  class="editable editable-click btn btn-primary" id="status" data-type="select" data-pk="{{$conductor->id}}" 
                     data-url="{{url("/status/conductor/$conductor->id")}}" 
                     data-title="Enter status"
                     data-value="{{$conductor->status}}"> 

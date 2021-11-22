@@ -8,6 +8,7 @@ use App\Models\VehiculoModel;
 use App\Models\Modelo;
 use App\Models\Marca;
 use App\Models\Status;
+use App\Models\Conductor;
 use App\Models\TipoVehiculo;
 
 use Illuminate\Support\Facades\Cache;
@@ -243,7 +244,17 @@ Cache::flush();
         ]);
         $edit_status=$request->value;
         return $edit_status;
-}
+    }
+
+    // public function vehiculos_asignacion(Request $request,$id){
+    //     $vehiculo=VehiculoModel::find($id);
+    //     $conductores=Conductor::where('status',2)->get();
+    //     return view('vehiculos/asignaciones.asignacion',compact(
+    //         'conductores',
+    //         'vehiculo'
+    //     ));
+
+    // }
 
 
 

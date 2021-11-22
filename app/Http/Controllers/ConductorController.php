@@ -122,17 +122,17 @@ class ConductorController extends Controller
             'tipoLicencia'=>'required',
            
         ]);
-        $cond=$request->all();
+        $input=$request->all();
         if ($imagen=$request->file('imagen')) {
             $rutaImg='imagen/';
             $imagenConductor=date('YmdHis').".".$imagen->getClientOriginalExtension();
             $imagen->move($rutaImg,$imagenConductor);
-            $cond['imagen']="$imagenConductor";
+            $input['imagen']="$imagenConductor";
         }else{
-            unset($conductores['imagen']);
+            unset($input['imagen']);
         }
         $conductores=Conductor::find($id);
-        $conductores->update($cond);
+        $conductores->update($input);
         Cache::flush();
         return redirect()->route('conductores.index');
     }

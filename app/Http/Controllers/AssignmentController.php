@@ -35,8 +35,9 @@ class AssignmentController extends Controller
     {
         //
 
-        $conductores=Conductor::all();
+      
         $vehiculos=VehiculoModel::where('StatusInicial',2)->get();
+        $conductores=Conductor::where('status',2)->get();
         return view('asignaciones.crear',compact(
             'conductores',
             'vehiculos'
@@ -64,6 +65,10 @@ class AssignmentController extends Controller
             'combustible_e',
         ]);
         $input=$request->all();
+        $conductor=$request->input('conductor');
+        Conductor::where('id',$conductor)->update([
+            'status'=>1
+        ]);
         assignment::create($input);
         Cache::flush();
         return redirect()->route('asignaciones.index');
@@ -143,25 +148,32 @@ class AssignmentController extends Controller
     public function destroy($id)
     {
         //
-assignment::find($id);
-Cache::flush();
-return redirect()->route('asignaciones.index');
+        assignment::find($id)->delete();
+      Cache::flush();
+      return redirect()->route('asignaciones.index');
     }
 
     public function entrega_edit($id){
+        $conductores=Conductor::all();
         $asignaciones=assignment::find($id);
         return view('asignaciones.entrega',compact(
-            'asignaciones'
+            'asignaciones',
+            'conductores'
         ));
 
     }
     public function entrega_update(Request $request,$id)
     {
         request()->validate([
+            'conductor',
             'fecha_e'=>'required',
             'odometro_e'=>'required',
             'combustible_e'=>'required',
-        ]);
+            ]);
+            $conductor=$request->input('conductor');
+            Conductor::where('id',$conductor)->update([
+                'status'=>2
+            ]);
         $input=$request->all();
         $asignaciones=assignment::find($id);
         $asignaciones->update($input);

@@ -27,7 +27,7 @@
 </section>
 @endsection
 @section('js')
-<script>
+{{-- <script>
     $.fn.editable.defaults.mode = 'inline';
     $.fn.editable.defaults.ajaxOptions = {type:'PUT'};
     $(document).ready(function() {
@@ -39,7 +39,7 @@
         ]
     });
     });
-    </script>
+    </script> --}}
 @endsection
 <script type="text/javascript" src="{{asset('assets/jqueryui-editable.js')}}"></script>
 

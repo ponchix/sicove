@@ -3,7 +3,7 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h3 class="page__heading">Nueva Asignación</h3>
+        <h3 class="page__heading">Retorno Vehiculo</h3>
     </div>
     <div class="section-body">
         <div class="row align-items-center">
@@ -24,15 +24,22 @@
                             @csrf
                             @method('PUT')
                             <div class="row">
-                               <div class="col-md-3 col-xs-3 col-xs-3">
+
+                                    <input type="text" class="form-control" name="conductor" value="{{$asignaciones->conductor}}" hidden readonly>
+
+                               <div class="col-md-6 col-xs-6 col-xs-6">
+                                <label>Conductor</label><span class="text-danger">*</span>
+                                <input type="text" class="form-control" value="{{$asignaciones->vehiculos->NombreVehiculo}}" readonly>
+                           </div>
+                               <div class="col-md-4 col-xs-4 col-xs-4">
                                    <label>Fecha de entrega</label><span class="text-danger">*</span>
                                    <input type="date" class="form-control" name="fecha_e" min="2020-11-11" value="<?php echo date("Y-m-d");?>">
                                </div>
-                               <div class="col-md-3 col-xs-3 col-xs-3">
+                               <div class="col-md-4 col-xs-4 col-xs-4">
                                    <label>Odometro Final</label><span class="text-danger">*</span>
                                    <input class="form-control" type="number" name="odometro_e" min="0" step="any" >
                                </div>
-                               <div class="col-md-3 col-xs-3 col-xs-3">
+                               <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Combustible Final</label><span class="text-danger">*</span>
                                 <input type="number" name="combustible_e" min="0" class="form-control" >
                             </div>
