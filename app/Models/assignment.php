@@ -19,6 +19,7 @@ class assignment extends Model
         'odometro_e',
         'combustible_a',
         'combustible_e',
+        'status',
         //Pendientes
         // 'checklist',
         // '',
@@ -32,5 +33,7 @@ class assignment extends Model
     public function conductores(){
         return $this->belongsTo(Conductor::class,'conductor');
     }
-
+    public function estado(){
+        return $this->belongsTo(StatusAsignacion::class,'status');
+      }
 }

@@ -28,10 +28,16 @@ class CreateAssignmentsTable extends Migration
             ->cascadeOnUpdate();
             $table->date('fecha_a');
             $table->date('fecha_e')->nullable();
-            $table->float('odometro_a');
-            $table->float('odometro_e')->nullable();
-            $table->float('combustible_a');
-            $table->float('combustible_e')->nullable();
+            $table->integer('odometro_a');
+            $table->integer('odometro_e')->nullable();
+            $table->integer('combustible_a');
+            $table->integer('combustible_e')->nullable();
+            $table->foreignId('status')
+            ->default('1')
+            ->nullable()
+            ->constrained('estado_asignacion')
+            ->cascadeOnUpdate()
+            ->cascadeOnDelete(); 
             $table->timestamps();
         });
     }
