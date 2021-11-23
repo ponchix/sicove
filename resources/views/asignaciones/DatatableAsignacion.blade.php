@@ -5,6 +5,7 @@
       <th>ID</th>
       <th>Fecha Asignacion</th>
       <th>Vehiculo</th>
+      <th>Status</th>
       <th>Acciones</th>
   </thead>
   <tbody>
@@ -13,19 +14,30 @@
           <td>{{$asignacion->id}}</td>
          <td>{{$asignacion->fecha_a}}</td>
          <td>{{$asignacion->vehiculos->NombreVehiculo}}</td>
+         @if ($asignacion->status=="1")
+         <td><a class="btn btn-info">{{$asignacion->estado->status}}</a></td>
+         @else
+         <td><a  class="btn btn-primary">{{$asignacion->estado->status}}</a></td>
+         @endif
+     
 
           <td>
               <form action="{{route('asignaciones.destroy',$asignacion->id)}}" method="POST" class="formulario">
                 @can('ver-vehiculo')
+                
                 <a class="btn btn-light" href="{{route('asignaciones.show',$asignacion->id)}}"><i class="fas fa-eye"></i></a>
                 @endcan 
                   @can('editar-vehiculo')
+                  @if ($asignacion->status=="1")
                   <a class="btn btn-info" href="{{route('asignacion.entrega',$asignacion->id)}}"><i class="fas fa-undo-alt"></i></a>
+                  @else
+                  <a class="btn btn-info disabled" href="{{route('asignacion.entrega',$asignacion->id)}}"><i class="fas fa-undo-alt"></i></a>   
+                  @endif
                   @endcan
                   @csrf
                   @method('DELETE')
                   @can('borrar-vehiculo')
-                  <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                  <button type="submit" class="btn btn-danger"><i class="far fa-folder"></i></button>
                   @endcan
               </form>         
           </td>

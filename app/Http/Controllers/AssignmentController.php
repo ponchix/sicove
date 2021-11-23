@@ -23,7 +23,7 @@ class AssignmentController extends Controller
     public function index()
     {
         //
-        $asignaciones = assignment::all();
+        $asignaciones = assignment::where('status','<',3)->get();
         return view('asignaciones.index', compact('asignaciones'));
     }
 
@@ -40,6 +40,7 @@ class AssignmentController extends Controller
         $vehiculos = VehiculoModel::where('StatusInicial', 2)
             ->get();
         $conductores = Conductor::where('status', 2)->get();
+
         return view('asignaciones.crear', compact(
             'conductores',
             'vehiculos'
@@ -153,7 +154,10 @@ class AssignmentController extends Controller
     public function destroy($id)
     {
         //
-        assignment::find($id)->delete();
+        //assignment::find($id)->delete();
+        assignment::where('id',$id)->update([
+            'status'=>3
+        ]);
         Cache::flush();
         return redirect()->route('asignaciones.index');
     }
@@ -190,7 +194,9 @@ class AssignmentController extends Controller
 
         $input = $request->all();
         $asignaciones = assignment::find($id);
-        $asignaciones->update($input);
+        $asignaciones->update([
+            $input,
+            'status'=>2]);
         Cache::flush();
         return redirect()->route('asignaciones.index');
     }

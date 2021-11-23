@@ -18,6 +18,7 @@ class StatusAsignacionSeeder extends Seeder
         $arrays=[
             'Activo',
             'Entregado',
+            'Archivado'
         ];
                 foreach ($arrays as $array) {
                     // code...
