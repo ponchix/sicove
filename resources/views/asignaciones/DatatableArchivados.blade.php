@@ -14,10 +14,8 @@
           <td>{{$asignacion->id}}</td>
          <td>{{$asignacion->fecha_a}}</td>
          <td>{{$asignacion->vehiculos->NombreVehiculo}}</td>
-         @if ($asignacion->status=="1")
-         <td><a class="btn btn-info">{{$asignacion->estado->status}}</a></td>
-         @else
-         <td><a  class="btn btn-primary">{{$asignacion->estado->status}}</a></td>
+         @if ($asignacion->status=="3")
+         <td><a class="btn btn-warning">{{$asignacion->estado->status}}</a></td>
          @endif
      
 
@@ -27,21 +25,9 @@
                 
                 <a class="btn btn-light" href="{{route('asignaciones.show',$asignacion->id)}}"><i class="fas fa-eye"></i></a>
                 @endcan 
-                  @can('editar-vehiculo')
-                  @if ($asignacion->status=="1")
-                  <a class="btn btn-info" href="{{route('asignacion.entrega',$asignacion->id)}}"><i class="fas fa-undo-alt"></i></a>
-                  @else
-                  <a class="btn btn-info disabled" href="{{route('asignacion.entrega',$asignacion->id)}}"><i class="fas fa-undo-alt"></i></a>   
-                  @endif
-                  @endcan
-                  @csrf
+                                  @csrf
                   @method('DELETE')
-                  @can('borrar-vehiculo')
-                  @if ($asignacion->status=="2")
-                  <button type="submit" class="btn btn-danger"><i class="far fa-folder"></i></button>
-                  @endif
-                  
-                  @endcan
+
               </form>         
           </td>
       </tr>
@@ -80,13 +66,13 @@
   $('.formulario').submit(function(e){
       e.preventDefault();
       Swal.fire({
-        title: '¿Deseas Archivar?',
+        title: '¿Terminar esta asignacion?',
         text: "No podrás deshacer esta acción",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, Archivar!',
+        confirmButtonText: 'Sí, Terminar!',
     }).then((result) => {
       if (result.isConfirmed) {
         this.submit();

@@ -54,13 +54,14 @@
 
                                         <div class="col-md-6 col-xs-6 col-xs-6">
                                             <label>Odometro Actual</label><span class="text-danger">*</span>
-                                            @if ($odometro == 0)
+                                            @if ($odometro==0)
                                             <input class="form-control" type="number" name="odometro_a" min="0"
                                             step="any" value="{{ $odometro }}">
                                             @else
-                                                <input class="form-control" type="number" name="odometro_a" min="0"
-                                                    step="any" value="{{ $odometro }}" readonly>
+                                            <input class="form-control" type="number" name="odometro_a" min="0"
+                                            step="any" value="{{ $odometro }}" readonly>
                                             @endif
+
 
                                         </div>
 

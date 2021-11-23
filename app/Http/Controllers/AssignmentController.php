@@ -27,6 +27,13 @@ class AssignmentController extends Controller
         return view('asignaciones.index', compact('asignaciones'));
     }
 
+    public function archivados_index(){
+        $asignaciones = assignment::where('status',3)->get();
+        return view('asignaciones.archivados',compact(
+            'asignaciones'
+        ));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -190,13 +197,14 @@ class AssignmentController extends Controller
         VehiculoModel::where('id', $vehiculo)->update([
             'StatusInicial' => 2
         ]);
+        assignment::where('id',$id)->update([
+            'status'=>2
+        ]);
         
 
         $input = $request->all();
         $asignaciones = assignment::find($id);
-        $asignaciones->update([
-            $input,
-            'status'=>2]);
+        $asignaciones->update($input);
         Cache::flush();
         return redirect()->route('asignaciones.index');
     }
