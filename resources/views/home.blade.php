@@ -31,7 +31,7 @@
                         <div class="titulo">Resumen</div>
                         <div class="row text-center">
                             <div class="col-md-4 col-xl-4">
-                                <div class="card bg-c-blue order-card">
+                                <div class="card bg-c-green order-card">
                                     <div class="card-block">
                                         <h5>Total de Vehiculos</h5>
                                         @php
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4 col-xl-4">
-                                <div class="card bg-c-blue order-card">
+                                <div class="card bg-c-green order-card">
                                     <div class="card-block">
                                         <h5>Conductores</h5>
                                         @php
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4 col-xl-4">
-                                <div class="card bg-c-blue order-card">
+                                <div class="card bg-c-green order-card">
                                     <div class="card-block">
                                         <h5>Incidentes</h5>
                                         @php
@@ -71,7 +71,7 @@
                         </div>
                         <div class="row text-center">
                           <div class="col-md-4 col-xl-4">
-                              <div class="card bg-c-blue order-card">
+                              <div class="card bg-c-green order-card">
                                   <div class="card-block">
                                       <h5>Gastos Totales</h5>
                                       <h2 class="text-right"> <i class="fas fa-hand-holding-usd f-left"></i> <span>{{$total}} MXN</span></h2>

@@ -79,9 +79,12 @@ class MecanicoController extends Controller
      * @param  \App\Models\Mecanico  $mecanico
      * @return \Illuminate\Http\Response
      */
-    public function show(Mecanico $mecanico)
+    public function show($id)
     {
-        //
+         $mecanico=Mecanico::find($id);
+        return view('mecanicos.PerfilMecanico',compact(
+            'mecanico'
+        ));
     }
 
     /**

@@ -11,7 +11,7 @@
       @foreach($mecanicos as $mecanico)
       <tr>
           <td>{{$mecanico->id}}</td>
-          <td>{{$mecanico->imagen}}</td>
+          <td> <img src="/mecanicos/{{$mecanico->imagen}}" width="80" height="90px"> </td>
          <td>{{$mecanico->NombreMecanico}}</td>
           <td>
               <form action="{{route('mecanico.destroy',$mecanico->id)}}" method="POST" class="formulario">
@@ -23,6 +23,9 @@
                   @can('borrar-vehiculo')
                   <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                   @endcan
+                                      @can('editar-vehiculo')
+                    <a class="btn btn-light" href="{{route('mecanico.show',$mecanico->id)}}"><i class="fas fa-eye"></i></a>
+                    @endcan
               </form>         
           </td>
       </tr>

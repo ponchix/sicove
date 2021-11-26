@@ -3,15 +3,16 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h3 class="page__heading">{{$vehiculo->NombreVehiculo}}</h3>
+        <h3 class="page__heading">Información del Vehículo</h3>
     </div>
     <div class="section-body">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body" >
-                        <a href="{{route('vehiculos.index')}}" class="btn btn-outline-primary btn-lg"><i class="fas fa-angle-left"></i></a>
+                        <a href="{{route('vehiculos.index')}}" class="btn btn-outline-primary btn-lg"><i class="fas fa-angle-left"></i>Atrás</a>
                         <div class="perfiles">
+                            <div class="titulo">{{$vehiculo->NombreVehiculo}}</div>
                           <img src="/imagen/{{$vehiculo->imagen}}"  width="65%" height="65%">
                       </div>
                         <div class="row">
@@ -104,7 +105,7 @@
                                 </tbody>
                             </table>
                                <div class="titulo">Documentación</div>
-                              <a href="/factura/{{$vehiculo->factura}}" class="btn btn-success">ver factura</a>
+                              <a href="/factura/{{$vehiculo->factura}}" class="btn btn-success"><i class="fas fa-file-alt"></i> Ver factura</a>
                             </div>
                             <div class="col-md-12 col-xs-12 col-xs-12">
                                 <div class="titulo">Incidentes</div>
