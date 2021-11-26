@@ -11,21 +11,42 @@
                     <div class="card">
                         <div class="card-body">
                             <a href="{{ route('asignaciones.index') }}" class="btn btn-outline-primary mb-0 mt-1"><i
-                                    class="fas fa-chevron-left"></i> Regresar</a>
-                            <br>Numero de asignacion :{{ $asignacion->id }}
+                                    class="fas fa-chevron-left"></i> Atrás</a>
+                               
+                             <div class="col-md-6 col-xs-5 col-xs-5">
+                            <div class="titulo">Numero de asignacion :{{ $asignacion->id }}
                             @foreach ($conductor as $item)
                                 conductor: {{ $item->name }}
                                 Apellido: {{ $item->APaterno }}
                             @endforeach
-                            <br>
-                            <br> vehiculo: {{ $asignacion->vehiculos->NombreVehiculo }}
-                            <br> fecha de asignacion: {{ $asignacion->fecha_a }}
-                            <br> Fecha de entrega: {{ $asignacion->fecha_e }}
-                            <br> odometro inicial: {{ $asignacion->odometro_a }}
-                            <br> odometro final: {{ $asignacion->odometro_e }}
-                            <br> combustible inicial: {{ $asignacion->combustible_a }}
-                            <br> combustible final: {{ $asignacion->combustible_e }}
-
+                            <br></div>
+                            <table class="table">
+                                <tbody>
+                                <tr><th scope="row" class="text-left">Vehiculo</th>
+                                <td class="text-right">{{ $asignacion->vehiculos->NombreVehiculo }}
+                                </td>
+                                </tr>
+                                <tr><th scope="row" class="text-left">Fecha de asignacion</th>
+                                <td class="text-right">  {{ $asignacion->fecha_a }}</td>
+                                </tr>
+                                <tr><th scope="row" class="text-left"> Fecha de entrega</th>
+                                <td class="text-right">{{ $asignacion->fecha_e }}</td>
+                                </tr>
+                                <tr><th scope="row" class="text-left">Odometro inicial</th>
+                                <td class="text-right"> {{ $asignacion->odometro_a }}</td>
+                                </tr>
+                                <tr><th scope="row" class="text-left">Odometro final</th>
+                                <td class="text-right">{{ $asignacion->odometro_e }}</td>
+                                </tr>
+                                <tr><th scope="row" class="text-left">Combustible inicial</th>
+                                <td class="text-right">{{ $asignacion->combustible_a }}</td>
+                                </tr>
+                                 <tr><th scope="row" class="text-left">Combustible final</th>
+                                <td class="text-right">{{ $asignacion->combustible_e }}</td>
+                                </tr>
+                                </tbody>   
+   </table>
+                             </div>
                         </div>
                     </div>
                 </div>
