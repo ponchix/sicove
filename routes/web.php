@@ -58,6 +58,9 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('gastos','GastoController');
     //Rutas Modulo Mantenimiento
     Route::resource('servicios','mantenimientoController');
+    Route::get('vehiculo/mantenimiento/{id}','mantenimientoController@mantenimiento')->name('mantenimiento.vehiculo');
+    Route::put('manteniento/alta/{id}','mantenimientoController@alta_update')->name('mantenimiento.alta');
+    Route::get('mantenimiento/entrega/{id}','mantenimientoController@alta_edit')->name('mantenimiento.entrega');
   //Ruta Conductor
     Route::resource('conductores', 'ConductorController');
     Route::put('/status/conductor/{id}','ConductorController@drivers_update')->name('conductores.status');

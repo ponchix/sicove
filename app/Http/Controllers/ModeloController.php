@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Marca;
 use App\Models\Modelo;
+use Illuminate\Support\Facades\Cache;
 
 class ModeloController extends Controller
 {
@@ -16,6 +17,10 @@ class ModeloController extends Controller
     public function index()
     {
         //
+        $modelos=Modelo::all();
+        return view('vehiculos/modelos.index',compact(
+            'modelos'
+        ));
     }
 
     /**
@@ -96,5 +101,8 @@ class ModeloController extends Controller
     public function destroy($id)
     {
         //
+        Modelo::find($id)->delete();
+        Cache::flush();
+        return redirect()->route('modelos.index');
     }
 }

@@ -7,7 +7,7 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 <!---X-Editable---->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  {{-- <link rel="stylesheet" href="/resources/demos/style.css"> --}}
 
 <script  src="{{asset('js/app.js')}}" defer></script>
 
@@ -86,7 +86,7 @@ var baseURL={!! json_encode(url('/')) !!}
 @include('Calendario.Agenda')
 </body>
 <!---Calenario---->
-<script src="{{asset('js/agenda.js')}}" defer></script>
+{{-- <script src="{{asset('js/agenda.js')}}" defer></script> --}}
 
 <!--Fin calendario--->
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
@@ -106,7 +106,7 @@ var baseURL={!! json_encode(url('/')) !!}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
 <!--Script reloj--->
-<script type="text/javascript" src="{{asset('reloj.js')}}"></script>
+{{-- <script type="text/javascript" src="{{asset('reloj.js')}}"></script> --}}
 <script type="text/javascript" src="{{asset('hora.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/jqueryui-editable.js')}}"></script>
 
@@ -178,7 +178,7 @@ var baseURL={!! json_encode(url('/')) !!}
 
 @yield('page_js')
 @yield('js')
-<script type="text/javascript" src="{{asset('assets/status.js')}}"></script>
+
 @yield('scripts')
 
 <script>

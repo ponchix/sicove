@@ -21,11 +21,11 @@
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                      <li>
                                       @can('crear-vehiculo')
-                                      <a data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar nuevo modelo" href="{{route('modelos.create')}}"class="dropdown-item"> Agregar Modelo </a> 
+                                      <a data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar nuevo modelo" href="{{route('modelos.index')}}"class="dropdown-item"> Modelos </a> 
                                       @endcan()
                                   </li>
                                   <li>
-                                      <a href="{{route('tipos.index')}}" class="dropdown-item">Tipo de Vehiculo</a>
+                                      <a href="{{route('tipos.index')}}" class="dropdown-item">Tipos</a>
                                   </li>
                                 <li>
                                     <a href="{{route('marcas.index')}}" class="dropdown-item">Marcas</a>
@@ -56,7 +56,6 @@
     $('.editable').editable({
 
             source:[
-            {value:"1", text: "ASIGNADO"},
             {value:"2", text: "DISPONIBLE"},
             {value:"3", text: "FUERA DE SERVICIO"},
             {value:"4", text: "TALLER"}

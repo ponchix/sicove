@@ -42,7 +42,7 @@
 
                                         </select>
                                     </div>
-                                    <div class="col-md-3 col-xs-3 col-xs-3">k
+                                    <div class="col-md-3 col-xs-3 col-xs-3">
                                         <label>Conductor</label><span class="text-danger">*</span>
                                         <select name="conductor" class="form-control">
                                             <option value="">-</option>
@@ -55,12 +55,12 @@
 
                                     <div class="col-md-3 col-xs-3 col-xs-3">
                                         <label>Fecha de Reporte</label>
-                                        <input type="date" class="form-control" name="Fecha_reporte">
+                                        <input type="date" class="form-control" name="Fecha_reporte" value="{{old('Fecha_reporte')}}">
                                     </div>
                                     <div class="col-md-3 col-xs-3 col-xs-3">
                                         <label>Descripcion Corta</label>
                                         <input type="text" class="form-control" name="descripcion"
-                                            placeholder="Ejem. Luz rota">
+                                            placeholder="Ejem. Luz rota" value="{{old('descripcion')}}">
                                     </div>
                                     <div class="col-md-3 col-xs-3 col-xs-3">
                                         <label>Importancia</label><span class="text-danger">*</span>
@@ -76,9 +76,9 @@
                                         <label>Descripcion Detallada</label>
                                         <textarea rows="1" cols="3" class="form-control" name="detallada"></textarea>
                                     </div>
-                                    <div class="col-md-9 col-xs-9 col-xs-9">
+                                    <div class="col-md-12 col-xs-12 col-xs-12">
                                         <label>Foto: </label>
-                                        <input class="form-control" type="file" name='foto'>
+                                        <input class="form-control imagenes" type="file" name='foto'>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-2">Guardar</button>

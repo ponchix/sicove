@@ -10,17 +10,23 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
+                            @if (session()->has('alert-danger'))
+                            <div class="alert alert-danger">
+                                {{ session()->get('alert-danger') }}
+                            </div>
+                        @endif
                             <div class="titulo">{{ $asignaciones->vehiculos->NombreVehiculo }}</div>
-                            
-                             <div class="row">
+
+                            <div class="row">
                                 <div class="card">
                                     <img src="/imagen/{{ $asignaciones->vehiculos->imagen }}"
                                         class="entrega img-fluid card-img-top mx-auto">
                                 </div>
-                                <h5 class="driver "> Conductor Asignado: {{ $asignaciones->conductores->NombreConductor }}</h5>
+                                <h5 class="driver "> Conductor Asignado:
+                                    {{ $asignaciones->conductores->NombreConductor }}</h5>
                                 <h5 class="driver "> Fecha de Asignacion: {{ $asignaciones->fecha_a }}</h5>
 
-                            </div> 
+                            </div>
                             @if ($errors->any())
                                 <div class="alert alert-dark alert-dismissible fade show" role="alert">
                                     <strong>¡Revise los campos! </strong>
@@ -39,9 +45,10 @@
 
                                     <input type="text" class="form-control" name="conductor"
                                         value="{{ $asignaciones->conductor }}" hidden readonly>
-                                    <input type="text" class="form-control"
-                                        value="{{ $asignaciones->vehiculo }}" name="vehiculo" hidden readonly>
-
+                                    <input type="text" class="form-control" value="{{ $asignaciones->vehiculo }}"
+                                        name="vehiculo" hidden readonly>
+                                    <input type="text" class="form-control" value="{{ $asignaciones->odometro_a }}"
+                                        name="odometro_a" hidden readonly>
                                     <div class="col-md-4 col-xs-4 col-xs-4">
                                         <label>Fecha de entrega</label><span class="text-danger">*</span>
                                         <input type="date" class="form-control" name="fecha_e" min="2020-11-11"
@@ -51,6 +58,7 @@
                                         <label>Odometro Final</label><span class="text-danger">*</span>
                                         <input class="form-control" type="number" name="odometro_e" min="0" step="any">
                                     </div>
+
                                     <div class="col-md-4 col-xs-4 col-xs-4">
                                         <label>Combustible Final</label><span class="text-danger">*</span>
                                         <input type="number" name="combustible_e" min="0" class="form-control">

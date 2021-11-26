@@ -1,17 +1,20 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
 <table id="example" class="table mt-2 table-borderless table-hover">
   <thead class="table-success">
-      <th>Fecha</th>
+      <th>Fecha Ingreso</th>
+      <th>Fecha Termino</th>
       <th>Servicios</th>
+      <th>Referencia</th>
       <th>Mecanico</th>
   </thead>
   <tbody>
       @foreach($servicios as $servicio)
       <tr>
           <td>{{$servicio->fecha_inicio}}</td>
+          <td>{{$servicio->fecha_alta}}</td>
           <td>{{$servicio->nombre}}</td>
-          <td>{{$servicio->name}}</td>
-
+          <td>{{$servicio->referencia_man}}</td>
+          <td>{{$servicio->NombreMecanico}}</td>
       </tr>
       @endforeach
   </tbody>
@@ -22,7 +25,7 @@
 <script>
  $(document).ready(function() {
   $('#example').DataTable({
-      "lengthMenu":[[5,10,50,-1],[5,10,50,"All"]],
+      "lengthMenu":[[10,15,50,-1],[10,15,50,"All"]],
       "language":{
        "lengthMenu":"Mostrar _MENU_ registros",
        "info":"Mostrando pagina _PAGE_ de _PAGES_",

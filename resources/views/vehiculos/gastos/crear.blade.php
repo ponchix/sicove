@@ -26,7 +26,7 @@
                                 <div class="row">
                                     <div class="col-md-12 col-xs-12 col-xs-12">
                                         <label>Fecha</label>
-                                        <input type="date" class="form-control" name="fecha">
+                                        <input type="date" class="form-control" name="fecha" value="{{old('fecha')}}">
                                     </div>
                                     <div class="col-md-4 col-xs-4 col-xs-4">
                                         <label>Vehiculo</label><span class="text-danger">*</span>
@@ -50,19 +50,19 @@
                                </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Concepto</label>
-                                    <input type="text" class="form-control" name="concepto" onkeyup="mayus(this);">
+                                    <input type="text" class="form-control" name="concepto" onkeyup="mayus(this);" value="{{old('concepto')}}">
                                 </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Referencia</label>
-                                    <input type="text" class="form-control" name="referencia" onkeyup="mayus(this);">
+                                    <input type="text" class="form-control" name="referencia" onkeyup="mayus(this);" value="{{old('referencia')}}">
                                 </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Monto</label>
-                                    <input type="number" class="form-control" name="monto" step="any">
+                                    <input type="number" class="form-control" name="monto" step="any" value="{{old('monto')}}">
                                 </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Proveedor</label><span class="text-danger">*</span>
-                                    <select name="proveedor" class="form-control" onkeyup="mayus(this);">
+                                    <select name="proveedor" class="form-control" onkeyup="mayus(this);" >
                                        <option value="">-</option>
                                        @foreach($proveedores as $proveedor)
                                        <option value="{{$proveedor['id']}}">{{$proveedor['NombreProveedor']}}</option>

@@ -3,7 +3,7 @@
 <table id="example" class="table mt-2 table-borderless table-hover">
   <thead>
       <th>ID</th>
-      <th>Imagen</th>
+      <th>Servicio</th>
       <th>Acciones</th>
   </thead>
   <tbody>

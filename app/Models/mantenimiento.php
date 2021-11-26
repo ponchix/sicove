@@ -24,6 +24,9 @@ class mantenimiento extends Model
         'proveedor',
         'comentario',
         'imagen_man',
+        'hora_alta',
+        'comentario_e',
+        'fecha_alta',
     ];
     public function VehiculosM(){
         return $this->belongsTo(VehiculoModel::class,'vehiculo');
@@ -35,4 +38,8 @@ class mantenimiento extends Model
     public function mecanicos(){
         return $this->hasMany(Mecanico::class,'id');
     }
+
+    public function estado(){
+        return $this->belongsTo(StatusMantenimiento::class,'status');
+      }
 }

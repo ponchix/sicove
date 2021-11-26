@@ -10,15 +10,17 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-body" >
-                            <a href="{{route('tipos.create')}}"  class="btn btn-outline-primary btn-lg"><i class="fas fa-plus"> </i>Nuevo</a>
-                            <a href="{{route('vehiculos.index')}}" class="btn btn-outline-primary btn-lg"><i class="fas fa-car"></i>Vehiculos</a>
+                        <div class="card-body">
+                            <a href="{{ route('tipos.create') }}" class="btn btn-outline-primary btn-lg"><i
+                                    class="fas fa-plus"> </i>Nuevo</a>
+                            <a href="{{ route('vehiculos.index') }}" class="btn btn-outline-primary btn-lg"><i
+                                    class="fas fa-car"></i>Vehiculos</a>
 
-                        <div class="titulo mt-3 mb-1">Lista de tipos</div>
-                        
-                        <div class="table-responsive">  
-                         @include('vehiculos/Tipos.DatatableTipo')
-                     </div>
+                            <div class="titulo mt-3 mb-1">Tipos Disponibles</div>
+
+                            <div class="table-responsive">
+                                @include('vehiculos/Tipos.DatatableTipo')
+                            </div>
 
                         </div>
                     </div>

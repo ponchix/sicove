@@ -182,12 +182,18 @@ class AssignmentController extends Controller
 
     public function entrega_update(Request $request, $id)
     {
+        $odometro_e=$request->input('odometro_e');
+        $odometro_a=$request->input('odometro_a');
+        if ($odometro_e < $odometro_a) {
+            return back()->with('alert-danger','El odometro final NO puede ser menor que el odometro asignado');
+        }
         request()->validate([
             'conductor',
             'vehiculo',
             'fecha_e' => 'required',
             'odometro_e' => 'required',
             'combustible_e' => 'required',
+            'odometro_a',
         ]);
         $conductor = $request->input('conductor');
         Conductor::where('id', $conductor)->update([
@@ -197,6 +203,7 @@ class AssignmentController extends Controller
         VehiculoModel::where('id', $vehiculo)->update([
             'StatusInicial' => 2
         ]);
+
         assignment::where('id',$id)->update([
             'status'=>2
         ]);

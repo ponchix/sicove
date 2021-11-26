@@ -5,7 +5,6 @@
           themeSystem: 'bootstrap',
           initialView: 'dayGridMonth',
           locale:"es",
-           events: 'inverse-background',
           displayEventTime:false,
           eventColor:"#E71C1C",
           headerToolbar:{

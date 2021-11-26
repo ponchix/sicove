@@ -38,7 +38,7 @@
                   @method('DELETE')
                   @can('borrar-vehiculo')
                   @if ($asignacion->status=="2")
-                  <button type="submit" class="btn btn-danger"><i class="far fa-folder"></i></button>
+                  <button type="submit" class="btn btn-warning"><i class="far fa-folder"></i></button>
                   @endif
                   
                   @endcan

@@ -32,15 +32,9 @@
                                        @endforeach
                                            </select>
                                </div>
-                                <div class="col-md-4 col-xs-4 col-xs-4">
-                                    <label>Vehiculo</label><span class="text-danger">*</span>
-                                    <select name="vehiculo" class="form-control">
-                                       <option value="">-</option>
-                                       @foreach($vehiculos as $vehiculo)
-                                       <option value="{{$vehiculo['id']}}">{{$vehiculo['NombreVehiculo']}}</option>
-                                       @endforeach
-                                           </select>
-                               </div>
+
+                                    <input type="text" value="{{$vehiculo->id}}" name="vehiculo" hidden readonly>
+
                                <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Fecha de Inicio</label>
                                 <input type="date" class="form-control" name="fecha_inicio" min="2020-11-11">
@@ -51,7 +45,12 @@
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Odómetro</label>
-                                <input type="number" class="form-control" name="odometro"   step="any">
+                                @if ($odometro==0)
+                                <input type="number" class="form-control" name="odometro"   step="any" value="0" readonly >
+                                @else
+                                <input type="number" class="form-control" name="odometro"   step="any" value="{{$odometro}}" readonly >
+                                @endif
+                                
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Servicio(s)</label>

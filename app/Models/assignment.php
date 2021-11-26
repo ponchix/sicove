@@ -25,6 +25,7 @@ class assignment extends Model
         // '',
         // '',
     ];
+    
 
     public function vehiculos(){
         return $this->belongsTo(VehiculoModel::class,'vehiculo');

@@ -21,7 +21,9 @@ class CreateMantenimientosTable extends Migration
             ->nullOnDelete()
             ->cascadeOnUpdate();
             $table->date('fecha_inicio');
+            $table->date('fecha_alta')->nullable();
             $table->time('hora_entrada');
+            $table->time('hora_alta')->nullable();
             $table->foreignId('vehiculo')
             ->nullable()
             ->constrained('vehiculos')
@@ -36,7 +38,14 @@ class CreateMantenimientosTable extends Migration
             $table->string('tipo_man');
             $table->string('proveedor');
             $table->string('comentario');
+            $table->string('comentario_e')->nullable();
             $table->string('imagen_man');
+            $table->foreignId('status')
+            ->default('1')
+            ->nullable()
+            ->constrained('estado_mantenimiento')
+            ->cascadeOnUpdate()
+            ->cascadeOnDelete();   ;
             $table->timestamps();
         });
     }
