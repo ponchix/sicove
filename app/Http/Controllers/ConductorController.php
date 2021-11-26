@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\assignment;
 use Illuminate\Http\Request;
 use App\Models\Conductor;
 use App\Models\User;
@@ -82,8 +83,15 @@ class ConductorController extends Controller
     {
         //
         $conductor=Conductor::find($id);
+        $asignaciones=DB::table('assignments')
+        ->join('conductors', 'assignments.conductor', '=', 'conductors.id')
+        ->join('vehiculos', 'vehiculos.id', '=', 'assignments.vehiculo')
+        ->select('assignments.*','vehiculos.NombreVehiculo')
+        ->where('assignments.conductor','=',$id)
+        ->get();
         return view('conductores.show',compact(
-            'conductor'
+            'conductor',
+            'asignaciones'
         ));
     }
 

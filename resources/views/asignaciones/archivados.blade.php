@@ -10,8 +10,10 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body" >
-                       
+                       <div class="table-responsive">
                         @include('asignaciones.DatatableArchivados')
+                       </div>
+                      
              </div>
          </div>
      </div>

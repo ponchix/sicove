@@ -59,6 +59,9 @@
                     </div>           
                     <div class="col-md-12 col-xs-12 col-xs-12">
                         <div class="titulo">Asignaciones</div>    
+<div class="table-responsive">
+    @include('conductores.DataTableAsignacion')
+</div>
                    </div>
                    </div>
 
