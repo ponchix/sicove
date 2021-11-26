@@ -14,7 +14,7 @@
                     <div class="row">
                     <div class="col-md-3 col-xs-3 col-xs-3">
                     <div class="titulo">Perfil</div>
-                    <img src="/imagen/{{$conductor->imagen}}"  width="90%" height="70%">
+                        <img src="/imagen/{{$conductor->imagen}}"  width="100%" height="75%">
                     </div>
                     <div class="col-md-6 col-xs-5 col-xs-5">
                             <div class="titulo">Información Basica</div>
@@ -37,30 +37,31 @@
                                 </tr>
                                 </tbody>
                             </table>
-                             </div>
-                            <div class="col-md-3 col-xs-4 col-xs-4">
-                            <div class="titulo">Info. Licencia</div>
+                    </div>
+                    <div class="col-md-3 col-xs-4 col-xs-4">
+                        <div class="titulo">Info. Licencia</div>
                             <table class="table" >
+                                <tbody>
                                  <tr><th scope="row" class="text-left">No.Licencia</th>
-                                <td class="text-right">{{$conductor->NoLiciencia}}</td>
+                                     <td class="text-right">{{$conductor->NoLiciencia}}</td>
                                 </tr>
                                 <tr><th scope="row" class="text-left">Fecha de Expiración</th>
-                                <td class="text-right">{{$conductor->fecha_exp}}</td>
+                                    <td class="text-right">{{$conductor->fecha_exp}}</td>
                                 </tr>
                                 <tr><th scope="row" class="text-left">Tipo de  Licencia</th>
-                                <td class="text-right">{{$conductor->tipoLicencia}}</td>
+                                    <td class="text-right">{{$conductor->tipoLicencia}}</td>
                                 </tr>
                                 <tr><th scope="row" class="text-left">Status</th>
-                                <td class="text-right">{{$conductor->estado->status}}</td>
+                                    <td class="text-right">{{$conductor->estado->status}}</td>
                                 </tr>
-                                  </tbody>
+                                </tbody>
                             </table> 
-                             </div>  
-                   <div class="col-md-12 col-xs-12 col-xs-12">
-                        <div class="titulo">Asignaciones</div>
-                           
+                    </div>           
+                    <div class="col-md-12 col-xs-12 col-xs-12">
+                        <div class="titulo">Asignaciones</div>    
                    </div>
-             </div> 
+                   </div>
+
          </div>
          </div>
      </div>

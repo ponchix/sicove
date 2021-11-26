@@ -10,10 +10,9 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <a href="{{ route('asignaciones.index') }}" class="btn btn-outline-primary mb-0 mt-1"><i
-                                    class="fas fa-chevron-left"></i> Atrás</a>
-
-                            <div class="col-md-6 col-xs-5 col-xs-5">
+                            <a href="{{ route('asignaciones.index') }}" class="btn btn-outline-primary mb-0 mt-1"><i class="fas fa-chevron-left"></i> Atrás</a>
+                        <div class="row">
+                           <div class="col-md-12 col-xs-12 col-xs-12">
                                 <div class="titulo">Numero de asignacion : {{ $asignacion->id }}
                                     @foreach ($conductor as $item)
                                         conductor: {{ $item->name }}
@@ -21,6 +20,8 @@
                                     @endforeach
                                     <br>
                                 </div>
+                            </div>
+                               <div class="col-md-6 col-xs-5 col-xs-5">
                                 <table class="table">
                                     <tbody>
                                         <tr>
@@ -52,10 +53,14 @@
                                             <th scope="row" class="text-left">Combustible final</th>
                                             <td class="text-right">{{ $asignacion->combustible_e }}</td>
                                         </tr>
+
                                     </tbody>
                                 </table>
-                                <img src="/imagen/{{ $asignacion->vehiculos->imagen }}" width="120" height="90px">
                             </div>
+                             <div class="col-md-6 col-xs-5 col-xs-5">
+                             <img src="/imagen/{{ $asignacion->vehiculos->imagen }}" width="100%" height="90%">
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
