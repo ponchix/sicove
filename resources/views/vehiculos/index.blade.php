@@ -15,6 +15,7 @@
                             <a class="btn btn-outline-primary btn-lg" href="{{route('vehiculos.create')}}"><i class="fas fa-plus"></i> Nuevo</a>
                             <a  class="btn btn-outline-primary btn-lg ml-2" href="{{route('incidentes.index')}}"><i class="fas fa-car-crash"></i> Incidentes</a>
                             <a  class="btn btn-outline-primary btn-lg ml-2" href="{{route('gastos.index')}}"><i class="fas fa-dollar-sign"></i> Gastos</a>
+                            <a  class="btn btn-outline-primary btn-lg ml-2" href="#"><i class="fa fa-tint" ></i> Combustible</a>
                             <div class="btn-group" role="group">
                                 <div class="dropdown  dropend ">
                                     <button id="btnGroupDrop1" type="button" class="btn btn-lg btn-outline-primary dropdown-toggle ml-2" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-universal-access"></i> Adicionales</button>
