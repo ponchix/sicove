@@ -32,11 +32,23 @@
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: 'Asignacion Registrada',
+                title: 'Asignacion Activa',
                 showConfirmButton: false,
                 timer: 1000,
                 heightAuto: false,
             })
         </script>
     @endif
+    @if (session('archive') == 'ok')
+    <script>
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Asignacion Ha Sido Archivada',
+            showConfirmButton: false,
+            timer: 1000,
+            heightAuto: false,
+        })
+    </script>
+@endif
 @endsection

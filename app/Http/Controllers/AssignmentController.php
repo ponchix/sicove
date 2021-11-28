@@ -166,7 +166,7 @@ class AssignmentController extends Controller
             'status'=>3
         ]);
         Cache::flush();
-        return redirect()->route('asignaciones.index');
+        return redirect()->route('asignaciones.index')->with('archive','ok');
     }
 
     public function entrega_edit($id)

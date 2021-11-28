@@ -30,6 +30,11 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                            <th scope="row" class="text-left">Conductor</th>
+                                            <td class="text-right">{{ $asignacion->conductores->NombreConductor }}
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <th scope="row" class="text-left">Fecha de asignacion</th>
                                             <td class="text-right"> {{ $asignacion->fecha_a }}</td>
                                         </tr>
