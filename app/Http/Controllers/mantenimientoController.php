@@ -101,7 +101,7 @@ class mantenimientoController extends Controller
         ]);
         $mantenimiento->servicios()->attach($request->servicios);
         Cache::flush();
-        return redirect()->route('servicios.index');
+        return redirect()->route('servicios.index')->with('add','agregar');;
     }
 
     /**

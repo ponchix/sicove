@@ -48,7 +48,7 @@ class ServiceController extends Controller
         $service = Service::create($request->all());
 
         return redirect()->route('catalogo.index')
-            ->with('success', 'Service created successfully.');
+            ->with('add','agregar');;
     }
 
     /**
