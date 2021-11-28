@@ -119,7 +119,7 @@ class mantenimientoController extends Controller
         // ->where('mantenimientos.id','=',$id)
         // ->get();
         // dd($vehiculo);
-        $mantenimiento=mantenimiento::find($id);
+        $mantenimiento=mantenimiento::findorFail($id);
         $servicios=DB::table('mantenimientos')
         ->join('mantenimiento_service','mantenimiento_service.mantenimiento_id','=','mantenimientos.id')
         ->join('services','services.id','=','mantenimiento_service.service_id')

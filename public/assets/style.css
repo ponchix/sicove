@@ -164,8 +164,10 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fab {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-}
+    font-weight: 600;
+    text-transform: uppercase !important;
+ }
+
 
 p, ul:not(.list-unstyled), ol {
     line-height: 28px;
@@ -3334,6 +3336,7 @@ pre {
     border-top: 1px solid #f9f9f9;
     padding-left: 35px;
     padding-right: 35px;
+
 }
 
 @media (max-width: 575.98px) {

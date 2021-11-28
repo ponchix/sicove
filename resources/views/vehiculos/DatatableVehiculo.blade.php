@@ -125,9 +125,15 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+
+
+
   <script>
       $(document).ready(function() {
           $('#example').DataTable({
+              buttons: [
+                  'pdf'
+              ],
               "lengthMenu": [
                   [5, 10, 50, -1],
                   [5, 10, 50, "All"]
