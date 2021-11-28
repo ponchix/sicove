@@ -70,7 +70,7 @@ class MecanicoController extends Controller
         }
        Mecanico::create($mecanicos);
         Cache::flush();
-        return redirect()->route('mecanico.index');
+        return redirect()->route('mecanico.index')->with('add','agregar');
     }
 
     /**

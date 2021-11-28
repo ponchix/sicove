@@ -25,3 +25,17 @@
 </div>
 </section>
 @endsection
+@section('js')
+@if (session('add') == 'agregar')
+<script>
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Mecanico Registrado',
+        showConfirmButton: false,
+        timer: 1000,
+        heightAuto: false,
+    })
+</script>
+@endif
+@endsection

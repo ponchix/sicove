@@ -84,7 +84,7 @@ class AssignmentController extends Controller
         ]);
         assignment::create($input);
         Cache::flush();
-        return redirect()->route('asignaciones.index');
+        return redirect()->route('asignaciones.index')->with('add','agregar');
     }
 
     /**

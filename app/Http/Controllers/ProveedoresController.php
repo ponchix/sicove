@@ -59,7 +59,7 @@ class ProveedoresController extends Controller
         $proveedores=$request->all();
         Proveedor::create($proveedores);
         Cache::flush();
-        return redirect()->route('proveedores.index');
+        return redirect()->route('proveedores.index')->with('add','agregar');
     }
   
        

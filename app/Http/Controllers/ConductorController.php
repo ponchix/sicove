@@ -70,7 +70,7 @@ class ConductorController extends Controller
         }
        Conductor::create($conductores);
         Cache::flush();
-        return redirect()->route('conductores.index');
+        return redirect()->route('conductores.index')->with('add','agregar');
     }
 
     /**
