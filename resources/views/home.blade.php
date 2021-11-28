@@ -1,3 +1,4 @@
+<title>Home</title>
 @extends('layouts.app')
 
 @section('content')
