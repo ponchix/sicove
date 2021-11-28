@@ -78,7 +78,7 @@ class IncidenteController extends Controller
         }
         Incidente::create($incidente);
         Cache::flush();
-        return redirect()->route('incidentes.index');
+        return redirect()->route('incidentes.index')->with('add','agregar');;
 
     }
 

@@ -46,7 +46,7 @@ class TipoVehiculoController extends Controller
     ]);
        $input=$request->all();
        TipoVehiculo::create($input);
-       return redirect()->route('tipos.index');
+       return redirect()->route('tipos.index')->with('add','agregar');;
    }
 
     /**

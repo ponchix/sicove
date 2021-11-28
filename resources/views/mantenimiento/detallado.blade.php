@@ -12,6 +12,7 @@
                         <div class="card-body">
                             <a href="{{ route('servicios.index') }}" class="btn btn-outline-primary btn-lg"> <i
                                     class="fas fa-angle-left"></i>Atrás</a>
+
                             <div class="titulo">{{ $mantenimiento->vehiculosM->NombreVehiculo }}</div>
                             <div class="row">
                                 <div class="col-md-3 col-xs-4 col-xs-4">

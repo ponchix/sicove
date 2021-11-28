@@ -64,7 +64,7 @@ class GastoController extends Controller
         $gasto=$request->all();
         gasto::create($gasto);
         Cache::flush();
-        return redirect()->route('gastos.index');
+        return redirect()->route('gastos.index')->with('add','agregar');;
     }
 
     /**

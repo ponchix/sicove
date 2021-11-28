@@ -127,7 +127,7 @@ class VehiculoController extends Controller
         }
         VehiculoModel::create($vehiculo);
         Cache::flush();
-        return redirect()->route('vehiculos.index');
+        return redirect()->route('vehiculos.index')->with('add','agregar');
     }
 
     /**

@@ -45,7 +45,7 @@ class MarcaController extends Controller
         ]);
         $input=$request->all();
         Marca::create($input);
-        return redirect()->route('marcas.index');
+        return redirect()->route('marcas.index')->with('add','agregar');;
     }
 
     /**
