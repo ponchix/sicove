@@ -18,4 +18,8 @@ class Proveedor extends Model
         'correo',
        
       ];
+
+      public function mantenimiento(){
+        return $this->hasMany(mantenimiento::class,'id');
+    }
 }

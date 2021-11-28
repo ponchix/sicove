@@ -63,7 +63,7 @@ class ConductorController extends Controller
         ]);
         $conductores=$request->all();
         if ($imagen=$request->file('imagen')) {
-            $rutaImg='imagen/';
+            $rutaImg='conductor/';
             $imagenConductor=date('YmdHis').".".$imagen->getClientOriginalExtension();
             $imagen->move($rutaImg,$imagenConductor);
             $conductores['imagen']="$imagenConductor";
@@ -132,7 +132,7 @@ class ConductorController extends Controller
         ]);
         $input=$request->all();
         if ($imagen=$request->file('imagen')) {
-            $rutaImg='imagen/';
+            $rutaImg='conductor/';
             $imagenConductor=date('YmdHis').".".$imagen->getClientOriginalExtension();
             $imagen->move($rutaImg,$imagenConductor);
             $input['imagen']="$imagenConductor";

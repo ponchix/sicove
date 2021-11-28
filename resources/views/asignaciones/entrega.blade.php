@@ -11,10 +11,10 @@
                     <div class="card">
                         <div class="card-body">
                             @if (session()->has('alert-danger'))
-                            <div class="alert alert-danger">
-                                {{ session()->get('alert-danger') }}
-                            </div>
-                        @endif
+                                <div class="alert alert-danger">
+                                    {{ session()->get('alert-danger') }}
+                                </div>
+                            @endif
                             <div class="titulo">{{ $asignaciones->vehiculos->NombreVehiculo }}</div>
 
                             <div class="row">

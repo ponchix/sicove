@@ -101,6 +101,20 @@
                                 </div>
 
                             </div>
+                            <div class="col-md-4 col-xl-4">
+                                <div class="card bg-c-green order-card">
+                                    <div class="card-block">
+                                        <h5>Proveedores</h5>
+                                        @php
+                                            use App\Models\Proveedor;
+                                            $proveedores = Proveedor::count();
+                                        @endphp
+                                        <h2 class="text-right"> <i class="fa fa-address-book f-left" aria-hidden="true"></i><span>{{ $proveedores }}</span>
+                                        </h2>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                         <div class="titulo">Agenda</div>
 

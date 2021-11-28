@@ -13,7 +13,7 @@
         @foreach($conductores as $conductor)
         <tr>
             <td>{{$conductor->id}}</td>
-            <td> <img src="/imagen/{{$conductor->imagen}}" width="80" height="90px"> </td>
+            <td> <img src="/conductor/{{$conductor->imagen}}" width="80" height="90px"> </td>
             <td>{{$conductor->NombreConductor}}</td>
 
             <td>

@@ -40,7 +40,7 @@
 
                                  </div>
                                  <div class="col-xs-12 col-sm-12 col-md-12 mt-4 ml-1">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <button type="submit" class="btn btn-primary" id="prueba">Guardar</button>
                                     <a href="{{route('vehiculos.index')}}" class="btn btn-danger ml-2">Cancelar</a>
                                 </div> 
 
@@ -61,3 +61,4 @@
 
    }
 </script>
+

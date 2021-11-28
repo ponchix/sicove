@@ -42,4 +42,8 @@ class mantenimiento extends Model
     public function estado(){
         return $this->belongsTo(StatusMantenimiento::class,'status');
       }
+
+      public function proveedorM(){
+        return $this->belongsTo(Proveedor::class,'proveedor');
+    }
 }

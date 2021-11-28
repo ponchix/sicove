@@ -54,7 +54,7 @@ class ModeloController extends Controller
         // 'modelo'=>$request->modelo,
         // 'id_marca'=>$request->id_marca,
         // ]);
-        return redirect()->route('vehiculos.index');
+        return redirect()->route('modelos.index')->with('add','agregar');
 
     }
 
@@ -103,6 +103,6 @@ class ModeloController extends Controller
         //
         Modelo::find($id)->delete();
         Cache::flush();
-        return redirect()->route('modelos.index');
+        return redirect()->route('modelos.index')->with('mensaje','ok');
     }
 }

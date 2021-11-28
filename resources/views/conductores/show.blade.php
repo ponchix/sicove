@@ -14,7 +14,7 @@
                     <div class="row">
                     <div class="col-md-3 col-xs-3 col-xs-3">
                     <div class="titulo">Perfil</div>
-                        <img src="/imagen/{{$conductor->imagen}}"  width="100%" height="75%">
+                        <img src="/conductor/{{$conductor->imagen}}"  width="100%" height="75%">
                     </div>
                     <div class="col-md-6 col-xs-5 col-xs-5">
                             <div class="titulo">Información Basica</div>
