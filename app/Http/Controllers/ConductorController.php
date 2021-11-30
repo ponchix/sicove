@@ -8,6 +8,7 @@ use App\Models\Conductor;
 use App\Models\User;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+
 class ConductorController extends Controller
 {
     /**
@@ -17,10 +18,10 @@ class ConductorController extends Controller
      */
     public function index()
     {
-         
-        $conductores=Conductor::all();  
 
-         return view ('conductores.index',compact('conductores'));
+        $conductores = Conductor::all();
+
+        return view('conductores.index', compact('conductores'));
     }
 
     /**
@@ -30,14 +31,14 @@ class ConductorController extends Controller
      */
     public function create()
     {
-       
-        $conductores=DB::table('users')
-        ->join('model_has_roles','users.id','=','model_has_roles.model_id')
-        ->join('roles','roles.id','=','model_has_roles.role_id')
-        ->select('users.name')
-        ->where('roles.name','=','Conductor')
-        ->get();
-        return view('conductores.crear',compact('conductores'));
+
+        $conductores = DB::table('users')
+            ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
+            ->join('roles', 'roles.id', '=', 'model_has_roles.role_id')
+            ->select('users.name')
+            ->where('roles.name', '=', 'Conductor')
+            ->get();
+        return view('conductores.crear', compact('conductores'));
     }
 
     /**
@@ -48,29 +49,45 @@ class ConductorController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'imagen'=>'required',
-            'NombreConductor'=>'required',
-            'APaterno'=>'required',    
-            'AMaterno'=>'required',    
-            'edad'=>'required',    
-            'direccion'=>'required',    
-            'telefono'=>'required',    
-            'NoLiciencia'=>'required|unique:conductors',    
-            'fecha_exp'=>'required',
-            'tipoLicencia'=>'required',
-           
-        ]);
-        $conductores=$request->all();
-        if ($imagen=$request->file('imagen')) {
-            $rutaImg='conductor/';
-            $imagenConductor=date('YmdHis').".".$imagen->getClientOriginalExtension();
-            $imagen->move($rutaImg,$imagenConductor);
-            $conductores['imagen']="$imagenConductor";
+        request()->validate(
+            [
+                'imagen' => 'required|mimes:png,jfif,jpeg,jpg',
+                'NombreConductor' => 'required',
+                'APaterno' => 'required',
+                'AMaterno' => 'required',
+                'edad' => 'required',
+                'direccion' => 'required',
+                'telefono' => 'required',
+                'NoLiciencia' => 'required|unique:conductors',
+                'fecha_exp' => 'required',
+                'tipoLicencia' => 'required',
+
+            ],
+            [
+                'imagen.required'=>'La Foto del conductor es obligatoria',
+                'imagen.mimes'=>'El formato del imagen debe ser: jpeg,jpg,jfif o png',
+                'NombreConductor.required'=>'El campo Nombre es obligatorio',
+                'APaterno.required'=>'Apellido Paterno es obligatorio',
+                'AMaterno.required'=>'Apellido Materno es obligatorio',
+                'edad.required'=>'El campo Edad es obligatorio',
+                'direccion.required'=>'El campo Direccion es obligatoria',
+                'telefono.required'=>'El campo Telefono es obligatorio',
+                'NoLiciencia.required'=>'El campo No. de licencia es obligatorio',
+                'fecha_exp.required'=>'El campo Fecha de Expiracion es obligatorio',
+                'NoLiciencia.unique'=>'La licencia ya esta registrada',
+                'tipoLicencia.required'=>'El Tipo de Licencia es obligatorio',
+            ]
+        );
+        $conductores = $request->all();
+        if ($imagen = $request->file('imagen')) {
+            $rutaImg = 'conductor/';
+            $imagenConductor = date('YmdHis') . "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaImg, $imagenConductor);
+            $conductores['imagen'] = "$imagenConductor";
         }
-       Conductor::create($conductores);
+        Conductor::create($conductores);
         Cache::flush();
-        return redirect()->route('conductores.index')->with('add','agregar');
+        return redirect()->route('conductores.index')->with('add', 'agregar');
     }
 
     /**
@@ -82,14 +99,14 @@ class ConductorController extends Controller
     public function show($id)
     {
         //
-        $conductor=Conductor::find($id);
-        $asignaciones=DB::table('assignments')
-        ->join('conductors', 'assignments.conductor', '=', 'conductors.id')
-        ->join('vehiculos', 'vehiculos.id', '=', 'assignments.vehiculo')
-        ->select('assignments.*','vehiculos.NombreVehiculo')
-        ->where('assignments.conductor','=',$id)
-        ->get();
-        return view('conductores.show',compact(
+        $conductor = Conductor::find($id);
+        $asignaciones = DB::table('assignments')
+            ->join('conductors', 'assignments.conductor', '=', 'conductors.id')
+            ->join('vehiculos', 'vehiculos.id', '=', 'assignments.vehiculo')
+            ->select('assignments.*', 'vehiculos.NombreVehiculo')
+            ->where('assignments.conductor', '=', $id)
+            ->get();
+        return view('conductores.show', compact(
             'conductor',
             'asignaciones'
         ));
@@ -103,9 +120,9 @@ class ConductorController extends Controller
      */
     public function edit($id)
     {
-       $conductores=Conductor::find($id);
-     
-        return view('conductores.editar',compact('conductores'));
+        $conductores = Conductor::find($id);
+
+        return view('conductores.editar', compact('conductores'));
     }
 
     /**
@@ -117,29 +134,44 @@ class ConductorController extends Controller
      */
     public function update(Request $request, $id)
     {
-       request()->validate([
-            'imagen',
-            'NombreConductor'=>'required',
-            'APaterno'=>'required',    
-            'AMaterno'=>'required',    
-            'edad'=>'required',    
-            'direccion'=>'required',    
-            'telefono'=>'required',    
-            'NoLiciencia'=>'required',    
-            'fecha_exp'=>'required',
-            'tipoLicencia'=>'required',
-           
-        ]);
-        $input=$request->all();
-        if ($imagen=$request->file('imagen')) {
-            $rutaImg='conductor/';
-            $imagenConductor=date('YmdHis').".".$imagen->getClientOriginalExtension();
-            $imagen->move($rutaImg,$imagenConductor);
-            $input['imagen']="$imagenConductor";
-        }else{
+        request()->validate(
+            [
+                'imagen' => 'required|mimes:png,jfif,jpeg,jpg',
+                'NombreConductor' => 'required',
+                'APaterno' => 'required',
+                'AMaterno' => 'required',
+                'edad' => 'required',
+                'direccion' => 'required',
+                'telefono' => 'required',
+                'NoLiciencia' => 'required|unique:conductors',
+                'fecha_exp' => 'required',
+                'tipoLicencia' => 'required',
+
+            ],
+            [
+                'imagen.required'=>'La Foto del conductor es obligatoria',
+                'imagen.mimes'=>'El formato del imagen debe ser: jpeg,jpg,jfif o png',
+                'NombreConductor.required'=>'El campo Nombre es obligatorio',
+                'APaterno.required'=>'Apellido Paterno es obligatorio',
+                'AMaterno.required'=>'Apellido Materno es obligatorio',
+                'edad.required'=>'El campo Edad es obligatorio',
+                'direccion.required'=>'El campo Direccion es obligatoria',
+                'telefono.required'=>'El campo Telefono es obligatorio',
+                'NoLiciencia.required'=>'El campo No. de licencia es obligatorio',
+                'fecha_exp.required'=>'El campo Fecha de Expiracion es obligatorio',
+                'NoLiciencia.unique'=>'La licencia ya esta registrada',
+                'tipoLicencia.required'=>'El Tipo de Licencia es obligatorio',
+            ]);
+        $input = $request->all();
+        if ($imagen = $request->file('imagen')) {
+            $rutaImg = 'conductor/';
+            $imagenConductor = date('YmdHis') . "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaImg, $imagenConductor);
+            $input['imagen'] = "$imagenConductor";
+        } else {
             unset($input['imagen']);
         }
-        $conductores=Conductor::find($id);
+        $conductores = Conductor::find($id);
         $conductores->update($input);
         Cache::flush();
         return redirect()->route('conductores.index');
@@ -154,17 +186,17 @@ class ConductorController extends Controller
     public function destroy($id)
     {
         Conductor::find($id)->delete();
-      Cache::flush();
-      return redirect()->route('conductores.index');
+        Cache::flush();
+        return redirect()->route('conductores.index');
     }
 
-    public function drivers_update(Request $request,$id)
+    public function drivers_update(Request $request, $id)
     {
-        $conductor=Conductor::find($id);
+        $conductor = Conductor::find($id);
         $conductor->update([
-        'status'=>$request->value,
+            'status' => $request->value,
         ]);
-        $edit_status=$request->value;
+        $edit_status = $request->value;
         return $edit_status;
-}
+    }
 }
