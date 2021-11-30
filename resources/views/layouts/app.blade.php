@@ -140,6 +140,8 @@ integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2TH
 <script>
     $(function() {
         $("#datepicker").datepicker({
+            changeMonth: true,
+      changeYear: true,
             closeText: 'Cerrar',
             prevText: '<Ant',
             nextText: 'Sig>',
@@ -165,6 +167,7 @@ integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2TH
 <script>
     $(function() {
         $("#poliza").datepicker({
+ 
             closeText: 'Cerrar',
             prevText: '<Ant',
             nextText: 'Sig>',

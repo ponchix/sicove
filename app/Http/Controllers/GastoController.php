@@ -21,9 +21,8 @@ class GastoController extends Controller
     public function index()
     {
         //
-        $gastos=gasto::all();
-        return view('vehiculos/gastos.index',compact('gastos'));
-        
+        $gastos = gasto::all();
+        return view('vehiculos/gastos.index', compact('gastos'));
     }
 
     /**
@@ -34,13 +33,14 @@ class GastoController extends Controller
     public function create()
     {
         //
-        $vehiculos=VehiculoModel::all();
-        $conductores=Conductor::all();
-        $proveedores=Proveedor::all();
-        return view('vehiculos/gastos.crear',compact(
+        $vehiculos = VehiculoModel::all();
+        $conductores = Conductor::all();
+        $proveedores = Proveedor::all();
+        return view('vehiculos/gastos.crear', compact(
             'vehiculos',
-        'conductores',
-        'proveedores'));
+            'conductores',
+            'proveedores'
+        ));
     }
 
     /**
@@ -52,19 +52,30 @@ class GastoController extends Controller
     public function store(Request $request)
     {
         //
-        request()->validate([
-            'fecha'=>'required',
-            'concepto'=>'required',
-            'referencia'=>'required',
-            'monto'=>'required',
-            'vehiculo'=>'required',
-            'conductor'=>'required',
-            'proveedor'=>'required',           
-        ]);
-        $gasto=$request->all();
+        request()->validate(
+            [
+                'fecha' => 'required',
+                'concepto' => 'required',
+                'referencia' => 'required | unique:gastos',
+                'monto' => 'required | numeric',
+                'vehiculo' => 'required',
+                'conductor' => 'required',
+                'proveedor' => 'required',
+            ],
+            [
+                'fecha.required'=>'El campo Fecha es obligatorio',
+                'concepto.required'=>'El campo Concepto es obligatorio',
+                'referencia.required'=>'El campo Referencia es obligatorio',
+                'monto.required'=>'El campo Monto es obligatorio',
+                'conductor.required'=>'El campo Conductor es obligatorio',
+                'vehiculo.required'=>'El campo Vehiculo es obligatorio',
+                'proveedor.required'=>'El campo Proveedor es obligatorio',
+            ]
+        );
+        $gasto = $request->all();
         gasto::create($gasto);
         Cache::flush();
-        return redirect()->route('gastos.index')->with('add','agregar');;
+        return redirect()->route('gastos.index')->with('add', 'agregar');;
     }
 
     /**
@@ -87,9 +98,9 @@ class GastoController extends Controller
     public function edit($id)
     {
         //
-        $vehiculos=VehiculoModel::all();
-        $gastos=gasto::find($id);
-        return view('vehiculos/gastos.editar',compact('gastos','vehiculos'));
+        $vehiculos = VehiculoModel::all();
+        $gastos = gasto::find($id);
+        return view('vehiculos/gastos.editar', compact('gastos', 'vehiculos'));
     }
 
     /**
@@ -103,17 +114,26 @@ class GastoController extends Controller
     {
         //
         request()->validate([
-            'fecha'=>'required',
-            'concepto'=>'required',
-            'referencia'=>'required',
-            'monto'=>'required',
-            'vehiculo'=>'required',
-            'conductor'=>'required',
-            'proveedor'=>'required',           
+            'fecha' => 'required',
+            'concepto' => 'required',
+            'referencia' => 'required| unique:gastos',
+            'monto' => 'required |numeric',
+            'vehiculo' => 'required',
+            'conductor' => 'required',
+            'proveedor' => 'required',
+        ],
+        [
+            'fecha.required'=>'El campo Fecha es obligatorio',
+            'concepto.required'=>'El campo Concepto es obligatorio',
+            'referencia.required'=>'El campo Referencia es obligatorio',
+            'monto.required'=>'El campo Monto es obligatorio',
+            'conductor.required'=>'El campo Conductor es obligatorio',
+            'vehiculo.required'=>'El campo Vehiculo es obligatorio',
+            'proveedor.required'=>'El campo Proveedor es obligatorio',
         ]);
 
-        $input=$request->all();
-        $gasto=gasto::find($id);
+        $input = $request->all();
+        $gasto = gasto::find($id);
         $gasto->update($input);
         Cache::flush();
         return redirect()->route('gastos.index');

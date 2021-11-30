@@ -66,7 +66,7 @@ class VehiculoController extends Controller
 
         request()->validate(
             [
-                'NombreVehiculo' => 'required',
+                'NombreVehiculo' => 'required | unique:vehiculos',
                 'TipoVehiculo' => 'required',
                 'Marca' => 'required',
                 //'StatusInicial'=>'required',    
@@ -76,9 +76,9 @@ class VehiculoController extends Controller
                 'MedidaCombustible' => 'required',
                 'anio' => 'required',
                 'CompaniaSeguros' => 'required',
-                'NoSerie' => 'required',
-                'PolizaSeguro' => 'required',
-                'Placa' => 'required',
+                'NoSerie' => 'required |unique:vehiculos',
+                'PolizaSeguro' => 'required |unique:vehiculos',
+                'Placa' => 'required | unique:vehiculos',
                 'Color' => 'required',
                 'imagen' => 'required',
                 'combustible' => 'required',
@@ -86,7 +86,7 @@ class VehiculoController extends Controller
                 'cilindraje' => 'required',
                 'cilindrada' => 'required',
                 'fecha_poliza' => 'required',
-                'factura' => 'required',
+                'factura' => 'required | unique:vehiculos',
 
             ],
             [
@@ -240,6 +240,28 @@ class VehiculoController extends Controller
             'fecha_poliza' => 'required',
             'factura',
 
+        ],
+        [
+            'NombreVehiculo.required' => 'El Campo Nombre del Vehiculo es obligatorio',
+            'TipoVehiculo.required' => 'El campo Tipo de Vehiculo obligatorio',
+            'Marca' => 'El campo Marca es obligatorio',
+            'fecha_compra.required' => 'El campo Fecha de compra es obligatorio',
+            'Modelo' => 'El campo Modelo es obligatorio',
+            'MedidaUso.required' => 'El campo Medida de Uso es obligatorio',
+            'MedidaCombustible.required' => 'El campo Medida de Combustble es obligatorio',
+            'anio.required' => 'El campo Año es obligatorio',
+            'CompaniaSeguros.required' => 'El campo Compañia de Seguros es obligatorio',
+            'NoSerie.required' => 'El campo Numero de Serie es obligatorio',
+            'PolizaSeguro.required' => 'El campo Poliza es obligatorio',
+            'Placa.required' => 'El campo Placa es obligatorio',
+            'Color.required' => 'El campo Color es obligatorio',
+            'imagen' => 'La imagen es Obligatoria',
+            'combustible.required' => 'El campo Combustible es obligatorio',
+            'motor.required' => 'El campo Motor es obligatorio',
+            'cilindraje.required' => 'El campo Cilindraje es obligatorio',
+            'cilindrada.required' => 'El campo Cilindrada es obligatorio',
+            'fecha_poliza.required' => 'El campo Vigencia Poliza es obligatrio ',
+            'factura' => 'El campo Factura es obligatorio',
         ]);
         $input = $request->all();
         if ($imagen = $request->file('imagen')) {
@@ -276,6 +298,7 @@ class VehiculoController extends Controller
         Cache::flush();
         return redirect()->route('vehiculos.index');
     }
+    
     public function vehiculos_update(Request $request, $id)
     {
         $vehiculo = VehiculoModel::find($id);

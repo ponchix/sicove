@@ -16,8 +16,8 @@ class MarcaController extends Controller
     public function index()
     {
         //
-        $marcas=Marca::all();
-        return view('vehiculos/marca.index',compact('marcas'));
+        $marcas = Marca::all();
+        return view('vehiculos/marca.index', compact('marcas'));
     }
 
     /**
@@ -40,12 +40,17 @@ class MarcaController extends Controller
     public function store(Request $request)
     {
         //
-        request()->validate([
-            'marca'=>'required|unique:marcas',
-        ]);
-        $input=$request->all();
+        request()->validate(
+            [
+                'marca' => 'required|unique:marcas',
+            ],
+            [
+                'marca.required' => 'El campo Marca es obligatorio'
+            ]
+        );
+        $input = $request->all();
         Marca::create($input);
-        return redirect()->route('marcas.index')->with('add','agregar');;
+        return redirect()->route('marcas.index')->with('add', 'agregar');;
     }
 
     /**
@@ -57,7 +62,7 @@ class MarcaController extends Controller
     public function show($id)
     {
         //
- 
+
     }
 
     /**
@@ -69,9 +74,8 @@ class MarcaController extends Controller
     public function edit($id)
     {
         //
-        $marcas=Marca::find($id);
-        return view('vehiculos/marca.editar',compact('marcas'));
-
+        $marcas = Marca::find($id);
+        return view('vehiculos/marca.editar', compact('marcas'));
     }
 
     /**
@@ -85,13 +89,13 @@ class MarcaController extends Controller
     {
         //
         request()->validate([
-            'marca'=>'required|unique:marcas',
-    
+            'marca' => 'required|unique:marcas',
+
         ]);
-           $input=$request->all();
-             $marcas=Marca::find($id);
-            $marcas->update($input);
-           return redirect()->route('marcas.index');
+        $input = $request->all();
+        $marcas = Marca::find($id);
+        $marcas->update($input);
+        return redirect()->route('marcas.index');
     }
 
     /**

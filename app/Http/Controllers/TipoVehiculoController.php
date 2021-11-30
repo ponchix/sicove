@@ -15,9 +15,8 @@ class TipoVehiculoController extends Controller
     public function index()
     {
         //
-        $tipos=TipoVehiculo::all();
-        return view ('vehiculos/Tipos.index',compact('tipos'));
-
+        $tipos = TipoVehiculo::all();
+        return view('vehiculos/Tipos.index', compact('tipos'));
     }
 
     /**
@@ -28,8 +27,8 @@ class TipoVehiculoController extends Controller
     public function create()
     {
         //
-       return view('vehiculos/Tipos.crear');
-   }
+        return view('vehiculos/Tipos.crear');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -40,14 +39,17 @@ class TipoVehiculoController extends Controller
     public function store(Request $request)
     {
         //
-       request()->validate([
-        'Nombre'=>'required',
+        request()->validate([
+            'Nombre' => 'required',
 
-    ]);
-       $input=$request->all();
-       TipoVehiculo::create($input);
-       return redirect()->route('tipos.index')->with('add','agregar');;
-   }
+        ],
+        [
+            'Nombre.required'=>'El campo Tipo de Vehiculo es obligatorio'
+        ]);
+        $input = $request->all();
+        TipoVehiculo::create($input);
+        return redirect()->route('tipos.index')->with('add', 'agregar');;
+    }
 
     /**
      * Display the specified resource.
@@ -69,8 +71,8 @@ class TipoVehiculoController extends Controller
     public function edit($id)
     {
         //
-         $tipos=TipoVehiculo::find($id);
-        return view('vehiculos/Tipos.editar',compact('tipos'));
+        $tipos = TipoVehiculo::find($id);
+        return view('vehiculos/Tipos.editar', compact('tipos'));
     }
 
     /**
@@ -83,14 +85,19 @@ class TipoVehiculoController extends Controller
     public function update(Request $request, $id)
     {
         //
-          request()->validate([
-        'Nombre'=>'required',
+        request()->validate(
+            [
+                'Nombre' => 'required',
 
-    ]);
-       $input=$request->all();
-               $tipos=TipoVehiculo::find($id);
+            ],
+            [
+                'Nombre.required'=>'El campo Tipo de Vehiculo es obligatorio'
+            ]
+        );
+        $input = $request->all();
+        $tipos = TipoVehiculo::find($id);
         $tipos->update($input);
-       return redirect()->route('tipos.index');
+        return redirect()->route('tipos.index');
     }
 
     /**
@@ -102,7 +109,7 @@ class TipoVehiculoController extends Controller
     public function destroy($id)
     {
         //
-      TipoVehiculo::find($id)->delete();
-      return redirect()->route('tipos.index');
-  }
+        TipoVehiculo::find($id)->delete();
+        return redirect()->route('tipos.index');
+    }
 }

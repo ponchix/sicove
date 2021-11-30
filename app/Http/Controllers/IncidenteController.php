@@ -19,22 +19,22 @@ class IncidenteController extends Controller
     public function index()
     {
         //
-        $incidentes=incidente::all();
+        $incidentes = incidente::all();
         $Datas = Incidente::select(DB::raw("COUNT(*) as count"))
-        ->whereYear('Fecha_reporte', date('Y'))
-        ->groupBy(DB::raw("Month(Fecha_reporte)"))
-        ->pluck('count');
+            ->whereYear('Fecha_reporte', date('Y'))
+            ->groupBy(DB::raw("Month(Fecha_reporte)"))
+            ->pluck('count');
         $months = Incidente::select(DB::raw("Month(Fecha_reporte) as month"))
-        ->whereYear('Fecha_reporte', date('Y'))
-        ->groupBy(DB::raw("Month(Fecha_reporte)"))
-        ->pluck('month');
+            ->whereYear('Fecha_reporte', date('Y'))
+            ->groupBy(DB::raw("Month(Fecha_reporte)"))
+            ->pluck('month');
 
-        $datas=array(0,0,0,0,0,0,0,0,0,0,0,0);
-        foreach($months as $index=>$month){
-            $month=$month-1;
-            $datas[$month]=$Datas[$index];
+        $datas = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        foreach ($months as $index => $month) {
+            $month = $month - 1;
+            $datas[$month] = $Datas[$index];
         }
-         return view('vehiculos/Incidentes.index',compact('incidentes','datas'));
+        return view('vehiculos/Incidentes.index', compact('incidentes', 'datas'));
     }
 
     /**
@@ -45,11 +45,11 @@ class IncidenteController extends Controller
     public function create()
     {
         //
-        $vehiculos=VehiculoModel::all();
-        $conductores=Conductor::all();
-            return view('vehiculos/Incidentes.crear',compact('vehiculos','conductores'));
-   }
-    
+        $vehiculos = VehiculoModel::all();
+        $conductores = Conductor::all();
+        return view('vehiculos/Incidentes.crear', compact('vehiculos', 'conductores'));
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -60,26 +60,36 @@ class IncidenteController extends Controller
     public function store(Request $request)
     {
         //
-        request()->validate([
-            'vehiculo'=>'required',
-            'conductor'=>'required',
-            'Fecha_reporte'=>'required',
-            'descripcion'=>'required',
-            'importancia'=>'required',
-            'detallada'=>'required',
-            'foto'=>'required',           
-        ]);
-        $incidente=$request->all();
-        if ($imagen=$request->file('foto')) {
-            $rutaImg='incidente/';
-            $imagenIncidente=date('YmdHis').".".$imagen->getClientOriginalExtension();
-            $imagen->move($rutaImg,$imagenIncidente);
-            $incidente['foto']="$imagenIncidente";
+        request()->validate(
+            [
+                'vehiculo' => 'required',
+                'conductor' => 'required',
+                'Fecha_reporte' => 'required',
+                'descripcion' => 'required',
+                'importancia' => 'required',
+                'detallada' => 'required',
+                'foto' => 'required',
+            ],
+            [
+                'vehiculo.required'=>'El campo vehiculo es obligatorio',
+                'conductor.required'=>'El campo Conductor es obligatorio',
+                'Fecha_reporte.required'=>'El campo Fecha de Reporte es obligatorio',
+                'descripcion.required'=>'El campo Descripcion Corta es obligatorio',
+                'importancia.required'=>'El campo Importancia es obligatorio',
+                'detallada.required'=>'La Descripcion detalla es obligatoria y menor a 255 caracteres',
+                'foto.required'=>'La Foto es obligatoria',
+            ]
+        );
+        $incidente = $request->all();
+        if ($imagen = $request->file('foto')) {
+            $rutaImg = 'incidente/';
+            $imagenIncidente = date('YmdHis') . "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaImg, $imagenIncidente);
+            $incidente['foto'] = "$imagenIncidente";
         }
         Incidente::create($incidente);
         Cache::flush();
-        return redirect()->route('incidentes.index')->with('add','agregar');;
-
+        return redirect()->route('incidentes.index')->with('add', 'agregar');;
     }
 
     /**
@@ -102,10 +112,10 @@ class IncidenteController extends Controller
     public function edit($id)
     {
         //
-        $vehiculos=VehiculoModel::all();
-        $conductores=Conductor::all();
-        $incidentes=Incidente::find($id);
-        return view('vehiculos/Incidentes.editar',compact('incidentes','vehiculos','conductores'));
+        $vehiculos = VehiculoModel::all();
+        $conductores = Conductor::all();
+        $incidentes = Incidente::find($id);
+        return view('vehiculos/Incidentes.editar', compact('incidentes', 'vehiculos', 'conductores'));
     }
 
     /**
@@ -119,25 +129,34 @@ class IncidenteController extends Controller
     {
         //
         request()->validate([
-            'vehiculo'=>'required',
-            'conductor'=>'required',
-            'Fecha_reporte'=>'required',
-            'descripcion'=>'required',
-            'importancia'=>'required',
+            'vehiculo' => 'required',
+            'conductor' => 'required',
+            'Fecha_reporte' => 'required',
+            'descripcion' => 'required',
+            'importancia' => 'required',
             'detallada',
-            'foto',           
+            'foto',
+        ],
+        [
+            'vehiculo.required'=>'El campo vehiculo es obligatorio',
+            'conductor.required'=>'El campo Conductor es obligatorio',
+            'Fecha_reporte.required'=>'El campo Fecha de Reporte es obligatorio',
+            'descripcion.required'=>'El campo Descripcion Corta es obligatorio',
+            'importancia.required'=>'El campo Importancia es obligatorio',
+            'detallada'=>'La Descripcion detalla es obligatoria y menor a 255 caracteres',
+            'foto'=>'La Foto es obligatoria',
         ]);
-        $incidente=$request->all();
-        if ($imagen=$request->file('foto')) {
-            $rutaImg='incidente/';
-            $imagenIncidente=date('YmdHis').".".$imagen->getClientOriginalExtension();
-            $imagen->move($rutaImg,$imagenIncidente);
-            $incidente['foto']="$imagenIncidente";
-        }else{
+        $incidente = $request->all();
+        if ($imagen = $request->file('foto')) {
+            $rutaImg = 'incidente/';
+            $imagenIncidente = date('YmdHis') . "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaImg, $imagenIncidente);
+            $incidente['foto'] = "$imagenIncidente";
+        } else {
             unset($incidente['imagen']);
         }
 
-        $incidentes=Incidente::find($id);
+        $incidentes = Incidente::find($id);
         $incidentes->update($incidente);
         Cache::flush();
         return redirect()->route('incidentes.index');
@@ -155,8 +174,5 @@ class IncidenteController extends Controller
         Incidente::find($id)->delete();
         Cache::flush();
         return redirect()->route('incidentes.index');
-  
     }
-
-
 }

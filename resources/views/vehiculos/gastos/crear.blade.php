@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Monto</label>
-                                    <input type="number" class="form-control" name="monto" step="any" value="{{old('monto')}}">
+                                    <input type="number" class="form-control" name="monto" step="any" value="{{old('monto')}}" min="0">
                                 </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Proveedor</label><span class="text-danger">*</span>

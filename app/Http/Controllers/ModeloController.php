@@ -17,8 +17,8 @@ class ModeloController extends Controller
     public function index()
     {
         //
-        $modelos=Modelo::all();
-        return view('vehiculos/modelos.index',compact(
+        $modelos = Modelo::all();
+        return view('vehiculos/modelos.index', compact(
             'modelos'
         ));
     }
@@ -30,7 +30,7 @@ class ModeloController extends Controller
      */
     public function create()
     {
-        $marcas=Marca::all();
+        $marcas = Marca::all();
         return view('vehiculos/modelos.crear', compact("marcas"));
     }
 
@@ -43,19 +43,23 @@ class ModeloController extends Controller
     public function store(Request $request)
     {
         //
-        request()->validate([
-            'modelo'=>'required|unique:modelos',
-            'id_marca'=>'required'
-        ]);
-        $input=$request->all();
+        request()->validate(
+            [
+                'modelo' => 'required|unique:modelos',
+                'id_marca' => 'required'
+            ],
+            [
+                'modelo.required'=>'El campo Modelo es Obligatorio',
+            ]
+        );
+        $input = $request->all();
         Modelo::create($input);
 
         // Modelo::create([
         // 'modelo'=>$request->modelo,
         // 'id_marca'=>$request->id_marca,
         // ]);
-        return redirect()->route('modelos.index')->with('add','agregar');
-
+        return redirect()->route('modelos.index')->with('add', 'agregar');
     }
 
     /**
@@ -103,6 +107,6 @@ class ModeloController extends Controller
         //
         Modelo::find($id)->delete();
         Cache::flush();
-        return redirect()->route('modelos.index')->with('mensaje','ok');
+        return redirect()->route('modelos.index')->with('mensaje', 'ok');
     }
 }
