@@ -25,7 +25,7 @@
                             <div class="row">
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Mecanico</label><span class="text-danger">*</span>
-                                    <select name="mecanico" class="form-control">
+                                    <select name="mecanico" class="form-control" >
                                        <option value="">-</option>
                                        @foreach($mecanicos as $mecanico)
                                        <option value="{{$mecanico['id']}}">{{$mecanico['NombreMecanico']}}</option>
@@ -34,7 +34,7 @@
                                </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Vehiculo</label><span class="text-danger">*</span>
-                                    <select name="vehiculo" class="form-control">
+                                    <select name="vehiculo" class="form-control" >
                                        <option value="">-</option>
                                        @foreach($vehiculos as $vehiculo)
                                        <option value="{{$vehiculo['id']}}">{{$vehiculo['NombreVehiculo']}}</option>
@@ -43,7 +43,7 @@
                                </div>
                                <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Fecha de Inicio</label>
-                                <input type="date" class="form-control" name="fecha_inicio" min="2020-11-11">
+                                <input type="date" class="form-control" name="fecha_inicio" min="2020-11-11" >
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Hora de Registro</label>
@@ -51,7 +51,7 @@
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Odómetro</label>
-                                <input type="number" class="form-control" name="odometro"   step="any">
+                                <input type="number" class="form-control" name="odometro"   step="any" >
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Servicio(s)</label>
@@ -67,7 +67,7 @@
 
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Costos Partes/Refacciones</label>
-                                <input type="number" class="form-control" name="costo_partes" step="any" id="qty" onblur="myFunction()">
+                                <input type="number" class="form-control" name="costo_partes" step="any" id="qty" onblur="myFunction()" >
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
                                 <label>Mano de Obra</label>

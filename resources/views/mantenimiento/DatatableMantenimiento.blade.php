@@ -65,6 +65,7 @@
 <script>
     $(document).ready(function() {
         $('#man').DataTable({
+            "order": [],
             "lengthMenu": [
                 [5, 10, 50, -1],
                 [5, 10, 50, "All"]

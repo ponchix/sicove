@@ -20,9 +20,8 @@ class mantenimientoController extends Controller
      */
     public function index()
     {
-        $mantenimientos=mantenimiento::all();
-        return view('mantenimiento.index',compact('mantenimientos'));
-    
+        $mantenimientos = mantenimiento::all()->sortBy('status');
+         return view('mantenimiento.index', compact('mantenimientos'));
     }
 
     /**
@@ -33,12 +32,11 @@ class mantenimientoController extends Controller
     public function create()
     {
         //
-        $vehiculos=VehiculoModel::where('StatusInicial',2)->get();
-        $servicios=Service::all();
-        $proveedores=Proveedor::all();
-        $mecanicos=Mecanico::all();
-        return view('mantenimiento.crear',compact('vehiculos','servicios','proveedores','mecanicos'));
-        
+        $vehiculos = VehiculoModel::where('StatusInicial', 2)->get();
+        $servicios = Service::all();
+        $proveedores = Proveedor::all();
+        $mecanicos = Mecanico::all();
+        return view('mantenimiento.crear', compact('vehiculos', 'servicios', 'proveedores', 'mecanicos'));
     }
 
     /**
@@ -50,58 +48,75 @@ class mantenimientoController extends Controller
     public function store(Request $request)
     {
         //
-        // request()->validate([
-        //     'fecha_inicio'=>'required',
-        //     'hora_entrada'=>'required',
-        //     'vehiculo'=>'required',
-        //     'odometro'=>'required',
-        //     'servicios'=>'required',
-        //     'costo_partes'=>'required',
-        //     'mano_obra'=>'required',
-        //     'total'=>'required',
-        //     'referencia_man'=>'required',
-        //     'tipo_man'=>'required',
-        //     'proveedor'=>'required',
-        //     'comentario',
-        //     'imagen_man'=>'required',
-        // ]);
+        request()->validate(
+            [
+                'mecanico'=>'required',
+                'fecha_inicio' => 'required',
+                'hora_entrada' => 'required',
+                'vehiculo' => 'required',
+                'odometro' => 'required|numeric',
+                'servicios' => 'required',
+                'costo_partes' => 'required|numeric',
+                'mano_obra' => 'required|numeric',
+                'total',
+                'referencia_man' => 'required|unique:mantenimientos',
+                'tipo_man' => 'required',
+                'proveedor' => 'required',
+                'comentario',
+                'imagen_man' => 'required',
+            ],
+            [
+                'mecanico.required'=>'El campo Mecanico es obligatorio',
+                'fecha_inicio.required'=>'El campo Fecha de Inicio es obligatorio',
+                'servicios.required'=>'Seleccione los servicios',
+                'costo_partes.required'=>'El campo Costos Partes/Refacciones es obligatorio',
+                'mano_obra.required'=>'El campo Mano de Obra es obligatorio',
+                'referencia_man.required'=>'El campo Referencia es obligatorio',
+                'tipo_man.required'=>'Tipo de mantenimiento es obligatorio',
+                'proveedor.required'=>'Proveedor es obligatorio',
+                'imagen_man.required'=>'La imagen es obligatoria',
+            ]
+        );
         // $mantenimiento=$request->all();
-        $imagen_man="";
-        if ($imagen_man=$request->file('imagen_man')) {
-            $rutaImg='mantenimiento/';
-            $imagenMantenimiento=date('YmdHis').".".$imagen_man->getClientOriginalExtension();
-            $imagen_man->move($rutaImg,$imagenMantenimiento);
-            $mantenimiento['imagen_man']="$imagenMantenimiento";
+        $imagen_man = "";
+        if ($imagen_man = $request->file('imagen_man')) {
+            $rutaImg = 'mantenimiento/';
+            $imagenMantenimiento = date('YmdHis') . "." . $imagen_man->getClientOriginalExtension();
+            $imagen_man->move($rutaImg, $imagenMantenimiento);
+            $mantenimiento['imagen_man'] = "$imagenMantenimiento";
         }
 
         // $imagen_man="";
         // if($request->file('imagen_man')){
         //     $imagen_man=$request->file('imagen_man')->store('mantenimiento','public');
         // }
-        $mantenimiento=mantenimiento::create([
-            'mecanico'=>$request->mecanico,
-            'fecha_inicio'=>$request->fecha_inicio,
-            'hora_entrada'=>$request->hora_entrada,
-            'vehiculo'=>$request->vehiculo,
-            'odometro'=>$request->odometro,
-            //'servicios'=>$request->servicios,
-            'costo_partes'=>$request->costo_partes,
-            'mano_obra'=>$request->mano_obra,
-            'total'=>$request->total,
-            'referencia_man'=>$request->referencia_man,
-            'tipo_man'=>$request->tipo_man,
-            'proveedor'=>$request->proveedor,
-            'comentario'=>$request->comentario,
-            'imagen_man'=>$imagenMantenimiento,
-        ]);
-        $vehiculo=$request->input('vehiculo');
+        $mantenimiento = mantenimiento::create(
+            [
+                'mecanico' => $request->mecanico,
+                'fecha_inicio' => $request->fecha_inicio,
+                'hora_entrada' => $request->hora_entrada,
+                'vehiculo' => $request->vehiculo,
+                'odometro' => $request->odometro,
+                //'servicios'=>$request->servicios,
+                'costo_partes' => $request->costo_partes,
+                'mano_obra' => $request->mano_obra,
+                'total' => $request->total,
+                'referencia_man' => $request->referencia_man,
+                'tipo_man' => $request->tipo_man,
+                'proveedor' => $request->proveedor,
+                'comentario' => $request->comentario,
+                'imagen_man' => $imagenMantenimiento,
+            ]
+
+        );
+        $vehiculo = $request->input('vehiculo');
         // mantenimiento::create($mantenimiento);
-        VehiculoModel::where('id',$vehiculo)->update([
-            'StatusInicial'=>4
+        VehiculoModel::where('id', $vehiculo)->update([
+            'StatusInicial' => 4
         ]);
         $mantenimiento->servicios()->attach($request->servicios);
         Cache::flush();
-        return redirect()->route('servicios.index')->with('add','agregar');;
+        return redirect()->route('servicios.index')->with('add', 'agregar');;
     }
 
     /**
@@ -119,14 +134,14 @@ class mantenimientoController extends Controller
         // ->where('mantenimientos.id','=',$id)
         // ->get();
         // dd($vehiculo);
-        $mantenimiento=mantenimiento::findorFail($id);
-        $servicios=DB::table('mantenimientos')
-        ->join('mantenimiento_service','mantenimiento_service.mantenimiento_id','=','mantenimientos.id')
-        ->join('services','services.id','=','mantenimiento_service.service_id')
-        ->select('services.nombre')
-        ->where('mantenimientos.id','=',$id)
-        ->get();
-        return view('mantenimiento.detallado',compact('mantenimiento','servicios'));
+        $mantenimiento = mantenimiento::findorFail($id);
+        $servicios = DB::table('mantenimientos')
+            ->join('mantenimiento_service', 'mantenimiento_service.mantenimiento_id', '=', 'mantenimientos.id')
+            ->join('services', 'services.id', '=', 'mantenimiento_service.service_id')
+            ->select('services.nombre')
+            ->where('mantenimientos.id', '=', $id)
+            ->get();
+        return view('mantenimiento.detallado', compact('mantenimiento', 'servicios'));
     }
 
     /**
@@ -166,29 +181,30 @@ class mantenimientoController extends Controller
         return redirect()->route('servicios.index');
     }
 
-    public function alta_edit($id){
-        $mantenimiento=mantenimiento::find($id);
-        return view('mantenimiento.entrega',compact(
+    public function alta_edit($id)
+    {
+        $mantenimiento = mantenimiento::find($id);
+        return view('mantenimiento.entrega', compact(
             'mantenimiento'
         ));
-
     }
-    public function alta_update(Request $request, $id){
+    public function alta_update(Request $request, $id)
+    {
         request()->validate([
             'vehiculo',
-            'fecha_alta'=>'required',
+            'fecha_alta' => 'required',
             'comentarios_e',
             'hora_alta'
         ]);
-        $vehiculo=$request->input('vehiculo');
-        VehiculoModel::where('id',$vehiculo)->update([
-            'StatusInicial'=>2
+        $vehiculo = $request->input('vehiculo');
+        VehiculoModel::where('id', $vehiculo)->update([
+            'StatusInicial' => 2
         ]);
-        mantenimiento::where('id',$id)->update([
-        'status'=>2
+        mantenimiento::where('id', $id)->update([
+            'status' => 2
         ]);
-        $input=$request->all();
-        $mantenimiento=mantenimiento::find($id);
+        $input = $request->all();
+        $mantenimiento = mantenimiento::find($id);
         $mantenimiento->update($input);
         Cache::flush();
         return redirect()->route('servicios.index');
@@ -197,15 +213,16 @@ class mantenimientoController extends Controller
     //=========================================================
     //Dar mantenimiento desde el vehiculo
     //El id que recibe es del vehiculo
-    public function mantenimiento($id){
-        $mecanicos=Mecanico::all();
-        $vehiculo=VehiculoModel::find($id);
-        $odometro=DB::table('assignments')
-        ->where('vehiculo','=',$id)
-        ->max('odometro_a');
-        $servicios=Service::all();
-        $proveedores=Proveedor::all();
-        return view('mantenimiento.vehiculo',compact(
+    public function mantenimiento($id)
+    {
+        $mecanicos = Mecanico::all();
+        $vehiculo = VehiculoModel::find($id);
+        $odometro = DB::table('assignments')
+            ->where('vehiculo', '=', $id)
+            ->max('odometro_a');
+        $servicios = Service::all();
+        $proveedores = Proveedor::all();
+        return view('mantenimiento.vehiculo', compact(
             'mecanicos',
             'vehiculo',
             'odometro',

@@ -56,7 +56,7 @@
                                         @endif
 
                                     </div>
-                                    <div class="col-md-4 col-xs-4 col-xs-4">
+                                    <div class="col-md-8 col-xs-8 col-xs-8">
                                         <label>Servicio(s)</label>
                                         <select name="servicios[]" class="form-control servicios" multiple="multiple">
                                             @foreach ($servicios as $servicio)
@@ -105,7 +105,8 @@
                                         <select name="proveedor" class="form-control">
                                             <option value="">-</option>
                                             @foreach ($proveedores as $proveedor)
-                                                <option value="{{ $proveedor['id'] }}">{{ $proveedor['NombreProveedor'] }}
+                                                <option value="{{ $proveedor['id'] }}">
+                                                    {{ $proveedor['NombreProveedor'] }}
                                                 </option>
                                             @endforeach
                                         </select>
