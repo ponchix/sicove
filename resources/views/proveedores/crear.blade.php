@@ -21,42 +21,42 @@
                                 <span aria-hidden="true">&times;</span>  </button>
                             </div>
                             @endif
-                            <form action="{{route('proveedores.store')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('proveedores.store')}}" method="POST" enctype="multipart/form-data" autocomplete="off">
                              @csrf
                              <div class="row">
-                              <div class="col-md-3 col-xs-3 col-xs-3">
+                              <div class="col-md-6 col-xs-6 col-xs-6">
                                  <label>Nombre</label><span class="text-danger">*</span>
-                                 <input type="text" name="NombreProveedor" class="form-control" onkeyup="mayus(this);">
+                                 <input type="text" name="NombreProveedor" class="form-control" onkeyup="mayus(this);" value="{{old('NombreProveedor')}}">
                               </div>
-                             <div class="col-md-3 col-xs-3 col-xs-3">
+                             <div class="col-md-6 col-xs-6 col-xs-6">
                                  <label>RFC</label><span class="text-danger">*</span>
-                                 <input type="text" name="RFC" class="form-control" onkeyup="mayus(this);">
+                                 <input type="text" name="RFC" class="form-control" onkeyup="mayus(this);" value="{{old('RFC')}}">
                              </div>
-                             <div class="col-md-3 col-xs-3 col-xs-3">
+                             <div class="col-md-4 col-xs-4 col-xs-4">
                                  <label>Telefono Fijo</label><span class="text-danger">*</span>
-                                 <input type="text" name="TelefonoP" class="form-control" onkeyup="mayus(this);">
+                                 <input type="text" name="TelefonoP" class="form-control" onkeyup="mayus(this);" autocomplete="nope" value="{{old('TelefonoP')}}">
                              </div>                         
-                             <div class="col-md-3 col-xs-3 col-xs-3">
+                             <div class="col-md-4 col-xs-4 col-xs-4">
                                  <label>Domicilio</label><span class="text-danger">*</span>
-                                 <input type="text" name="Domicilio" class="form-control" onkeyup="mayus(this);">
+                                 <input type="text" name="Domicilio" class="form-control" onkeyup="mayus(this);" value="{{old('Domicilio')}}">
                                 <br>  
                              </div>   
-                            <div class="col-md-3 col-xs-3 col-xs-3">
+                            <div class="col-md-4 col-xs-4 col-xs-4">
                                  <label>Correo Electrónico</label><span class="text-danger">*</span>
-                                 <input type="text" name="correoP" class="form-control" >
+                                 <input type="text" name="correoP" class="form-control" autocomplete="nope" value="{{old('correoP')}}">
                                   </div>                                          
                              <div class="titulo">Contacto Directo</div>                                                       
-                             <div class="col-md-3 col-xs-3 col-xs-3">
+                             <div class="col-md-4 col-xs-4 col-xs-4">
                                  <label>Nombre de Contacto</label><span class="text-danger">*</span>
-                                 <input type="text" name="nombreContacto" class="form-control" onkeyup="mayus(this);">
+                                 <input type="text" name="nombreContacto" class="form-control" onkeyup="mayus(this);" value="{{old('nombreContacto')}}">
                              </div>  
-                            <div class="col-md-3 col-xs-3 col-xs-3">
+                            <div class="col-md-4 col-xs-4 col-xs-4">
                                  <label>Teléfono</label><span class="text-danger">*</span>
-                                 <input type="text" name="TelefonoC" class="form-control" >
+                                 <input type="text" name="TelefonoC" class="form-control" autocomplete="nope" value="{{old('TelefonoC')}}">
                              </div>  
-                            <div class="col-md-3 col-xs-3 col-xs-3">
+                            <div class="col-md-4 col-xs-4 col-xs-4">
                                  <label>Correo Electrónico</label><span class="text-danger">*</span>
-                                 <input type="text" name="correo" class="form-control" >
+                                 <input type="text" name="correo" class="form-control" autocomplete="nope" value="{{old('correo')}}">
                              </div> 
 
                 </div> 

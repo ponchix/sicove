@@ -16,15 +16,8 @@ class ProveedoresController extends Controller
      */
     public function index()
     {
-        if (Cache::has('proveedores')) {
-            $proveedores=Cache::get('proveedores');
-        } else {
-            $proveedores=Proveedor::where('status',2)->latest('id');
-           
-        }
-        
-        $proveedores=Proveedor::all();  
-       return view('proveedores.index',compact('proveedores')); 
+        $proveedores = Proveedor::all();
+        return view('proveedores.index', compact('proveedores'));
     }
 
     /**
@@ -34,8 +27,8 @@ class ProveedoresController extends Controller
      */
     public function create()
     {
-          $proveedores=Proveedor::all();
-        return view('proveedores.crear',compact('proveedores'));
+        $proveedores = Proveedor::all();
+        return view('proveedores.crear', compact('proveedores'));
     }
 
     /**
@@ -46,23 +39,38 @@ class ProveedoresController extends Controller
      */
     public function store(Request $request)
     {
-       request()->validate([
-            'NombreProveedor'=>'required',
-            'RFC'=>'required',
-            'TelefonoP'=>'required',
-            'Domicilio'=>'required',
-            'correoP'=>'required',
-            'nombreContacto'=>'required',
-            'TelefonoC'=>'required', 
-             'correo'=>'required',          
-        ]);
-        $proveedores=$request->all();
+        request()->validate(
+            [
+                'NombreProveedor' => 'required',
+                'RFC' => 'required | unique:proveedors',
+                'TelefonoP' => 'required',
+                'Domicilio' => 'required',
+                'correoP' => 'required|email',
+                'nombreContacto' => 'required',
+                'TelefonoC' => 'required',
+                'correo' => 'required|email',
+            ],
+            [
+                'NombreProveedor.required'=>'El campo Nombre es obligatorio',
+                'RFC.required'=>'El campo RFC es obligatorio',
+                'RFC.unique'=>'El RFC ya esta registrado',
+                'TelefonoP.required'=>'El campo Telefono Fijo es obligatorio',
+                'Domicilio.required'=>'El campo Domicilio es obligatorio',
+                'correoP.required'=>'El Correo Electronico es obligatorio',
+                'correoP.email'=>'Correo invalido',
+                'nombreContacto.required'=>'El campo Nombre de Contacto es obligatorio',
+                'TelefonoC.required'=>'El telefono de contacto directo es obligatorio',
+                'correo.required'=>'El correo de contacto director es obligatorio',
+                'correo.email'=>'El correo de contacto directo no es valido',
+            ]
+        );
+        $proveedores = $request->all();
         Proveedor::create($proveedores);
         Cache::flush();
-        return redirect()->route('proveedores.index')->with('add','agregar');
+        return redirect()->route('proveedores.index')->with('add', 'agregar');
     }
-  
-       
+
+
 
     /**
      * Display the specified resource.
@@ -83,9 +91,9 @@ class ProveedoresController extends Controller
      */
     public function edit($id)
     {
-      
-        $proveedores=Proveedor::find($id);
-        return view('proveedores.editar',compact('proveedores'));
+
+        $proveedores = Proveedor::find($id);
+        return view('proveedores.editar', compact('proveedores'));
     }
 
     /**
@@ -98,18 +106,31 @@ class ProveedoresController extends Controller
     public function update(Request $request, $id)
     {
         request()->validate([
-            'NombreProveedor'=>'required',
-            'RFC'=>'required',
-            'TelefonoP'=>'required',
-            'Domicilio'=>'required',
-            'correoP'=>'required',
-            'nombreContacto'=>'required',
-            'TelefonoC'=>'required',  
-            'correo'=>'required',          
+            'NombreProveedor' => 'required',
+            'RFC' => 'required | unique:proveedors',
+            'TelefonoP' => 'required',
+            'Domicilio' => 'required',
+            'correoP' => 'required|email',
+            'nombreContacto' => 'required',
+            'TelefonoC' => 'required',
+            'correo' => 'required|email',
+        ],
+        [
+            'NombreProveedor.required'=>'El campo Nombre es obligatorio',
+            'RFC.required'=>'El campo RFC es obligatorio',
+            'RFC.unique'=>'El RFC ya esta registrado',
+            'TelefonoP.required'=>'El campo Telefono Fijo es obligatorio',
+            'Domicilio.required'=>'El campo Domicilio es obligatorio',
+            'correoP.required'=>'El Correo Electronico es obligatorio',
+            'correoP.email'=>'Correo invalido',
+            'nombreContacto.required'=>'El campo Nombre de Contacto es obligatorio',
+            'TelefonoC.required'=>'El telefono de contacto directo es obligatorio',
+            'correo.required'=>'El correo de contacto director es obligatorio',
+            'correo.email'=>'El correo de contacto directo no es valido',
         ]);
 
-        $prov=$request->all();
-        $proveedores=Proveedor::find($id);
+        $prov = $request->all();
+        $proveedores = Proveedor::find($id);
         $proveedores->update($prov);
         Cache::flush();
         return redirect()->route('proveedores.index');
@@ -124,7 +145,7 @@ class ProveedoresController extends Controller
     public function destroy($id)
     {
         Proveedor::find($id)->delete();
-      Cache::flush();
-      return redirect()->route('proveedores.index');
+        Cache::flush();
+        return redirect()->route('proveedores.index');
     }
 }
