@@ -62,9 +62,9 @@
                             Login
                         </button>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <a href="{{ route('register') }}" class="btn btn-warning btn-lg btn-block">Registrar</a>
-                    </div>
+                    </div> --}}
                 </form>
             </div>
         </div>
