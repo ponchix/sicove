@@ -140,7 +140,7 @@ class ConductorController extends Controller
                 'NombreConductor' => 'required',
                 'APaterno' => 'required',
                 'AMaterno' => 'required',
-                'edad' => 'required',
+                'edad' => 'required|numeric',
                 'direccion' => 'required',
                 'telefono' => 'required',
                 'NoLiciencia' => 'required|unique:conductors',

@@ -51,16 +51,28 @@ class MecanicoController extends Controller
     public function store(Request $request)
     {
         //
-        request()->validate([
-            'imagen'=>'required',
+        request()->validate(
+            [
+            'imagen'=>'required|mimes:png,jfif,jpeg,jpg',
             'NombreMecanico'=>'required',
             'APaterno'=>'required',    
             'AMaterno'=>'required',    
-            'edad'=>'required',    
+            'edad'=>'required|numeric',    
             'direccion'=>'required',    
             'telefono'=>'required',    
            
-        ]);
+        ],
+    [
+        'imagen.required'=>'La imagen del Mecanico es obligatoria',
+        'NombreMecanico.required'=>'El campo Nombre es obligatorio',
+        'APaterno.required'=>'El Apellido Paterno es obligatorio',
+        'AMaterno.required'=>'El Apellido Materno es obligatorio',
+        'edad.required'=>'La edad es obligatoria',
+        'direccion.required'=>'El campo direccion es obligatoria',
+        'telefono.required'=>'El telefono es obligatorio',
+        'imagen.mimes'=>'El formato de la imagen es invalido, formatos permitidos: jpeg,jpg,png',
+        'edad.numeric'=>'El campo Edad solo se acepta numeros'
+    ]);
         $mecanicos=$request->all();
         if ($imagen=$request->file('imagen')) {
             $rutaImg='mecanicos/';
@@ -111,16 +123,27 @@ class MecanicoController extends Controller
     public function update(Request $request,$id)
     {
         //
-        request()->validate([
-            'imagen',
+        request()->validate(   [
+            'imagen'=>'required|mimes:png,jfif,jpeg,jpg',
             'NombreMecanico'=>'required',
             'APaterno'=>'required',    
             'AMaterno'=>'required',    
-            'edad'=>'required',    
+            'edad'=>'required|numeric',    
             'direccion'=>'required',    
             'telefono'=>'required',    
            
-        ]);
+        ],
+    [
+        'imagen.required'=>'La imagen del Mecanico es obligatoria',
+        'NombreMecanico.required'=>'El campo Nombre es obligatorio',
+        'APaterno.required'=>'El Apellido Paterno es obligatorio',
+        'AMaterno.required'=>'El Apellido Materno es obligatorio',
+        'edad.required'=>'La edad es obligatoria',
+        'direccion.required'=>'El campo direccion es obligatoria',
+        'telefono.required'=>'El telefono es obligatorio',
+        'imagen.mimes'=>'El formato de la imagen es invalido, formatos permitidos: jpeg,jpg,png',
+        'edad.numeric'=>'El campo Edad solo se acepta numeros'
+    ]);
         $input=$request->all();
         if ($imagen=$request->file('imagen')) {
             $rutaImg='mecanicos/';
