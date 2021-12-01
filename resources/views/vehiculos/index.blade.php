@@ -12,7 +12,10 @@
                     <div class="card-body" >
 
                         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            @can('crear-vehiculo')
                             <a class="btn btn-outline-primary btn-lg" href="{{route('vehiculos.create')}}"><i class="fas fa-plus"></i> Nuevo</a>
+  
+                            @endcan
                             <a  class="btn btn-outline-primary btn-lg ml-2" href="{{route('incidentes.index')}}"><i class="fas fa-car-crash"></i> Incidentes</a>
                             <a  class="btn btn-outline-primary btn-lg ml-2" href="{{route('gastos.index')}}"><i class="fas fa-dollar-sign"></i> Gastos</a>
                             <a  class="btn btn-outline-primary btn-lg ml-2" href="#"><i class="fa fa-tint" ></i> Combustible</a>
@@ -59,7 +62,6 @@
             source:[
             {value:"2", text: "DISPONIBLE"},
             {value:"3", text: "FUERA DE SERVICIO"},
-            {value:"4", text: "TALLER"}
         ]
     });
     });

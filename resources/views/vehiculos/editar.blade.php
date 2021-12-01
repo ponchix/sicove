@@ -224,12 +224,12 @@
                                         <div class="mt-2">
 
                                             <label for="">Subir Imagen</label><input type="file" name="imagen" id="imagen"
-                                                class="separacion form-control">
+                                                class="separacion form-control imagenes">
                                         </div>
                                         <div class="mt-2">
 
                                             <label for="">Subir Factura</label> <input type="file" name="factura"
-                                                id="factura" class="separacion form-control">
+                                                id="factura" class="separacion form-control imagenes">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12">

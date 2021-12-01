@@ -30,6 +30,17 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                            <th scope="row" class="text-left">Status</th>
+                                            @if ($asignacion->status == '1')
+                                            <td class="text-right"><span class="badge badge-info">{{ $asignacion->estado->status }}</span>
+                                            </td>
+                                            @elseif($asignacion->status == '2')
+                                            <td class="text-right"><span class="badge badge-primary">{{ $asignacion->estado->status }}</span>
+                                            </td>  
+                                            @endif
+
+                                        </tr>
+                                        <tr>
                                             <th scope="row" class="text-left">Conductor</th>
                                             <td class="text-right">{{ $asignacion->conductores->NombreConductor }}
                                             </td>
@@ -44,19 +55,19 @@
                                         </tr>
                                         <tr>
                                             <th scope="row" class="text-left">Odometro inicial</th>
-                                            <td class="text-right"> {{ $asignacion->odometro_a }}</td>
+                                            <td class="text-right"> {{ $asignacion->odometro_a }} Km</td>
                                         </tr>
                                         <tr>
                                             <th scope="row" class="text-left">Odometro final</th>
-                                            <td class="text-right">{{ $asignacion->odometro_e }}</td>
+                                            <td class="text-right">{{ $asignacion->odometro_e }} Km</td>
                                         </tr>
                                         <tr>
                                             <th scope="row" class="text-left">Combustible inicial</th>
-                                            <td class="text-right">{{ $asignacion->combustible_a }}</td>
+                                            <td class="text-right">{{ $asignacion->combustible_a }} Lts</td>
                                         </tr>
                                         <tr>
                                             <th scope="row" class="text-left">Combustible final</th>
-                                            <td class="text-right">{{ $asignacion->combustible_e }}</td>
+                                            <td class="text-right">{{ $asignacion->combustible_e }} Lts</td>
                                         </tr>
 
                                     </tbody>

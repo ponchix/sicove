@@ -5,9 +5,12 @@
     <a class="nav-link" href="/vehiculos">
         <i class=" fas fa-car-side"></i><span>Vehiculos</span>
     </a>
+
     <a class="nav-link" href="/servicios">
         <i class="fas fa-tools"></i> <span>Mantenimiento</span>
     </a>
+
+
     <a class="nav-link" href="/proveedores">
         <i class="fas fa-address-book"></i><span>Proveedores</span>
     </a>

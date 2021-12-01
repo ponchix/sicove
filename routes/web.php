@@ -8,6 +8,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\EventoController;
 use App\Models\assignment;
+use Illuminate\Routing\Route as RoutingRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +58,7 @@ Route::group(['middleware'=>['auth']],function(){
     //Ruta Gastos
     Route::resource('gastos','GastoController');
     //Rutas Modulo Mantenimiento
-    Route::resource('servicios','mantenimientoController');
+    Route::resource('servicios','mantenimientoController')->middleware('permission:Mecanico');
     Route::get('vehiculo/mantenimiento/{id}','mantenimientoController@mantenimiento')->name('mantenimiento.vehiculo');
     Route::put('manteniento/alta/{id}','mantenimientoController@alta_update')->name('mantenimiento.alta');
     Route::get('mantenimiento/entrega/{id}','mantenimientoController@alta_edit')->name('mantenimiento.entrega');
@@ -78,6 +79,9 @@ Route::group(['middleware'=>['auth']],function(){
     Route::put('asignacion/devolucion/{id}','AssignmentController@entrega_update')->name('asignacion.devolucion');
     Route::get('asignacion/archivados','AssignmentController@archivados_index')->name('asignacion.archivado');
 
+Route::group(['middleware'=>['role:Mecanico']],function(){
+    
+});
 });
 
 

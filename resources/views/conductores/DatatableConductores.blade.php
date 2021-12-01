@@ -38,15 +38,28 @@
                     @can('editar-vehiculo')
                     <a class="btn btn-light" href="{{route('conductores.show',$conductor->id)}}"><i class="fas fa-eye"></i></a>
                     @endcan
+                    @if ($conductor->status=="1")
                     @can('editar-vehiculo')
-                    <a class="btn btn-success" href="{{route('conductores.edit',$conductor->id)}}"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-success disabled" href="{{route('conductores.edit',$conductor->id)}}"><i class="fas fa-edit"></i></a>
+                    
                     @endcan
- 
                     @csrf
                     @method('DELETE')
                     @can('borrar-vehiculo')
-                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    <button type="submit" class="btn btn-danger disabled"><i class="fas fa-trash-alt"></i></button>
                     @endcan
+                    @else
+                    @can('editar-vehiculo')
+                    <a class="btn btn-success " href="{{route('conductores.edit',$conductor->id)}}"><i class="fas fa-edit"></i></a>
+                    
+                    @endcan
+                    @csrf
+                    @method('DELETE')
+                    @can('borrar-vehiculo')
+                    <button type="submit" class="btn btn-danger "><i class="fas fa-trash-alt"></i></button>
+                    @endcan
+                    @endif
+
                 </form>         
             </td>
         </tr>
