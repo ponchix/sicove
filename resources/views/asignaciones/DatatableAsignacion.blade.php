@@ -1,6 +1,6 @@
 <title>Asignaciones</title>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-<table id="man" class="table mt-2 table-borderless table-hover">
+<table id="asignacion" class="table mt-2 table-borderless table-hover">
   <thead class="table-success">
       <th>ID</th>
       <th>Fecha Asignacion</th>
@@ -53,7 +53,8 @@
 <script type="text/javascript"src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 <script>
  $(document).ready(function() {
-  $('#man').DataTable({
+  $('#asignacion').DataTable({
+    "order":[],
       "lengthMenu":[[5,10,50,-1],[5,10,50,"All"]],
       "language":{
        "lengthMenu":"Mostrar _MENU_ registros",
