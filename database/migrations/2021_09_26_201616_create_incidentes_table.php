@@ -20,7 +20,11 @@ class CreateIncidentesTable extends Migration
             ->constrained('vehiculos')
             ->cascadeOnUpdate()
             ->nullOnDelete();
-            $table->string('conductor');
+            $table->foreignId('conductor')
+            ->nullable()
+            ->constrained('conductors')
+            ->cascadeOnUpdate()
+            ->nullOnDelete();;
             $table->date('Fecha_reporte');
             $table->string('descripcion');
             $table->string('importancia');

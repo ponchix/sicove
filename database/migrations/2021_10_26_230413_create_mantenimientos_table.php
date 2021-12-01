@@ -36,7 +36,11 @@ class CreateMantenimientosTable extends Migration
             $table->float('total');
             $table->string('referencia_man');
             $table->string('tipo_man');
-            $table->string('proveedor');
+            $table->foreignId('proveedor')
+            ->nullable()
+            ->constrained('proveedors')
+            ->cascadeOnUpdate()
+            ->nullOnDelete();;
             $table->string('comentario');
             $table->string('comentario_e')->nullable();
             $table->string('imagen_man');

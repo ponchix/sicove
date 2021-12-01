@@ -24,8 +24,16 @@ class CreateGastosTable extends Migration
             ->constrained('vehiculos')
             ->cascadeOnUpdate()
             ->nullOnDelete();
-            $table->string('conductor');
-            $table->string('proveedor');
+            $table->foreignId('conductor')
+            ->nullable()
+            ->constrained('conductors')
+            ->cascadeOnUpdate()
+            ->nullOnDelete();
+            $table->foreignId('proveedor')
+            ->nullable()
+            ->constrained('proveedors')
+            ->cascadeOnUpdate()
+            ->nullOnDelete();
             $table->timestamps();
         });
     }
