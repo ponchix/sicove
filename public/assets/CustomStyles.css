@@ -260,3 +260,22 @@ font-size:20px;
 	  margin-left: auto;
 	  margin-right:auto ;
   }
+
+.form-check-input:checked{
+ background-color: #1D8A8F !important;
+ border-color: #1D8F7A;
+}
+.form-check-input{
+	width: 2em !important;
+	height: 2em !important;
+}
+.roles{
+margin-left: 0.5rem !important;
+display: contents !important;
+
+}
+
+.form-check-input{
+	margin-right: 0.25em !important;
+	position: inherit !important;
+}

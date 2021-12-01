@@ -38,6 +38,8 @@ class RoleController extends Controller
     {
         //
         $permission = Permission::get();
+        // $permission = Permission::get()->take(5);
+
         return view('roles.crear',compact('permission'));
     }
 
