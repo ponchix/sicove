@@ -18,6 +18,7 @@ class StatusConductorSeeder extends Seeder
         $arrays=[
             'Asignado',
             'Disponible',
+            'Eliminado'
         ];
                 foreach ($arrays as $array) {
                     // code...

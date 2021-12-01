@@ -20,6 +20,7 @@ class StatusSeeder extends Seeder
                 'Disponible',
                 'Fuera de servicio',
                 'Taller',
+                'Eliminado'
             ];
                     foreach ($arrays as $array) {
                         // code...

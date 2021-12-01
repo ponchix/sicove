@@ -18,6 +18,7 @@ class StatusMantenimientoSeeder extends Seeder
         $arrays=[
             'En Progreso',
             'Terminado',
+            'Eliminado'
         ];
                 foreach ($arrays as $array) {
                     // code...
