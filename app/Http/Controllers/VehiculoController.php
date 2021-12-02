@@ -296,7 +296,7 @@ class VehiculoController extends Controller
     {
         VehiculoModel::find($id)->delete();
         Cache::flush();
-        return redirect()->route('vehiculos.index');
+        return redirect()->route('vehiculos.index')->with('mensaje', 'ok');
     }
     
     public function vehiculos_update(Request $request, $id)

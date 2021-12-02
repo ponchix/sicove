@@ -38,4 +38,15 @@
     })
 </script>
 @endif
+@if (session('mensaje')=='ok')
+<script>
+Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'El Mecanico ha sido eliminado',
+    showConfirmButton: false,
+    timer: 1500
+  }) 
+</script>
+@endif
 @endsection

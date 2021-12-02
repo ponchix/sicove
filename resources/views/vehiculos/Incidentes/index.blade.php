@@ -50,6 +50,18 @@
 </script>
     
 @endif
+
+@if (session('mensaje')=='ok')
+<script>
+Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'El Incidente ha sido eliminado',
+    showConfirmButton: false,
+    timer: 1500
+  }) 
+</script>
+@endif
 @endsection
 <script>
     document.addEventListener('DOMContentLoaded', function() {

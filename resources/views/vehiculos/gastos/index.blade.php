@@ -38,6 +38,18 @@
 </script>
     
 @endif
+
+@if (session('mensaje')=='ok')
+<script>
+Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Este gasto ha sido eliminado',
+    showConfirmButton: false,
+    timer: 1500
+  }) 
+</script>
+@endif
 @endsection
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>

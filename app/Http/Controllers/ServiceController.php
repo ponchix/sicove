@@ -104,6 +104,6 @@ class ServiceController extends Controller
         $service = Service::find($id)->delete();
 
         return redirect()->route('catalogo.index')
-            ->with('success', 'Service deleted successfully');
+            ->with('mensaje', 'ok');
     }
 }

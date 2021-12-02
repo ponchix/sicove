@@ -100,7 +100,7 @@
     $('.formulario').submit(function(e){
         e.preventDefault();
         Swal.fire({
-          title: '¿Quieres eliminar este vehículo?',
+          title: '¿Quieres eliminar a este conductor?',
           text: "No podrás deshacer esta acción",
           icon: 'warning',
           showCancelButton: true,

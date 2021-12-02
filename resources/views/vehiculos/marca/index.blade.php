@@ -39,4 +39,16 @@
 </script>
     
 @endif
+
+@if (session('mensaje')=='ok')
+<script>
+Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'La Marca ha sido eliminada',
+    showConfirmButton: false,
+    timer: 1500
+  }) 
+</script>
+@endif
 @endsection

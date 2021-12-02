@@ -187,7 +187,7 @@ class ConductorController extends Controller
     {
         Conductor::find($id)->delete();
         Cache::flush();
-        return redirect()->route('conductores.index');
+        return redirect()->route('conductores.index')->with('mensaje', 'ok');
     }
 
     public function drivers_update(Request $request, $id)

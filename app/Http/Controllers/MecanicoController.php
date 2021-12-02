@@ -170,6 +170,6 @@ class MecanicoController extends Controller
         //
         Mecanico::find($id)->delete();
         Cache::flush();
-        return redirect()->route('mecanico.index');
+        return redirect()->route('mecanico.index')->with('mensaje', 'ok');
     }
 }

@@ -173,6 +173,6 @@ class IncidenteController extends Controller
         //
         Incidente::find($id)->delete();
         Cache::flush();
-        return redirect()->route('incidentes.index');
+        return redirect()->route('incidentes.index')->with('mensaje', 'ok');
     }
 }

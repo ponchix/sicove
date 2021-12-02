@@ -178,7 +178,7 @@ class mantenimientoController extends Controller
         //
         mantenimiento::find($id)->delete();
         Cache::flush();
-        return redirect()->route('servicios.index');
+        return redirect()->route('servicios.index')->with('mensaje', 'ok');
     }
 
     public function alta_edit($id)

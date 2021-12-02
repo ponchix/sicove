@@ -29,3 +29,16 @@
         </div>
     </section>
 @endsection
+@section('js')
+@if (session('mensaje')=='ok')
+<script>
+Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'El Tipo de Vehiculo ha sido eliminado',
+    showConfirmButton: false,
+    timer: 1500
+  }) 
+</script>
+@endif
+@endsection

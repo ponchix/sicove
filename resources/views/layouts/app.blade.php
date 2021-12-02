@@ -2,8 +2,13 @@
 <html lang="es">
 
 <head>
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache">
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <title></title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!---X-Editable---->
@@ -14,6 +19,11 @@
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script type="text/javascript">
+window.history.go(1);
+
+</script>
 
     <!---HighCharts--->
 

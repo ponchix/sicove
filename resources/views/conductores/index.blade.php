@@ -53,6 +53,17 @@
             })
         </script>
     @endif
+    @if (session('mensaje')=='ok')
+    <script>
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'El Conductor ha sido eliminado',
+        showConfirmButton: false,
+        timer: 1500
+      }) 
+    </script>
+    @endif
 @endsection
 <script type="text/javascript" src="{{ asset('assets/jqueryui-editable.js') }}"></script>
 

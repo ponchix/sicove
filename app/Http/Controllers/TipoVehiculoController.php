@@ -110,6 +110,6 @@ class TipoVehiculoController extends Controller
     {
         //
         TipoVehiculo::find($id)->delete();
-        return redirect()->route('tipos.index');
+        return redirect()->route('tipos.index')->with('mensaje', 'ok');
     }
 }

@@ -109,6 +109,6 @@ class MarcaController extends Controller
         //
         Marca::find($id)->delete();
         Cache::flush();
-        return redirect()->route('marcas.index');
+        return redirect()->route('marcas.index')->with('mensaje', 'ok');
     }
 }

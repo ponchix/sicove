@@ -146,6 +146,6 @@ class ProveedoresController extends Controller
     {
         Proveedor::find($id)->delete();
         Cache::flush();
-        return redirect()->route('proveedores.index');
+        return redirect()->route('proveedores.index')->with('mensaje', 'ok');
     }
 }
