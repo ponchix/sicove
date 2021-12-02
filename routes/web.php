@@ -28,7 +28,8 @@ Route::get('/', function () {
 
 
 Auth::routes();
-Route::group(['middleware'=>['auth']],function(){
+Route::group(['middleware'=>['logout']],function(){
+  Route::group(['middleware'=>['auth']],function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('roles','RoleController');
     Route::resource('usuarios','UsuarioController');
@@ -79,9 +80,9 @@ Route::group(['middleware'=>['auth']],function(){
     Route::put('asignacion/devolucion/{id}','AssignmentController@entrega_update')->name('asignacion.devolucion');
     Route::get('asignacion/archivados','AssignmentController@archivados_index')->name('asignacion.archivado');
 
-Route::group(['middleware'=>['role:Mecanico']],function(){
-    
+
 });
 });
+
 
 

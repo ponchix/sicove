@@ -68,6 +68,6 @@ class Kernel extends HttpKernel
     'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
     'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
 
-    'prueba'=>\App\Http\Middleware\Prueba::class
+    'logout'=>\App\Http\Middleware\disabledBtn::class
     ];
 }
