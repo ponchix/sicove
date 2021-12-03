@@ -31,13 +31,32 @@
                                 </div>
                                  <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label for="">Permisos para este rol</label>
+                                        <label class="etiqueta">Permisos para este rol</label>
                                         <br/>
-                                        @foreach($permission as $value)
-                                        <label>{!! Form::checkbox('permission[]',$value->id,in_array($value->id,$rolePermissions) ?? true) !!}
-                                            {{ $value->name }}</label>
-                                        <br/>
-                                        @endforeach
+                                        <div class="row">
+                                            <div class="col">
+                                                @foreach($permission as $value)
+                                                <label>{!! Form::checkbox('permission[]',$value->id,in_array($value->id,$rolePermissions),array('class'=>'name form-check-input') ?? true) !!}
+                                                    {{ $value->name }}</label>
+                                                <br/>
+                                                @endforeach
+                                            </div>
+                                            <div class="col">
+                                                @foreach($permission2 as $value)
+                                                <label>{!! Form::checkbox('permission[]',$value->id,in_array($value->id,$rolePermissions),array('class'=>'name form-check-input') ?? true) !!}
+                                                    {{ $value->name }}</label>
+                                                <br/>
+                                                @endforeach
+                                            </div>
+                                            <div class="col">
+                                                @foreach($permission3 as $value)
+                                                <label>{!! Form::checkbox('permission[]',$value->id,in_array($value->id,$rolePermissions),array('class'=>'name form-check-input') ?? true) !!}
+                                                    {{ $value->name }}</label>
+                                                <br/>
+                                                @endforeach
+                                            </div>
+                                        </div>
+
                                 </div>  
                                 </div>                         
                                                            
