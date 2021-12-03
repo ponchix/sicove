@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class mantenimientoController extends Controller
 {
-    function _construct()
+    public function __construct()  
     {
         $this->middleware('permission:Ver mantenimiento | Crear mantenimiento|Editar mantenimiento|Borrar mantenimiento', ['only' => ['index']]);
         $this->middleware('permission:Crear mantenimiento', ['only' => ['create', 'store','mantenimiento']]);

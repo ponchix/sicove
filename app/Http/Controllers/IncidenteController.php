@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class IncidenteController extends Controller
 {
-    function _construct()
+    public function __construct()  
     {
         $this->middleware('permission:Ver incidente | Crear incidente|Editar incidente|Borrar incidente', ['only' => ['index']]);
         $this->middleware('permission:Crear incidente', ['only' => ['create', 'store']]);

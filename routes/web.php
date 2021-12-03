@@ -32,16 +32,16 @@ Route::group(['middleware' => ['logout']], function () {
   Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('roles', 'RoleController')->middleware('permission:admin@gmail.com');
-    Route::resource('usuarios', 'UsuarioController')->middleware('permission:admin@gmail.com');
+    Route::resource('usuarios', 'UsuarioController')->middleware('permission:admin@gmail.com|Conductor');
     Route::resource('vehiculos', 'VehiculoController')->only([
       'index', 'create', 'update', 'destroy', 'store'
-    ]);
+    ])->middleware('role_or_permission:Conductor');
     Route::get('/vehiculos/{id}', 'VehiculoController@edit')->name('vehiculos.edit');
     Route::put('/status/{id}', 'VehiculoController@vehiculos_update')->name('vehiculos.status');
 
     Route::get('/vehiculos/perfil/{vehiculo}', 'VehiculoController@show')->name('vehiculo.perfil');
-    Route::resource('modelos', 'ModeloController');
-    Route::resource('tipos', 'TipoVehiculoController');
+    Route::resource('modelos', 'ModeloController')->middleware('permission:admin@gmail.com');
+    Route::resource('tipos', 'TipoVehiculoController')->middleware('permission:admin@gmail.com|Conductor');
 
     //Rutas agenda
     Route::post('/home/agregar', [App\Http\Controllers\EventoController::class, 'store']);

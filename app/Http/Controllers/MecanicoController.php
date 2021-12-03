@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class MecanicoController extends Controller
 {
-    function _construct()
+    public function __construct()  
     {
         $this->middleware('permission:Ver mecanico | Crear mecanico|Editar mecanico|Borrar mecanico', ['only' => ['index']]);
         $this->middleware('permission:Crear mecanico', ['only' => ['create', 'store']]);

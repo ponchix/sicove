@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\DB;
 class VehiculoController extends Controller
 {
 
-    function _construct()
+public function __construct()   
     {
-        $this->middleware('permission:Ver vehiculo | Crear vehiculo|Editar vehiculo|Borrar vehiculo', ['only' => ['index']]);
+        $this->middleware('permission:Ver vehiculo' , ['only' => ['index']]);
         $this->middleware('permission:Crear vehiculo', ['only' => ['create', 'store']]);
         $this->middleware('permission:Editar vehiculo', ['only' => ['edit', 'update']]);
         $this->middleware('permission:Borrar vehiculo', ['only' => ['destroy']]);

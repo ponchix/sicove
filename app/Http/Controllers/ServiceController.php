@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
  */
 class ServiceController extends Controller
 {
-    function _construct()
+    public function __construct()  
     {
         $this->middleware('permission:Ver servicios | Crear servicios|Editar servicios|Borrar servicios', ['only' => ['index']]);
         $this->middleware('permission:Crear servicios', ['only' => ['create', 'store']]);

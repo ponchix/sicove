@@ -15,7 +15,7 @@ use function PHPUnit\Framework\returnSelf;
 
 class AssignmentController extends Controller
 {
-    function _construct()
+    public function __construct()  
     {
         $this->middleware('permission:Ver asignacion | Crear asignacion|Editar asignacion|Borrar asignacion', ['only' => ['index']]);
         $this->middleware('permission:Crear asignacion', ['only' => ['create', 'store']]);

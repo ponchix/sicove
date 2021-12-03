@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Cookie;
 
 class UsuarioController extends Controller
 {
-    function _construct()
+    public function __construct()  
     {
         $this->middleware('permission:Ver usuario | Crear usuario|Editar usuario|Borrar usuario', ['only' => ['index']]);
         $this->middleware('permission:Crear usuario', ['only' => ['create', 'store']]);

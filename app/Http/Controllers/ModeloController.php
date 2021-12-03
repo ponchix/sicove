@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Cache;
 
 class ModeloController extends Controller
 {
-    function _construct()
+    public function __construct()  
     {
         $this->middleware('permission:Ver modelo | Crear modelo|Editar modelo|Borrar modelo', ['only' => ['index']]);
         $this->middleware('permission:Crear modelo', ['only' => ['create', 'store']]);

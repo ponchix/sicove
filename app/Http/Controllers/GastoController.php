@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class GastoController extends Controller
 {
-    function _construct()
+    public function __construct()  
     {
         $this->middleware('permission:Ver gasto | Crear gasto|Editar gasto|Borrar gasto', ['only' => ['index']]);
         $this->middleware('permission:Crear gasto', ['only' => ['create', 'store']]);
