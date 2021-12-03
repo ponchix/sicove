@@ -15,6 +15,17 @@ use function PHPUnit\Framework\returnSelf;
 
 class AssignmentController extends Controller
 {
+    function _construct()
+    {
+        $this->middleware('permission:Ver asignacion | Crear asignacion|Editar asignacion|Borrar asignacion', ['only' => ['index']]);
+        $this->middleware('permission:Crear asignacion', ['only' => ['create', 'store']]);
+        $this->middleware('permission:Editar asignacion', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:Borrar asignacion', ['only' => ['destroy']]);
+        $this->middleware('permission:Ver archivado', ['only' => ['archivados_index']]);
+        $this->middleware('permission:Detalle Asignacion', ['only' => ['show']]);
+        $this->middleware('permission:Entrega asignacion', ['only' => ['entrega_edit','entrega_update']]);
+        $this->middleware('permission:Asignacion', ['only' => ['asignacion']]);
+    }
     /**
      * Display a listing of the resource.
      *

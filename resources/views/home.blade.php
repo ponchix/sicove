@@ -119,9 +119,12 @@
                         </div>
                         <div class="titulo">Agenda</div>
 
+                        <div class="eventos">
+                            @include('Calendario.index')
+                        </div>
 
 
-                        @include('Calendario.index')
+                     
                     </div>
                 </div>
             </div>

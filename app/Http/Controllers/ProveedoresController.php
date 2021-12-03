@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Cache;
 
 class ProveedoresController extends Controller
 {
+    function _construct()
+    {
+        $this->middleware('permission:Ver proveedor | Crear proveedor|Editar proveedor|Borrar proveedor', ['only' => ['index']]);
+        $this->middleware('permission:Crear proveedor', ['only' => ['create', 'store']]);
+        $this->middleware('permission:Editar proveedor', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:Borrar proveedor', ['only' => ['destroy']]);
+       
+    }
     /**
      * Display a listing of the resource.
      *

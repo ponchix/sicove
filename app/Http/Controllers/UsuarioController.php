@@ -12,11 +12,20 @@ use Illuminate\Support\Facades\Cookie;
 
 class UsuarioController extends Controller
 {
+    function _construct()
+    {
+        $this->middleware('permission:Ver usuario | Crear usuario|Editar usuario|Borrar usuario', ['only' => ['index']]);
+        $this->middleware('permission:Crear usuario', ['only' => ['create', 'store']]);
+        $this->middleware('permission:Editar usuario', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:Borrar usuario', ['only' => ['destroy']]);
+       
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
         //

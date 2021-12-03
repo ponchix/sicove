@@ -3,16 +3,22 @@
               var calendarEl = document.getElementById('agenda');
         var calendar = new FullCalendar.Calendar(calendarEl, {
           themeSystem: 'bootstrap',
-          initialView: 'dayGridMonth',
+          initialView: 'dayGridWeek',
           locale:"es",
           displayEventTime:false,
           eventColor:"#E71C1C",
           headerToolbar:{
             left:'prev,next,today',
             center:'title',
-            right:'dayGridMonth',
+            right:'dayGridWeek,dayGridMonth',
           },
-  
+          views: {
+            week: {
+              // options apply to dayGridWeek and timeGridWeek views
+              contentHeight: 200
+            },
+
+          },
 
             //events:"http://sicove.test/home/mostrar" ,
           eventSources:{

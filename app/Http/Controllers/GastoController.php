@@ -13,7 +13,15 @@ use Illuminate\Support\Facades\DB;
 
 class GastoController extends Controller
 {
+    function _construct()
+    {
+        $this->middleware('permission:Ver gasto | Crear gasto|Editar gasto|Borrar gasto', ['only' => ['index']]);
+        $this->middleware('permission:Crear gasto', ['only' => ['create', 'store']]);
+        $this->middleware('permission:Editar gasto', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:Borrar gasto', ['only' => ['destroy']]);
+    }
     /**
+    
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

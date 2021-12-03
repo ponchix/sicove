@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\DB;
 
 class ConductorController extends Controller
 {
+    function _construct()
+    {
+        $this->middleware('permission:Ver conductor | Crear conductor|Editar conductor|Borrar conductor', ['only' => ['index']]);
+        $this->middleware('permission:Crear conductor', ['only' => ['create', 'store']]);
+        $this->middleware('permission:Editar conductor', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:Borrar conductor', ['only' => ['destroy']]);
+        $this->middleware('permission:Perfil conductor', ['only' => ['show']]);
+    }
     /**
      * Display a listing of the resource.
      *

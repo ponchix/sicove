@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Cache;
 
 class ModeloController extends Controller
 {
+    function _construct()
+    {
+        $this->middleware('permission:Ver modelo | Crear modelo|Editar modelo|Borrar modelo', ['only' => ['index']]);
+        $this->middleware('permission:Crear modelo', ['only' => ['create', 'store']]);
+        $this->middleware('permission:Editar modelo', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:Borrar modelo', ['only' => ['destroy']]);
+       
+    }
     /**
      * Display a listing of the resource.
      *

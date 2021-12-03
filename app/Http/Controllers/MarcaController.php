@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Cache;
 
 class MarcaController extends Controller
 {
+    function _construct()
+    {
+        $this->middleware('permission:Ver marca | Crear marca|Editar marca|Borrar marca', ['only' => ['index']]);
+        $this->middleware('permission:Crear marca', ['only' => ['create', 'store']]);
+        $this->middleware('permission:Editar marca', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:Borrar marca', ['only' => ['destroy']]);
+       
+    }
     /**
      * Display a listing of the resource.
      *

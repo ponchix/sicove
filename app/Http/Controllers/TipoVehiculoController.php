@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class TipoVehiculoController extends Controller
 {
+    function _construct()
+    {
+        $this->middleware('permission:Ver tipo | Crear tipo|Editar tipo|Borrar tipo', ['only' => ['index']]);
+        $this->middleware('permission:Crear tipo', ['only' => ['create', 'store']]);
+        $this->middleware('permission:Editar tipo', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:Borrar tipo', ['only' => ['destroy']]);
+       
+    }
     /**
      * Display a listing of the resource.
      *

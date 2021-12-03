@@ -20,10 +20,13 @@ class VehiculoController extends Controller
 
     function _construct()
     {
-        $this->middleware('permission:ver-vehiculo | crear-vehiculo|editar-vehiculo|borrar-vehiculo', ['only' => ['index']]);
-        $this->middleware('permission:crear-vehiculo', ['only' => ['create', 'store']]);
-        $this->middleware('permission:editar-vehiculo', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:borrar-vehiculo', ['only' => ['destroy']]);
+        $this->middleware('permission:Ver vehiculo | Crear vehiculo|Editar vehiculo|Borrar vehiculo', ['only' => ['index']]);
+        $this->middleware('permission:Crear vehiculo', ['only' => ['create', 'store']]);
+        $this->middleware('permission:Editar vehiculo', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:Borrar vehiculo', ['only' => ['destroy']]);
+        $this->middleware('permission:Estado vehiculo', ['only' => ['vehiculos_update']]);
+        $this->middleware('permission:Perfil vehiculo', ['only' => ['show']]);
+
     }
     /**
      * Display a listing of the resource.

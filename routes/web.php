@@ -31,8 +31,8 @@ Auth::routes();
 Route::group(['middleware'=>['logout']],function(){
   Route::group(['middleware'=>['auth']],function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::resource('roles','RoleController');
-    Route::resource('usuarios','UsuarioController');
+    Route::resource('roles','RoleController')->middleware('permission:admin@gmail.com');
+    Route::resource('usuarios','UsuarioController')->middleware('permission:admin@gmail.com');
     Route::resource('vehiculos','VehiculoController')->only([
       'index','create','update','destroy','store'
   ]);
@@ -72,7 +72,7 @@ Route::group(['middleware'=>['logout']],function(){
     Route::resource('catalogo', 'ServiceController');
     Route::get('/servicios/detallado/{service}', 'mantenimientoController@show')->name('servicio.detallado');
     //Rutas mecanicos
-    Route::resource('mecanico','MecanicoController');
+    Route::resource('mecanico','MecanicoController')->middleware('permission:Mecanico');
     //Rutas de asignaciones
     Route::resource('asignaciones', 'AssignmentController');
     Route::get('/vehiculo/asignacion/{id}','AssignmentController@asignacion')->name('asignacion.assignment');

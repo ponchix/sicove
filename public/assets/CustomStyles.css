@@ -147,8 +147,12 @@ font-size:20px;
 	font-weight: 100;
 }
 .fc-view > table th{
-	background: #3BCBF5;
+	background: #59e0c5;
 
+}
+.eventos{
+border: 1px solid !important;
+display: flex ;
 }
 
 .fc .fc-daygrid-day-number{
