@@ -21,7 +21,7 @@
                                         <span aria-hidden="true">&times;</span> </button>
                                 </div>
                             @endif
-                            <form form action="{{ route('conductores.store') }}" method="POST" enctype="multipart/form-data"
+                            <form action="{{ route('conductores.store') }}" method="POST" enctype="multipart/form-data"
                                 autocomplete="nope">
                                 @csrf
                                 <div class="row">

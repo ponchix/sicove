@@ -22,4 +22,8 @@ class Proveedor extends Model
       public function mantenimiento(){
         return $this->hasMany(mantenimiento::class,'id');
     }
+    
+    public function combustible(){
+      return $this->hasMany(Fuel::class,'id');
+  }
 }

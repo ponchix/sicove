@@ -35,7 +35,7 @@ Route::group(['middleware' => ['logout']], function () {
     Route::resource('usuarios', 'UsuarioController')->middleware('permission:admin@gmail.com|Conductor');
     Route::resource('vehiculos', 'VehiculoController')->only([
       'index', 'create', 'update', 'destroy', 'store'
-    ])->middleware('role_or_permission:Conductor');
+    ]);
     Route::get('/vehiculos/{id}', 'VehiculoController@edit')->name('vehiculos.edit');
     Route::put('/status/{id}', 'VehiculoController@vehiculos_update')->name('vehiculos.status');
 
@@ -76,5 +76,10 @@ Route::group(['middleware' => ['logout']], function () {
     Route::get('asignacion/entrega/{id}', 'AssignmentController@entrega_edit')->name('asignacion.entrega');
     Route::put('asignacion/devolucion/{id}', 'AssignmentController@entrega_update')->name('asignacion.devolucion');
     Route::get('asignacion/archivados', 'AssignmentController@archivados_index')->name('asignacion.archivado');
+
+    //Rutas combustible
+    Route::resource('combustible-carga', 'FuelController');
+    Route::resource('tipos-combustibles', 'TypeFuelController');
+    Route::get('/vehiculo/combustible-carga/{id}', 'FuelController@combustible')->name('combustible.carga');
   });
 });

@@ -36,4 +36,7 @@ public function gastos(){
 public function estado(){
   return $this->belongsTo(StatusConductor::class,'status');
 }
+public function combustible(){
+  return $this->hasMany(Fuel::class,'id');
+}
 }

@@ -91,8 +91,9 @@
                                               href="{{ route('mantenimiento.vehiculo', $vehiculo->id) }}"><i
                                                   class="fas fa-tools"></i></a>
                                       @endif
-                                      <a class="btn btn-dark disabled"
-                                          href="{{ route('mantenimiento.vehiculo', $vehiculo->id) }}"> <i
+
+                                      <a class="btn btn-dark"
+                                          href="{{ route('combustible.carga', $vehiculo->id) }}"> <i
                                               class="fa fa-tint"></i></a>
                                   @endcan
                                   @csrf

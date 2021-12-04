@@ -29,7 +29,7 @@
 
 
 
-                                <a class="btn btn-outline-primary btn-lg ml-2" href="#"><i class="fa fa-tint"></i>
+                                <a class="btn btn-outline-primary btn-lg ml-2" href="{{route('combustible-carga.index')}}"><i class="fas fa-gas-pump    "></i></i>
                                     Combustible</a>
                                     @can('Crear vehiculo')
                                     <div class="btn-group" role="group">

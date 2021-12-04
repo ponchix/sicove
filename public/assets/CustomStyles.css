@@ -165,7 +165,14 @@ display: flex ;
 	
 }
 .list-group-item-light{
-	font-size: smaller !important;
+	font-size: small !important;
+	border: none !important;
+	padding: 0;
+}
+.list-group-item-dark{
+	font-size: small !important;
+	border: none !important;
+	padding: 0;
 }
 .lista{
 	list-style: none !important;
@@ -295,3 +302,7 @@ display: contents !important;
 	font-size:20px !important;
 	font-weight: 300 !important;
 	}
+.derecha{
+float: right !important;
+overflow: auto !important;
+}

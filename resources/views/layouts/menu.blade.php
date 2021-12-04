@@ -30,7 +30,7 @@
     <a class="nav-link"href="/mecanico">
         <i class="fas fa-hard-hat"></i><span>Mecánicos</span>
     </a>
-    @can('ver-role', Model::class)
+    @can('ver-role')
     <a class="nav-link"href="/usuarios">
         <i class="fas fa-users"></i><span>Usuarios</span>
     </a>
