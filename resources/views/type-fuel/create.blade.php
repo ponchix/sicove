@@ -3,7 +3,7 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h3 class="page__heading">Vehiculos</h3>
+        <h3 class="page__heading">Registrar Nuevo Tipo de Combustible</h3>
     </div>
     <div class="section-body">
         <div class="row align-items-center">
@@ -15,16 +15,18 @@
 
                             <div class="box box-info padding-1">
                                 <div class="box-body">
-                                    
-                                    <div class="form-group">
-                                        {{ Form::label('tipo_combustible') }}
-                                        {{ Form::text('tipo_combustible', $typeFuel->tipo_combustible, ['class' => 'form-control' . ($errors->has('tipo_combustible') ? ' is-invalid' : ''), 'placeholder' => 'Tipo Combustible']) }}
-                                        {!! $errors->first('tipo_combustible', '<div class="invalid-feedback">:message</p>') !!}
+                                    <div class="row">
+                                        <div class="col">
+                                            <label>Tipo de Combustible</label><span class="text-danger">*</span>
+                                            {{ Form::text('tipo_combustible', $typeFuel->tipo_combustible, ['class' => 'form-control' . ($errors->has('tipo_combustible') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
+                                            {!! $errors->first('tipo_combustible', '<div class="invalid-feedback">:message</p>') !!}
+                                        </div>
                                     </div>
-                            
+                           
                                 </div>
-                                <div class="box-footer mt20">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                <div class="col mt-2">
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <a href="{{route('tipos-combustibles.index')}}" class="btn btn-danger ml-2"> Cancelar</a>
                                 </div>
                             </div>
 
