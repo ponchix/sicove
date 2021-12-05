@@ -6,6 +6,7 @@
           <th>ID</th>
           <th>Imagen</th>
           <th>Nombre Vehiculo</th>
+          <th>Odometro</th>
           <th>Estatus</th>
           <th>Acciones</th>
       </thead>
@@ -15,6 +16,11 @@
                   <td>{{ $vehiculo->id }}</td>
                   <td> <img src="/imagen/{{ $vehiculo->imagen }}" width="120" height="90px"> </td>
                   <td>{{ $vehiculo->NombreVehiculo }}</td>
+                  <td>
+                      @foreach ($vehiculo->asignaciones as $item)
+                          {{ $item::max('odometro_e') }}<strong>Km</strong>
+                      @endforeach
+                  </td>
                   <td>
                       @if ($vehiculo->StatusInicial == '1')
                           <a href="#" class="editable btn btn-info disabled" id="status" data-type="select"
@@ -92,9 +98,16 @@
                                                   class="fas fa-tools"></i></a>
                                       @endif
 
-                                      <a class="btn btn-dark"
-                                          href="{{ route('combustible.carga', $vehiculo->id) }}"> <i
-                                              class="fa fa-tint"></i></a>
+                                      @if ($vehiculo->StatusInicial != '2')
+                                          <a class="btn btn-dark disabled"
+                                              href="{{ route('combustible.carga', $vehiculo->id) }}"> <i
+                                                  class="fa fa-tint"></i></a>
+                                      @else
+                                          <a class="btn btn-dark"
+                                              href="{{ route('combustible.carga', $vehiculo->id) }}"> <i
+                                                  class="fa fa-tint"></i></a>
+                                      @endif
+
                                   @endcan
                                   @csrf
                                   @method('DELETE')

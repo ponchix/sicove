@@ -56,7 +56,7 @@
                                             <label>Odometro Actual</label><span class="text-danger">*</span>
                                             @if ($odometro==0)
                                             <input class="form-control" type="number" name="odometro_a" min="0"
-                                            step="any" value="{{ $odometro }}">
+                                            step="any" value="{{ $odometro }}" placeholder="odometro actual">
                                             @else
                                             <input class="form-control" type="number" name="odometro_a" min="0"
                                             step="any" value="{{ $odometro }}" readonly>
@@ -65,10 +65,21 @@
 
                                         </div>
 
+                                        {{-- @if ($combustible->isEmpty()) --}}
                                         <div class="col-md-6 col-xs-6 col-xs-6">
                                             <label>Combustible Actual</label><span class="text-danger">*</span>
-                                            <input type="number" name="combustible_a" min="0" class="form-control">
-                                        </div>
+                                            @foreach ($combustible as $fuel)
+                                            <input type="number" name="combustible_a" min="0" class="form-control" placeholder="combustible actual" value="{{$fuel}}">
+                                            @endforeach
+                                           
+                                        </div>  
+                                        {{-- @elseif($combustible->isNotEmpty()) --}}
+       
+                                 
+                                        {{-- @endif --}}
+
+
+
 
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12">

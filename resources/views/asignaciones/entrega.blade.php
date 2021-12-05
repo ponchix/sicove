@@ -42,7 +42,8 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
-
+                                    <input type="text" class="form-control" name="combustible_a"
+                                        value="{{ $asignaciones->combustible_a }}" hidden readonly>
                                     <input type="text" class="form-control" name="conductor"
                                         value="{{ $asignaciones->conductor }}" hidden readonly>
                                     <input type="text" class="form-control" value="{{ $asignaciones->vehiculo }}"

@@ -95,6 +95,12 @@ class FuelController extends Controller
         }
         $total=$request->input('cantidad')*$request->input('costo_uni');
         $combustible['total']=$total;
+        $vehiculo=$request->input('vehiculo');
+        $carga=$request->input('cantidad')+$request->input('carga');
+        assignment::where('vehiculo',$vehiculo)
+        ->orderBy('created_at', 'desc')
+        ->first()
+        ->update([ 'combustible_a'=>$carga]);
         Fuel::create($combustible);
         Cache::flush();
         return redirect()->route('combustible-carga.index')->with('add','agregar');
@@ -150,6 +156,8 @@ class FuelController extends Controller
         $vehiculo = VehiculoModel::find($id);
         $proveedores = Proveedor::all();
         $conductores = Conductor::all();
+        $carga=DB::table('assignments')->select('combustible_a')
+        ->where('vehiculo','=',$id)->latest()->take(1)->get();
         $tipos = typeFuel::all();
         $odometro = DB::table('assignments')
             ->where('vehiculo', '=', $id)->max('odometro_a');
@@ -157,7 +165,8 @@ class FuelController extends Controller
             'vehiculo',
             'proveedores',
             'conductores',
-            'tipos'
+            'tipos',
+            'carga'
         ));
     }
 }

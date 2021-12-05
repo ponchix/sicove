@@ -28,6 +28,13 @@
                                 @csrf
                                 <input type="text" name="vehiculo" value="{{ $vehiculo->id }}"
                                 class="form-control" hidden readonly>
+                                @foreach ($carga as $item)
+                                <input type="text" name="carga" value="{{ $item->combustible_a }}"
+                                class="form-control" hidden readonly>                
+                                @endforeach
+
+
+
                                 <div class="container">
                                     <div class="row ">
                                         <div class="col-md-3 col-xs-3 col-xs-3">
@@ -91,17 +98,17 @@
                                         <div class="col-md-3 col-xs-3 col-xs-3">
                                             <label>Cantidad(Lts):</label><span class="text-danger">*</span>
                                             <input type="number" name="cantidad" class="form-control"
-                                                onkeyup="mayus(this);" step="any" min="0">
+                                                onkeyup="mayus(this);" step="any" min="0" value="{{ old('cantidad') }}">
                                         </div>
                                         <div class="col-md-3 col-xs-3 col-xs-3">
                                             <label>Costo unitario:</label><span class="text-danger">*</span>
                                             <input type="number" name="costo_uni" class="form-control"
-                                                onkeyup="mayus(this);" step="any" min="0">
+                                                onkeyup="mayus(this);" step="any" min="0" value="{{ old('costo_uni') }}">
                                         </div>
                                         <div class="col-md-3 col-xs-3 col-xs-3">
                                             <label>Odometro:</label><span class="text-danger">*</span>
                                             <input type="text" name="odometro" class="form-control"
-                                                onkeyup="mayus(this);">
+                                                onkeyup="mayus(this);" value="{{ old('odometro') }}">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12">

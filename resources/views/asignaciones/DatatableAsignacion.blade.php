@@ -54,7 +54,7 @@
 <script>
  $(document).ready(function() {
   $('#asignacion').DataTable({
-    "order":[],
+    "order":[[ 0, 'desc' ]],
       "lengthMenu":[[5,10,50,-1],[5,10,50,"All"]],
       "language":{
        "lengthMenu":"Mostrar _MENU_ registros",

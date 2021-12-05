@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\assignment;
 use App\Models\Conductor;
+use App\Models\Fuel;
 use App\Models\VehiculoModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Symfony\Contracts\Service\Attribute\Required;
 
 use function PHPUnit\Framework\assertNan;
+use function PHPUnit\Framework\isNull;
 use function PHPUnit\Framework\returnSelf;
 
 class AssignmentController extends Controller
@@ -35,6 +37,7 @@ class AssignmentController extends Controller
     {
         //
         $asignaciones = assignment::where('status', '<', 3)->get();
+        $asignaciones->sortBy('status');
         return view('asignaciones.index', compact('asignaciones'));
     }
 
@@ -211,6 +214,7 @@ class AssignmentController extends Controller
             'odometro_e' => 'required|numeric',
             'combustible_e' => 'required|numeric',
             'odometro_a',
+            'combustible_a'
         ],
         [
             'fecha_e.required'=>'La fecha de entrega es obligatoria',
@@ -232,6 +236,8 @@ class AssignmentController extends Controller
 
 
         $input = $request->all();
+        $final=$request->input('combustible_a')-$request->input('combustible_e');
+        $input['combustible_a']=$final;
         $asignaciones = assignment::find($id);
         $asignaciones->update($input);
         Cache::flush();
@@ -242,15 +248,43 @@ class AssignmentController extends Controller
 
     public function asignacion($id)
     {
+        
         $conductores = Conductor::where('status', 2)->get();
         $vehiculo = VehiculoModel::find($id);
+        $combustible=DB::table('assignments')
+        ->select('combustible_a')
+        ->where('vehiculo','=',$id)
+        ->orderBy('created_at', 'desc')
+        ->first();
         $odometro = DB::table('assignments')
-            ->where('vehiculo', '=', $id)->max('odometro_e');
-        return view('asignaciones.crear', compact(
+        ->where('vehiculo', '=', $id)->max('odometro_e');
+        // if ($combustible->isEmpty()) {
+
+        //     return view('asignaciones.crear', compact(
+        //         'conductores',
+        //         'vehiculo',
+        //         'odometro',
+        //         'combustible'
+
+        //     ));
+        // }
+        // elseif($combustible->isNotEmpty()){
+        //    $combustible;
+        //    return view('asignaciones.crear', compact(
+        //     'conductores',
+        //     'vehiculo',
+        //     'odometro',
+        //     'combustible'
+        // ));
+        // }
+                   return view('asignaciones.crear', compact(
             'conductores',
             'vehiculo',
-            'odometro'
-
+            'odometro',
+            'combustible'
         ));
+        
+
+
     }
 }

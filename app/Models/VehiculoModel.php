@@ -59,7 +59,10 @@ class VehiculoModel extends Model
     return $this->belongsTo(Status::class, 'StatusInicial');
   }
 
-
+  public function asignaciones()
+  {
+    return $this->hasMany(assignment::class, 'id');
+  }
   public function combustible()
   {
     return $this->hasMany(Fuel::class, 'id');
