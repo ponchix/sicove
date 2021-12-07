@@ -69,7 +69,7 @@
                                         <div class="col-md-6 col-xs-6 col-xs-6">
                                             <label>Combustible Actual</label><span class="text-danger">*</span>
                                             @foreach ($combustible as $fuel)
-                                            <input type="number" name="combustible_a" min="0" class="form-control" placeholder="combustible actual" value="{{$fuel}}">
+                                            <input type="number" name="combustible_a" min="0" class="form-control" placeholder="combustible actual" value="{{$fuel}}" readonly>
                                             @endforeach
                                            
                                         </div>  

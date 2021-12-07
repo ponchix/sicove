@@ -236,7 +236,8 @@ class AssignmentController extends Controller
 
 
         $input = $request->all();
-        $final=$request->input('combustible_a')-$request->input('combustible_e');
+        // $final=$request->input('combustible_a')-
+        $final=$request->input('combustible_e');
         $input['combustible_a']=$final;
         $asignaciones = assignment::find($id);
         $asignaciones->update($input);
