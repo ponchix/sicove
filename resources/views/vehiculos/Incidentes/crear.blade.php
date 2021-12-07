@@ -57,7 +57,7 @@
 
                                     <div class="col-md-3 col-xs-3 col-xs-3">
                                         <label>Fecha de Reporte</label>
-                                        <input type="date" class="form-control" name="Fecha_reporte" value="{{old('Fecha_reporte')}}">
+                                        <input type="date" class="form-control" name="Fecha_reporte" value="<?php echo date('Y-m-d'); ?>">
                                     </div>
                                     <div class="col-md-3 col-xs-3 col-xs-3">
                                         <label>Descripcion Corta</label>

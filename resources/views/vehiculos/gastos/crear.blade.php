@@ -27,7 +27,7 @@
                                 <div class="row">
                                     <div class="col-md-12 col-xs-12 col-xs-12">
                                         <label>Fecha</label><span class="text-danger">*</span>
-                                        <input type="date" class="form-control" name="fecha" value="{{old('fecha')}}">
+                                        <input type="date" class="form-control" name="fecha" value="<?php echo date('Y-m-d'); ?>">
                                     </div>
                                     <div class="col-md-4 col-xs-4 col-xs-4">
                                         <label>Vehiculo</label><span class="text-danger">*</span>

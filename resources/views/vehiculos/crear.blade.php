@@ -134,8 +134,8 @@
 
                                     <div class="col-md-3 col-xs-3 col-xs-3">
                                         <label>Fecha de compra</label><span class="text-danger">*</span>
-                                        <input type="text" name="fecha_compra" class="form-control icono-placeholder "
-                                            id="datepicker" placeholder="" autocomplete="off" value="{{old('fecha_compra')}}">
+                                        <input type="date" name="fecha_compra" class="form-control"
+  autocomplete="off" value="<?php echo date('Y-m-d'); ?>">
                                     </div>
 
 
@@ -165,8 +165,8 @@
                                     </div>
                                     <div class="col-md-4 col-xs-34col-xs-4">
                                         <label>Vigencia Póliza</label><span class="text-danger">*</span>
-                                        <input type="text" name="fecha_poliza" class="form-control icono-placeholder "
-                                            id="poliza" placeholder="" autocomplete="off" value="{{old('fecha_poliza')}}">
+                                        <input type="date" name="fecha_poliza" class="form-control"
+                                           autocomplete="off" value="<?php echo date('Y-m-d'); ?>">
                                     </div>
 
 

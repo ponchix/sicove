@@ -39,7 +39,7 @@
 
                                     <div class="col-md-4 col-xs-4 col-xs-4">
                                         <label>Fecha de Inicio</label><span class="text-danger">*</span>
-                                        <input type="date" class="form-control" name="fecha_inicio" min="2020-11-11">
+                                        <input type="date" class="form-control" name="fecha_inicio" min="2020-11-11" value="<?php echo date('Y-m-d'); ?>"> 
                                     </div>
                                     <div class="col-md-4 col-xs-4 col-xs-4">
                                         <label>Hora de Registro</label><span class="text-danger">*</span>
