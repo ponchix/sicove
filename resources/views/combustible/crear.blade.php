@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="titulo">Valores de carga</div>
                                     <div class="row">
-                                        <div class="col-md-3 col-xs-3 col-xs-3 align-self-end">
+                                        <div class="col-md-3 col-xs-3 col-xs-3 ">
                                             <label>Tipos de Combustible:</label><span class="text-danger">*</span>
                                             <select name="tipo_combustible" id="" class="form-control">
                                    <option value="">-</option>
@@ -96,19 +96,31 @@
 
                                         </div>
                                         <div class="col-md-3 col-xs-3 col-xs-3">
-                                            <label>Cantidad(Lts):</label><span class="text-danger">*</span>
-                                            <input type="number" name="cantidad" class="form-control"
+                                            <label>Cantidad:</label><span class="text-danger">*</span>
+                                            <div class="input-group">
+                                                <input type="number" name="cantidad" class="form-control"
                                                 onkeyup="mayus(this);" step="any" min="0" value="{{ old('cantidad') }}">
+                                                <span class="input-group-text icon-beauty">Lts</span>
+                                            </div>
+                                           
                                         </div>
                                         <div class="col-md-3 col-xs-3 col-xs-3">
                                             <label>Costo unitario:</label><span class="text-danger">*</span>
-                                            <input type="number" name="costo_uni" class="form-control"
+                                            <div class="input-group">
+                                                <span class="input-group-text icon-beauty">$</span>
+                                                <input type="number" name="costo_uni" class="form-control"
                                                 onkeyup="mayus(this);" step="any" min="0" value="{{ old('costo_uni') }}">
+                                            </div>
+                                           
                                         </div>
                                         <div class="col-md-3 col-xs-3 col-xs-3">
                                             <label>Odometro:</label><span class="text-danger">*</span>
-                                            <input type="text" name="odometro" class="form-control"
-                                                onkeyup="mayus(this);" value="{{ old('odometro') }}">
+                                            <div class="input-group">
+                                                <input type="text" name="odometro" class="form-control"
+                                                onkeyup="mayus(this);" value="{{$odometro}}" readonly>
+                                                <span class="input-group-text icon-beauty">Km</span>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12">

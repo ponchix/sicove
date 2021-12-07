@@ -71,18 +71,18 @@
                                         <input type="text" name="telefono" class="form-control" autocomplete="nope">
                                     </div>
                                     <div class="titulo">Licencia de Conducir</div>
-                                    <div class="col-md-3 col-xs-3 col-xs-3">
+                                    <div class="col-md-4 col-xs-4 col-xs-4">
                                         <label>No.Licencia</label><span class="text-danger">*</span>
                                         <input type="text" name="NoLiciencia" class="form-control" onkeyup="mayus(this);"
                                             autocomplete="off">
                                     </div>
-                                    <div class="col-md-3 col-xs-3 col-xs-3">
+                                    <div class="col-md-4 col-xs-4 col-xs-4">
                                         <label>Fecha de Expiración</label><span class="text-danger">*</span>
                                         <input type="text" name="fecha_exp" min="01-01-2021"
                                             class="form-control icono-placeholder " id="datepicker" placeholder=""
                                             autocomplete="off" min="01-05-2021">
                                     </div>
-                                    <div class="col-md-3 col-xs-3 col-xs-3">
+                                    <div class="col-md-4 col-xs-4 col-xs-4">
                                         <label>Tipo de Licencia</label><span class="text-danger">*</span>
                                         <select name="tipoLicencia" class="form-control">
                                             <option value="">-</option>

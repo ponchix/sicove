@@ -38,26 +38,32 @@
                                     <input type="text" value="{{ $vehiculo->id }}" name="vehiculo" hidden readonly>
 
                                     <div class="col-md-4 col-xs-4 col-xs-4">
-                                        <label>Fecha de Inicio</label>
+                                        <label>Fecha de Inicio</label><span class="text-danger">*</span>
                                         <input type="date" class="form-control" name="fecha_inicio" min="2020-11-11">
                                     </div>
                                     <div class="col-md-4 col-xs-4 col-xs-4">
-                                        <label>Hora de Registro</label>
+                                        <label>Hora de Registro</label><span class="text-danger">*</span>
                                         <input type="time" class="form-control" name="hora_entrada" value="now" readonly>
                                     </div>
                                     <div class="col-md-4 col-xs-4 col-xs-4">
-                                        <label>Odómetro</label>
-                                        @if ($odometro == 0)
+                                        <label>Odómetro</label><span class="text-danger">*</span>
+                                        <div class="input-group">
+                                            @if ($odometro == 0)
                                             <input type="number" class="form-control" name="odometro" step="any" value="0"
                                                 readonly>
+                                                <span class="inut-group-text icon-beauty">Km</span>
                                         @else
                                             <input type="number" class="form-control" name="odometro" step="any"
                                                 value="{{ $odometro }}" readonly>
+                                                <span class="input-group-text icon-beauty">Km</span>
                                         @endif
+                                        
+                                        </div>
+
 
                                     </div>
                                     <div class="col-md-8 col-xs-8 col-xs-8">
-                                        <label>Servicio(s)</label>
+                                        <label>Servicio(s)</label><span class="text-danger">*</span>
                                         <select name="servicios[]" class="form-control servicios" multiple="multiple">
                                             @foreach ($servicios as $servicio)
                                                 <option value="{{ $servicio['id'] }}">{{ $servicio['nombre'] }}</option>
@@ -69,25 +75,38 @@
                                     <div class="titulo">Desglose Partes/Refacciones</div>
 
                                     <div class="col-md-4 col-xs-4 col-xs-4">
-                                        <label>Costos Partes/Refacciones</label>
-                                        <input type="number" class="form-control" name="costo_partes" step="any" id="qty"
-                                            onblur="myFunction()">
+                                        <label>Costos Partes/Refacciones</label><span class="text-danger">*</span>
+                                        <div class="input-group">
+                                            <span class="input-group-text icon-beauty">$</span>
+                                            <input type="number" class="form-control" name="costo_partes" step="any"
+                                                id="qty" onblur="myFunction()">
+
+                                        </div>
+
                                     </div>
                                     <div class="col-md-4 col-xs-4 col-xs-4">
-                                        <label>Mano de Obra</label>
-                                        <input type="number" class="form-control" name="mano_obra" step="any" id="qty2"
-                                            oninput="myFunction()">
+                                        <label>Mano de Obra</label><span class="text-danger">*</span>
+                                        <div class="input-group">
+                                            <span class="input-group-text icon-beauty">$</span>
+                                            <input type="number" class="form-control" name="mano_obra" step="any"
+                                                id="qty2" oninput="myFunction()">
+                                        </div>
+
                                     </div>
                                     <div class="col-md-4 col-xs-4 col-xs-4">
-                                        <label>Total</label>
-                                        <input type="number" class="form-control" name="total" step="any" readonly
-                                            id="total">
+                                        <label>Total</label><span class="text-danger">*</span>
+                                        <div class="input-group">
+                                            <span class="input-group-text icon-beauty">$</span>
+                                            <input type="number" class="form-control" name="total" step="any" readonly
+                                                id="total">
+                                        </div>
+
                                     </div>
 
 
                                     <div class="titulo"> Información de Referencia</div>
                                     <div class="col-md-4 col-xs-4 col-xs-4">
-                                        <label>Referencia</label>
+                                        <label>Referencia</label><span class="text-danger">*</span>
                                         <input type="text" class="form-control" name="referencia_man"
                                             placeholder="Ej. Factura/Ticket,etc.">
                                     </div>
@@ -119,7 +138,7 @@
                                     <div class="titulo">Cargar imagen</div>
 
                                     <div class="col-md-12 col-xs-12 col-xs-12">
-                                        <label>Subir Imagen</label>
+                                        <label>Subir Imagen</label><span class="text-danger">*</span>
                                         <input type="file" class="imagenes form-control" name="imagen_man">
                                     </div>
                                 </div>

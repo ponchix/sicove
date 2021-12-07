@@ -229,7 +229,7 @@ class mantenimientoController extends Controller
         $vehiculo = VehiculoModel::find($id);
         $odometro = DB::table('assignments')
             ->where('vehiculo', '=', $id)
-            ->max('odometro_a');
+            ->max('odometro_e');
         $servicios = Service::all();
         $proveedores = Proveedor::all();
         return view('mantenimiento.vehiculo', compact(

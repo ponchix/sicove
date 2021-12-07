@@ -160,13 +160,14 @@ class FuelController extends Controller
         ->where('vehiculo','=',$id)->latest()->take(1)->get();
         $tipos = typeFuel::all();
         $odometro = DB::table('assignments')
-            ->where('vehiculo', '=', $id)->max('odometro_a');
+            ->where('vehiculo', '=', $id)->max('odometro_e');
         return view('combustible.crear', compact(
             'vehiculo',
             'proveedores',
             'conductores',
             'tipos',
-            'carga'
+            'carga',
+        'odometro'
         ));
     }
 }

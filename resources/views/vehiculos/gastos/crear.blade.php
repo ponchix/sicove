@@ -10,6 +10,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body" >
+
                         @if($errors->any())
                         <div class="alert alert-dark alert-dismissible fade show" role="alert">
                             <strong>¡Revise los campos! </strong>
@@ -25,7 +26,7 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12 col-xs-12 col-xs-12">
-                                        <label>Fecha</label>
+                                        <label>Fecha</label><span class="text-danger">*</span>
                                         <input type="date" class="form-control" name="fecha" value="{{old('fecha')}}">
                                     </div>
                                     <div class="col-md-4 col-xs-4 col-xs-4">
@@ -49,16 +50,20 @@
                                    </select>
                                </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
-                                    <label>Concepto</label>
+                                    <label>Concepto</label><span class="text-danger">*</span>
                                     <input type="text" class="form-control" name="concepto" onkeyup="mayus(this);" value="{{old('concepto')}}">
                                 </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
-                                    <label>Referencia</label>
+                                    <label>Referencia</label><span class="text-danger">*</span>
                                     <input type="text" class="form-control" name="referencia" onkeyup="mayus(this);" value="{{old('referencia')}}">
                                 </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
-                                    <label>Monto</label>
-                                    <input type="number" class="form-control" name="monto" step="any" value="{{old('monto')}}" min="0">
+                                    <label>Monto</label><span class="text-danger">*</span>
+                                    <div class="input-group">
+                                        <span class="input-group-text icon-beauty">$</span>
+                                        <input type="number" class="form-control" name="monto" step="any" value="{{old('monto')}}" min="0">
+                                    </div>
+                                   
                                 </div>
                                 <div class="col-md-4 col-xs-4 col-xs-4">
                                     <label>Proveedor</label><span class="text-danger">*</span>

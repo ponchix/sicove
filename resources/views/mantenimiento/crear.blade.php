@@ -42,19 +42,19 @@
                                            </select>
                                </div>
                                <div class="col-md-4 col-xs-4 col-xs-4">
-                                <label>Fecha de Inicio</label>
+                                <label>Fecha de Inicio</label><span class="text-danger">*</span>
                                 <input type="date" class="form-control" name="fecha_inicio" min="2020-11-11" >
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
-                                <label>Hora de Registro</label>
+                                <label>Hora de Registro</label><span class="text-danger">*</span>
                                 <input type="time" class="form-control" name="hora_entrada"  value="now"  readonly >
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
-                                <label>Odómetro</label>
+                                <label>Odómetro</label><span class="text-danger">*</span>
                                 <input type="number" class="form-control" name="odometro"   step="any" >
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
-                                <label>Servicio(s)</label>
+                                <label>Servicio(s)</label><span class="text-danger">*</span>
                                 <select name="servicios[]" class="form-control servicios" multiple="multiple">
                                       @foreach($servicios as $servicio)
                                     <option value="{{$servicio['id']}}">{{$servicio['nombre']}}</option>
@@ -66,7 +66,7 @@
                             <div class="titulo">Desglose Partes/Refacciones</div>
 
                             <div class="col-md-4 col-xs-4 col-xs-4">
-                                <label>Costos Partes/Refacciones</label>
+                                <label>Costos Partes/Refacciones</label><span class="text-danger">*</span>
                                 <input type="number" class="form-control" name="costo_partes" step="any" id="qty" onblur="myFunction()" >
                             </div>
                             <div class="col-md-4 col-xs-4 col-xs-4">
