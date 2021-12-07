@@ -49,13 +49,13 @@
                                             <input type="date" class="form-control" name="fecha_a" min="2020-11-11"
                                                 value="<?php echo date('Y-m-d'); ?>">
 
-                                                <label>Odometro Actual</label><span class="text-danger">*</span>
+                                            <label>Odometro Actual</label><span class="text-danger">*</span>
                                             <div class="input-group">
-                                        
+
                                                 @if ($odometro == 0)
                                                     <input class="form-control" type="number" name="odometro_a" min="0"
                                                         step="any" value="{{ $odometro }}"
-                                                        placeholder="odometro actual">
+                                                        placeholder="Sin registro">
                                                 @else
                                                     <input class="form-control" type="number" name="odometro_a" min="0"
                                                         step="any" value="{{ $odometro }}" readonly>
@@ -67,13 +67,20 @@
 
                                             <label>Combustible Actual</label><span class="text-danger">*</span>
                                             <div class="input-group">
-                                                @foreach ($combustible as $fuel)
-                                                <input type="number" name="combustible_a" min="0" class="form-control"
-                                                    placeholder="combustible actual" value="{{ $fuel }}" readonly>
-                                            @endforeach
-                                            <span class="input-group-text icon-beauty">Lts</span>
+                                                @if ($combustible == '0')
+                                                    <input type="number" name="combustible_a" min="0" class="form-control"
+                                                        placeholder="combustible actual" value="0">
+                                                @else
+                                                    @foreach ($combustible as $fuel)
+                                                        <input type="number" name="combustible_a" min="0"
+                                                            class="form-control" placeholder="combustible actual"
+                                                            value="{{ $fuel }}" readonly>
+                                                    @endforeach
+                                                @endif
+
+                                                <span class="input-group-text icon-beauty">Lts</span>
                                             </div>
-                                           
+
                                             <button type="submit" class="btn btn-primary mt-2">Guardar</button>
                                             <a class="btn btn-danger mt-2"
                                                 href="{{ route('vehiculos.index') }}">Regresar</a>

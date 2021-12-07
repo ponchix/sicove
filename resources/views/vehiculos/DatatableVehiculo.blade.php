@@ -18,7 +18,7 @@
                   <td>{{ $vehiculo->NombreVehiculo }}</td>
                   <td>
                       @foreach ($vehiculo->asignaciones as $item)
-                          {{ $item::max('odometro_e') }}<strong>Km</strong>
+                          {{ $item::where('vehiculo',$vehiculo->id)->max('odometro_e') }}<strong>Km</strong>
                       @endforeach
                   </td>
                   <td>

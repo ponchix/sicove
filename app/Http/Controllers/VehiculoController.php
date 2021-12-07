@@ -42,6 +42,7 @@ public function __construct()
         $estados = Status::all();
         Cache::flush();
         return view('vehiculos.index', compact('vehiculos', 'estados'));
+        
     }
 
     /**

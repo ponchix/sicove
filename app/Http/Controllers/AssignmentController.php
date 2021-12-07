@@ -259,6 +259,23 @@ class AssignmentController extends Controller
         ->first();
         $odometro = DB::table('assignments')
         ->where('vehiculo', '=', $id)->max('odometro_e');
+   
+        if (is_null($combustible)) {
+            $combustible=0;
+            return view('asignaciones.crear', compact(
+                'conductores',
+                'vehiculo',
+                'odometro',
+                'combustible'
+            ));
+        }elseif($combustible != 'null'){
+              return view('asignaciones.crear', compact(
+                'conductores',
+                'vehiculo',
+                'odometro',
+                'combustible'
+            ));
+        }
         // if ($combustible->isEmpty()) {
 
         //     return view('asignaciones.crear', compact(
@@ -278,13 +295,6 @@ class AssignmentController extends Controller
         //     'combustible'
         // ));
         // }
-                   return view('asignaciones.crear', compact(
-            'conductores',
-            'vehiculo',
-            'odometro',
-            'combustible'
-        ));
-        
 
 
     }
