@@ -118,10 +118,26 @@
                             </div>
                         </div>
                         <div class="titulo">Agenda</div>
+                        <div class="container" >
+                            <p class="colapsar">
+                                <a class="btn btn-primary btn-colapsar d-flex justify-content-end" data-bs-toggle="collapse" href="#eventos" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <i class="fas fa-minus"></i>
+                                  </a>
+                            </p>
 
-                        <div class="eventos">
-                            @include('Calendario.index')
+                                <div class="card collapsing" id="eventos">
+                                    <div class="card-body">
+                                        @include('Calendario.index')
+                                    </div>
+                                </div>
+                               
+
+
+                               
+
+                               
                         </div>
+
 
 
                      

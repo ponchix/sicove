@@ -150,10 +150,7 @@ font-size:20px;
 	background: #59e0c5;
 
 }
-.eventos{
-border: 1px solid !important;
-display: flex ;
-}
+
 
 .fc .fc-daygrid-day-number{
 	text-decoration: none;
@@ -313,4 +310,16 @@ overflow: auto !important;
 	border: none !important;
 	text-align: center !important;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.colapsar{
+background-color: #1D8F7A !important;
+width: 100%;
+height: auto !important;
+}
+.btn-colapsar{
+	background-color: #1D8F7A !important;
+	box-shadow: none !important;
+	font-family: FontAwesome;
+	align-items: flex-end ;
 }
