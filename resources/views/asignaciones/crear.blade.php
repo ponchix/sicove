@@ -24,15 +24,17 @@
                             <form action="{{ route('asignaciones.store') }}" method="POST" enctype="multipart/form-data"
                                 autocomplete="off">
                                 @csrf
-                                <div class="wrapper">
-                                    <div class="row">
-                                        <div class="card">
-                                            <img src="/imagen/{{ $vehiculo->imagen }}"
-                                                class="portada img-fluid card-img-top">
+                                <input type="text" name="vehiculo" value="{{ $vehiculo->id }}" class="form-control"
+                                    hidden readonly>
+                                <div class="container">
+                                    <div class="row row-cols-lg-2 g-2 g-lg-3">
+                                        <div class="col">
+                                            <div class="card">
+                                                <img src="/imagen/{{ $vehiculo->imagen }}" class="img-fluid mt-4">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row three">
-                                        <div class="col-md-6 col-xs-6 col-xs-6">
+
+                                        <div class="col">
                                             <label>Conductor</label><span class="text-danger">*</span>
                                             <select name="conductor" class="form-control">
                                                 <option value="">-</option>
@@ -42,40 +44,65 @@
                                                     </option>
                                                 @endforeach
                                             </select>
-                                        </div>
-                                        <input type="text" name="vehiculo" value="{{ $vehiculo->id }}"
-                                            class="form-control" hidden readonly>
 
-                                        <div class="col-md-6 col-xs-6 col-xs-6">
                                             <label>Fecha de asignacion</label><span class="text-danger">*</span>
                                             <input type="date" class="form-control" name="fecha_a" min="2020-11-11"
                                                 value="<?php echo date('Y-m-d'); ?>">
+
+                                                <label>Odometro Actual</label><span class="text-danger">*</span>
+                                            <div class="input-group">
+                                        
+                                                @if ($odometro == 0)
+                                                    <input class="form-control" type="number" name="odometro_a" min="0"
+                                                        step="any" value="{{ $odometro }}"
+                                                        placeholder="odometro actual">
+                                                @else
+                                                    <input class="form-control" type="number" name="odometro_a" min="0"
+                                                        step="any" value="{{ $odometro }}" readonly>
+                                                @endif
+                                                <span class="input-group-text icon-beauty">Km</span>
+                                            </div>
+
+
+
+                                            <label>Combustible Actual</label><span class="text-danger">*</span>
+                                            <div class="input-group">
+                                                @foreach ($combustible as $fuel)
+                                                <input type="number" name="combustible_a" min="0" class="form-control"
+                                                    placeholder="combustible actual" value="{{ $fuel }}" readonly>
+                                            @endforeach
+                                            <span class="input-group-text icon-beauty">Lts</span>
+                                            </div>
+                                           
+                                            <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+                                            <a class="btn btn-danger mt-2"
+                                                href="{{ route('vehiculos.index') }}">Regresar</a>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="col-md-6 col-xs-6 col-xs-6">
+
+                                        </div>
+
+
+                                        <div class="col-md-6 col-xs-6 col-xs-6">
+
                                         </div>
 
                                         <div class="col-md-6 col-xs-6 col-xs-6">
-                                            <label>Odometro Actual</label><span class="text-danger">*</span>
-                                            @if ($odometro==0)
-                                            <input class="form-control" type="number" name="odometro_a" min="0"
-                                            step="any" value="{{ $odometro }}" placeholder="odometro actual">
-                                            @else
-                                            <input class="form-control" type="number" name="odometro_a" min="0"
-                                            step="any" value="{{ $odometro }}" readonly>
-                                            @endif
+
 
 
                                         </div>
 
                                         {{-- @if ($combustible->isEmpty()) --}}
                                         <div class="col-md-6 col-xs-6 col-xs-6">
-                                            <label>Combustible Actual</label><span class="text-danger">*</span>
-                                            @foreach ($combustible as $fuel)
-                                            <input type="number" name="combustible_a" min="0" class="form-control" placeholder="combustible actual" value="{{$fuel}}" readonly>
-                                            @endforeach
-                                           
-                                        </div>  
+
+
+                                        </div>
                                         {{-- @elseif($combustible->isNotEmpty()) --}}
-       
-                                 
+
+
                                         {{-- @endif --}}
 
 
@@ -83,8 +110,7 @@
 
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <button type="submit" class="btn btn-primary mt-1">Guardar</button>
-                                        <a class="btn btn-danger mt-1" href="{{ route('vehiculos.index') }}">Regresar</a>
+
                                     </div>
                                 </div>
 

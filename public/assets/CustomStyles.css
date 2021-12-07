@@ -306,3 +306,11 @@ display: contents !important;
 float: right !important;
 overflow: auto !important;
 }
+
+.icon-beauty{
+	background-color: #D3DEE5 !important;
+	color: black !important;
+	border: none !important;
+	text-align: center !important;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
