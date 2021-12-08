@@ -1,7 +1,7 @@
 <title>Conductores</title>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-<table id="com" class="table mt-2 table-borderless table-hover">
+<table id="com" class="table mt-2 table-borderless table-hover align-middle">
     <thead class="table-success">
         <th>ID</th>
         <th>Vehiculo</th>

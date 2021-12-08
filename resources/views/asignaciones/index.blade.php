@@ -14,7 +14,7 @@
                                     class="far fa-folder"></i> Archivados</a>
                                     
                             <div class="titulo mt-3 mb-1">Asignaciones</div>
-                            <div class="tabla-responsive">
+                            <div class="table-responsive">
                                 @include('asignaciones.DatatableAsignacion')
                             </div>
 

@@ -16,17 +16,46 @@
                                 </div>
                             @endif
                             <div class="titulo">{{ $asignaciones->vehiculos->NombreVehiculo }}</div>
-
-                            <div class="row">
-                                <div class="card">
-                                    <img src="/imagen/{{ $asignaciones->vehiculos->imagen }}"
-                                        class="entrega img-fluid card-img-top mx-auto">
+                            <div class="row row-cols-lg-2">
+                                <div class="col">
+                                    <div class="card">
+                                        <img src="/imagen/{{ $asignaciones->vehiculos->imagen }}" class="img-fluid">
+                                    </div>
                                 </div>
-                                <h5 class="driver "> Conductor Asignado:
-                                    {{ $asignaciones->conductores->NombreConductor }}</h5>
-                                <h5 class="driver "> Fecha de Asignacion: {{ $asignaciones->fecha_a }}</h5>
-
+                                <div class="col">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" class="text-left">Conductor asignado:</th>
+                                                    <td class="text-right">
+                                                        <strong>{{ $asignaciones->conductores->NombreConductor }}</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="text-left">Fecha de Asignación:</th>
+                                                    <td class="text-right">
+                                                        <strong>{{ $asignaciones->fecha_a }}</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="text-left">Odometro Al Asignar:</th>
+                                                    <td class="text-right"><strong>{{ $asignaciones->odometro_a }}
+                                                            Km</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="text-left">Combustible al asignar:</th>
+                                                    <td class="text-right"><strong>{{ $asignaciones->combustible_a }}
+                                                            Lts</strong>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="titulo">Datos de entrega</div>
                             @if ($errors->any())
                                 <div class="alert alert-dark alert-dismissible fade show" role="alert">
                                     <strong>¡Revise los campos! </strong>
@@ -50,6 +79,7 @@
                                         name="vehiculo" hidden readonly>
                                     <input type="text" class="form-control" value="{{ $asignaciones->odometro_a }}"
                                         name="odometro_a" hidden readonly>
+
                                     <div class="col-md-4 col-xs-4 col-xs-4">
                                         <label>Fecha de entrega</label><span class="text-danger">*</span>
                                         <input type="date" class="form-control" name="fecha_e" min="2020-11-11"
@@ -57,12 +87,20 @@
                                     </div>
                                     <div class="col-md-4 col-xs-4 col-xs-4">
                                         <label>Odometro Final</label><span class="text-danger">*</span>
-                                        <input class="form-control" type="number" name="odometro_e" min="0" step="any">
+                                        <div class="input-group">
+                                            <input class="form-control" type="number" name="odometro_e" min="0" step="any">
+                                            <span class="input-group-text icon-beauty">Km</span>
+                                        </div>
+                                        
                                     </div>
 
                                     <div class="col-md-4 col-xs-4 col-xs-4">
                                         <label>Combustible Final</label><span class="text-danger">*</span>
-                                        <input type="number" name="combustible_e" min="0" class="form-control">
+                                        <div class="input-group">
+                                            <input type="number" name="combustible_e" min="0" class="form-control">
+                                            <span class="input-group-text icon-beauty">Lts</span>
+                                        </div>
+                                       
                                     </div>
 
 

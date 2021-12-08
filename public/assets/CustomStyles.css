@@ -103,8 +103,9 @@
     text-align: center;
     display: inline-grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 15px;
-    margin-left: 650px;
+    grid-gap: 20px;
+float: right;
+
 }
 
 #caja,
@@ -268,10 +269,7 @@
     pointer-events: none;
 }
 
-.entrega {
-    height: 400px !important;
-    width: 60% !important;
-}
+
 .driver {
     font-style: italic;
     font-size: large;
@@ -345,3 +343,4 @@ float: right;
 	padding: 0%;
 margin-right: 50px ;
 }
+

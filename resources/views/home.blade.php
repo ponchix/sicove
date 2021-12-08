@@ -17,18 +17,20 @@
                             <!---Cards---->
 
 
+<div class="container">
+    <div id="contenedor">
+        <div id="caja">
+            <label id="hora"></label>
+        </div>
+        <div id="caja2">
+            <label id="minuto"></label>
+        </div>
+        <div id="caja3">
+            <label id="segundo"></label>
+        </div>
+    </div>
+</div>
 
-                            <div id="contenedor">
-                                <div id="caja">
-                                    <label id="hora"></label>
-                                </div>
-                                <div id="caja2">
-                                    <label id="minuto"></label>
-                                </div>
-                                <div id="caja3">
-                                    <label id="segundo"></label>
-                                </div>
-                            </div>
                         </div>
                         <div class="titulo">Resumen</div>
                         <div class="container">

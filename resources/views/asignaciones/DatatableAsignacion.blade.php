@@ -1,7 +1,7 @@
 <title>Asignaciones</title>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
 <table id="asignacion" class="table mt-2 table-borderless table-hover">
-  <thead class="table-success">
+  <thead class="table-success table-sm align-middle">
       <th>ID</th>
       <th>Fecha Asignacion</th>
       <th>Vehiculo</th>
