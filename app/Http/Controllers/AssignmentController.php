@@ -38,7 +38,7 @@ class AssignmentController extends Controller
         //
         $asignaciones = assignment::where('status', '<', 3)->get();
         $asignaciones->sortBy('status');
-        return view('asignaciones.index', compact('asignaciones'));
+               return view('asignaciones.index', compact('asignaciones'));
     }
 
     public function archivados_index()

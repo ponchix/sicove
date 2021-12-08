@@ -32,7 +32,7 @@
                                         <tr>
                                             <th scope="row" class="text-left">Status</th>
                                             @if ($asignacion->status == '1')
-                                            <td class="text-right"><span class="badge badge-info">{{ $asignacion->estado->status }}</span>
+                                            <td class="text-right"><span class="badge badge-info">Asignado</span>
                                             </td>
                                             @elseif($asignacion->status == '2')
                                             <td class="text-right"><span class="badge badge-primary">{{ $asignacion->estado->status }}</span>
@@ -51,7 +51,12 @@
                                         </tr>
                                         <tr>
                                             <th scope="row" class="text-left"> Fecha de entrega</th>
+                                            @if (is_null($asignacion->fecha_e))
+                                                <td class="text-right"><span class="badge badge-danger">Pendiente</span></td>
+                                            @else
                                             <td class="text-right">{{ $asignacion->fecha_e }}</td>
+                                            @endif
+                                            
                                         </tr>
                                         <tr>
                                             <th scope="row" class="text-left">Odometro inicial</th>
@@ -59,7 +64,12 @@
                                         </tr>
                                         <tr>
                                             <th scope="row" class="text-left">Odometro final</th>
-                                            <td class="text-right">{{ $asignacion->odometro_e }} Km</td>
+                                            @if (is_null($asignacion->odometro_e))
+                                            <td class="text-right"><span class="badge badge-danger">Pendiente</span></td>
+                                            @else
+                                            <td class="text-right">{{ $asignacion->odometro_e }} Km</td> 
+                                            @endif
+                                           
                                         </tr>
                                         <tr>
                                             <th scope="row" class="text-left">Combustible inicial</th>
@@ -67,7 +77,12 @@
                                         </tr>
                                         <tr>
                                             <th scope="row" class="text-left">Combustible final</th>
-                                            <td class="text-right">{{ $asignacion->combustible_e }} Lts</td>
+                                            @if (is_null($asignacion->combustible_e))
+                                            <td class="text-right"><span class="badge badge-danger">Pendiente</span></td> 
+                                            @else
+                                            <td class="text-right">{{ $asignacion->combustible_e }} Lts</td>  
+                                            @endif
+                                            
                                         </tr>
 
                                     </tbody>
