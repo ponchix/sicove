@@ -97,8 +97,17 @@ class SeederTablaPermisos extends Seeder
             'Detalle asignacion',
             'Entrega asignacion',
             'Asignacion',
-
-            
+            //Tabla Fuels
+            'Ver combustible',
+            'Carga combustible',
+            'Editar carga',
+            'Borrar carga',
+            //Tabla TypeFuels
+            'Ver tipos combustible',
+            'Agregar tipos combustible',
+            'Editar tipos combustible',
+            'Borrar tipos combustible',
+           
 
 
         ];

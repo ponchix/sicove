@@ -11,6 +11,18 @@ use Illuminate\Http\Request;
  */
 class TypeFuelController extends Controller
 {
+
+    public function __construct()  
+    {
+        $this->middleware('permission:Ver tipos combustible |Agregar tipos combustible|Editar tipos combustible|Borrar tipo combustible', ['only' => ['index']]);
+        $this->middleware('permission:Agregar tipos combustible', ['only' => ['create', 'store']]);
+        $this->middleware('permission:Editar tipos combustible', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:Borrar tipos combustible', ['only' => ['destroy']]);
+        // $this->middleware('permission:Ver archivado', ['only' => ['archivados_index']]);
+        // $this->middleware('permission:Detalle Asignacion', ['only' => ['show']]);
+        // $this->middleware('permission:Entrega asignacion', ['only' => ['entrega_edit','entrega_update']]);
+        // $this->middleware('permission:Asignacion', ['only' => ['asignacion']]);
+    }
     /**
      * Display a listing of the resource.
      *

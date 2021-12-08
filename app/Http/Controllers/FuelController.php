@@ -14,6 +14,18 @@ use Illuminate\Support\Facades\DB;
 
 class FuelController extends Controller
 {
+
+    public function __construct()  
+    {
+        $this->middleware('permission:Ver combustible | Carga combustible|Editar carga|Borrar carga', ['only' => ['index']]);
+        $this->middleware('permission:Carga combustible', ['only' => ['create', 'store','combustible']]);
+        $this->middleware('permission:Editar carga', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:Borrar carga', ['only' => ['destroy']]);
+        // $this->middleware('permission:Ver archivado', ['only' => ['archivados_index']]);
+        // $this->middleware('permission:Detalle Asignacion', ['only' => ['show']]);
+        // $this->middleware('permission:Entrega asignacion', ['only' => ['entrega_edit','entrega_update']]);
+        // $this->middleware('permission:Asignacion', ['only' => ['asignacion']]);
+    }
     /**
      * Display a listing of the resource.
      *
