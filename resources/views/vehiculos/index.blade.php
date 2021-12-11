@@ -10,7 +10,11 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-
+                            @if (session()->has('eliminado'))
+                                <div class="alert alert-danger">
+                                    {{ session()->get('eliminado') }}
+                                </div>
+                            @endif
                                 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                                     @can('Crear vehiculo')
                                         <a class="btn btn-outline-primary btn-lg" href="{{ route('vehiculos.create') }}"><i

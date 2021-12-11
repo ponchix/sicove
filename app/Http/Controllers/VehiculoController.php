@@ -38,7 +38,7 @@ public function __construct()
         //
 
 
-        $vehiculos = VehiculoModel::all();
+        $vehiculos = VehiculoModel::where('StatusInicial','<',5)->get();
         $estados = Status::all();
         Cache::flush();
         return view('vehiculos.index', compact('vehiculos', 'estados'));
@@ -200,14 +200,20 @@ public function __construct()
         //return view('vehiculos.editar',compact('vehiculoModel'));
         $vehiculos = VehiculoModel::find($id);
         $estados = Status::all();
+        if ($vehiculos->StatusInicial=='5') {
+            return back()->with('eliminado', 'El vehiculo especificado no se encuentra');
+        }else{
+            return view('vehiculos.editar', compact(
+                'vehiculos',
+                'marcas',
+                'modelos',
+                'tipos',
+                'estados'
+            ));
+        }
+      
 
-        return view('vehiculos.editar', compact(
-            'vehiculos',
-            'marcas',
-            'modelos',
-            'tipos',
-            'estados'
-        ));
+
     }
 
     /**
@@ -298,7 +304,11 @@ public function __construct()
      */
     public function destroy($id)
     {
-        VehiculoModel::find($id)->delete();
+
+        //VehiculoModel::find($id)->delete();
+        VehiculoModel::where('id',$id)->update([
+            'StatusInicial'=>5,
+                    ]);
         Cache::flush();
         return redirect()->route('vehiculos.index')->with('mensaje', 'ok');
     }

@@ -344,3 +344,6 @@ float: right;
 margin-right: 50px ;
 }
 
+.titulo-menu{
+    text-align: -webkit-match-parent;
+}
