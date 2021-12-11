@@ -243,10 +243,10 @@ float: right;
     font-size: 26px;
 }
 .f-left {
-    float: left;
+    float: left !important;
 }
 .f-right {
-    float: right;
+    float: right !important;
 }
 
 .wrapper {

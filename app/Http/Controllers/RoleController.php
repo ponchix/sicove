@@ -37,9 +37,10 @@ class RoleController extends Controller
     public function create()
     {
         //
-        $permission = Permission::where('id','<','23')->get();
-        $permission2 = Permission::where('id','>','22')->where('id','<','45')->get();
-        $permission3 = Permission::where('id','>','44')->where('id','<','67')->get();
+        $permission = Permission::where('id','<','20')->get();
+        $permission2 = Permission::where('id','>','19')->where('id','<','39')->get();
+        $permission3 = Permission::where('id','>','38')->where('id','<','58')->get();
+        $permission4 = Permission::where('id','>','57')->where('id','<','76')->get();
 
         // $permission = Permission::get()->take(5);
 
@@ -47,6 +48,7 @@ class RoleController extends Controller
             'permission',
             'permission2',
             'permission3',
+            'permission4'
         ));
     }
 

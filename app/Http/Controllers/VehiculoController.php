@@ -174,6 +174,10 @@ public function __construct()
             ->where('vehiculo', $id)
             ->sum('total');
 
+        if ($vehiculo->StatusInicial=='5') {
+            return abort(404);
+        }
+
         return view('vehiculos.perfil', compact(
             'vehiculo',
             'modelo',
@@ -198,7 +202,7 @@ public function __construct()
 
         $tipos = TipoVehiculo::all();
         //return view('vehiculos.editar',compact('vehiculoModel'));
-        $vehiculos = VehiculoModel::find($id);
+        $vehiculos = VehiculoModel::findorFail($id);
         $estados = Status::all();
         if ($vehiculos->StatusInicial=='5') {
             return back()->with('eliminado', 'El vehiculo especificado no se encuentra');
@@ -290,7 +294,7 @@ public function __construct()
         } else {
             unset($input['factura']);
         }
-        $vehiculos = VehiculoModel::find($id);
+        $vehiculos = VehiculoModel::findorFail($id);
         $vehiculos->update($input);
         Cache::flush();
         return redirect()->route('vehiculos.index');
@@ -313,9 +317,11 @@ public function __construct()
         return redirect()->route('vehiculos.index')->with('mensaje', 'ok');
     }
     
+
+    
     public function vehiculos_update(Request $request, $id)
     {
-        $vehiculo = VehiculoModel::find($id);
+        $vehiculo = VehiculoModel::findorFail($id);
         $vehiculo->update([
             'StatusInicial' => $request->value,
         ]);

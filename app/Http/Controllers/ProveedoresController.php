@@ -50,24 +50,29 @@ class ProveedoresController extends Controller
         request()->validate(
             [
                 'NombreProveedor' => 'required',
-                'RFC' => 'required | unique:proveedors',
-                'TelefonoP' => 'required',
+                'RFC' => 'required | unique:proveedors|min:13',
+                'TelefonoP' => 'required|min:10|numeric',
                 'Domicilio' => 'required',
                 'correoP' => 'required|email',
                 'nombreContacto' => 'required',
-                'TelefonoC' => 'required',
+                'TelefonoC' => 'required|min:10|numeric',
                 'correo' => 'required|email',
             ],
             [
                 'NombreProveedor.required'=>'El campo Nombre es obligatorio',
                 'RFC.required'=>'El campo RFC es obligatorio',
                 'RFC.unique'=>'El RFC ya esta registrado',
+                'RFC.min'=>'El RFC debe contener 13 caracteres',
                 'TelefonoP.required'=>'El campo Telefono Fijo es obligatorio',
+                'TelefonoP.min'=>'Telefono Fijo: Deben ser al menos 10 digitos',
+                'TelefonoP.numeric'=>'Telefono fijo: Solo acepta numeros',
                 'Domicilio.required'=>'El campo Domicilio es obligatorio',
                 'correoP.required'=>'El Correo Electronico es obligatorio',
                 'correoP.email'=>'Correo invalido',
                 'nombreContacto.required'=>'El campo Nombre de Contacto es obligatorio',
                 'TelefonoC.required'=>'El telefono de contacto directo es obligatorio',
+                'TelefonoC.numeric'=>'Telefono solo acepta numeros',
+                'TelefonoC.min'=>'Telefono: Deben ser al menos 10 digitos',
                 'correo.required'=>'El correo de contacto director es obligatorio',
                 'correo.email'=>'El correo de contacto directo no es valido',
             ]
@@ -81,7 +86,7 @@ class ProveedoresController extends Controller
 
 
     /**
-     * Display the specified resource.
+     * Display the specified resource.eo
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

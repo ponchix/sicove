@@ -27,8 +27,8 @@ class ConductorController extends Controller
     public function index()
     {
 
-        $conductores = Conductor::all();
-
+        //$conductores = Conductor::all();
+        $conductores=Conductor::where('status','<',3)->get();
         return view('conductores.index', compact('conductores'));
     }
 
@@ -107,7 +107,7 @@ class ConductorController extends Controller
     public function show($id)
     {
         //
-        $conductor = Conductor::find($id);
+        $conductor = Conductor::findOrFail($id);
         $asignaciones = DB::table('assignments')
             ->join('conductors', 'assignments.conductor', '=', 'conductors.id')
             ->join('vehiculos', 'vehiculos.id', '=', 'assignments.vehiculo')
@@ -128,7 +128,7 @@ class ConductorController extends Controller
      */
     public function edit($id)
     {
-        $conductores = Conductor::find($id);
+        $conductores = Conductor::findorFail($id);
 
         return view('conductores.editar', compact('conductores'));
     }
@@ -144,20 +144,20 @@ class ConductorController extends Controller
     {
         request()->validate(
             [
-                'imagen' => 'required|mimes:png,jfif,jpeg,jpg',
+                'imagen' => 'mimes:png,jfif,jpeg,jpg',
                 'NombreConductor' => 'required',
                 'APaterno' => 'required',
                 'AMaterno' => 'required',
                 'edad' => 'required|numeric',
                 'direccion' => 'required',
                 'telefono' => 'required',
-                'NoLiciencia' => 'required|unique:conductors',
+                'NoLiciencia' => 'required',
                 'fecha_exp' => 'required',
                 'tipoLicencia' => 'required',
 
             ],
             [
-                'imagen.required'=>'La Foto del conductor es obligatoria',
+                'imagen'=>'La Foto del conductor es obligatoria',
                 'imagen.mimes'=>'El formato del imagen debe ser: jpeg,jpg,jfif o png',
                 'NombreConductor.required'=>'El campo Nombre es obligatorio',
                 'APaterno.required'=>'Apellido Paterno es obligatorio',
@@ -179,7 +179,7 @@ class ConductorController extends Controller
         } else {
             unset($input['imagen']);
         }
-        $conductores = Conductor::find($id);
+        $conductores = Conductor::findorFail($id);
         $conductores->update($input);
         Cache::flush();
         return redirect()->route('conductores.index');
@@ -193,14 +193,17 @@ class ConductorController extends Controller
      */
     public function destroy($id)
     {
-        Conductor::find($id)->delete();
+        Conductor::where('id',$id)->update([
+            'status'=>3,
+                    ]);
+       // Conductor::find($id)->delete();
         Cache::flush();
         return redirect()->route('conductores.index')->with('mensaje', 'ok');
     }
 
     public function drivers_update(Request $request, $id)
     {
-        $conductor = Conductor::find($id);
+        $conductor = Conductor::findorFail($id);
         $conductor->update([
             'status' => $request->value,
         ]);
