@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('assets/pdfStyles.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ public_path('assets/pdfStyles.css') }}" type="text/css">
     {{-- <link rel="stylesheet" href="{{ asset('assets/style.css') }}" type="text/css"> --}}
     {{-- <link href="{{ public_path('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css 
     " /> --}}
@@ -17,15 +21,14 @@
     <div class="pdf-titulo">
         Lista de vehiculos
     </div>
-    <table class="table">
-        <thead class="total-body">
+    <table>
+        <thead class="cabecera">
             <tr>
-                <th >Vehiculo</th>
-                <th >Marca</th>
-                <th >Modelo</th>
-                <th >Placa</th>
-                <th >Fecha Compra</th>
-                <th>Seguro</th>
+                <th>Vehiculo</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Placa</th>
+                <th>Fecha Compra</th>
                 <th>Ven. Poliza</th>
             </tr>
         </thead>
@@ -38,7 +41,6 @@
                     <td>{{ $vehiculo->modelosVehiculo->modelo }}</td>
                     <td>{{ $vehiculo->Placa }}</td>
                     <td>{{ $vehiculo->fecha_compra }}</td>
-                    <td>{{ $vehiculo->CompaniaSeguros }}</td>
                     <td>{{ $vehiculo->fecha_poliza }}</td>
                 </tr>
             @endforeach
@@ -48,31 +50,31 @@
     <div class="titulo">
         Lista de vehiculos por status
     </div>
-    <table class="status-pdf">
+    <table>
         <thead class="cabecera">
             <tr>
-                <th >Detalle</th>
+                <th>Detalle</th>
                 <th>Cantidad</th>
             </tr>
 
         </thead>
         <tbody class="celdas">
             <tr>
-                <td class="total text-center">Disponible</td>
-                <td class="total text-center">{{ $disponible }}</td>
+                <td>Disponibles</td>
+                <td>{{ $disponible }}</td>
             </tr>
             <tr>
-                <td class="total text-center">Asignados</td>
-                <td class="total text-center">{{ $asignado }}</td>
+                <td>Asignados</td>
+                <td>{{ $asignado }}</td>
             </tr>
             <tr>
-                <td class="total text-center">Taller</td>
-                <td class="total text-center">{{ $taller }}</td>
+                <td>Taller/Mantenimiento</td>
+                <td>{{ $taller }}</td>
             </tr>
 
             <tr>
-                <td class="total text-center">Fuera de Servicio</td>
-                <td class="total text-center">{{ $fuera }}</td>
+                <td>Fuera de Servicio</td>
+                <td>{{ $fuera }}</td>
             </tr>
         </tbody>
     </table>
@@ -80,7 +82,7 @@
         Lista de vehiculos por compañia de seguros
     </div>
 
-    <table >
+    <table>
         <thead class="cabecera">
             <tr>
                 <th>Vehiculo</th>
@@ -88,23 +90,50 @@
 
             </tr>
         </thead>
-        <tbody>
+        <tbody class="celdas">
             @foreach ($seguros as $seguro)
-            <tr>
-                <td>{{$seguro->NombreVehiculo}}</td>
-                <td>{{$seguro->CompaniaSeguros}}</td>
-            </tr>
+                <tr>
+                    <td>{{ $seguro->NombreVehiculo }}</td>
+                    <td>{{ $seguro->CompaniaSeguros }}</td>
+                </tr>
             @endforeach
-                   </tbody>
+        </tbody>
+    </table>
+    <div class="titulo">
+        Polizas
+    </div>
+
+    <table>
+        @foreach ($polizas as $poliza => $vehiculos)
+            <tr>
+                <th class="cabecera">Fecha de Vencimiento: {{ $poliza }}</th>
+                <th class="cabecera">Compañia</th>
+            </tr>
+            @foreach ($vehiculos as $vehiculo)
+                <tr>
+                    <td class="celdas">{{ $vehiculo->NombreVehiculo }}</td>
+                    <td  class="celdas">{{ $vehiculo->CompaniaSeguros }}</td>
+                </tr>
+            @endforeach
+        @endforeach
     </table>
 
+
+
+
+
+
+
+
+
+
     <table class="total-veh">
-        <tr >
+        <tr>
             <th class="total-body">Total de vehiculos</th>
-            <td>{{$total}}</td>
+            <td>{{ $total }}</td>
         </tr>
 
-</table>
+    </table>
 </body>
 
 </html>

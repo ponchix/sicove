@@ -350,7 +350,11 @@ public function __construct()
         $fuera=VehiculoModel::where('StatusInicial','=',3)->count();
         $total=VehiculoModel::where('StatusInicial','!=',5)->count();
         $seguros=DB::select('select  count(companiaseguros) as seguros, NombreVehiculo,CompaniaSeguros FROM vehiculos group by companiaseguros, Nombrevehiculo');
-             PDF::setOptions(['dpi' => 96, 'defaultFont' => 'sans-serif']);
+        $polizas=VehiculoModel::selectRaw('id, NombreVehiculo,CompaniaSeguros,DATE(fecha_poliza) as vencimiento')
+        ->orderBy('vencimiento','asc')
+        ->get()
+        ->groupBy('vencimiento');
+        
         $pdf =PDF::loadView('pdfs.vehiculosPDF',['vehiculos'=>$vehiculos,
         'disponible'=>$disponible,
         'asignado'=>$asignado,
@@ -358,6 +362,7 @@ public function __construct()
         'fuera'=>$fuera,
         'total'=>$total,
         'seguros'=>$seguros,
+        'polizas'=>$polizas
     ])->setPaper('letter','portrait')->setWarnings(true);
 
         return $pdf->stream();

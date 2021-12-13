@@ -17,13 +17,13 @@
 .cabecera{
     font-size: 15px;
     background-color: #adb5bd;
+
 }
 .celdas{
     font-size: 14px;
     text-transform: uppercase;
-border: 1px solid;
-}
 
+}
 
 .titulo{
     width: 100%;
@@ -39,27 +39,29 @@ border: 1px solid;
 
 
   table {
-    caption-side: bottom;
     width: 100%;
     text-align: center;
     border:solid 1px 1px 1px 1px;
     border-collapse: collapse;
   }
+  tbody{
+    border: solid 1px;
+    }
+
+  /*
   thead{
-    caption-side: bottom;
     width: 100%;
     text-align: center;
     border-bottom: 1px solid;
   }
   tbody{
-    caption-side: bottom;
     width: 100%;
     text-align: center; 
      
   }
   th{
       border: solid 1px;
-  }
+  } */
 .total-veh{
     margin-top: 1rem;
     border: solid 1px;

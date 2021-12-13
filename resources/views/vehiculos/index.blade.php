@@ -68,8 +68,8 @@
                                     <i class="fas fa-file-pdf"></i> PDF
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li class="pdf-list"><a href="{{ route('vehiculos.pdf') }}" > Ver PDF</a></li>
-                                    <li class="pdf-list"><a href="{{ route('vehiculos.DownloadPDF') }}" > Descargar PDF</a></li>
+                                    <li class="pdf-list text-center"><a href="{{ route('vehiculos.pdf') }}" > Ver PDF</a></li>
+                                    <li class="pdf-list text-center"><a href="{{ route('vehiculos.DownloadPDF') }}" > Descargar PDF</a></li>
                                 </ul>
                             </div>
 
