@@ -15,54 +15,64 @@
                                     {{ session()->get('eliminado') }}
                                 </div>
                             @endif
-                                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                                    @can('Crear vehiculo')
-                                        <a class="btn btn-outline-primary btn-lg" href="{{ route('vehiculos.create') }}"><i
-                                                class="fas fa-plus"></i> Nuevo</a>
-                                    @endcan
-                                    @can('Ver incidente')
-                                        <a class="btn btn-outline-primary btn-lg ml-2" href="{{ route('incidentes.index') }}"><i
-                                                class="fas fa-car-crash"></i> Incidentes</a>
-                                    @endcan
-                                    @can('Ver gasto')
-                                        <a class="btn btn-outline-primary btn-lg ml-2" href="{{ route('gastos.index') }}"><i
-                                                class="fas fa-dollar-sign"></i> Gastos</a>
-                                    @endcan
-    
-    
-    
-    
-    
-                                    <a class="btn btn-outline-primary btn-lg ml-2" href="{{route('combustible-carga.index')}}"><i class="fas fa-gas-pump    "></i></i>
-                                        Combustible</a>
-                                        @can('Crear vehiculo')
-                                        <div class="btn-group" role="group">
-                                            <div class="dropdown  dropend ">
-                                                <button id="btnGroupDrop1" type="button"
-                                                    class="btn btn-lg btn-outline-primary dropdown-toggle ml-2"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"> <i
-                                                        class="fas fa-universal-access"></i> Adicionales</button>
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <li>
-                                                        @can('crear-vehiculo')
-                                                            <a data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                title="Agregar nuevo modelo" href="{{ route('modelos.index') }}"
-                                                                class="dropdown-item"> Modelos </a>
-                                                        @endcan()
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ route('tipos.index') }}" class="dropdown-item">Tipos</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ route('marcas.index') }}" class="dropdown-item">Marcas</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        @endcan
-    
+                            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                @can('Crear vehiculo')
+                                    <a class="btn btn-outline-primary btn-lg" href="{{ route('vehiculos.create') }}"><i
+                                            class="fas fa-plus"></i> Nuevo</a>
+                                @endcan
+                                @can('Ver incidente')
+                                    <a class="btn btn-outline-primary btn-lg ml-2" href="{{ route('incidentes.index') }}"><i
+                                            class="fas fa-car-crash"></i> Incidentes</a>
+                                @endcan
+                                @can('Ver gasto')
+                                    <a class="btn btn-outline-primary btn-lg ml-2" href="{{ route('gastos.index') }}"><i
+                                            class="fas fa-dollar-sign"></i> Gastos</a>
+                                @endcan
+
+
+
+
+
+                                <a class="btn btn-outline-primary btn-lg ml-2"
+                                    href="{{ route('combustible-carga.index') }}"><i class="fas fa-gas-pump    "></i></i>
+                                    Combustible</a>
+                                <div class="btn-group" role="group">
+                                    <div class="dropdown  dropend ">
+                                        <button id="btnGroupDrop1" type="button"
+                                            class="btn btn-lg btn-outline-primary dropdown-toggle ml-2"
+                                            data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                class="fas fa-clipboard-list"></i> Adicionales</button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <li>
+
+                                                <a data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Agregar nuevo modelo" href="{{ route('modelos.index') }}"
+                                                    class="dropdown-item"> Modelos </a>
+
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('tipos.index') }}" class="dropdown-item">Tipos</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('marcas.index') }}" class="dropdown-item">Marcas</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
- 
+
+
+                            </div>
+                            <div class="btn-group dropstart btn-extras">
+                                <button type="button" class="btn btn-outline-danger btn-lg text-right dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-file-pdf"></i> PDF
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="pdf-list"><a href="{{ route('vehiculos.pdf') }}" > Ver PDF</a></li>
+                                    <li class="pdf-list"><a href="{{ route('vehiculos.DownloadPDF') }}" > Descargar PDF</a></li>
+                                </ul>
+                            </div>
+
 
 
                             <div class="titulo mt-3 mb-1">Inventario de vehiculos</div>

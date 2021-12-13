@@ -51,13 +51,13 @@
                                             @if ($odometro == 0)
                                             <input type="number" class="form-control" name="odometro" step="any" value="0"
                                                 readonly>
-                                                <span class="inut-group-text icon-beauty">Km</span>
+                                              
                                         @else
                                             <input type="number" class="form-control" name="odometro" step="any"
                                                 value="{{ $odometro }}" readonly>
-                                                <span class="input-group-text icon-beauty">Km</span>
+                                               
                                         @endif
-                                        
+                                        <span class="input-group-text icon-beauty">Km</span>
                                         </div>
 
 

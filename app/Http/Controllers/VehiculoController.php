@@ -11,9 +11,11 @@ use App\Models\Marca;
 use App\Models\Status;
 use App\Models\Conductor;
 use App\Models\TipoVehiculo;
-
+use Facade\FlareClient\Api;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class VehiculoController extends Controller
 {
@@ -339,6 +341,47 @@ public function __construct()
 
     // }
 
+    public function pdf_vehiculos()
+    {
+        $vehiculos=VehiculoModel::all();
+        $disponible=VehiculoModel::where('StatusInicial','=',2)->count();
+        $asignado=VehiculoModel::where('StatusInicial','=',1)->count();
+        $taller=VehiculoModel::where('StatusInicial','=',4)->count();
+        $fuera=VehiculoModel::where('StatusInicial','=',3)->count();
+        $total=VehiculoModel::where('StatusInicial','!=',5)->count();
+        $seguros=DB::select('select  count(companiaseguros) as seguros, NombreVehiculo,CompaniaSeguros FROM vehiculos group by companiaseguros, Nombrevehiculo');
+             PDF::setOptions(['dpi' => 96, 'defaultFont' => 'sans-serif']);
+        $pdf =PDF::loadView('pdfs.vehiculosPDF',['vehiculos'=>$vehiculos,
+        'disponible'=>$disponible,
+        'asignado'=>$asignado,
+        'taller'=>$taller,
+        'fuera'=>$fuera,
+        'total'=>$total,
+        'seguros'=>$seguros,
+    ])->setPaper('letter','portrait')->setWarnings(true);
 
+        return $pdf->stream();
+        //return view('pdf.vehiculosPDF',compact('vehiculos'));
+    }
+
+    public function pdf_vehiculos_download(){
+        $vehiculos=VehiculoModel::all();
+        $disponible=VehiculoModel::where('StatusInicial','=',2)->count();
+        $asignado=VehiculoModel::where('StatusInicial','=',1)->count();
+        $taller=VehiculoModel::where('StatusInicial','=',4)->count();
+        $fuera=VehiculoModel::where('StatusInicial','=',3)->count();
+        $total=VehiculoModel::where('StatusInicial','!=',5)->count();
+        $seguros=DB::select('select  count(companiaseguros) as seguros, NombreVehiculo,CompaniaSeguros FROM vehiculos group by companiaseguros, Nombrevehiculo');
+             PDF::setOptions(['dpi' => 96, 'defaultFont' => 'sans-serif']);
+        $pdf =PDF::loadView('pdfs.vehiculosPDF',['vehiculos'=>$vehiculos,
+        'disponible'=>$disponible,
+        'asignado'=>$asignado,
+        'taller'=>$taller,
+        'fuera'=>$fuera,
+        'total'=>$total,
+        'seguros'=>$seguros,
+    ])->setPaper('letter','portrait')->setWarnings(true);
+    return $pdf->download('vehiculosPDFDownload.pdf');
+    }
 
 }

@@ -33,9 +33,7 @@ Route::group(['middleware' => ['logout']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('roles', 'RoleController')->middleware('permission:admin@gmail.com');
     Route::resource('usuarios', 'UsuarioController')->middleware('permission:admin@gmail.com|Conductor');
-    Route::resource('vehiculos', 'VehiculoController')->only([
-      'index', 'create', 'update', 'destroy', 'store'
-    ]);
+    Route::resource('vehiculos', 'VehiculoController');
     Route::get('/vehiculos/{id}', 'VehiculoController@edit')->name('vehiculos.edit');
     Route::put('/status/{id}', 'VehiculoController@vehiculos_update')->name('vehiculos.status');
 
@@ -81,5 +79,9 @@ Route::group(['middleware' => ['logout']], function () {
     Route::resource('combustible-carga', 'FuelController');
     Route::resource('tipos-combustibles', 'TypeFuelController');
     Route::get('/vehiculo/combustible-carga/{id}', 'FuelController@combustible')->name('combustible.carga');
+
+    //Rutas PDF
+    Route::get('pdf/vehiculos', [App\Http\Controllers\VehiculoController::class, 'pdf_vehiculos'])->name('vehiculos.pdf');
+    Route::get('pdf/vehiculos/download', [App\Http\Controllers\VehiculoController::class, 'pdf_vehiculos_download'])->name('vehiculos.DownloadPDF');
   });
 });

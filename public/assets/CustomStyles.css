@@ -347,3 +347,49 @@ margin-right: 50px ;
 .titulo-menu{
     text-align: -webkit-match-parent;
 }
+.btn-extras{
+    float: right !important;
+}
+
+a.dropdown-pdf:focus, a.dropdown-pdf:active, a.dropdown-pdf.active{
+background-color: #fb160a;
+color: #fff;
+
+}
+a.dropdown-pdf{
+text-decoration: none !important;
+outline: none !important;
+font-size: 12px;
+text-transform: uppercase !important;
+color: black;
+text-align: center !important;
+font-weight: 500 !important;
+}
+
+li.pdf-list:hover>a{
+text-decoration: none !important;
+outline: none !important;
+font-size: 12px;
+text-transform: uppercase !important;
+color: #fff !important;
+font-weight: 500 !important;
+transition: ease;
+transition-duration: 0.3s;
+
+}
+
+li.pdf-list>a{
+    text-decoration: none !important;
+    outline: none !important;
+    font-size: 12px;
+    text-transform: uppercase !important;
+    color: black !important;
+    font-weight: 500 !important;
+    margin-left: 25px !important;
+    }
+
+    .pdf-list:hover{
+        background-color: #FF3B3B !important;
+
+    }
+  
