@@ -90,10 +90,11 @@
                                                     Opciones
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                    <li class="item-pdf"><a class="dropdown-item-pdf" href="#">Ver
+                                                    <li class="item-pdf"><a class="dropdown-item-pdf"
+                                                            href="{{ route('vehiculos.pdf') }}">Ver
                                                             PDF</a></li>
                                                     <li class="item-pdf"><a class="dropdown-item-pdf"
-                                                            href="#">Descargar</a></li>
+                                                            href="{{ route('vehiculos.DownloadPDF') }}">Descargar</a></li>
                                                 </ul>
                                             </div>
                                         </div>

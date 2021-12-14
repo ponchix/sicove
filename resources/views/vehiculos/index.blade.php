@@ -62,7 +62,7 @@
 
 
                             </div>
-                            <div class="btn-group dropstart btn-extras">
+                            {{-- <div class="btn-group dropstart btn-extras">
                                 <button type="button" class="btn btn-outline-danger btn-lg text-right dropdown-toggle"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fas fa-file-pdf"></i> PDF
@@ -71,7 +71,7 @@
                                     <li class="pdf-list text-center"><a href="{{ route('vehiculos.pdf') }}" > Ver PDF</a></li>
                                     <li class="pdf-list text-center"><a href="{{ route('vehiculos.DownloadPDF') }}" > Descargar PDF</a></li>
                                 </ul>
-                            </div>
+                            </div> --}}
 
 
 
