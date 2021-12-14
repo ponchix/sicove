@@ -19,7 +19,7 @@
 
 <body>
     <div class="pdf-titulo">
-        Lista de vehiculos
+       Reporte de vehiculos
     </div>
     <table>
         <thead class="cabecera">

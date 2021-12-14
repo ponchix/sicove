@@ -32,7 +32,7 @@ class CreateVehiculosTable extends Migration
             ->constrained('estado')
             ->cascadeOnUpdate()
             ->cascadeOnDelete();    
-            $table->string('fecha_compra');    
+            $table->date('fecha_compra');    
             $table->string('Modelo');    
             $table->string('MedidaUso');    
             $table->string('MedidaCombustible');    
@@ -47,7 +47,7 @@ class CreateVehiculosTable extends Migration
             $table->string('motor');          
             $table->string('cilindraje');          
             $table->string('cilindrada');          
-            $table->string('fecha_poliza'); 
+            $table->date('fecha_poliza'); 
             $table->string('factura'); 
 
             $table->timestamps();

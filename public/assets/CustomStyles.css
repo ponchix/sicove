@@ -219,6 +219,10 @@ float: right;
 .order-card {
     color: #fff;
 }
+.bg-c-pdf{
+    background: rgb(255,0,0);
+    background: linear-gradient(215deg, rgba(255,0,0,1) 0%, rgba(200,0,0,1) 54%, rgba(139,0,0,1) 100%);
+}
 .bg-c-blue {
     background: linear-gradient(45deg, #73b4ff, #4099ff);
 }
@@ -237,7 +241,7 @@ float: right;
     transition: all 0.3s ease-in-out;
 }
 .card .card-block {
-    padding: 25px;
+    padding: 20px !important;
 }
 .order-card i {
     font-size: 26px;
@@ -392,4 +396,33 @@ li.pdf-list>a{
         background-color: #FF3B3B !important;
 
     }
-  
+  .btn-pdf{
+    /* background: rgb(251,63,63);
+    background: radial-gradient(circle, rgba(251,63,63,1) 25%, rgba(255,0,0,1) 79%); */
+    background-color: #fff;
+    color: #000;
+float: right;
+text-transform: uppercase;
+
+  }
+  .btn-pdf:hover{
+    background: rgb(251,63,63);
+    background: radial-gradient(circle, rgba(251,63,63,1) 25%, rgba(255,0,0,1) 79%);
+    color: #fff;
+     }
+
+     a.dropdown-item-pdf {
+    padding: 10px 20px !important;
+        font-weight: 500 !important;
+        line-height: 1.2 !important;
+        text-decoration: none !important;
+        color: #000;
+     }
+    
+    a.dropdown-item-pdf:focus, a.dropdown-item-pdf:active,a.dropdown-item-pdf:hover{
+        color: #fff !important;
+    }
+    .item-pdf:hover{
+        background-color: rgb(251,63,63);
+    }
+ 

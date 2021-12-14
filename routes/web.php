@@ -9,6 +9,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\EventoController;
 use App\Models\assignment;
 use Illuminate\Routing\Route as RoutingRoute;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,5 +84,6 @@ Route::group(['middleware' => ['logout']], function () {
     //Rutas PDF
     Route::get('pdf/vehiculos', [App\Http\Controllers\VehiculoController::class, 'pdf_vehiculos'])->name('vehiculos.pdf');
     Route::get('pdf/vehiculos/download', [App\Http\Controllers\VehiculoController::class, 'pdf_vehiculos_download'])->name('vehiculos.DownloadPDF');
+    Route::get('reportes', 'ReporteController@index')->name('reportes.PDF');
   });
 });
