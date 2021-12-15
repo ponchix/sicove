@@ -10,6 +10,11 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
+                            @if (session()->has('alert-danger'))
+                            <div class="alert alert-danger">
+                                {{ session()->get('alert-danger') }}
+                            </div>
+                        @endif
                             <div class="titulo">
                                 Reportes Modulo Vehiculos
                             </div>
@@ -26,10 +31,10 @@
                                                     Opciones
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                    <li class="item-pdf"><a class="dropdown-item-pdf" href="#">Ver
+                                                    <li class="item-pdf"><a class="dropdown-item-pdf" href="{{route('reportes.incidentePDF')}}">Ver
                                                             PDF</a></li>
                                                     <li class="item-pdf"><a class="dropdown-item-pdf"
-                                                            href="#">Descargar</a></li>
+                                                            href="{{route('reportes.DonwloadPDF')}}">Descargar</a></li>
                                                 </ul>
                                             </div>
                                         </div>

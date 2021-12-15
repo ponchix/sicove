@@ -47,7 +47,9 @@
   tbody{
     border: solid 1px;
     }
-
+td{
+  border-bottom: solid 1px;
+}
   /*
   thead{
     width: 100%;
@@ -70,7 +72,14 @@
 .total-body{
     background-color: #adb5bd;
 }
-
+.alert.alert-danger {
+  background-color: #fc544b;
+}
+.alert {
+  color: #fff;
+  border: none;
+  padding: 15px 20px;
+}
 
 
 

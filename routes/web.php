@@ -85,5 +85,10 @@ Route::group(['middleware' => ['logout']], function () {
     Route::get('pdf/vehiculos', [App\Http\Controllers\VehiculoController::class, 'pdf_vehiculos'])->name('vehiculos.pdf');
     Route::get('pdf/vehiculos/download', [App\Http\Controllers\VehiculoController::class, 'pdf_vehiculos_download'])->name('vehiculos.DownloadPDF');
     Route::get('reportes', 'ReporteController@index')->name('reportes.PDF');
+  ///---Incidentes PDF
+    Route::get('reportes/incidente/pdf', 'ReporteController@pdf_incidentes')->name('reportes.incidentePDF');
+    Route::get('reportes/incidente/pdf/download', 'ReporteController@pdf_incidentes_download')->name('reportes.DonwloadPDF');
+
+    //PDF Gastos
   });
 });

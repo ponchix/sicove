@@ -2,41 +2,54 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\incidente;
 use App\Models\VehiculoModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PDF;
 
+
 class ReporteController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         return view('pdfs.reportes');
     }
+
+    ///PDFs de incidentes
     public function pdf_incidentes()
     {
-        $vehiculos=VehiculoModel::all();
-        $disponible=VehiculoModel::where('StatusInicial','=',2)->count();
-        $asignado=VehiculoModel::where('StatusInicial','=',1)->count();
-        $taller=VehiculoModel::where('StatusInicial','=',4)->count();
-        $fuera=VehiculoModel::where('StatusInicial','=',3)->count();
-        $total=VehiculoModel::where('StatusInicial','!=',5)->count();
-        $seguros=DB::select('select  count(companiaseguros) as seguros, NombreVehiculo,CompaniaSeguros FROM vehiculos group by companiaseguros, Nombrevehiculo');
-        $polizas=VehiculoModel::selectRaw('id, NombreVehiculo,CompaniaSeguros,DATE(fecha_poliza) as vencimiento')
-        ->orderBy('vencimiento','asc')
-        ->get()
-        ->groupBy('vencimiento');
-        
-        $pdf =PDF::loadView('pdfs.vehiculosPDF',['vehiculos'=>$vehiculos,
-        'disponible'=>$disponible,
-        'asignado'=>$asignado,
-        'taller'=>$taller,
-        'fuera'=>$fuera,
-        'total'=>$total,
-        'seguros'=>$seguros,
-        'polizas'=>$polizas
-    ])->setPaper('letter','portrait')->setWarnings(true);
+        $incidentes = incidente::all();
+        $recurrentes = DB::select('SELECT NombreConductor,count(conductor) as total FROM incidentes INNER JOIN conductors ON incidentes.conductor = conductors.id group by conductor');
+        $vehiculos = DB::select('SELECT NombreVehiculo,count(vehiculo) as total FROM incidentes INNER JOIN vehiculos ON incidentes.vehiculo = vehiculos.id group by vehiculo');
+        if (count($incidentes) == 0) {
+            return back()->with('alert-danger', 'No se puede generar reporte, ya que no existen registros');
+        } else {
+            $pdf = PDF::loadView('pdfs.incidentePDF', [
+                'incidentes' => $incidentes,
+                'recurrentes' => $recurrentes,
+                'vehiculos' => $vehiculos,
+            ])->setPaper('letter', 'portrait')->setWarnings(true);
 
-        return $pdf->stream();
-         }
+            return $pdf->stream();
+        }
+    }
+    public function pdf_incidentes_download()
+    {
+        $incidentes = incidente::all();
+        $recurrentes = DB::select('SELECT NombreConductor,count(conductor) as total FROM incidentes INNER JOIN conductors ON incidentes.conductor = conductors.id group by conductor');
+        $vehiculos = DB::select('SELECT NombreVehiculo,count(vehiculo) as total FROM incidentes INNER JOIN vehiculos ON incidentes.vehiculo = vehiculos.id group by vehiculo');
+        if (count($incidentes) == 0) {
+            return back()->with('alert-danger', 'No se puede generar reporte, ya que no existen registros');
+        } else {
+            $pdf = PDF::loadView('pdfs.incidentePDF', [
+                'incidentes' => $incidentes,
+                'recurrentes' => $recurrentes,
+                'vehiculos' => $vehiculos,
+            ])->setPaper('letter', 'portrait')->setWarnings(true);
+
+            return $pdf->download('incidentesPDFDownload.pdf');
+        }
+    }
 }
