@@ -11,18 +11,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ public_path('assets/pdfStyles.css') }}" type="text/css">
     {{-- <link rel="stylesheet" href="{{ asset('assets/style.css') }}" type="text/css"> --}}
-    {{-- <link href="{{ public_path('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css 
+    {{-- <link href="{{ public_path('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css
     " /> --}}
     <title>PDF | Vehiculos</title>
 
 </head>
 
 <body>
+    <img class="navbar-brand-full app-header-logo" src="{{ asset('assets/logo.png') }}" width="65"
+             alt="Systemar">
     <div class="pdf-titulo">
        Reporte de vehiculos
     </div>
-    <table>
-        <thead class="cabecera">
+    <table class="table">
+        <thead class="cabecera" >
             <tr>
                 <th>Vehiculo</th>
                 <th>Marca</th>
@@ -106,8 +108,8 @@
     <table>
         @foreach ($polizas as $poliza => $vehiculos)
             <tr>
-                <th class="cabecera">Fecha de Vencimiento: {{ $poliza }}</th>
-                <th class="cabecera">Compañia</th>
+                <th class="pol">Fecha de Vencimiento: {{ $poliza }}</th>
+                <th class="pol">Compañia</th>
             </tr>
             @foreach ($vehiculos as $vehiculo)
                 <tr>
@@ -117,14 +119,6 @@
             @endforeach
         @endforeach
     </table>
-
-
-
-
-
-
-
-
 
 
     <table class="total-veh">

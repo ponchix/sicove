@@ -20,7 +20,7 @@ use PDF;
 class VehiculoController extends Controller
 {
 
-public function __construct()   
+public function __construct()
     {
         $this->middleware('permission:Ver vehiculo' , ['only' => ['index']]);
         $this->middleware('permission:Crear vehiculo', ['only' => ['create', 'store']]);
@@ -44,7 +44,7 @@ public function __construct()
         $estados = Status::all();
         Cache::flush();
         return view('vehiculos.index', compact('vehiculos', 'estados'));
-        
+
     }
 
     /**
@@ -75,7 +75,7 @@ public function __construct()
                 'NombreVehiculo' => 'required | unique:vehiculos',
                 'TipoVehiculo' => 'required',
                 'Marca' => 'required',
-                //'StatusInicial'=>'required',    
+                //'StatusInicial'=>'required',
                 'fecha_compra' => 'required',
                 'Modelo' => 'required',
                 'MedidaUso' => 'required',
@@ -217,7 +217,7 @@ public function __construct()
                 'estados'
             ));
         }
-      
+
 
 
     }
@@ -318,9 +318,9 @@ public function __construct()
         Cache::flush();
         return redirect()->route('vehiculos.index')->with('mensaje', 'ok');
     }
-    
 
-    
+
+
     public function vehiculos_update(Request $request, $id)
     {
         $vehiculo = VehiculoModel::findorFail($id);
@@ -354,7 +354,7 @@ public function __construct()
         ->orderBy('vencimiento','asc')
         ->get()
         ->groupBy('vencimiento');
-        
+
         $pdf =PDF::loadView('pdfs.vehiculosPDF',['vehiculos'=>$vehiculos,
         'disponible'=>$disponible,
         'asignado'=>$asignado,

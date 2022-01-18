@@ -16,7 +16,12 @@
 
 .cabecera{
     font-size: 15px;
-    background-color: #adb5bd;
+    background-color: #57a39d;
+
+}
+.pol{
+    font-size: 15px;
+    background-color: #a0d8d3;
 
 }
 .celdas{

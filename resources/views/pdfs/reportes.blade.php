@@ -52,7 +52,7 @@
                                                     Opciones
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                    <li class="item-pdf"><a class="dropdown-item-pdf" href="#">Ver
+                                                    <li class="item-pdf"><a class="dropdown-item-pdf" href="{{route('reportes.gastosPDF')}}">Ver
                                                             PDF</a></li>
                                                     <li class="item-pdf"><a class="dropdown-item-pdf"
                                                             href="#">Descargar</a></li>

@@ -90,5 +90,8 @@ Route::group(['middleware' => ['logout']], function () {
     Route::get('reportes/incidente/pdf/download', 'ReporteController@pdf_incidentes_download')->name('reportes.DonwloadPDF');
 
     //PDF Gastos
+    Route::get('reportes/gasto/pdf', 'ReporteController@pdf_gastos')->name('reportes.gastosPDF');
+    //Route::get('reportes/gasto/pdf/download', 'ReporteController@pdf_incidentes_download')->name('reportes.DonwloadPDF');
+
   });
 });
